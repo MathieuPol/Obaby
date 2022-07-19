@@ -20,7 +20,7 @@ class QuestionController extends AbstractController
      */
     public function index(QuestionRepository $questionRepository): Response
     {
-        return $this->render('question/index.html.twig', [
+        return $this->render('Back/question/index.html.twig', [
             'questions' => $questionRepository->findAll(),
         ]);
     }
@@ -40,7 +40,7 @@ class QuestionController extends AbstractController
             return $this->redirectToRoute('app_question_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('question/new.html.twig', [
+        return $this->renderForm('Back/question/new.html.twig', [
             'question' => $question,
             'form' => $form,
         ]);
@@ -51,7 +51,7 @@ class QuestionController extends AbstractController
      */
     public function show(Question $question): Response
     {
-        return $this->render('question/show.html.twig', [
+        return $this->render('Back/question/show.html.twig', [
             'question' => $question,
         ]);
     }
@@ -70,8 +70,8 @@ class QuestionController extends AbstractController
 
             return $this->redirectToRoute('app_question_index', [], Response::HTTP_SEE_OTHER);
         }
-
-        return $this->renderForm('question/edit.html.twig', [
+//TODO: Editer les fichiers twig 'edit' en 'update'
+        return $this->renderForm('Back/question/edit.html.twig', [
             'question' => $question,
             'form' => $form,
         ]);

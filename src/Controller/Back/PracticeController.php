@@ -16,11 +16,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class PracticeController extends AbstractController
 {
     /**
-     * @Route("/", name="app_practice_index", methods={"GET"})
+     * @Route("/", name="practice_list", methods={"GET"})
      */
-    public function index(PracticeRepository $practiceRepository): Response
+    public function list(PracticeRepository $practiceRepository): Response
     {
-        return $this->render('practice/index.html.twig', [
+        return $this->render('Back/practice/index.html.twig', [
             'practices' => $practiceRepository->findAll(),
         ]);
     }
@@ -40,7 +40,7 @@ class PracticeController extends AbstractController
             return $this->redirectToRoute('app_practice_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('practice/new.html.twig', [
+        return $this->renderForm('Back/practice/new.html.twig', [
             'practice' => $practice,
             'form' => $form,
         ]);
@@ -51,15 +51,16 @@ class PracticeController extends AbstractController
      */
     public function show(Practice $practice): Response
     {
-        return $this->render('practice/show.html.twig', [
+        return $this->render('Back/practice/show.html.twig', [
             'practice' => $practice,
         ]);
     }
 
+    //! Have to edit methods
     /**
-     * @Route("/{id}/edit", name="app_practice_edit", methods={"GET", "POST"})
+     * @Route("/{id}/update", name="practice_update", methods={"GET", "POST"})
      */
-    public function edit(Request $request, Practice $practice, PracticeRepository $practiceRepository): Response
+    public function update(Request $request, Practice $practice, PracticeRepository $practiceRepository): Response
     {
         $form = $this->createForm(PracticeType::class, $practice);
         $form->handleRequest($request);
@@ -70,14 +71,14 @@ class PracticeController extends AbstractController
             return $this->redirectToRoute('app_practice_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('practice/edit.html.twig', [
+        return $this->renderForm('Back/practice/edit.html.twig', [
             'practice' => $practice,
             'form' => $form,
         ]);
     }
 
     /**
-     * @Route("/{id}", name="app_practice_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="practice_delete", methods={"POST"})
      */
     public function delete(Request $request, Practice $practice, PracticeRepository $practiceRepository): Response
     {
@@ -85,6 +86,6 @@ class PracticeController extends AbstractController
             $practiceRepository->remove($practice, true);
         }
 
-        return $this->redirectToRoute('app_practice_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('Back/app_practice_index', [], Response::HTTP_SEE_OTHER);
     }
 }
