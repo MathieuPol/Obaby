@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Practice index{% endblock %}
+
+{% block body %}
+    <h1>Practice index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for practice in practices %}
+            <tr>
+                <td>{{ practice.id }}</td>
+                <td>{{ practice.title }}</td>
+                <td>{{ practice.content }}</td>
+                <td>{{ practice.createdAt ? practice.createdAt|date('Y-m-d') : '' }}</td>
+                <td>{{ practice.updatedAt ? practice.updatedAt|date('Y-m-d') : '' }}</td>
+                <td>{{ practice.status }}</td>
+                <td>
+                    <a href="{{ path('app_practice_show', {'id': practice.id}) }}">show</a>
+                    <a href="{{ path('app_practice_edit', {'id': practice.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_practice_new') }}">Create new</a>
+{% endblock %}
