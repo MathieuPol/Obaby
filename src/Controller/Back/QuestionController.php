@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Back;
 
 use App\Entity\Question;
 use App\Form\QuestionType;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/question")
+ * @Route("/back/question")
  */
 class QuestionController extends AbstractController
 {
@@ -55,11 +55,12 @@ class QuestionController extends AbstractController
             'question' => $question,
         ]);
     }
-
+    
+    //! Have to edit Methods
     /**
-     * @Route("/{id}/edit", name="app_question_edit", methods={"GET", "POST"})
+     * @Route("/{id}/update", name="question_update", methods={"GET", "POST"})
      */
-    public function edit(Request $request, Question $question, QuestionRepository $questionRepository): Response
+    public function update(Request $request, Question $question, QuestionRepository $questionRepository): Response
     {
         $form = $this->createForm(QuestionType::class, $question);
         $form->handleRequest($request);
@@ -77,7 +78,7 @@ class QuestionController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_question_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="question_delete", methods={"POST"})
      */
     public function delete(Request $request, Question $question, QuestionRepository $questionRepository): Response
     {
