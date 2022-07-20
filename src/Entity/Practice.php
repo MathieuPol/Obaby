@@ -42,6 +42,12 @@ class Practice
      */
     private $status;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="practices")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +109,18 @@ class Practice
     public function setStatus(int $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
