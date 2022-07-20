@@ -71,7 +71,7 @@ class QuestionController extends AbstractController
     }
 
     /**
-     * @Route("/ask", name="question_ask", methods={"GET", "POST"})
+     * @Route("/question/ask", name="question_ask", methods={"GET", "POST"})
      */
     public function ask(Request $request, QuestionRepository $questionRepository): Response
     {
@@ -90,4 +90,5 @@ class QuestionController extends AbstractController
             'form' => $form,
         ]);
     }
+
 }
