@@ -6,19 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
-class QuestionController extends AbstractController
+class CategoryController extends AbstractController
 {
     /**
-     * @Route("/question", name="app_front_question")
+     * @Route("/front/category", name="app_front_category")
      */
     public function index(): Response
     {
-        return $this->render('front/question/index.html.twig', [
-            'controller_name' => 'QuestionController',
+        return $this->render('front/category/index.html.twig', [
+            'controller_name' => 'CategoryController',
         ]);
     }
-
-
-    
 }
