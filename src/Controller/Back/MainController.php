@@ -1,4 +1,5 @@
 <?php
+// src/Controller/Back/MainController
 
 namespace App\Controller\Back;
 
@@ -7,12 +8,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/back/")
+ * @Route("/back/", name="back_")
  */
 class MainController extends AbstractController
 {
+//* Homepage back
+
     /**
-     * @Route("", name="back_home")
+     * @Route("", name="home")
      */
     public function home(): Response
     {

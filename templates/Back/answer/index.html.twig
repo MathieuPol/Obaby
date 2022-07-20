@@ -23,8 +23,8 @@
                 <td>{{ answer.createdAt ? answer.createdAt|date('Y-m-d') : '' }}</td>
                 <td>{{ answer.status }}</td>
                 <td>
-                    <a href="{{ path('app_answer_show', {'id': answer.id}) }}">show</a>
-                    <a href="{{ path('app_answer_edit', {'id': answer.id}) }}">edit</a>
+                    <a href="{{ path('back_answer_show', {'id': answer.id}) }}">show</a>
+                    <a href="{{ path('back_answer_update', {'id': answer.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

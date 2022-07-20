@@ -1,4 +1,5 @@
 <?php
+// src/Controller/Back/QuestionController
 
 namespace App\Controller\Back;
 
@@ -15,6 +16,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class QuestionController extends AbstractController
 {
+//* List all questions
+
     /**
      * @Route("/", name="question_list", methods={"GET"})
      */
@@ -24,6 +27,9 @@ class QuestionController extends AbstractController
             'questions' => $questionRepository->findAll(),
         ]);
     }
+
+//* Add a new question
+//TODO: To delete
 
     /**
      * @Route("/new", name="app_question_new", methods={"GET", "POST"})
@@ -46,8 +52,11 @@ class QuestionController extends AbstractController
         ]);
     }
 
+//* Show an unique question
+
     /**
-     * @Route("/{id}", name="app_question_show", methods={"GET"})
+     * @Route("/{id}", name="question_show", methods={"GET"})
+     * @param int $id
      */
     public function show(Question $question): Response
     {
@@ -56,9 +65,12 @@ class QuestionController extends AbstractController
         ]);
     }
     
+//* Update an unique question
+
     //! Have to edit Methods
     /**
      * @Route("/{id}/update", name="question_update", methods={"GET", "POST"})
+     * @param int $id
      */
     public function update(Request $request, Question $question, QuestionRepository $questionRepository): Response
     {
@@ -77,8 +89,11 @@ class QuestionController extends AbstractController
         ]);
     }
 
+//* Delete an unique question
+
     /**
      * @Route("/{id}/delete", name="question_delete", methods={"POST"})
+     * @param int $id
      */
     public function delete(Request $request, Question $question, QuestionRepository $questionRepository): Response
     {
@@ -89,9 +104,12 @@ class QuestionController extends AbstractController
         return $this->redirectToRoute('app_question_index', [], Response::HTTP_SEE_OTHER);
     }
 
+//* Show all answers related to a question
+// id is question id
 
     /**
-     * @Route("/{id}/answer", name="answer_list", methods={"GET"})
+     * @Route("/{id}/answer", name="question_answer_list", methods={"GET"})
+     * @param int $id
      */
     public function answerList(Question $question): Response
     {
@@ -101,7 +119,4 @@ class QuestionController extends AbstractController
             'answers' => $answers,
         ]);
     }
-
-    
-
 }

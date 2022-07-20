@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 class QuestionController extends AbstractController
 {
     /**
-     * @Route("/question", name="app_front_question")
+     * @Route("/question", name="app_front_question", methods={"GET"})
      */
     public function index(): Response
     {

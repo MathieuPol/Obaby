@@ -1,4 +1,5 @@
 <?php
+// src/Controller/Back/CategoryController
 
 namespace App\Controller\Back;
 
@@ -11,10 +12,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/back/category")
+ * @Route("/back/category", name="back_")
  */
 class CategoryController extends AbstractController
 {
+
+//* List all categories
+
     /**
      * @Route("", name="category_list", methods={"GET"})
      */
@@ -24,6 +28,8 @@ class CategoryController extends AbstractController
             'categories' => $categoryRepository->findAll(),
         ]);
     }
+
+//* Add a category
 
     /**
      * @Route("/add", name="category_add", methods={"GET", "POST"})
@@ -46,8 +52,11 @@ class CategoryController extends AbstractController
         ]);
     }
 
+//* show a unique category
+
     /**
      * @Route("/{id}", name="app_back_category_show", methods={"GET"})
+     * @param int $id
      */
     public function show(Category $category): Response
     {
@@ -56,8 +65,11 @@ class CategoryController extends AbstractController
         ]);
     }
 
+//* Update an unique category
+
     /**
      * @Route("/{id}/update", name="category_update", methods={"GET", "POST"})
+     * @param int $id
      */
     public function update(Request $request, Category $category, CategoryRepository $categoryRepository): Response
     {
@@ -76,8 +88,11 @@ class CategoryController extends AbstractController
         ]);
     }
 
+//* Delete an unique category
+
     /**
      * @Route("/{id}/delete", name="category_delete", methods={"POST"})
+     * @param int $id
      */
     public function delete(Request $request, Category $category, CategoryRepository $categoryRepository): Response
     {

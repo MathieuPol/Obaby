@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("/category/question", name="category_show_question")
+     * @Route("/category/question", name="category_show_question", methods={"GET"})
      */
     public function showQuestion(CategoryRepository $categoryRepository): Response
     {
@@ -20,7 +20,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/category/practice", name="category_show_practice")
+     * @Route("/category/practice", name="category_show_practice", methods={"GET"})
      */
     public function showPtractice(CategoryRepository $categoryRepository): Response
     {

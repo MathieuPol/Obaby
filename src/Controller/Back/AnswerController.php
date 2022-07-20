@@ -1,4 +1,6 @@
 <?php
+//src/Controller/Back/AnswerController
+
 
 namespace App\Controller\Back;
 
@@ -17,7 +19,8 @@ class AnswerController extends AbstractController
 {
 
     /**
-     * @Route("/{id}", name="app_answer_show", methods={"GET"})
+     * @Route("/{id}", name="answer_show", methods={"GET"})
+     * @param int $id
      */
     public function show(Answer $answer): Response
     {
@@ -26,8 +29,12 @@ class AnswerController extends AbstractController
         ]);
     }
 
+
+//* Modify an unique answer
+
     /**
      * @Route("/{id}/update", name="answer_update", methods={"GET", "POST"})
+     * @param int $id
      */
     public function update(Request $request, Answer $answer, AnswerRepository $answerRepository): Response
     {
@@ -50,8 +57,11 @@ class AnswerController extends AbstractController
         ]);
     }
 
+//* Delete a answer from question list
+
     /**
      * @Route("/{id}/delete", name="answer_delete", methods={"POST"})
+     * @param int $id
      */
     public function delete(Request $request, Answer $answer, AnswerRepository $answerRepository): Response
     {

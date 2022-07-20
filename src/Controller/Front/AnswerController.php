@@ -13,7 +13,7 @@ use App\Entity\Answer;
 class AnswerController extends AbstractController
 {
     /**
-     * @Route("/answer", name="app_front_answer")
+     * @Route("/answer", name="app_front_answer", methods={"GET"})
      */
     public function index(): Response
     {

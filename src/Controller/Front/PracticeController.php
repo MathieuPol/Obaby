@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PracticeController extends AbstractController
 {
     /**
-     * @Route("/front/practice", name="app_front_practice")
+     * @Route("/front/practice", name="app_front_practice", methods={"GET"})
      */
     public function index(): Response
     {
