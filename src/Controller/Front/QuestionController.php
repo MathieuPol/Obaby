@@ -38,7 +38,7 @@ class QuestionController extends AbstractController
         $answer = new Answer();
         $form = $this->createForm(AnswerType::class, $answer);
 
-        return $this->render('front/question/show.html.twig', [
+        return $this->render('front/question/list.html.twig', [
             'questions' => $questions,
             'category' => $category,
             'form' => $form->createView()
