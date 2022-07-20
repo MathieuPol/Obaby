@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/back/practice")
+ * @Route("/back/practice", name="back_" )
  */
 class PracticeController extends AbstractController
 {
     /**
-     * @Route("/", name="practice_list", methods={"GET"})
+     * @Route("", name="practice_list", methods={"GET"})
      */
     public function list(PracticeRepository $practiceRepository): Response
     {

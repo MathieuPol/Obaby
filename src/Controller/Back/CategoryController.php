@@ -20,7 +20,7 @@ class CategoryController extends AbstractController
      */
     public function list(CategoryRepository $categoryRepository): Response
     {
-        return $this->render('back/category/index.html.twig', [
+        return $this->render('Back/category/index.html.twig', [
             'categories' => $categoryRepository->findAll(),
         ]);
     }
@@ -40,7 +40,7 @@ class CategoryController extends AbstractController
             return $this->redirectToRoute('app_back_category_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('back/category/new.html.twig', [
+        return $this->renderForm('Back/category/new.html.twig', [
             'category' => $category,
             'form' => $form,
         ]);
@@ -51,7 +51,7 @@ class CategoryController extends AbstractController
      */
     public function show(Category $category): Response
     {
-        return $this->render('back/category/show.html.twig', [
+        return $this->render('Back/category/show.html.twig', [
             'category' => $category,
         ]);
     }
@@ -70,7 +70,7 @@ class CategoryController extends AbstractController
             return $this->redirectToRoute('app_back_category_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('back/category/edit.html.twig', [
+        return $this->renderForm('Back/category/edit.html.twig', [
             'category' => $category,
             'form' => $form,
         ]);
@@ -85,6 +85,6 @@ class CategoryController extends AbstractController
             $categoryRepository->remove($category, true);
         }
 
-        return $this->redirectToRoute('app_back_category_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('category_list', [], Response::HTTP_SEE_OTHER);
     }
 }

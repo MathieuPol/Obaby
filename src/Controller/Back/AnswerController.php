@@ -11,14 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/back/answer")
+ * @Route("/back/answer", name="back_")
  */
 class AnswerController extends AbstractController
 {
-
-
-
-
 
     /**
      * @Route("/{id}", name="app_answer_show", methods={"GET"})
