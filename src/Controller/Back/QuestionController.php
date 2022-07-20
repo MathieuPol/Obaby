@@ -16,9 +16,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class QuestionController extends AbstractController
 {
     /**
-     * @Route("/", name="app_question_index", methods={"GET"})
+     * @Route("", name="question_list", methods={"GET"})
      */
-    public function index(QuestionRepository $questionRepository): Response
+    public function list(QuestionRepository $questionRepository): Response
     {
         return $this->render('Back/question/index.html.twig', [
             'questions' => $questionRepository->findAll(),
@@ -88,4 +88,20 @@ class QuestionController extends AbstractController
 
         return $this->redirectToRoute('app_question_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+    /**
+     * @Route("/{id}/answer", name="answer_list", methods={"GET"})
+     */
+    public function answerList(Question $question): Response
+    {
+        $answers = $question->getAnswers();
+        return $this->render('Back/question/answer.html.twig', [
+            'question' => $question,
+            'answers' => $answers,
+        ]);
+    }
+
+    
+
 }

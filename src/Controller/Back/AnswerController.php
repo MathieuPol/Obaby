@@ -15,36 +15,10 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class AnswerController extends AbstractController
 {
-    /**
-     * @Route("/", name="app_answer_index", methods={"GET"})
-     */
-    public function index(AnswerRepository $answerRepository): Response
-    {
-        return $this->render('Back/answer/index.html.twig', [
-            'answers' => $answerRepository->findAll(),
-        ]);
-    }
 
-    /**
-     * @Route("/new", name="app_answer_new", methods={"GET", "POST"})
-     */
-    public function new(Request $request, AnswerRepository $answerRepository): Response
-    {
-        $answer = new Answer();
-        $form = $this->createForm(AnswerType::class, $answer);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $answerRepository->add($answer, true);
 
-            return $this->redirectToRoute('app_answer_index', [], Response::HTTP_SEE_OTHER);
-        }
 
-        return $this->renderForm('Back/answer/new.html.twig', [
-            'answer' => $answer,
-            'form' => $form,
-        ]);
-    }
 
     /**
      * @Route("/{id}", name="app_answer_show", methods={"GET"})
@@ -57,10 +31,13 @@ class AnswerController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="app_answer_edit", methods={"GET", "POST"})
+     * @Route("/{id}/update", name="answer_update", methods={"GET", "POST"})
      */
-    public function edit(Request $request, Answer $answer, AnswerRepository $answerRepository): Response
+    public function update(Request $request, Answer $answer, AnswerRepository $answerRepository): Response
     {
+        //* To show question related to anwer
+        $question = $answer->getQuestion();
+
         $form = $this->createForm(AnswerType::class, $answer);
         $form->handleRequest($request);
 
@@ -71,13 +48,14 @@ class AnswerController extends AbstractController
         }
 
         return $this->renderForm('Back/answer/edit.html.twig', [
+            'question' => $question,
             'answer' => $answer,
             'form' => $form,
         ]);
     }
 
     /**
-     * @Route("/{id}", name="app_answer_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="answer_delete", methods={"POST"})
      */
     public function delete(Request $request, Answer $answer, AnswerRepository $answerRepository): Response
     {
@@ -87,4 +65,5 @@ class AnswerController extends AbstractController
 
         return $this->redirectToRoute('app_answer_index', [], Response::HTTP_SEE_OTHER);
     }
+
 }
