@@ -5,6 +5,7 @@ namespace App\Controller\Front;
 use App\Entity\Answer;
 use App\Entity\Category;
 use App\Entity\Practice;
+use App\Form\PracticeType;
 use App\Repository\PracticeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

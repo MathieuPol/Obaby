@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Create new Question</h1>
 
-    {{ include('question/_form.html.twig') }}
+    {{ include('Front/question/_form.html.twig') }}
 
-    <a href="{{ path('app_question_index') }}">back to list</a>
+    <a href="{{ path('category_show_question') }}">back to list</a>
 {% endblock %}
