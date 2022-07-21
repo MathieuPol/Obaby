@@ -27,8 +27,8 @@
                 <td>{{ practice.updatedAt ? practice.updatedAt|date('Y-m-d') : '' }}</td>
                 <td>{{ practice.status }}</td>
                 <td>
-                    <a href="{{ path('back_practice_show', {'id': practice.id}) }}">show</a>
-                    <a href="{{ path('back_practice_update', {'id': practice.id}) }}">edit</a>
+                    <a href="{{ path('app_practice_show', {'id': practice.id}) }}">show</a>
+                    <a href="{{ path('app_practice_edit', {'id': practice.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -39,4 +39,5 @@
         </tbody>
     </table>
 
+    <a href="{{ path('app_practice_new') }}">Create new</a>
 {% endblock %}
