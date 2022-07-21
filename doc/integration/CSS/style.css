@@ -135,6 +135,126 @@ a.btn:hover {
     text-align : center;
     box-shadow: 5px 8px 26px -2px var(--yellow);
 }
+/******* Testimonial **************/
+.testimonial-area .container {
+    max-width: 1140px;
+    width: 100%;
+    margin: auto;
+    padding: 0 15px;
+}
+
+.testimonial-area .container .sec-title {
+    position: relative;
+    margin-bottom: 50px;
+    padding-bottom: 15px;
+}
+
+.testimonial-area {
+    position: relative;
+    z-index: 2;
+    padding: 50px 0;
+}
+
+.testimonial-area .owl-carousel {
+    overflow: hidden;
+    padding: 0 20px;
+    margin: 0 -40px;
+    padding-right: 40px;
+}
+/* .owl-stage-outer apparait en mode slider */
+.owl-carousel .owl-stage-outer {
+padding: 30px 50px;
+margin-left: -35px;
+width: calc(100% + 100px);
+}
+
+.single-testimonial {
+    border: 7px solid #8a6bff;;
+    text-align: center;
+    border-radius: 45px;
+    position: relative;
+}
+.single-testimonial a {
+    text-decoration: none;
+}
+.single-testimonial p {
+    color: black;
+    font-size: 1.8em;
+    line-height: 1em;
+    padding: 50px;
+    padding-bottom: 30px;
+    position: relative;
+    z-index: 3;
+}
+
+/* angle haut/gauche */
+.single-testimonial:before {
+    content: "\f10d";
+    position: absolute;
+    font-family: FontAwesome;
+    position: absolute;
+    left: -35px;
+    top: -35px;
+    background:#fff;
+    color: #8a6bff;;
+    font-size: 70px;
+    width: 126px;
+    height: 100px;
+}
+
+/* angle bas/droite */
+.single-testimonial:after {
+    content: "\f10e";
+    position: absolute;
+    font-family: FontAwesome;
+    right:-35px;
+    bottom: -35px;
+    background:#fff;
+    color: #8a6bff;;
+    font-size: 70px;
+    width: 126px;
+    height: 100px;
+}
+.client-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align-last: left;
+    padding-bottom: 50px;
+}
+
+.client-info .client-details h6 {
+    font-size: 40px;
+    font-weight: 700;
+
+}
+
+.client-info .client-details span {
+    display: inline-block;
+    font-size: 20px;
+}
+
+.client-info .client-pic img {
+    width: 50%;
+    border-radius: 50%;
+}
+/* 3 points */
+.owl-dots {
+    text-align: center;
+    margin-top: 50px;
+}
+.owl-dots button {
+    background: #fff!important;
+    width: 15px;
+    height: 15px;
+    border-radius: 26px;
+    margin: 0 5px;
+    transition: .3s;
+}
+
+.owl-dots button.active {
+width: 30px;
+}
 
 /********************************/
 /*********** MEDIA QUERIES *******/
