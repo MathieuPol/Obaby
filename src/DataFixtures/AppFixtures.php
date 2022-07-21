@@ -28,14 +28,7 @@ class AppFixtures extends Fixture
         $userList = [];
 
 
-        // User creation
 
-        $userAdmin = new User();
-        $userAdmin->setEmail('admin@admin.com');
-        $userAdmin->setPassword('admin');
-
-        
-        $manager->persist($userAdmin)
 
 
 
@@ -92,16 +85,15 @@ class AppFixtures extends Fixture
         }
         // User creation
 
-        for($m = 0; $m < 3; $m++) {
             $userAdmin = new User();
             $userAdmin->setEmail('admin@admin.com');
-			$userAdmin->setPassword('admin');
+			$userAdmin->setPassword('$2y$13$B5F2MaAidY68n5uqLEfrKeom.VARDRos.mEdgvWZWTTRXztOatBnq');
             //Not yet implemented
             //$user->setStatus($faker->numberBetween(0, 1));
             $userAdmin->setRoles(['ROLE_ADMIN']);
 
 			$manager->persist($userAdmin);
-        }
+
 
         $manager->flush();
     }
