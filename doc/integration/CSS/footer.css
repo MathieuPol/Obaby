@@ -1,0 +1,10 @@
+/*********** FOOTER *******/
+
+footer {
+    background: var(--primary);
+}
+.link-light, 
+p.text {
+    color: #000;
+}
+
