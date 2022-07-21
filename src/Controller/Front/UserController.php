@@ -1,3 +1,21 @@
-//TODO créer ce controller
-//TODO appeler formulaire newUser, voir https://www.notion.so/Symfony-eea72fd86029448694ffbb6db7c08225#4021e05bb9a54c8eb6dfabceae44dc4b
+<?php
+//src/Controller/Front/UserController
 
+
+namespace App\Controller\Back;
+
+use App\Entity\User;
+use App\Form\UserType;
+use App\Repository\UserRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+/**
+ * @Route("/user", name="user_")
+ */
+class UserController extends AbstractController
+{
+//! TODO: create the user controller
+}
