@@ -2,7 +2,7 @@
 //src/Controller/Front/UserController
 
 
-namespace App\Controller\Back;
+namespace App\Controller\Front;
 
 use App\Entity\User;
 use App\Form\UserType;
