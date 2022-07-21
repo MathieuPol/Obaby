@@ -1,5 +1,7 @@
 <?php
 
+// src/Controller/Back/PracticeController
+
 namespace App\Controller\Back;
 
 use App\Entity\Practice;
@@ -11,12 +13,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/back/practice")
+ * @Route("/back/practice", name="back_")
  */
 class PracticeController extends AbstractController
 {
+//* List all practices
+
     /**
-     * @Route("/", name="practice_list", methods={"GET"})
+     * @Route("", name="practice_list", methods={"GET"})
      */
     public function list(PracticeRepository $practiceRepository): Response
     {
@@ -24,6 +28,9 @@ class PracticeController extends AbstractController
             'practices' => $practiceRepository->findAll(),
         ]);
     }
+
+//* Add new practicises
+//TODO: To delete
 
     /**
      * @Route("/new", name="app_practice_new", methods={"GET", "POST"})
@@ -46,8 +53,12 @@ class PracticeController extends AbstractController
         ]);
     }
 
+
+//* Show an unique practices
+
     /**
-     * @Route("/{id}", name="app_practice_show", methods={"GET"})
+     * @Route("/{id}", name="practice_show", methods={"GET"})
+     * @param int $id
      */
     public function show(Practice $practice): Response
     {
@@ -56,9 +67,12 @@ class PracticeController extends AbstractController
         ]);
     }
 
+//* Update an unique practice
+
     //! Have to edit methods
     /**
      * @Route("/{id}/update", name="practice_update", methods={"GET", "POST"})
+     * @param int $id
      */
     public function update(Request $request, Practice $practice, PracticeRepository $practiceRepository): Response
     {
@@ -77,8 +91,11 @@ class PracticeController extends AbstractController
         ]);
     }
 
+//* Delete an unique plactice
+
     /**
      * @Route("/{id}/delete", name="practice_delete", methods={"POST"})
+     * @param int $id
      */
     public function delete(Request $request, Practice $practice, PracticeRepository $practiceRepository): Response
     {
