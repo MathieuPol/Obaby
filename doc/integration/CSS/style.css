@@ -136,6 +136,11 @@ a.btn:hover {
     box-shadow: 5px 8px 26px -2px var(--yellow);
 }
 /******* Testimonial **************/
+.container  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .testimonial-area .container {
     max-width: 1140px;
     width: 100%;
@@ -169,7 +174,7 @@ width: calc(100% + 100px);
 }
 
 .single-testimonial {
-    border: 7px solid #8a6bff;;
+    border: 7px solid var(--primary);
     text-align: center;
     border-radius: 45px;
     position: relative;
@@ -196,7 +201,7 @@ width: calc(100% + 100px);
     left: -35px;
     top: -35px;
     background:#fff;
-    color: #8a6bff;;
+    color: var(--primary);
     font-size: 70px;
     width: 126px;
     height: 100px;
@@ -209,8 +214,8 @@ width: calc(100% + 100px);
     font-family: FontAwesome;
     right:-35px;
     bottom: -35px;
-    background:#fff;
-    color: #8a6bff;;
+    background:#FFF;
+    color: var(--primary);
     font-size: 70px;
     width: 126px;
     height: 100px;
@@ -219,21 +224,24 @@ width: calc(100% + 100px);
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align-last: left;
-    padding-bottom: 50px;
+    padding-bottom: 80px;
 }
 
 .client-info .client-details h6 {
+    color: var(--dark);
     font-size: 40px;
     font-weight: 700;
-
+    
 }
 
 .client-info .client-details span {
+    color: var(--dark);
     display: inline-block;
     font-size: 20px;
 }
-
+.client-pic {
+    width: 40%;
+}
 .client-info .client-pic img {
     width: 50%;
     border-radius: 50%;
@@ -244,7 +252,7 @@ width: calc(100% + 100px);
     margin-top: 50px;
 }
 .owl-dots button {
-    background: #fff!important;
+    background: var(--primary)!important;
     width: 15px;
     height: 15px;
     border-radius: 26px;
@@ -344,10 +352,4 @@ width: 30px;
         margin: 1rem;
     }
 }    
-/*xs: 0,
-md: 768px,
-sm: 576px,
-xl: 1200px,
-lg: 992px,
-xxl: 1400px 
->>>>>>> f7e96b300bc4b44ac84f38ebae2ea3ab6843e409:doc/integration/CSS/style.css
+
