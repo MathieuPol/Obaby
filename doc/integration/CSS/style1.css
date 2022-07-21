@@ -87,6 +87,75 @@ a.btn:hover {
     color: rgba(255, 255, 255, .5);
 }
 
+/*********** 3-MAIN-BUTTONS *******/
+.main-buttons-item{
+    width: 20rem;
+    height: 15rem;
+    border-radius: 100%;
+    margin: auto;
+}
+.row{
+    display: flex;
+    align-items: center;
+}
+.btn-questions{
+    background-color: white;
+    border: solid 2px;
+    border-color: var(--yellow);
+    color: var(--yellow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-practices:hover{
+    background-color: var(--green);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(--green);
+}
+.btn-practices{
+    background-color: white;
+    border: solid 2px;
+    border-color: var(--green);
+    color: var(--green);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-ask:hover{
+    background-color: var(--blue);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 5px 8px 26px -2px var(--blue)
+}
+.btn-ask{
+    background-color: white;
+    border: solid 2px;
+    border-color: var(--blue);
+    color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-questions:hover{
+    background-color: var(--yellow);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(--yellow);
+}
+
 /********************************/
 /*********** MEDIA QURIES *******/
 /********************************/
@@ -123,3 +192,28 @@ a.btn:hover {
     }
 
 }
+/***** media query 3-main-buttons *******/
+@media (max-width: 1200px) {
+    .main-buttons-item{
+    width: 15rem;
+    height: 10rem;
+    border-radius: 100%;
+    }
+}
+@media (max-width: 990px) {
+    .row{
+    display: flex;
+    justify-content: center;
+    }
+    
+}
+@media (max-width: 576px) {
+    .row{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    }
+    .main-buttons-item{
+    display: inline-flex;
+    }
