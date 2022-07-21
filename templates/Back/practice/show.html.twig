@@ -34,9 +34,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_practice_index') }}">back to list</a>
+    <a href="{{ path('back_practice_list') }}">back to list</a>
 
-    <a href="{{ path('app_practice_edit', {'id': practice.id}) }}">edit</a>
+    <a href="{{ path('back_practice_update', {'id': practice.id}) }}">update</a>
 
-    {{ include('practice/_delete_form.html.twig') }}
+    {{ include('Back/practice/_delete_form.html.twig') }}
 {% endblock %}
