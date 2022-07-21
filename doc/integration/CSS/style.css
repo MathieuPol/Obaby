@@ -161,34 +161,8 @@ a.btn:hover {
     }
 }
 
-<<<<<<< HEAD:doc/integration/CSS/style1.css
-}
-/***** media query 3-main-buttons *******/
-@media (max-width: 1200px) {
-    .main-buttons-item{
-    width: 15rem;
-    height: 10rem;
-    border-radius: 100%;
-    }
-}
-@media (max-width: 990px) {
-    .row{
-    display: flex;
-    justify-content: center;
-    }
-    
-}
-@media (max-width: 576px) {
-    .row{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
-    }
-    .main-buttons-item{
-    display: inline-flex;
-    }
-=======
+
+
 /********* media query carousel *******/
 @media (max-width: 359px) {
     .card-title  {
