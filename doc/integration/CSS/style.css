@@ -137,10 +137,10 @@ a.btn:hover {
 }
 
 /********************************/
-/*********** MEDIA QURIES *******/
+/*********** MEDIA QUERIES *******/
 /********************************/
 
-/***** media qurey navbar *******/
+/***** media query navbar *******/
 
 @media (min-width: 1040px) {
     .navbar .nav-item .dropdown-menu {
