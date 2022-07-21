@@ -9,6 +9,7 @@ use App\Entity\Category;
 use App\Entity\Question;
 use App\Entity\Answer;
 use App\Entity\Practice;
+use App\Entity\User;
 
 class AppFixtures extends Fixture
 {
@@ -24,6 +25,12 @@ class AppFixtures extends Fixture
         $questionList = [];
         $answerList = [];
         $practiceList = [];
+        $userList = [];
+
+
+
+
+
 
         // Category creation
 
@@ -76,6 +83,17 @@ class AppFixtures extends Fixture
             $manager->persist($practice);
             $practiceList[] = $practice;
         }
+        // User creation
+
+            $userAdmin = new User();
+            $userAdmin->setEmail('admin@admin.com');
+			$userAdmin->setPassword('$2y$13$B5F2MaAidY68n5uqLEfrKeom.VARDRos.mEdgvWZWTTRXztOatBnq');
+            //Not yet implemented
+            //$user->setStatus($faker->numberBetween(0, 1));
+            $userAdmin->setRoles(['ROLE_ADMIN']);
+
+			$manager->persist($userAdmin);
+
 
         $manager->flush();
     }
