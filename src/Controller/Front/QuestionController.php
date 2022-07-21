@@ -21,7 +21,7 @@ class QuestionController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('front/question/index.html.twig', [
+        return $this->render('Front/question/index.html.twig', [
             'controller_name' => 'QuestionController',
         ]);
     }
@@ -39,7 +39,7 @@ class QuestionController extends AbstractController
         $answer = new Answer();
         $form = $this->createForm(AnswerType::class, $answer);
 
-        return $this->render('front/question/list.html.twig', [
+        return $this->render('Front/question/list.html.twig', [
             'questions' => $questions,
             'category' => $category,
             'form' => $form->createView()
@@ -65,7 +65,7 @@ class QuestionController extends AbstractController
             ]);
         }
 
-        return $this->renderForm('front/question/answer.html.twig', [
+        return $this->renderForm('Front/question/answer.html.twig', [
             'question' => $question,
             'form' => $form->createView()
         ]);

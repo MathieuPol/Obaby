@@ -19,7 +19,7 @@ class PracticeController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('front/practice/index.html.twig', [
+        return $this->render('Front/practice/index.html.twig', [
             'controller_name' => 'PracticeController',
         ]);
     }
@@ -35,7 +35,7 @@ class PracticeController extends AbstractController
         $answer = new Answer();
         $form = $this->createForm(AnswerType::class, $answer);
 
-        return $this->render('front/practice/list.html.twig', [
+        return $this->render('Front/practice/list.html.twig', [
             'practices' => $practices,
             'category' => $category
 
