@@ -7,6 +7,9 @@
     --green: #408558;
     --yellow: #f6c344;
 }
+h1 {
+    font-family: 'Lobster Two', cursive;
+}
 
 /*** Navbar ***/
 .navbar .navbar-nav .nav-link {
@@ -55,12 +58,13 @@ a.btn:hover {
     margin-bottom: 1rem;
 }
 
-/* button.carousel-control-prev,
-button.carousel-control-next {
-    background: var(--primary);
-    border-color: var(--primary); 
-} */
-
+/*** Testimonial ***/
+.testimonial-area .container {
+    max-width: 1140px;
+    width: 100%;
+    margin: auto;
+    padding: 0 15px;
+}
 
 
 /********************************/
@@ -86,9 +90,72 @@ button.carousel-control-next {
         transition: .5s;
         opacity: 1;
     }
-
 }
+
 /********* media query carousel *******/
-@media (min-width: 1070px) {
+@media (max-width: 359px) {
+    .card-title  {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+    .content {
+        margin: auto;
+    }
+    .btn-more {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media (min-width: 360px) {
+    .card-title  {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+    .content {
+        margin: auto;
+    }
+    .btn-more {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media (min-width: 576px) {
+    .card-title  {
+        font-size: 3rem;
+    }
+}
+@media (max-width: 749px) {
+    .carousel-indicators {
+        display: none;
+    }
     
 }
+@media (min-width: 750px) {
+    .card-title  {
+        font-size: 3rem;
+    }
+    .btn-more {
+        display: block;
+        padding: 0 20px;
+        margin-bottom: 2rem;
+    }
+}
+@media (min-width: 992px) {
+    .card-title  {
+        font-size: 4rem;
+    }
+    .carousel-indicators {
+        display: flex;
+    }
+    .content {
+        margin: 1rem;
+    }
+}    
+/*xs: 0,
+md: 768px,
+sm: 576px,
+xl: 1200px,
+lg: 992px,
+xxl: 1400px 

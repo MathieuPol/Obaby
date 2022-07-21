@@ -17,10 +17,6 @@
       href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
       rel="stylesheet"
     />
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet" />
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-
     <!-- Customized Bootstrap Stylesheet -->
     <link
       rel="stylesheet"
@@ -36,6 +32,8 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
       rel="stylesheet"
     />
+
+    <link href="lhttps://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link rel="stylesheet" href="./CSS/style.css" />
@@ -138,30 +136,49 @@
           aria-label="Slide 3"
         ></button>
       </div>
-      <!-- 1 item per slide -->
       <div class="carousel-inner">
+        <!-- 1 item per slide -->
         <div class="carousel-item active">
-          <img src="./asset/img/bed-1400.jpg" class="d-block w-100" alt="..." />
-          <div
-            class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-            style="background: rgba(0, 0, 0, 0.2)"
-          >
-          <div class="content m-4">
-            <div class="row justify-content-start">
-              <div class="col-10 col-lg-10 col-sm-11">
-                <h3 class="display-1 text-white mb-6">
-                  Le meilleur site pour votre futur enfant
-                </h3>
-                <a
-                  href=""
-                  class="btn rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft"
-                  >en savoir plus</a
-                >
+          <img src="./asset/img/bed-1400.jpg" class="d-block w-100" alt="picture" />
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"style="background: rgba(0, 0, 0, 0.2)">
+              <div class="content ">
+                <div class="row justify-content-start">
+                  <div class="col-lg-8 col-sm-11">
+                    <h2 class="card-title display-3 text-white mb-6">Le meilleur site pour votre futur</h2>
+                      <div class="btn-more"><a href="#"class="btn more rounded-pill py-sm-2 px-sm-5 me-3">en savoir plus</a></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
+          <!-- 2 item per slide -->
+          <div class="carousel-item active">
+            <img src="./asset/img/borther-1400.jpg" class="d-block w-100" alt="picture" />
+              <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"style="background: rgba(0, 0, 0, 0.2)">
+                <div class="content ">
+                  <div class="row justify-content-start">
+                    <div class="col-lg-8 col-sm-11">
+                      <h2 class="card-title display-3 text-white mb-6">Le meilleur site pour votre futur</h2>
+                        <div class="btn-more"><a href="#"class="btn more rounded-pill py-sm-2 px-sm-5 me-3">en savoir plus</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 3 item per slide -->
+          <div class="carousel-item active">
+            <img src="./asset/img/enfant-1400.jpg" class="d-block w-100" alt="picture" />
+              <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"style="background: rgba(0, 0, 0, 0.2)">
+                <div class="content ">
+                  <div class="row justify-content-start">
+                    <div class="col-lg-8 col-sm-11">
+                      <h2 class="card-title display-3 text-white mb-6">Le meilleur site pour votre futur</h2>
+                        <div class="btn-more"><a href="#"class="btn more rounded-pill py-sm-2 px-sm-5 me-3">en savoir plus</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
   <!-- button carousel -->
       <button
         class="carousel-control-prev"
@@ -183,11 +200,14 @@
       </button>
     </div>
     <!-- End Carousel    --->
+    
+
 
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-  
-    <!-- Template Javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
     <script src="js/main.js"></script>
+
   </body>
 </html>
