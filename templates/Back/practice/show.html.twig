@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Practice{% endblock %}
+
+{% block body %}
+    <h1>Practice</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ practice.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ practice.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ practice.content }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ practice.createdAt ? practice.createdAt|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ practice.updatedAt ? practice.updatedAt|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ practice.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_practice_index') }}">back to list</a>
+
+    <a href="{{ path('app_practice_edit', {'id': practice.id}) }}">edit</a>
+
+    {{ include('practice/_delete_form.html.twig') }}
+{% endblock %}
