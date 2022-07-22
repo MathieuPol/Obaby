@@ -19,8 +19,10 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class UserController extends AbstractController
 {
+//* Route to add a new user
+
     /**
-     * @Route ("/new", name="user_new", methods={"GET","POST"})
+     * @Route ("/new", name="new", methods={"GET","POST"})
     */
     public function new(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): Response
     {
@@ -35,7 +37,8 @@ class UserController extends AbstractController
                 $plaintextPassword
             );
             $user->setPassword($hashedPassword);
-        
+            $user->setStatus(1);
+            $user->setRoles(['ROLE_USER']);
             $userRepository->add($user, true);
 
             return $this->redirectToRoute('user_new', [], Response::HTTP_SEE_OTHER);
