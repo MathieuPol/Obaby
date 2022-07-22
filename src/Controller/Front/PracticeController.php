@@ -1,4 +1,5 @@
 <?php
+// src/Controller/Front/PracticeController
 
 namespace App\Controller\Front;
 
@@ -25,6 +26,7 @@ class PracticeController extends AbstractController
         ]);
     }
 
+//* route for practices list
 
     /**
      * @Route("/category/{id}/practice/list", name="practice_list", methods={"GET"})
@@ -34,6 +36,7 @@ class PracticeController extends AbstractController
         $practices = $category->getPractices();
 
         $answer = new Answer();
+        //TODO: Edit with renderForm
         $form = $this->createForm(AnswerType::class, $answer);
 
         return $this->render('Front/practice/list.html.twig', [
@@ -42,6 +45,8 @@ class PracticeController extends AbstractController
 
         ]);
     }
+
+//* Route used to submit a new practice
 
     /**
      * @Route("/practice/submit", name="practice_submit", methods={"GET", "POST"})

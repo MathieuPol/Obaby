@@ -1,4 +1,5 @@
 <?php
+// src/Controller/Front/MainController
 
 namespace App\Controller\Front;
 
@@ -8,6 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
+//* Homepage route
+
     /**
      * @Route("/", name="front_home", methods={"GET"})
      */
@@ -17,6 +20,9 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
+
+//* Contact route
+
     /**
      * @Route("/contact", name="contact", methods={"GET"})
      */
@@ -26,15 +32,21 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
+
+//* aboutUs route
+
     /**
-     * @Route("/us", name="us", methods={"GET"})
+     * @Route("/about-us", name="about_us", methods={"GET"})
      */
-    public function us(): Response
+    public function aboutUs(): Response
     {
         return $this->render('Front/main/us.html.twig', [
             'controller_name' => 'MainController',
         ]);
     }
+    
+    //* Phone route
+    
     /**
      * @Route("/phones", name="phones", methods={"GET"})
      */
@@ -44,6 +56,9 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
+    
+    //* legal-mentions route
+    
     /**
      * @Route("/legal-mentions", name="legal_mentions", methods={"GET"})
      */

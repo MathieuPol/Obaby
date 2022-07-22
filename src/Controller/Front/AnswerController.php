@@ -1,4 +1,5 @@
 <?php
+// src/Controller/Front/AnswerController 
 
 namespace App\Controller\Front;
 
@@ -22,6 +23,8 @@ class AnswerController extends AbstractController
         ]);
     }
 
+//* Route for adding new answer
+
     /**
      * @Route("/answer/new", name="app_answer_new", methods={"POST"})
      */
@@ -43,6 +46,8 @@ class AnswerController extends AbstractController
         ]);
     }
 
+//* Route for deleting answer
+
     /**
      * @Route("/answer/{id}/delete", name="answer_delete", methods={"POST"})
      */
@@ -54,6 +59,9 @@ class AnswerController extends AbstractController
 
         return $this->redirectToRoute('category_show_question', [], Response::HTTP_SEE_OTHER);
     }
+
+
+//* route for deleting answer
 
     /**
      * @Route("/answer/{id}/update", name="answer_update", methods={"GET", "POST"})

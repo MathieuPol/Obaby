@@ -1,4 +1,6 @@
 <?php
+// src/Controller/Front/Category/Controller
+// TODO: Have to edit this controller 
 
 namespace App\Controller\Front;
 
@@ -22,7 +24,7 @@ class CategoryController extends AbstractController
     /**
      * @Route("/category/practice", name="category_show_practice", methods={"GET"})
      */
-    public function showPtractice(CategoryRepository $categoryRepository): Response
+    public function showPractice(CategoryRepository $categoryRepository): Response
     {
         return $this->render('Front/category/practiceList.html.twig', [
             'categories' => $categoryRepository->findAll(),

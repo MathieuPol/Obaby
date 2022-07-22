@@ -1,4 +1,5 @@
 <?php
+// src/Controller/Front/QuestionController
 
 namespace App\Controller\Front;
 
@@ -26,6 +27,8 @@ class QuestionController extends AbstractController
         ]);
     }
 
+//* Route for listing question's category
+
     /**
      * @Route("/category/{id}/question/list", name="question_list", methods={"GET"})
      */
@@ -45,6 +48,8 @@ class QuestionController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+//* Route used to submit a new answer
 
     /**
      * @Route("/question/{id}/answer", name="question_answer", methods={"POST"})
@@ -70,6 +75,8 @@ class QuestionController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+//* Route to ask a new question
 
     /**
      * @Route("/question/ask", name="question_ask", methods={"GET", "POST"})
