@@ -45,7 +45,7 @@ class MainController extends AbstractController
         ]);
     }
     /**
-     * @Route("/legal-mentions", name="legal-mentions", methods={"GET"})
+     * @Route("/legal-mentions", name="legal_mentions", methods={"GET"})
      */
     public function legalMentions(): Response
     {
