@@ -45,10 +45,12 @@
             <table class="table table-hover">
                 <thead class="table-dark">
                   <tr>
+                    <th colspan=5><h2 class="text-center">Utilisateurs</h2></th>
+                  </tr>
+                  <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Rôle</th>
+                    <th scope="col">Pseudo</th>
                     <th scope="col">Status</th>
                   </tr>
                 </thead>
@@ -57,31 +59,32 @@
                     <th scope="row">1</th>
                     <td>Mark</td>
                     <td>Otto</td>
-                    <td>@mdo</td>
                     <td class="bg-success">@mdo</td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Jacob</td>
                     <td>Thornton</td>
-                    <td>@fat</td>
                     <td class="bg-warning">@mdo</td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
+                    <td>Larry the Bird</td>
                     <td>@twitter</td>
                     <td class="bg-success">@mdo</td>
                   </tr>
                 </tbody>
               </table>
-              <a  class="btn btn-primary col-12" href="http://"> Voir toutes les questions</a>
+              <a  class="btn btn-primary col-12" href="{{ path('back_user_show') }}"> Voir tous les utilisateurs</a>
         </div>
 
         <div class="col-sm-12 col-md-12 col-lg-6 mb-5">
             <table class="table table-hover">
                 <thead class="table-dark">
                   <tr>
+                    <th colspan=5><h2 class="text-center">Bonnes Pratiques</h2></th>
+                  </tr>
+                  <tr>
                     <th scope="col">Id</th>
                     <th scope="col">First</th>
                     <th scope="col">Last</th>
@@ -112,11 +115,14 @@
                   </tr>
                 </tbody>
               </table>
-              <a  class="btn btn-primary col-12" href="http://"> Voir toutes les questions</a>
+              <a  class="btn btn-primary col-12" href="http://"> Voir toutes les bonnes pratiques</a>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6 mb-5">
             <table class="table table-hover">
                 <thead class="table-dark">
+                  <tr>
+                    <th colspan=5><h2 class="text-center">Questions</h2></th>
+                  </tr>
                   <tr>
                     <th scope="col">Id</th>
                     <th scope="col">First</th>
@@ -155,6 +161,9 @@
             <table class="table table-hover">
                 <thead class="table-dark">
                   <tr>
+                    <th colspan=5><h2 class="text-center">Réponses</h2></th>
+                  </tr>
+                  <tr>
                     <th scope="col">Id</th>
                     <th scope="col">First</th>
                     <th scope="col">Last</th>
@@ -186,7 +195,7 @@
                   </tr>
                 </tbody>
               </table>
-              <a  class="btn btn-primary col-12" href="http://"> Voir toutes les questions</a>
+              <a  class="btn btn-primary col-12" href="http://"> Voir toutes les réponses</a>
         </div>
     </section>
 {% endblock %}
