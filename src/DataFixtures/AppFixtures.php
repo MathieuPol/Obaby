@@ -88,7 +88,8 @@ class AppFixtures extends Fixture
             $userAdmin = new User();
             $userAdmin->setEmail('admin@admin.com');
             $userAdmin->setPseudo('admin');
-			$userAdmin->setPassword('$2y$13$B5F2MaAidY68n5uqLEfrKeom.VARDRos.mEdgvWZWTTRXztOatBnq');
+	    $userAdmin->setPassword('$2y$13$B5F2MaAidY68n5uqLEfrKeom.VARDRos.mEdgvWZWTTRXztOatBnq');
+	    $userAdmin->setStatus(1);
             //Not yet implemented
             //$user->setStatus($faker->numberBetween(0, 1));
             $userAdmin->setRoles(['ROLE_ADMIN']);
