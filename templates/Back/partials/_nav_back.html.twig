@@ -1,0 +1,36 @@
+   <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light ">
+    <a href="index.html" class="navbar-brand">
+      <img class="m-2" style="width: 8rem; height: 3rem" role="logo" src="OBaby.png" alt=""
+        srcset="" />
+    </a>
+    <!-- Hamburger Start -->
+
+    <button type="button" class="navbar-toggler m-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Hamburger End -->
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav mx-auto">
+        <a href="{{ path('back_home') }}" class="nav-item nav-link">Panneau d'administration</a>
+        <a href="{{ path('front_home') }}" class="nav-item nav-link">Page d'acceuil</a>
+        <a href="contact.html" class="nav-item nav-link">Mon compte</a>
+        <a href="classes.html" class="nav-item nav-link">Se déconnecter</a>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+          <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+            <a href="login.html" class="dropdown-item">Questions</a>
+            <a href="team.html" class="dropdown-item">Bonnes Pratiques</a>
+            <a href="call-to-action.html" class="dropdown-item">Catégories</a>
+            <a href="appointment.html" class="dropdown-item">Réponses</a>
+            <a href="404.html" class="dropdown-item">404 Error</a>
+          </div>
+        </div>
+      </div>
+      <a href="login.html" class="btn rounded-pill px-3 d-none d-lg-block m-2">Connexion<i
+          class="fa fa-arrow-right ms-3"></i></a>
+    </div>
+  </nav>
+  <!-- Navbar End -->

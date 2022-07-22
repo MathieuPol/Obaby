@@ -3,190 +3,121 @@
 {% block title %}Wellcome to back-office{% endblock %}
 
 {% block body %}
-    <!-- Navbar Start -->
-  <nav class="navbar navbar-expand-lg bg-white navbar-light ">
-    <a href="index.html" class="navbar-brand">
-      <img class="m-2" style="width: 8rem; height: 3rem" role="logo" src="OBaby.png" alt=""
-        srcset="" />
-    </a>
-    <!-- Hamburger Start -->
+ 
+{% include '/Back/partials/_nav_back.html.twig' %}
 
-    <button type="button" class="navbar-toggler m-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Hamburger End -->
-
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <div class="navbar-nav mx-auto">
-        <a href="about.html" class="nav-item nav-link">Panneau d'administration</a>
-        <a href="contact.html" class="nav-item nav-link">Page d'acceuil</a>
-        <a href="contact.html" class="nav-item nav-link">Mon compte</a>
-        <a href="classes.html" class="nav-item nav-link">Se déconnecter</a>
-        <div class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-          <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-            <a href="login.html" class="dropdown-item">Questions</a>
-            <a href="team.html" class="dropdown-item">Bonnes Pratiques</a>
-            <a href="call-to-action.html" class="dropdown-item">Catégories</a>
-            <a href="appointment.html" class="dropdown-item">Réponses</a>
-            <a href="404.html" class="dropdown-item">404 Error</a>
-          </div>
-        </div>
-      </div>
-      <a href="login.html" class="btn rounded-pill px-3 d-none d-lg-block m-2">Connexion<i
-          class="fa fa-arrow-right ms-3"></i></a>
-    </div>
-  </nav>
-  <!-- Navbar End -->
     <h1 class="text-center">Bienvenue dans votre back-office</h1>
     <section class="row">
         <div class="col-sm-12 col-md-12 col-lg-6 mb-5">
             <table class="table table-hover">
                 <thead class="table-dark">
                   <tr>
+                    <th colspan=5><h2 class="text-center">Utilisateurs</h2></th>
+                  </tr>
+                  <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Rôle</th>
+                    <th scope="col">Pseudo</th>
                     <th scope="col">Status</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td class="bg-success">@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td class="bg-warning">@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td class="bg-success">@mdo</td>
-                  </tr>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                            <td>{{ user.pseudo }}</td>
+                            <td class="bg-success">{{ user.status }}</td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
               </table>
-              <a  class="btn btn-primary col-12" href="http://"> Voir toutes les questions</a>
+              <a  class="btn btn-primary col-12" href="{{ path('back_user_show') }}"> Voir tous les utilisateurs</a>
         </div>
 
         <div class="col-sm-12 col-md-12 col-lg-6 mb-5">
             <table class="table table-hover">
                 <thead class="table-dark">
                   <tr>
+                    <th colspan=5><h2 class="text-center">Bonnes Pratiques</h2></th>
+                  </tr>
+                  <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">CreatedAt</th>
                     <th scope="col">Status</th>
                   </tr>
                 </thead>
                 <tbody>
+                {% for practice in practices %}
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td class="bg-success">@mdo</td>
+                    <th scope="row">{{ practice.id }}</th>
+                    <td>{{ practice.title }}</td>
+                    <td>{{ practice.content }}</td>
+                    <td>{{ practice.CreatedAt|date("d/m/Y") }}</td>
+                    <td class="bg-success"> {{ practice.status }} </td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td class="bg-warning">@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td class="bg-success">@mdo</td>
-                  </tr>
+                {% endfor %}
                 </tbody>
               </table>
-              <a  class="btn btn-primary col-12" href="http://"> Voir toutes les questions</a>
+              <a  class="btn btn-primary col-12" href="{{ path('back_practice_list') }}"> Voir toutes les bonnes pratiques</a>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6 mb-5">
             <table class="table table-hover">
                 <thead class="table-dark">
                   <tr>
+                    <th colspan=5><h2 class="text-center">Questions</h2></th>
+                  </tr>
+                  <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Question</th>
+                    <th scope="col">Date de création</th>
+                    <th scope="col">Catégorie</th>
                     <th scope="col">Status</th>
                   </tr>
                 </thead>
                 <tbody>
+                {% for question in questions %}
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td class="bg-success">@mdo</td>
+                    <th scope="row">{{ question.id }}</th>
+                    <td>{{ question.content }}</td>
+                    <td>{{ question.CreatedAt|date("d/m/Y") }}</td>
+                    <td>{{ question.category.name }}</td>
+                    <td class="bg-success">{{ question.status }}</td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td class="bg-warning">@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td>@mdo</td>
-                    <td class="bg-success">@mdo</td>
-                  </tr>
+                {% endfor %}
                 </tbody>
               </table>
-              <a  class="btn btn-primary col-12" href="http://"> Voir toutes les questions</a>
+              <a  class="btn btn-primary col-12" href="{{ path('back_question_list') }}"> Voir toutes les questions</a>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6 mb-5">
             <table class="table table-hover">
                 <thead class="table-dark">
                   <tr>
+                    <th colspan=5><h2 class="text-center">Réponses</h2></th>
+                  </tr>
+                  <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Réponse</th>
+                    <th scope="col">Date de création</th>
+                    <th scope="col">Question</th>
                     <th scope="col">Status</th>
                   </tr>
                 </thead>
                 <tbody>
+                {% for answer in answers %}
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td class="bg-success">@mdo</td>
+                    <th scope="row">{{ answer.id }}</th>
+                    <td>{{ answer.content }}</td>
+                    <td>{{ answer.CreatedAt|date("d/m/Y") }}</td>
+                    <td>{{ answer.question.content }}</td>
+                    <td class="bg-success">{{ answer.status }}</td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td class="bg-warning">@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>@mdo</td>
-                    <td>@twitter</td>
-                    <td class="bg-success">@mdo</td>
-                  </tr>
+                  {% endfor %}  
                 </tbody>
               </table>
-              <a  class="btn btn-primary col-12" href="http://"> Voir toutes les questions</a>
+{#               <a  class="btn btn-primary col-12" href="{{ path('back_user_show') }}"> Voir toutes les réponses</a> #}
         </div>
     </section>
 {% endblock %}
