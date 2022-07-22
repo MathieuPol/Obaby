@@ -36,9 +36,9 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="app_back_user_edit", methods={"GET", "POST"})
+     * @Route("/{id}/update", name="update", methods={"GET", "POST"})
      */
-    public function edit(Request $request, User $user, UserRepository $userRepository): Response
+    public function update(Request $request, User $user, UserRepository $userRepository): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -56,7 +56,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_back_user_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="delete", methods={"POST"})
      */
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
     {
@@ -64,6 +64,6 @@ class UserController extends AbstractController
             $userRepository->remove($user, true);
         }
 
-        return $this->redirectToRoute('app_back_user_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('back_user_show', [], Response::HTTP_SEE_OTHER);
     }
 }

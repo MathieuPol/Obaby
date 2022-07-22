@@ -86,9 +86,9 @@
                   </tr>
                   <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">CreatedAtt</th>
                     <th scope="col">Status</th>
                   </tr>
                 </thead>
@@ -115,7 +115,7 @@
                   </tr>
                 </tbody>
               </table>
-              <a  class="btn btn-primary col-12" href="http://"> Voir toutes les bonnes pratiques</a>
+              <a  class="btn btn-primary col-12" href="{{ path('back_practice_list') }}"> Voir toutes les bonnes pratiques</a>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6 mb-5">
             <table class="table table-hover">
@@ -155,7 +155,7 @@
                   </tr>
                 </tbody>
               </table>
-              <a  class="btn btn-primary col-12" href="http://"> Voir toutes les questions</a>
+              <a  class="btn btn-primary col-12" href="{{ path('back_question_list') }}"> Voir toutes les questions</a>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6 mb-5">
             <table class="table table-hover">
@@ -195,7 +195,7 @@
                   </tr>
                 </tbody>
               </table>
-              <a  class="btn btn-primary col-12" href="http://"> Voir toutes les réponses</a>
+{#               <a  class="btn btn-primary col-12" href="{{ path('back_user_show') }}"> Voir toutes les réponses</a> #}
         </div>
     </section>
 {% endblock %}
