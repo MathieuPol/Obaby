@@ -15,10 +15,13 @@
                 <th scope="col">Id</th>
                 <th scope="col">Title</th>
                 <th scope="col">Content</th>
-                <th scope="col">CreatedAt</th>
-                <th scope="col">UpdatedAt</th>
+                <th scope="col">Date de création</th>
+                <th scope="col">Date de mise à jour</th>
                 <th scope="col">Status</th>
-                <th scope="col">actions</th>
+                <th scope="col">Visualiser</th>
+                <th scope="col">Editer</th>
+                <th scope="col">Supprimer</th>
+
                 </tr>
             </thead>
         <tbody>
@@ -27,12 +30,17 @@
                 <th scope="row">{{ practice.id }}</th>
                 <td>{{ practice.title }}</td>
                 <td>{{ practice.content }}</td>
-                <td>{{ practice.createdAt ? practice.createdAt|date('Y-m-d') : '' }}</td>
+                <td>{{ practice.createdAt ? practice.createdAt|date('d-m-Y') : '' }}</td>
                 <td>{{ practice.updatedAt ? practice.updatedAt|date('Y-m-d') : '' }}</td>
                 <td>{{ practice.status }}</td>
                 <td>
-                    <a href="{{ path('back_practice_show', {'id': practice.id}) }}">show</a>
-                    <a href="{{ path('back_practice_update', {'id': practice.id}) }}">edit</a>
+                    <a class="btn btn-success" href="{{ path('back_practice_show', {'id': practice.id}) }}">Voir</a>
+                </td>
+                <td>
+                    <a class="btn btn-warning" href="{{ path('back_practice_update', {'id': practice.id}) }}">Editer</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="{{ path('back_practice_delete', {'id': practice.id}) }}">Supprimer</a>
                 </td>
             </tr>
         {% else %}
@@ -42,7 +50,7 @@
         {% endfor %}
         </tbody>
               </table>
-              <a  class="btn btn-primary col-12" href="http://"> Revenir à l'acceuil</a>
+              <a  class="btn btn-primary col-12" href="{{ path('back_home') }}"> Revenir à l'acceuil</a>
         </div>
 
     </section>
