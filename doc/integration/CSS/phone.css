@@ -6,6 +6,11 @@ h1 {
 h2, h3 {
     font-family: 'Lobster Two', cursive, sans-serif;
 }
+
+h2 {
+    color : #C237FE;
+}
+
 p, li {
     font-family: 'Montserrat', cursive, sans-serif;
 }
