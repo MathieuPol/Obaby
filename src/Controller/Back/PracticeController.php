@@ -47,7 +47,7 @@ class PracticeController extends AbstractController
             return $this->redirectToRoute('back_practice_list', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('Back/practice/edit.html.twig', [
+        return $this->renderForm('Back/practice/update.html.twig', [
             'practice' => $practice,
             'form' => $form,
         ]);

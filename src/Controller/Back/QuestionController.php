@@ -45,8 +45,8 @@ class QuestionController extends AbstractController
 
             return $this->redirectToRoute('back_question_list', [], Response::HTTP_SEE_OTHER);
         }
-//TODO: Editer les fichiers twig 'edit' en 'update'
-        return $this->renderForm('Back/question/edit.html.twig', [
+
+        return $this->renderForm('Back/question/update.html.twig', [
             'question' => $question,
             'form' => $form,
         ]);

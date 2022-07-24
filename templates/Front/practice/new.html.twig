@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle bonne pratique{% endblock %}
+
+{% block body %}
+    <h1>Create new Practice</h1>
+
+    {{ include('Back/practice/_form.html.twig') }}
+
+    <a href="{{ path('category_show_practice') }}">Revenir à l'accueil</a>
+{% endblock %}

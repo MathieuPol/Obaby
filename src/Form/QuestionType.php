@@ -29,7 +29,7 @@ class QuestionType extends AbstractType
                 'choice_label' => 'name',
                 'placeholder' => 'Choisissez une catégorie',
                 'constraints' => new NotBlank(),
-                'constraits' => new NotNull(),
+                'constraints' => new NotNull(),
                 'required' => true,
             ])
         ;

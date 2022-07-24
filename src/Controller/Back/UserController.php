@@ -40,7 +40,7 @@ class UserController extends AbstractController
             return $this->redirectToRoute('back_user_show', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('back/user/edit.html.twig', [
+        return $this->renderForm('back/user/update.html.twig', [
             'user' => $user,
             'form' => $form,
         ]);
