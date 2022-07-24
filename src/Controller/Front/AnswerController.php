@@ -13,38 +13,6 @@ use App\Form\AnswerType;
 
 class AnswerController extends AbstractController
 {
-    /**
-     * @Route("/answer", name="app_front_answer", methods={"GET"})
-     */
-    public function index(): Response
-    {
-        return $this->render('Front/answer/index.html.twig', [
-            'controller_name' => 'AnswerController',
-        ]);
-    }
-
-//* Route for adding new answer
-
-    /**
-     * @Route("/answer/new", name="app_answer_new", methods={"POST"})
-     */
-    public function new(Request $request, AnswerRepository $answerRepository): Response
-    {
-        $answer = new Answer();
-        $form = $this->createForm(AnswerType::class, $answer);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $answerRepository->add($answer, true);
-
-            return $this->redirectToRoute('app_answer_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('Front/answer/new.html.twig', [
-            'answer' => $answer,
-            'form' => $form,
-        ]);
-    }
 
 //* Route for deleting answer
 
@@ -61,7 +29,7 @@ class AnswerController extends AbstractController
     }
 
 
-//* route for deleting answer
+//* route for updating answer
 
     /**
      * @Route("/answer/{id}/update", name="answer_update", methods={"GET", "POST"})
@@ -77,7 +45,7 @@ class AnswerController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $answerRepository->add($answer, true);
 
-            return $this->redirectToRoute('app_answer_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('category_show_question', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('Front/answer/update.html.twig', [

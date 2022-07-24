@@ -17,15 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class QuestionController extends AbstractController
 {
-    /**
-     * @Route("/question", name="app_front_question", methods={"GET"})
-     */
-    public function index(): Response
-    {
-        return $this->render('Front/question/index.html.twig', [
-            'controller_name' => 'QuestionController',
-        ]);
-    }
 
 //* Route for listing question's category
 
@@ -90,7 +81,7 @@ class QuestionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $questionRepository->add($question, true);
 
-            return $this->redirectToRoute('app_question_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('category_show_question', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('Front/question/ask.html.twig', [

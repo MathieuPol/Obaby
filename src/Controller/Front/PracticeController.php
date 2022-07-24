@@ -16,15 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PracticeController extends AbstractController
 {
-    /**
-     * @Route("/front/practice", name="app_front_practice", methods={"GET"})
-     */
-    public function index(): Response
-    {
-        return $this->render('Front/practice/index.html.twig', [
-            'controller_name' => 'PracticeController',
-        ]);
-    }
+
 
 //* route for practices list
 
