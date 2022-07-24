@@ -1,0 +1,42 @@
+
+
+
+.page_404  img { 
+    width:100%;
+    
+}
+.logo {
+    margin-top: 2rem;
+}
+
+.contant_box_404 {
+    margin-top: -55px;
+}
+.animated-link {
+    display: inline-block;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 25px;
+}
+
+.animated-link span {
+    display: inline-block;
+    background: #5dc7ec;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 18px 25px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition:
+    transform .15s ease-out,
+    color .15s ease-out,
+    background-color .15s ease-out,
+}
+
+.animated-link:hover span {
+    transform: translate(-6px, -6px);
+    background:rgb(201, 2, 215) ;
+}
