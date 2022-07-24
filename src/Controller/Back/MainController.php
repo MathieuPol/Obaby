@@ -27,10 +27,10 @@ class MainController extends AbstractController
                         QuestionRepository $questionRepository,
                         AnswerRepository $answerRepository ): Response
     {
-        $users = $userRepository->findAll();
-        $practices = $practiceRepository->findAll();
-        $questions = $questionRepository->findAll();
-        $answers = $answerRepository->findAll();
+        $users = $userRepository->findBy([], ['id' => 'DESC'], 5);
+        $practices = $practiceRepository->findBy([], ['createdAt' => 'DESC'], 5);
+        $questions = $questionRepository->findBy(array(), array('createdAt' => 'DESC'), 5);
+        $answers = $answerRepository->findBy(array(), array('createdAt' => 'Desc'),5);
 
         return $this->render('Back/home.html.twig', [
             'users' => $users,
