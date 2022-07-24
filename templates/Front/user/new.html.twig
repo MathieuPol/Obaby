@@ -3,9 +3,9 @@
 {% block title %}New Category{% endblock %}
 
 {% block body %}
-    <h1>Créez une nouvelle catégorie</h1>
+    <h1 class="text-center">Inscription</h1>
 
     {{ include('Front/user/_form.html.twig') }}
 
-   <a  class="btn btn-primary" href="{{ path('back_category_list') }}">Retourner à la liste des catégories</a>
+   <a  class="btn btn-primary" href="{{ path('front_home') }}">Retournez à l'accueil</a>
 {% endblock %}

@@ -22,35 +22,48 @@ class NewUserType extends AbstractType
         $builder
         // PSEUDO
                 ->add('pseudo', TextType::class, [
-                        'label' => 'Entrez un pseudonyme',
+                        'label' => '*Entrez un pseudonyme',
                         'attr' => array(
                         'placeholder' => 'Pseudonyme'),
                         'constraints' => new NotBlank()
                         ])
         // EMAIL        
-                ->add('email', EmailType::class,[
-                        'label' => 'Entrez une adresse Email valide',
-                        'constraints' => new NotBlank(),
-                        'attr' => array(
-                            'placeholder' => 'Email'),
-                        ])
-                // REPEATED
                 ->add('email', RepeatedType::class, [
-                        'first_options'  => ['label' => 'Email'],
-                        'second_options' => ['label' => 'Repeat Email'],
+                        'type' => EmailType::class,
+                        'invalid_message' => 'Les emails doivent correspondre',
+                        'first_options'  => ['label' => '*Saisissez votre adresse Email',
+                                                'constraints' => new NotBlank(),
+                                                'constraints' => new NotNull(),
+                                                'attr' => array(
+                                                        'type' => 'email',
+                                                        'placeholder' => 'Email')],
+                        'second_options' => ['label' => 'Saissisez à nouveau votre email',
+                                                'constraints' => new NotBlank(),
+                                                'constraints' => new NotNull(),
+                                                'attr' => array(
+                                                        'type' => 'email',
+                                                        'placeholder' => 'Email')],
                         ])
         // PASSWORD                    
-                ->add('password',PasswordType::class, [
-                        'label' => 'Entrez un mot de passe',
-                        'contraints' => new NotBlank(),
-                        'constraints' => new NotNull(),
-                        "always_empty" => true,
-                        ])
-                // REPEATED
                 ->add('password', RepeatedType::class, [
+                        'type' => PasswordType::class,
+                        'invalid_message' => 'Les mots de passe doivent correspondre.',
                         'label' => 'Entrez un mot de passe',
-                        'first_options'  => ['label' => 'Password'],
-                        'second_options' => ['label' => 'Entrez de nouveau votre password'],
+                        'first_options'  => ['label' => '*Saisissez votre mot de passe',
+                                                'constraints' => new NotBlank(),
+                                                'constraints' => new NotNull(),
+                                                'attr' => array(
+                                                        'type' => 'password',
+                                                        'placeholder' => 'Password'),
+                                                ],
+                        'second_options' => ['label' => '*Entrez de nouveau votre password',
+                                                'constraints' => new NotBlank(),
+                                                'constraints' => new NotNull(),
+                                                'help' => 'Les champs marqués d\'un * sont obligatoires',
+                                                'attr' => array(
+                                                        'type' => 'password',
+                                                        'placeholder' => 'Password'),
+                                                ],
                 ])
         ;
     }
