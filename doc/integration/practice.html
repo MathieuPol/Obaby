@@ -80,28 +80,101 @@
   <!-- Main Content Start -->
   <h1 class="text-center">Bonnes Pratiques</h1>
   
-  <aside class="mb-3 sticky-top sticky-bottom">  
+  <aside class="mb-3 position-relative">  
 
           <div class="dropdown text-center">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Catégories
             </a>
           
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Santé</a></li>
-              <li><a class="dropdown-item" href="#">Nutrition</a></li>
-              <li><a class="dropdown-item" href="#">Bien être</a></li>
+            <ul class="dropdown-menu text-center position-absolute" id="category-nav">
+              <li><a class="dropdown-item text-light" href="#">Santé</a></li>
+              <li><a class="dropdown-item text-light" href="#">Nutrition</a></li>
+              <li><a class="dropdown-item text-light" href="#">Bien être</a></li>
             </ul>
           </div>
           
           
-        </aside>
+  </aside>
         <main class="container-fluid row m-auto">
 
     <content class="text-center d-flex flex-column align-items-center">
 
-  
+  <!-- Factoriser ici -->
     <article class="col-lg-10 mb-5">
+      <div class="card banner-owner" role="card-banner">
+        <img src="./asset/img/finger.png" role="banner" class="card-img-top " alt="finger picture">
+        <img src="./asset/img/tetine.png" class="card-img-top banner-feature" alt="nipple picture">
+        
+        <div class="card-body">
+          <h5 class="card-title text-center">Les doigts dans la prise...</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, a fugiat nisi quaerat praesentium iste vitae, beatae debitis commodi facere odio nesciunt at ratione maiores fuga. Neque ratione perferendis optio ea minus tempora fugiat voluptatibus et officiis non fugit, consequatur laborum velit, repellat explicabo magni veritatis maxime possimus voluptatem voluptatum sunt cumque? Laudantium, saepe modi! Nostrum ipsa assumenda eos alias aliquid ipsum veniam repellendus temporibus? Sunt architecto cumque iure reiciendis ipsum nulla asperiores voluptatibus deserunt quibusdam autem maiores, magni dignissimos quos quasi magnam veniam consequuntur sequi, blanditiis aspernatur, aliquid pariatur rem facilis explicabo non! Fuga assumenda laboriosam dolore cupiditate voluptatem.</p>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-between justify-content-lg-around">
+            <div>
+              <img class="autor-pic m-0"  src="./asset/img/avatar1.svg" alt="author picture">
+              <p class="autor-name text-muted align-self-end mb-0">Mathieu</p>
+            </div>
+
+            <div class="align-self-center">
+              <time datetime="2022-25-07">Le 25 juillet 2022</time>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  <!-- Fin de factorisation -->
+  
+  <article class="col-lg-10 mb-5">
+    <div class="card banner-owner" role="card-banner">
+      <img src="./asset/img/finger.png" class="card-img-top " alt="finger picture">
+      <img src="./asset/img/tetine.png" class="card-img-top banner-feature" alt="nipple picture">
+      
+      <div class="card-body">
+        <h5 class="card-title text-center">Les doigts dans la prise...</h5>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, a fugiat nisi quaerat praesentium iste vitae, beatae debitis commodi facere odio nesciunt at ratione maiores fuga. Neque ratione perferendis optio ea minus tempora fugiat voluptatibus et officiis non fugit, consequatur laborum velit, repellat explicabo magni veritatis maxime possimus voluptatem voluptatum sunt cumque? Laudantium, saepe modi! Nostrum ipsa assumenda eos alias aliquid ipsum veniam repellendus temporibus? Sunt architecto cumque iure reiciendis ipsum nulla asperiores voluptatibus deserunt quibusdam autem maiores, magni dignissimos quos quasi magnam veniam consequuntur sequi, blanditiis aspernatur, aliquid pariatur rem facilis explicabo non! Fuga assumenda laboriosam dolore cupiditate voluptatem.</p>
+      </div>
+      <div class="card-footer">
+        <div class="d-flex justify-content-between justify-content-lg-around">
+          <div>
+            <img class="autor-pic m-0"  src="./asset/img/avatar1.svg" alt="">
+            <p class="autor-name text-muted align-self-end mb-0">Mathieu</p>
+          </div>
+
+          <div class="align-self-center">
+            <time datetime="2022-25-07">Le 25 juillet 2022</time>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="col-lg-10 mb-5">
+    <div class="card banner-owner" role="card-banner">
+      <img src="./asset/img/finger.png" class="card-img-top " alt="finger picture">
+      <img src="./asset/img/tetine.png" class="card-img-top banner-feature" alt="nipple picture">
+      
+      <div class="card-body">
+        <h5 class="card-title text-center">Les doigts dans la prise...</h5>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, a fugiat nisi quaerat praesentium iste vitae, beatae debitis commodi facere odio nesciunt at ratione maiores fuga. Neque ratione perferendis optio ea minus tempora fugiat voluptatibus et officiis non fugit, consequatur laborum velit, repellat explicabo magni veritatis maxime possimus voluptatem voluptatum sunt cumque? Laudantium, saepe modi! Nostrum ipsa assumenda eos alias aliquid ipsum veniam repellendus temporibus? Sunt architecto cumque iure reiciendis ipsum nulla asperiores voluptatibus deserunt quibusdam autem maiores, magni dignissimos quos quasi magnam veniam consequuntur sequi, blanditiis aspernatur, aliquid pariatur rem facilis explicabo non! Fuga assumenda laboriosam dolore cupiditate voluptatem.</p>
+      </div>
+      <div class="card-footer">
+        <div class="d-flex justify-content-between justify-content-lg-around">
+          <div>
+            <img class="autor-pic m-0"  src="./asset/img/avatar1.svg" alt="">
+            <p class="autor-name text-muted align-self-end mb-0">Mathieu</p>
+          </div>
+
+          <div class="align-self-center">
+            <time datetime="2022-25-07">Le 25 juillet 2022</time>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+      <article class="col-lg-10 mb-5">
       <div class="card banner-owner" role="card-banner">
         <img src="./asset/img/finger.png" class="card-img-top " alt="finger picture">
         <img src="./asset/img/tetine.png" class="card-img-top banner-feature" alt="nipple picture">
@@ -117,7 +190,7 @@
               <p class="autor-name text-muted align-self-end mb-0">Mathieu</p>
             </div>
 
-            <div>
+            <div class="align-self-center">
               <time datetime="2022-25-07">Le 25 juillet 2022</time>
             </div>
           </div>
@@ -125,35 +198,6 @@
       </div>
     </article>
 
-    <article class="col-lg-10 mb-5 justify-content-end">
-      <div class="card">
-        <img src="./asset/img/finger.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title text-center">Les doigts dans la prise...</h5>
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, a fugiat nisi quaerat praesentium iste vitae, beatae debitis commodi facere odio nesciunt at ratione maiores fuga. Neque ratione perferendis optio ea minus tempora fugiat voluptatibus et officiis non fugit, consequatur laborum velit, repellat explicabo magni veritatis maxime possimus voluptatem voluptatum sunt cumque? Laudantium, saepe modi! Nostrum ipsa assumenda eos alias aliquid ipsum veniam repellendus temporibus? Sunt architecto cumque iure reiciendis ipsum nulla asperiores voluptatibus deserunt quibusdam autem maiores, magni dignissimos quos quasi magnam veniam consequuntur sequi, blanditiis aspernatur, aliquid pariatur rem facilis explicabo non! Fuga assumenda laboriosam dolore cupiditate voluptatem.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="col-lg-10 mb-5">
-      <div class="card">
-        <img src="./asset/img/finger.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title text-center">Les doigts dans la prise...</h5>
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, a fugiat nisi quaerat praesentium iste vitae, beatae debitis commodi facere odio nesciunt at ratione maiores fuga. Neque ratione perferendis optio ea minus tempora fugiat voluptatibus et officiis non fugit, consequatur laborum velit, repellat explicabo magni veritatis maxime possimus voluptatem voluptatum sunt cumque? Laudantium, saepe modi! Nostrum ipsa assumenda eos alias aliquid ipsum veniam repellendus temporibus? Sunt architecto cumque iure reiciendis ipsum nulla asperiores voluptatibus deserunt quibusdam autem maiores, magni dignissimos quos quasi magnam veniam consequuntur sequi, blanditiis aspernatur, aliquid pariatur rem facilis explicabo non! Fuga assumenda laboriosam dolore cupiditate voluptatem.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="col-lg-10 mb-5">
-      <div class="card">
-        <img src="./asset/img/finger.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title text-center">Les doigts dans la prise...</h5>
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, a fugiat nisi quaerat praesentium iste vitae, beatae debitis commodi facere odio nesciunt at ratione maiores fuga. Neque ratione perferendis optio ea minus tempora fugiat voluptatibus et officiis non fugit, consequatur laborum velit, repellat explicabo magni veritatis maxime possimus voluptatem voluptatum sunt cumque? Laudantium, saepe modi! Nostrum ipsa assumenda eos alias aliquid ipsum veniam repellendus temporibus? Sunt architecto cumque iure reiciendis ipsum nulla asperiores voluptatibus deserunt quibusdam autem maiores, magni dignissimos quos quasi magnam veniam consequuntur sequi, blanditiis aspernatur, aliquid pariatur rem facilis explicabo non! Fuga assumenda laboriosam dolore cupiditate voluptatem.</p>
-        </div>
-      </div>
-    </article>
     </content>
   </main>
 
