@@ -1,4 +1,5 @@
 <?php
+// src\Controller\Back\UserController.php
 
 namespace App\Controller\Back;
 
@@ -26,16 +27,6 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show", methods={"GET"})
-     */
-    public function show(User $user): Response
-    {
-        return $this->render('back/user/show.html.twig', [
-            'user' => $user,
-        ]);
-    }
-
-    /**
      * @Route("/{id}/update", name="update", methods={"GET", "POST"})
      */
     public function update(Request $request, User $user, UserRepository $userRepository): Response
@@ -49,7 +40,7 @@ class UserController extends AbstractController
             return $this->redirectToRoute('back_user_show', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('back/user/edit.html.twig', [
+        return $this->renderForm('back/user/update.html.twig', [
             'user' => $user,
             'form' => $form,
         ]);

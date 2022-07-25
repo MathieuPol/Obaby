@@ -12,14 +12,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/back/question", name="back_")
+ * @Route("/back/question", name="back_question_")
  */
 class QuestionController extends AbstractController
 {
 //* List all questions
 
     /**
-     * @Route("/", name="question_list", methods={"GET"})
+     * @Route("/", name="list", methods={"GET"})
      */
     public function list(QuestionRepository $questionRepository): Response
     {
@@ -27,49 +27,12 @@ class QuestionController extends AbstractController
             'questions' => $questionRepository->findAll(),
         ]);
     }
-
-//* Add a new question
-//TODO: To delete
-
-    /**
-     * @Route("/new", name="app_question_new", methods={"GET", "POST"})
-     */
-    public function new(Request $request, QuestionRepository $questionRepository): Response
-    {
-        $question = new Question();
-        $form = $this->createForm(QuestionType::class, $question);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $questionRepository->add($question, true);
-
-            return $this->redirectToRoute('app_question_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('Back/question/new.html.twig', [
-            'question' => $question,
-            'form' => $form,
-        ]);
-    }
-
-//* Show an unique question
-
-    /**
-     * @Route("/{id}", name="question_show", methods={"GET"})
-     * @param int $id
-     */
-    public function show(Question $question): Response
-    {
-        return $this->render('Back/question/show.html.twig', [
-            'question' => $question,
-        ]);
-    }
     
 //* Update an unique question
 
     //! Have to edit Methods
     /**
-     * @Route("/{id}/update", name="question_update", methods={"GET", "POST"})
+     * @Route("/{id}/update", name="update", methods={"GET", "POST"})
      * @param int $id
      */
     public function update(Request $request, Question $question, QuestionRepository $questionRepository): Response
@@ -80,10 +43,10 @@ class QuestionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $questionRepository->add($question, true);
 
-            return $this->redirectToRoute('app_question_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('back_question_list', [], Response::HTTP_SEE_OTHER);
         }
-//TODO: Editer les fichiers twig 'edit' en 'update'
-        return $this->renderForm('Back/question/edit.html.twig', [
+
+        return $this->renderForm('Back/question/update.html.twig', [
             'question' => $question,
             'form' => $form,
         ]);
@@ -92,7 +55,7 @@ class QuestionController extends AbstractController
 //* Delete an unique question
 
     /**
-     * @Route("/{id}/delete", name="question_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="delete", methods={"POST"})
      * @param int $id
      */
     public function delete(Request $request, Question $question, QuestionRepository $questionRepository): Response
@@ -101,14 +64,14 @@ class QuestionController extends AbstractController
             $questionRepository->remove($question, true);
         }
 
-        return $this->redirectToRoute('app_question_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('back_question_list', [], Response::HTTP_SEE_OTHER);
     }
 
 //* Show all answers related to a question
 // id is question id
 
     /**
-     * @Route("/{id}/answer", name="question_answer_list", methods={"GET"})
+     * @Route("/{id}/answer", name="answer_list", methods={"GET"})
      * @param int $id
      */
     public function answerList(Question $question): Response
