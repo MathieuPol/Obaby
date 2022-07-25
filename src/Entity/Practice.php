@@ -50,9 +50,15 @@ class Practice
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="practices")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->status = 0;
+    }
+
 
     public function getId(): ?int
     {
@@ -142,4 +148,5 @@ class Practice
 
         return $this;
     }
+
 }

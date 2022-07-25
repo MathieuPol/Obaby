@@ -47,10 +47,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $status;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Pratice::class, mappedBy="user")
-     */
-    private $pratices;
+
 
     /**
      * @ORM\OneToMany(targetEntity=Answer::class, mappedBy="user")
@@ -67,9 +64,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $practices;
 
+
+
     public function __construct()
     {
-        $this->pratices = new ArrayCollection();
         $this->answers = new ArrayCollection();
         $this->questions = new ArrayCollection();
         $this->practices = new ArrayCollection();
@@ -188,35 +186,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, Pratice>
-     */
-    public function getPratices(): Collection
-    {
-        return $this->pratices;
-    }
 
-    public function addPratice(Pratice $pratice): self
-    {
-        if (!$this->pratices->contains($pratice)) {
-            $this->pratices[] = $pratice;
-            $pratice->setUser($this);
-        }
 
-        return $this;
-    }
 
-    public function removePratice(Pratice $pratice): self
-    {
-        if ($this->pratices->removeElement($pratice)) {
-            // set the owning side to null (unless already changed)
-            if ($pratice->getUser() === $this) {
-                $pratice->setUser(null);
-            }
-        }
 
-        return $this;
-    }
 
     /**
      * @return Collection<int, Answer>
@@ -307,4 +280,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+
+
+
 }
