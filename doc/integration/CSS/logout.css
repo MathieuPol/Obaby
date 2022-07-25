@@ -1,0 +1,98 @@
+#main {
+	height: 100vh;
+	background: url("../asset/img/children-logout.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+label {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.5em;
+}
+
+#info {
+	width: 95%;
+	height: 740px;
+	border-radius: 5px;
+	color: var(--bs-white);
+	background-color: rgba(0, 0, 0, 0.35);
+	left: 50%;
+	top: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	font-size: 11px;
+	border-radius: 22.2px;
+	box-shadow: 0 0 16px #5dc7ec;
+	max-width: 350px;
+}
+
+
+#form-login {
+	max-width: 70%;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+#logo {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+#signup {
+	color: rgb(255, 255, 255);
+}
+
+/************** NE PAS COPIER *****************/
+/************** NE PAS COPIER *****************/
+.animated-link {
+	display: inline-block;
+	border-radius: 10px;
+	text-decoration: none;
+	margin-top: 25px;
+}
+
+.animated-link span {
+	display: inline-block;
+	color: #333;
+	border: 1px solid #333;
+	padding: 0.5rem 0.5rem;
+	font-size: 20px;
+	font-weight: 600;
+	border-radius: 10px;
+	cursor: pointer;
+	user-select: none;
+	transition:
+		transform .15s ease-out,
+		color .15s ease-out,
+		background-color .15s ease-out,
+}
+
+/************** NE PAS COPIER *****************/
+
+.login-link:hover span {
+	transform: translate(-6px, -6px);
+	background: #c238fe;
+}
+
+.login-link span {
+	background: #5dc7ec;
+	padding: 0.5rem 0.5rem;
+}
+
+.account-link span {
+	background: #c238fe;
+	padding: 0.5rem 5.5rem;
+}
+
+.account-link:hover span {
+	transform: translate(-6px, -6px);
+	background: #5dc7ec;
+
+}
+
+.login-link,
+.account-link {
+	background-color: black;
+}
