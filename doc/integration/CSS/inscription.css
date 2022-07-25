@@ -1,4 +1,4 @@
-#main {
+#main-inscription {
 	height: 100vh;
 	background: url("../asset/img/children-logout.jpg");
 	background-position: center;
@@ -7,12 +7,8 @@
 	position: relative;
 }
 
-label {
-	font-family: 'Montserrat', sans-serif;
-	font-size: 1.5em;
-}
 
-#info {
+#info-inscription {
 	width: 95%;
 	height: 740px;
 	border-radius: 5px;
@@ -26,6 +22,13 @@ label {
 	border-radius: 22.2px;
 	box-shadow: 0 0 16px #5dc7ec;
 	max-width: 350px;
+}
+
+/************** NE PAS COPIER *****************/
+/************** NE PAS COPIER *****************/
+label {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.5em;
 }
 
 
@@ -44,8 +47,7 @@ label {
 	color: rgb(255, 255, 255);
 }
 
-/************** NE PAS COPIER *****************/
-/************** NE PAS COPIER *****************/
+
 .animated-link {
 	display: inline-block;
 	border-radius: 10px;
@@ -68,8 +70,6 @@ label {
 		color .15s ease-out,
 		background-color .15s ease-out,
 }
-
-/************** NE PAS COPIER *****************/
 
 .login-link:hover span {
 	transform: translate(-6px, -6px);
@@ -96,3 +96,5 @@ label {
 .account-link {
 	background-color: black;
 }
+
+/************** NE PAS COPIER *****************/
