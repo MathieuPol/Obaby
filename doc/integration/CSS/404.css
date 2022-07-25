@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    height: 100vh;
+    background-image: radial-gradient(circle at 27% 12%, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.01) 2%,transparent 2%, transparent 100%),radial-gradient(circle at 53% 19%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.03) 2%,transparent 2%, transparent 100%),radial-gradient(circle at 55% 52%, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.01) 2%,transparent 2%, transparent 100%),radial-gradient(circle at 58% 8%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.03) 2%,transparent 2%, transparent 100%),radial-gradient(circle at 47% 41%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.03) 8%,transparent 8%, transparent 100%),radial-gradient(circle at 37% 54%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.03) 8%,transparent 8%, transparent 100%),radial-gradient(circle at 77% 94%, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.01) 8%,transparent 8%, transparent 100%),radial-gradient(circle at 95% 77%, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.01) 8%,transparent 8%, transparent 100%),radial-gradient(circle at 22% 85%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.03) 8%,transparent 8%, transparent 100%),radial-gradient(circle at 95% 93%, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.02) 5%,transparent 5%, transparent 100%),radial-gradient(circle at 26% 54%, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.02) 5%,transparent 5%, transparent 100%),linear-gradient(45deg, rgb(52, 159, 222),rgb(201, 2, 215));
+}
+#container {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    background: url('./../img/p404.png')#151729;
+}
+#container .content {
+    max-width: 600px;
+    text-align: center;
+}
+
+#container .content img {
+    position: relative;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+#container .content h4 {
+    position: relative;
+    font-size: 1.5em;
+    color:#111;
+    background: #FFF;
+    font-weight: 300;
+}
+
+#container .content p {
+    color: #FFF;
+    font-size: 1.2em;
+}
+
+
+.animated-link {
+    display: inline-block;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 25px;
+}
+
+.animated-link span {
+    display: inline-block;
+    background: #5dc7ec;
+    color: #333;
+    border: 1px solid #333;
+    padding: 18px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition:
+    transform .15s ease-out,
+    color .15s ease-out,
+    background-color .15s ease-out,
+}
+
+.animated-link:hover span {
+    transform: translate(-6px, -6px);
+    background:rgb(201, 2, 215) ;
+    color: #000;
+}
