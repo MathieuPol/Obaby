@@ -6,9 +6,12 @@
     
 }
 .logo {
-    margin-top: 2rem;
+    margin: 2rem 0;
 }
-
+.gif {
+    z-index: -1000;
+    background: #5dc7ec;
+}
 .contant_box_404 {
     margin-top: -55px;
 }
@@ -39,4 +42,7 @@
 .animated-link:hover span {
     transform: translate(-6px, -6px);
     background:rgb(201, 2, 215) ;
+}
+.animated-link  {
+    background-color: black;
 }
