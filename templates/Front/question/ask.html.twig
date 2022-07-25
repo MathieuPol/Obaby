@@ -1,9 +1,68 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Question{% endblock %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ asset('css/question.css') }}"/>
+{% endblock %}
+
+{% block title %}Poser question{% endblock %}
 
 {% block body %}
-    <h1>Create new Question</h1>
+
+    <div class="container-question">
+        <div id="form-div">
+            <form method="post">
+                <div class="form-group mb-3">
+                    <div class="row">
+                        <div class="col-md-12 d-xxl-flex justify-content-xxl-center align-items-xxl-center pt-4 title-question">
+                            <h1 class="text-center" ><strong>titre de la page</strong></h1>
+                        </div>
+                    </div>
+                    <hr id="hr">
+                    <div class="row">
+                        <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
+                            <p class="text-center" ><strong>Question soumise à modération</strong></p>
+                        </div>
+                    </div>
+                    <div class="row-1">
+                        <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
+                            <p class="text-center"><strong>* Posez votre question</strong></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2"><textarea class="form-control" name="feedback" maxlength="250" rows="7"></textarea></div>
+                    </div>
+                    <div class="row-3">
+                        <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
+                            <p class="text-center"><strong>* Choisissez une catégorie</strong></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
+                            <div class="dropdown d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button">Catégories</button>
+                                <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
+                            <p class="text-start">* champs obligatoires</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
+                        <div class="dropdown d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center">
+                            <a href="#" class="animated-link submit-link">
+                                <span class="btn text-white submit-btn"> Soumettre</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>    
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
 
     {{ include('Front/question/_form.html.twig') }}
 
