@@ -62,11 +62,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $questions;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Practice::class, mappedBy="user")
+     */
+    private $practices;
+
     public function __construct()
     {
         $this->pratices = new ArrayCollection();
         $this->answers = new ArrayCollection();
         $this->questions = new ArrayCollection();
+        $this->practices = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -266,6 +272,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($question->getUser() === $this) {
                 $question->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Practice>
+     */
+    public function getPractices(): Collection
+    {
+        return $this->practices;
+    }
+
+    public function addPractice(Practice $practice): self
+    {
+        if (!$this->practices->contains($practice)) {
+            $this->practices[] = $practice;
+            $practice->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePractice(Practice $practice): self
+    {
+        if ($this->practices->removeElement($practice)) {
+            // set the owning side to null (unless already changed)
+            if ($practice->getUser() === $this) {
+                $practice->setUser(null);
             }
         }
 

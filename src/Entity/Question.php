@@ -53,6 +53,8 @@ class Question
     public function __construct()
     {
         $this->answers = new ArrayCollection();
+        $this->createdAt = new \DateTime();
+        $this->status = 0;
     }
 
     public function getId(): ?int
