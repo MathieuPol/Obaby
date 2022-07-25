@@ -21,3 +21,11 @@
     background-color: var(--primary);
 }
 
+.dropdown-item:hover,
+    .dropdown-item:focus{
+    background-color:  var(--blue);
+}
+
+.dropdown .btn{
+    background-color: var(--primary);
+}
