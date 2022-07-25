@@ -1,0 +1,81 @@
+#form-div {
+    background-color: rgb(247,241,241);
+    padding-bottom: 3%;
+    border-radius: 22.2px;
+    box-shadow: 0 0 16px rgba(81, 203, 238, 1);
+}
+
+@media (max-width: 500px) {
+    #form-div {
+        margin: 10px 5px !important;
+    }
+}
+
+h1 {
+    font-family: 'Lobster Two', cursive;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+/************** NE PAS COPIER *****************/
+/************** NE PAS COPIER *****************/
+.animated-link {
+    display: inline-block;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 25px;
+}
+
+.animated-link span {
+    display: inline-block;
+    background: #5dc7ec;;
+    color: #333;
+    border: 1px solid #333;
+    padding: 0.5rem 0.5rem;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition:
+    transform .15s ease-out,
+    color .15s ease-out,
+    background-color .15s ease-out,
+}
+
+.animated-link:hover span {
+    transform: translate(-6px, -6px);
+    background:rgb(201, 2, 215) ;
+}
+/************** NE PAS COPIER *****************/
+
+.container-question {
+    margin-top:50px;
+}
+
+#form-div {
+    margin-right:50px;
+    margin-left:50px;
+}
+
+.title-question {
+    height: 80px;
+}
+
+#hr {
+    background-color:#c3bfbf;
+}
+
+.row-1,
+.row-3 {
+    margin-top:10px;
+}
+
+.submit-link {
+    background-color: black; 
+}
+
+.submit-btn {
+    padding: 0.5rem 0.5rem;
+}
