@@ -48,6 +48,18 @@ class Practice
      */
     private $category;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="practices")
+     */
+    private $user;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->status = 0;
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -124,4 +136,17 @@ class Practice
 
         return $this;
     }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
 }

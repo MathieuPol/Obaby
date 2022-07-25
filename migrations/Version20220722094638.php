@@ -20,8 +20,7 @@ final class Version20220722094638 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE pratice (id INT AUTO_INCREMENT NOT NULL, user_id INT DEFAULT NULL, INDEX IDX_43EF97B5A76ED395 (user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('ALTER TABLE pratice ADD CONSTRAINT FK_43EF97B5A76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
+
         $this->addSql('ALTER TABLE answer ADD user_id INT DEFAULT NULL');
         $this->addSql('ALTER TABLE answer ADD CONSTRAINT FK_DADD4A25A76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
         $this->addSql('CREATE INDEX IDX_DADD4A25A76ED395 ON answer (user_id)');
@@ -34,7 +33,6 @@ final class Version20220722094638 extends AbstractMigration
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP TABLE pratice');
         $this->addSql('ALTER TABLE answer DROP FOREIGN KEY FK_DADD4A25A76ED395');
         $this->addSql('DROP INDEX IDX_DADD4A25A76ED395 ON answer');
         $this->addSql('ALTER TABLE answer DROP user_id');
