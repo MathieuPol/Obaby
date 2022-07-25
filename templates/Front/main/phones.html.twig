@@ -1,7 +1,133 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Numéros de téléphones utiles{% endblock %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ asset('css/phone.css') }}"/>
+{% endblock %}
+
+{% block title %}
+<h1>Connaître les numéros d’urgence</h1>
+{% endblock %}
 
 {% block body %}
+
+    <img src="./asset/img/phone-1400.png" class="img-fluid col-12" alt="...">
+
+    <div class="lh-lg m-5">
+        <p>Les numéros d’appel d’urgence permettent de joindre gratuitement et rapidement les secours 24h/24 7j/7.</p>
+        <p>Chaque numéro a sa propre utilité mais attention à ne pas en abuser car cela surcharge les lignes
+            téléphoniques et empêche des vies d’être sauvées.</p>
+        <p>Nous allons vous lister les numéros d’urgence importants et vous donner quelques conseils pour gagner du
+            temps lors de vos appels.</p>
+    </div>
+
+    <h2 class="lh-lg mx-5">Quelques conseils pour passer un appel efficacement :</h2>
+
+    <div class="lh-lg m-5">
+        <ol>
+            <li class="lh-lg my-3">Préciser les informations suivantes :</li>
+            <ul>
+                <li>êtes vous la victime ou un témoin</li>
+                <li>donnez un numéro de téléphone sur lequel vous restez joignable</li>
+                <li>donnez l’adresse précise du lieu où les secours doivent intervenir</li>
+                <li>précisez les motifs de votre appel</li>
+            </ul>
+            <li class="lh-lg my-3">exprimez-vous clairement dans un souci de compréhension du problème afin que les secours puissent
+                apporter
+                les meilleurs conseils et s’équiper au mieux s’ils doivent intervenir sur les lieux.</li>
+            <li class="lh-lg my-3">écoutez attentivement les conseils apportés par le professionnel : votre comportement peut sauver des
+                vies !
+            </li>
+        </ol>
+    </div>
+
+    <h2 class="lh-lg mx-5">Quels numéros pour quelles situations d’urgence ?</h2>
+
+    <div class="lh-lg m-5">
+        <h3 class="lh-lg mx-5">112 : numéro d’appel d’urgence européen unique</h3>
+        <p>Si vous êtes victime ou témoin d’un accident dans un pays de l’Union Européenne.</p>
+        <p>J’appelle le 112 pour toute urgence nécessitant une ambulance, les services d’incendie ou la
+            police.</p>
+        <p>Attention : il ne faut surtout pas raccrocher si vous appelez le 112 par erreur ! Cela pourrait
+            envoyer une
+            équipe d’urgence pour s’assurer qu’il n’y a aucun problème. Expliquez donc à l’opérateur que tout va bien
+            (et excusez-vous). </p>
+    </div>
+
+    <div class="lh-lg m-5">
+        <h3 class="lh-lg mx-5">15 : SAMU – le Service d’Aide Médical Urgent</h3>
+        <p>Pour obtenir l’intervention d’une équipe médicale lors d’une situation de détresse vitale ainsi
+            que pour être
+            redirigé vers un organisme de permanence de soins.</p>
+        <p>J’appelle le 15 :
+            <ul class="lh-lg">
+                <li>en cas de besoin médical urgent</li>
+                <li>en cas de malaise</li>
+                <li>en cas de coma</li>
+                <li>en cas d’hémorragie</li>
+                <li>en cas de douleur thoracique (cela peut être un infarctus et nécessite une intervention très rapide,
+                    la mort pouvant survenir rapidement)</li>
+                <li>en cas de difficultés respiratoires (surtout si la personne est asthmatique ou cardiaque ou que cela
+                    se produit au cours d'un repas)</li>
+                <li>quand une personne ne respire plus</li>
+                <li>quand vous vous trouvez en présence d'un brûlé</li>
+                <li>en cas d’intoxication</li>
+                <li>etc.</li>
+            </ul>
+        </p>
+    </div>
+
+    <div class="lh-lg m-5">
+        <h3 class="lh-lg mx-5">17 : Police Secours</h3>
+        <p>Pour signaler une infraction qui nécessite l’intervention immédiate de la police</p>
+        <p>J’appelle le 17 lorsque je suis en danger ou que je constate que quelqu'un est en danger :
+            <ul>
+                <li>en cas de violences</li>
+                <li>en cas d’agression</li>
+                <li>en cas de vol à l’arraché</li>
+                <li>en cas de cambriolage</li>
+                <li>etc.</li>
+            </ul>
+        </p>
+    </div>
+
+    <div class="lh-lg m-5">
+        <h3 class="lh-lg mx-5">18 : Sapeurs-Pompiers</h3>
+        <p>Pour signaler une situation de péril ou un accident concernant des biens ou des personnes et obtenir leur
+            intervention rapide.</p>
+        <p>J’appelle le 18 en cas de :
+            <ul>
+                <li>incendie</li>
+                <li>fuite de gaz</li>
+                <li>risque d’effondrement</li>
+                <li>ensevelissement</li>
+                <li>brûlure</li>
+                <li>électrocution</li>
+                <li>accident de la route</li>
+                <li>etc.</li>
+            </ul>
+        </p>
+    </div>
+
+    <div class="lh-lg m-5">
+        <h3 class="lh-lg mx-5">114 : numéro d’urgence national unique pour les personnes sourdes et malentendantes</h3>
+        <p>Si vous êtes victime ou témoin d’une situation d’urgence qui nécessite l’intervention des services de
+            secours. Numéro accessible par fax et SMS.</p>
+    </div>
+
+    <div class="lh-lg m-5">
+        <h3 class="lh-lg mx-5">196 : secours en mer</h3>
+        <p>Vous êtes directement mis en relation avec le centre opérationnel de surveillance et de sauvetage en mer
+            (CROSS), seul organisme d’État compétent pour coordonner des moyens d'intervention pour la sauvegarde de la
+            vie humaine en mer.</p>
+        <p>J’appelle le 196 en tant que témoin ou victime :
+            <ul>
+                <li>en situation de détresse en mer,</li>
+                <li>en situation d'urgence en mer,</li>
+                <li>en cas d'inquiétude pour toute personne se trouvant en mer et n'ayant pas donné de nouvelles,</li>
+                <li>pour tout fait observé en mer qui semble anormal,</li>
+                <li>etc.</li>
+            </ul>
+        </p>
+    </div>
 
 {% endblock %}
