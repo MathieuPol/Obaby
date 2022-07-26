@@ -1,0 +1,116 @@
+.btn-security{
+    background-color: white;
+    border: solid 2px;
+    border-color: var(--blue);
+    color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-security:hover{
+    background-color: var(--blue);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(--blue);
+    transition: 1.5s;
+}
+
+.btn-nutrition{
+    background-color: white;
+    border: solid 2px;
+    border-color: var(--yellow);
+    color: var(--yellow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-nutrition:hover{
+    background-color: var(--yellow);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(--yellow);
+    transition: 1.5s;
+}
+
+.btn-healthcare{
+    background-color: white;
+    border: solid 2px;
+    border-color: var(--primary);
+    color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-healthcare:hover{
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(--primary);
+    transition: 1.5s;
+}
+
+.btn-health{
+    background-color: white;
+    border: solid 2px;
+    border-color: var(--green);
+    color: var(--green);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-health:hover{
+    background-color: var(--green);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(--green);
+    transition: 1.5s;
+}
+
+.btn-hobbies{
+    background-color: white;
+    border: solid 2px;
+    border-color: red;
+    color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-hobbies:hover{
+    background-color: red;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(red);
+    transition: 1.5s;
+}
+
+@media screen and (min-width: 990px) {
+
+    
+    .category-container{
+        background-image: url("../asset/img/enjoyedBabies.png");
+        background-repeat: no-repeat;
+        background-size: 55rem;
+        background-position: center;
+        background-position-y: -6rem;
+    }
+}
