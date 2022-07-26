@@ -7,6 +7,9 @@
     --green: #408558;
     --yellow: #f6c344;
 }
+a:link{
+    text-decoration: none;
+}
 h1 {
     font-family: 'Lobster Two', cursive;
 }
