@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ asset('css/aboutUs.css') }}"/>
+{% endblock %}
+
+{% block title %}<h1>Qui sommes-nous ?</h1>{% endblock %}
+
+{% block body %}
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-3">
+
+                <div class="col-lg-3 col-sm-6">
+                    <img src="./asset/equipe/Mathieu-Poltorak.png" class="photoMmember" alt="...">
+                    <h3 class="nameMember mb-3">Mathieu Poltorak</h3>
+                    <p class="statusMember mb-3">Product Owner</p>
+                </div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <img src="./asset/equipe/Julie-Quivron.png" class="photoMmember" alt="...">
+                    <h3 class="nameMember mb-3">Julie Quivron</h3>
+                    <p class="statusMember mb-3">Scrum Master</p>
+                </div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <img src="./asset/equipe/Yoann-Chaperon.png" class="photoMmember" alt="...">
+                    <h3 class="nameMember mb-3">Yoann Chaperon</h3>
+                    <p class="statusMember mb-3">Lead dev</p>
+                </div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <img src="./asset/equipe/Lucas-Machus.png" class="photoMmember" alt="...">
+                    <h3 class="nameMember mb-3">Lucas Machut</h3>
+                    <p class="statusMember mb-3">Git Master</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="lh-lg mx-5">Les membres du projet en quelques lignes</h2>
+
+    <div class="lh-lg m-5">
+        <p>Nous sommes quatre apprenants de l’école O’Clock qui avons fait le choix de se reconvertir
+            professionnellement pour devenir développeur web et web mobile.
+        </p>
+        <p>Nous avons fait parti de la Promo Curie (formation de février à août 2022) et avions des niveaux variés dans
+            le monde du code avant de commencer cette formation :</p>
+        <ul class="lh-lg">
+            <li>Julie avait des notions limitées en HTML/CSS</li>
+            <li>Yoann avait des bonnes bases sur le HTML/CSS et Bootstrap, des notions de PHP et était également
+                autodidacte en JavaScript</li>
+            <li>Mathieu avait de bonnes bases en HTML/CSS</li>
+            <li>Lucas était novice</li>
+        </ul>
+    </div>
+
+
+    <h2 class="lh-lg mx-5">La formation de développeur web et web mobile</h2>
+
+    <div class="lh-lg m-5">
+        <p>La formation de développeur web et web mobile s’est déroulée en trois étapes :</p>
+        <ul>
+            <li>un socle de 4 mois où l’on a découvert les langages HTML/CSS, PHP, JavaScript Vanilla, SQL, la méthode
+                Scrum, les outils de développement GIT, Github et VS Code, les outils de gestion de projet Slack,
+                Discord, Trello ou encore les méthodes de conception de sites à travers le modèle MVC et MCD.</li>
+            <li>une spécialisation en 1 mois sur le Framework Symfony</li>
+            <li>un projet d’apothéose en 1 mois également où l’on a mis en place ce site internet de a à z.</li>
+        </ul>
+        <p>Venant des quatre coins de la France, nous nous sommes réunis pour mener à bien ce projet qui nous tient à
+            cœur : regrouper toutes les informations utiles liées à nos bambins en un seul endroit. Cette application
+            permet également d’échanger des bonnes pratiques sous forme d’articles afin d’explorer plus en profondeur
+            des sujets essentiels ou méconnus concernant la vie de nos enfants.
+        </p>
+    </div>
+{% endblock %}
