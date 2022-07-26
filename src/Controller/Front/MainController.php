@@ -40,8 +40,7 @@ class MainController extends AbstractController
      */
     public function aboutUs(): Response
     {
-        return $this->render('Front/main/us.html.twig', [
-            'controller_name' => 'MainController',
+        return $this->render('Front/main/aboutUs.html.twig', [
         ]);
     }
     
