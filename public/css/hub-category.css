@@ -1,4 +1,4 @@
-.btn-security{
+.btn-Sécurité{
     background-color: white;
     border: solid 2px;
     border-color: var(--blue);
@@ -8,7 +8,7 @@
     justify-content: center;
     text-align : center;
 }
-.btn-security:hover{
+.btn-Sécurité:hover{
     background-color: var(--blue);
     color: white;
     display: flex;
@@ -19,7 +19,7 @@
     transition: 1.5s;
 }
 
-.btn-nutrition{
+.btn-Nutrition{
     background-color: white;
     border: solid 2px;
     border-color: var(--yellow);
@@ -29,7 +29,7 @@
     justify-content: center;
     text-align : center;
 }
-.btn-nutrition:hover{
+.btn-Nutrition:hover{
     background-color: var(--yellow);
     color: white;
     display: flex;
@@ -40,7 +40,7 @@
     transition: 1.5s;
 }
 
-.btn-healthcare{
+.btn-Grossesse{
     background-color: white;
     border: solid 2px;
     border-color: var(--primary);
@@ -50,7 +50,7 @@
     justify-content: center;
     text-align : center;
 }
-.btn-healthcare:hover{
+.btn-Grossesse:hover{
     background-color: var(--primary);
     color: white;
     display: flex;
@@ -61,7 +61,7 @@
     transition: 1.5s;
 }
 
-.btn-health{
+.btn-Santé{
     background-color: white;
     border: solid 2px;
     border-color: var(--green);
@@ -71,7 +71,7 @@
     justify-content: center;
     text-align : center;
 }
-.btn-health:hover{
+.btn-Santé:hover{
     background-color: var(--green);
     color: white;
     display: flex;
@@ -82,7 +82,7 @@
     transition: 1.5s;
 }
 
-.btn-hobbies{
+.btn-Loisir{
     background-color: white;
     border: solid 2px;
     border-color: red;
@@ -92,7 +92,7 @@
     justify-content: center;
     text-align : center;
 }
-.btn-hobbies:hover{
+.btn-Loisir:hover{
     background-color: red;
     color: white;
     display: flex;
