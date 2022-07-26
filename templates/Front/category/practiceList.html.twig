@@ -1,34 +1,81 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category index{% endblock %}
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('css/hub-category.css') }}"/>
+
+{% endblock %}
+
+{% block title %}<h1 class="text-center">Choisissez une catégorie</h1>{% endblock %}
 
 {% block body %}
-    <h1>Category index</h1>
+    <!-- Main Content Start -->
+<main class="container-fluid row m-auto">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for category in categories %}
-            <tr>
-                <td>{{ category.id }}</td>
-                <td>{{ category.name }}</td>
-                <td>
-                    <a href="{{ path('practice_list', {'id': category.id}) }}">show</a>
+    <content class="text-center d-flex flex-column align-items-center">
 
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+   <div class="container-xxl py-5 ">
+    <div class="container">
+
+      
+      <div class="row g-3 category-container">
+
+        <div class="col-lg-6 col-sm-6">
+          <a href="" class="main-buttons-item btn-healthcare">
+              <div class="main-buttons-icon">
+                <i class="fa-solid fa-person-pregnant fa-3x"></i>
+              </div>
+              <div class="main-buttons-text">
+                <h3 class="mb-3">Grossesse</h3>
+              </div>
+          </a>
+        </div>
+
+        <div class="col-lg-6 col-sm-6">
+
+          <a href="" class="main-buttons-item btn-security">
+            <div class="main-buttons-text">
+              <i class="fas fa-lock fa-3x"></i>
+              <h3 class="mb-3">Sécurité</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <a href="" class="main-buttons-item btn-nutrition">
+            <div class="main-buttons-icon">
+              <i class="fa-solid fa-cookie-bite fa-3x"></i>
+            </div>
+            <div class="main-buttons-text">
+              <h3 class="mb-3">Nutrition</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+            <a href="" class="main-buttons-item btn-health">
+              <div class="main-buttons-icon">
+                <i class="fa-solid fa-briefcase-medical fa-3x"></i>
+              </div>
+              <div class="main-buttons-text">
+                <h3 class="mb-3">Santé</h3>
+              </div>
+            </a>
+          </div>
+        <div class="col-lg-12 col-sm-6 mt-lg-0">
+          <a href="" class="main-buttons-item btn-hobbies">
+              <div class="main-buttons-icon">
+                <i class="fa-solid fa-puzzle-piece fa-3x"></i>
+              </div>
+              <div class="main-buttons-text">
+                <h3 class="mb-3">Loisir</h3>
+              </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+    </content>
 
 {% endblock %}
