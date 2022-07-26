@@ -7,10 +7,12 @@
 
 {% block title %}Log in!{% endblock %}
 
+{% block navbar %}{% endblock %}
+
 {% block body %}
 <form method="post">
     <div id="main">
-        <div class="text-center" id="info"><img id="logo" src="./asset/logo/logo O'Baby.png" width="200" alt="logo">
+        <div class="text-center" id="info"><a href="{{ path('front_home') }}"><img id="logo" src="./asset/logo/logo O'Baby.png" width="200" alt="logo"></a>
             <h1 class="text-center">Connexion</h1>
                 <form class="text-start" id="form-login">
                     <div class="my-5">
@@ -43,3 +45,5 @@
             </div>
         </div>
 {% endblock %}
+
+{% block footer %}{% endblock %}
