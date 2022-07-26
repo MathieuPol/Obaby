@@ -19,6 +19,11 @@
     transition: 1.5s;
 }
 
+.cat-icon-Sécurité{
+    width: 7rem;
+    position: absolute;
+}
+
 .btn-Nutrition{
     background-color: white;
     border: solid 2px;
@@ -102,6 +107,8 @@
     box-shadow: 5px 8px 26px -2px var(red);
     transition: 1.5s;
 }
+
+
 
 @media screen and (min-width: 990px) {
 
