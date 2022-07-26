@@ -48,10 +48,6 @@ label {
 	margin-bottom: 10px;
 }
 
-#signup {
-	color: rgb(255, 255, 255);
-}
-
 /************** NE PAS COPIER *****************/
 /************** NE PAS COPIER *****************/
 .animated-link {
@@ -77,7 +73,7 @@ label {
 		background-color .15s ease-out,
 }
 
-/************** NE PAS COPIER *****************/
+/************** SPAN CHANGER EN BUTTON POUR VALIDATION SUBMIT *****************/
 
 .login-link:hover button {
 	transform: translate(-6px, -6px);
@@ -89,12 +85,12 @@ label {
 	padding: 0.5rem 0.5rem;
 }
 
-.account-link button {
+.account-link span{
 	background: #c238fe;
 	padding: 0.5rem 5.5rem;
 }
 
-.account-link:hover button {
+.account-link:hover span {
 	transform: translate(-6px, -6px);
 	background: #5dc7ec;
 
@@ -103,4 +99,9 @@ label {
 .login-link,
 .account-link {
 	background-color: black;
+}
+
+.form-control {
+	width: 90%;
+	margin: auto;
 }
