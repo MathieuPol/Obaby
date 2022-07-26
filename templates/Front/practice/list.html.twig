@@ -1,40 +1,123 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Practice index{% endblock %}
+{% block stylesheets %}
 
-{% block body %}
-    <h1>Practice index</h1>
+    <link rel="stylesheet" href="{{ asset('css/practice.css') }}"/>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>Status</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for practice in practices %}
-            <tr>
-                <td>{{ practice.id }}</td>
-                <td>{{ practice.title }}</td>
-                <td>{{ practice.content }}</td>
-                <td>{{ practice.createdAt ? practice.createdAt|date('Y-m-d') : '' }}</td>
-                <td>{{ practice.updatedAt ? practice.updatedAt|date('Y-m-d') : '' }}</td>
-                <td>{{ practice.status }}</td>
-                <td>
-                    <a href="{{ path('practice_list', {'id': practice.id}) }}">show</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 {% endblock %}
+{% block body %}
+ <!-- Main Content Start -->
+  <h1 class="text-center">Bonnes Pratiques</h1>
+  
+  <aside class="mb-3 position-relative">  
+
+          <div class="dropdown text-center">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Catégories
+            </a>
+          
+            <ul class="dropdown-menu text-center position-absolute" id="category-nav">
+            {% for category in categories %}
+              <li><a class="dropdown-item text-light" href="{{ path('practice_list', {id: category.id}) }}">{{ category.name }}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+
+  </aside>
+        <main class="container-fluid row m-auto">
+
+    <content class="text-center d-flex flex-column align-items-center">
+
+  <!-- Factoriser ici -->
+
+
+{% for practice in practices %}
+    <article class="col-lg-10 mb-5">
+      <div class="card banner-owner" role="card-banner">
+        <img src="{{ asset('asset/img/finger.png') }}" role="banner" class="card-img-top " alt="finger picture">
+        <img src="{{ asset('asset/img/yellowNipple.png') }}" class="card-img-top banner-feature" alt="nipple picture">
+        
+        <div class="card-body">
+          <h5 class="card-title text-center">Les doigts dans la prise...</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, a fugiat nisi quaerat praesentium iste vitae, beatae debitis commodi facere odio nesciunt at ratione maiores fuga. Neque ratione perferendis optio ea minus tempora fugiat voluptatibus et officiis non fugit, consequatur laborum velit, repellat explicabo magni veritatis maxime possimus voluptatem voluptatum sunt cumque? Laudantium, saepe modi! Nostrum ipsa assumenda eos alias aliquid ipsum veniam repellendus temporibus? Sunt architecto cumque iure reiciendis ipsum nulla asperiores voluptatibus deserunt quibusdam autem maiores, magni dignissimos quos quasi magnam veniam consequuntur sequi, blanditiis aspernatur, aliquid pariatur rem facilis explicabo non! Fuga assumenda laboriosam dolore cupiditate voluptatem.</p>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-between justify-content-lg-around">
+            <div>
+              <img class="autor-pic m-0"  src="./asset/img/avatar1.svg" alt="author picture">
+              <p class="autor-name text-muted align-self-end mb-0">
+{#               {% if practice.user.pseudo is not Null %}
+              {{ practice.user.pseudo }}
+              {else} #}
+              Mathieu
+{#               {% endif %} #}
+              </p>
+            </div>
+
+            <div class="align-self-center">
+              <time datetime="2022-25-07">Le 25 juillet 2022</time>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <article class="col-lg-10 mb-5">
+      <div class="card banner-owner" role="card-banner">
+        <img src="./asset/img/finger.png" role="banner" class="card-img-top " alt="finger picture">
+        <img src="./asset/img/yellowNipple.png" class="card-img-top banner-feature" alt="nipple picture">
+        
+        <div class="card-body">
+          <h5 class="card-title text-center">Les doigts dans la prise...</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, a fugiat nisi quaerat praesentium iste vitae, beatae debitis commodi facere odio nesciunt at ratione maiores fuga. Neque ratione perferendis optio ea minus tempora fugiat voluptatibus et officiis non fugit, consequatur laborum velit, repellat explicabo magni veritatis maxime possimus voluptatem voluptatum sunt cumque? Laudantium, saepe modi! Nostrum ipsa assumenda eos alias aliquid ipsum veniam repellendus temporibus? Sunt architecto cumque iure reiciendis ipsum nulla asperiores voluptatibus deserunt quibusdam autem maiores, magni dignissimos quos quasi magnam veniam consequuntur sequi, blanditiis aspernatur, aliquid pariatur rem facilis explicabo non! Fuga assumenda laboriosam dolore cupiditate voluptatem.</p>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-between justify-content-lg-around">
+            <div>
+              <img class="autor-pic m-0"  src="./asset/img/avatar1.svg" alt="author picture">
+              <p class="autor-name text-muted align-self-end mb-0">Mathieu</p>
+            </div>
+
+            <div class="align-self-center">
+              <time datetime="2022-25-07">Le 25 juillet 2022</time>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  <!-- Fin de factorisation -->
+    </content>
+  </main>
+  {% endblock %}

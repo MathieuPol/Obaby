@@ -8,6 +8,7 @@ use App\Entity\Category;
 use App\Entity\Practice;
 use App\Form\AnswerType;
 use App\Form\PracticeType;
+use App\Repository\CategoryRepository;
 use App\Repository\PracticeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,18 +24,14 @@ class PracticeController extends AbstractController
     /**
      * @Route("/category/{id}/practice/list", name="practice_list", methods={"GET"})
      */
-    public function list(Category $category): Response
+    public function list(Category $category, CategoryRepository $categoryRepository): Response
     {
         $practices = $category->getPractices();
-
-        $answer = new Answer();
-        //TODO: Edit with renderForm
-        $form = $this->createForm(AnswerType::class, $answer);
+        $categories = $categoryRepository->findAll();
 
         return $this->render('Front/practice/list.html.twig', [
             'practices' => $practices,
-            'category' => $category
-
+            'categories' => $categories,
         ]);
     }
 

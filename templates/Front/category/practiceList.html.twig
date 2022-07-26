@@ -20,7 +20,7 @@
       
       <div class="row g-3 category-container">
 
-        <div class="col-lg-6 col-sm-6">
+{#         <div class="col-lg-6 col-sm-6">
           <a href="" class="main-buttons-item btn-healthcare">
               <div class="main-buttons-icon">
                 <i class="fa-solid fa-person-pregnant fa-3x"></i>
@@ -29,50 +29,19 @@
                 <h3 class="mb-3">Grossesse</h3>
               </div>
           </a>
-        </div>
+        </div> #}
 
-
-        <div class="col-lg-6 col-sm-6">
-
-          <a href="" class="main-buttons-item btn-security">
+        {% for category in categories %}
+        <div class="col-lg-6 col-sm-6 d-flex m-auto mb-2 mt-0">
+          <a href="{{ path('practice_list', {id: category.id}) }}" class="main-buttons-item btn-{{category.name}}">
             <div class="main-buttons-text">
               <i class="fas fa-lock fa-3x"></i>
-              <h3 class="mb-3">Sécurité</h3>
+              <h3 class="mb-3">{{category.name}}</h3>
             </div>
           </a>
         </div>
+        {% endfor %}
 
-
-        <div class="col-lg-6 col-sm-6">
-          <a href="" class="main-buttons-item btn-nutrition">
-            <div class="main-buttons-icon">
-              <i class="fa-solid fa-cookie-bite fa-3x"></i>
-            </div>
-            <div class="main-buttons-text">
-              <h3 class="mb-3">Nutrition</h3>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-6 col-sm-6">
-            <a href="" class="main-buttons-item btn-health">
-              <div class="main-buttons-icon">
-                <i class="fa-solid fa-briefcase-medical fa-3x"></i>
-              </div>
-              <div class="main-buttons-text">
-                <h3 class="mb-3">Santé</h3>
-              </div>
-            </a>
-          </div>
-        <div class="col-lg-12 col-sm-6 mt-lg-0">
-          <a href="" class="main-buttons-item btn-hobbies">
-              <div class="main-buttons-icon">
-                <i class="fa-solid fa-puzzle-piece fa-3x"></i>
-              </div>
-              <div class="main-buttons-text">
-                <h3 class="mb-3">Loisir</h3>
-              </div>
-          </a>
-        </div>
 
       </div>
     </div>
