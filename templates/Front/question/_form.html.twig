@@ -1,23 +1,15 @@
 {{ form_start(form) }}
     {# {{ form_widget(form) }} #}
-     </div>
-     <div class="text-center">
+</div>
+    <div class="text-center">
                     <div class="row-1">
                         <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
                             <p class="text-center"><strong>{{ form_row(form.content) }}</strong></p>
-    
                         </div>
                     </div>
                     <div class="row-3">
                         <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
-                            <p class="text-center"><strong>* Choisissez une catégorie</strong></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
-                            <div class="dropdown d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button">Catégories</button>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-                            </div>
+                            <p class="text-center"><strong>{{ form_row(form.category) }}</strong></p>
                         </div>
                     </div>
                     <div class="row">
@@ -26,18 +18,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
-                        <div class="dropdown d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center">
-                            <a href="#" class="animated-link submit-link">
-                                <span class="btn text-white submit-btn"> Soumettre</span>
-                            </a>
-                        </div>
+            <div class="row">
+                <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
+                    <div class="dropdown d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center">
+                        <a href="#" class="animated-link submit-link">
+                            <span class="btn text-white submit-btn">{{ button_label|default('Soumettre') }}</span>
+                        </a>
                     </div>
-                </div>    
-            </form>
-        </div>
+                </div>
+            </div>    
+        </form>
     </div>
-    
-    <button class="btn">{{ button_label|default('Save') }}</button>
+</div>
 {{ form_end(form) }}
