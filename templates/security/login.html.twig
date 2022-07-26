@@ -19,15 +19,16 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
+
+    {# <label for="inputEmail">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>  #}
+
+
+    {# <label for="inputPassword">Password</label>
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">  #}
+
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -40,8 +41,63 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
+    {# <button class="btn btn-lg btn-primary" type="submit">
         Sign in
-    </button>
+    </button>  #}
+
+
+
+
+
+
+
+
+
+{<div id="main">
+        <div class="text-center" id="info"><img id="logo" src="./asset/logo/logo O'Baby.png" width="200" alt="logo">
+            <h1 class="text-center">Connexion</h1>
+            <form class="text-start" id="form-login">
+                <div class="mb-3">
+                {# <label for="inputEmail">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>  #}
+                    <label class="form-label" id="inputEmail" for="inputEmail">* Adresse email</label>
+                    <input class="form-control" value="{{ last_username }}" name="email" type="inputEmail" id="inputEmail">
+                </div>
+                <div class="mb-3">
+<label for="inputPassword">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"> 
+
+                    <label for="inputPassword" class="form-label" id="lbl-password" for="txt-password">* Mot de passe</label>
+
+                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                    <input type="hidden" name="_csrf_token"
+                    value="{{ csrf_token('authenticate') }}"
+    >
+
+                </div>
+                <div class="row">
+                    <div class="col-10 col-sm-10 col-md-8">
+                        <p class="text-start">* champs obligatoires</p>
+                    </div>
+                </div>
+                <div class="d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center">
+                    <a href="#" class="animated-link login-link">
+                        <button type="submit" class="btn text-white">Connexion</button>
+                    </a>
+                </div>
+
+            </form> 
+
+            <div class="dropdown d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center mt-5">
+                <a href="#" class="animated-link account-link">
+                    <span type="submit" class="btn text-white"> Créer un compte</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
 </form>
 {% endblock %}

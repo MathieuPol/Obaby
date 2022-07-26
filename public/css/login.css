@@ -61,7 +61,7 @@ label {
 	margin-top: 25px;
 }
 
-.animated-link span {
+.animated-link button{
 	display: inline-block;
 	color: #333;
 	border: 1px solid #333;
@@ -79,22 +79,22 @@ label {
 
 /************** NE PAS COPIER *****************/
 
-.login-link:hover span {
+.login-link:hover button {
 	transform: translate(-6px, -6px);
 	background: #c238fe;
 }
 
-.login-link span {
+.login-link button {
 	background: #5dc7ec;
 	padding: 0.5rem 0.5rem;
 }
 
-.account-link span {
+.account-link button {
 	background: #c238fe;
 	padding: 0.5rem 5.5rem;
 }
 
-.account-link:hover span {
+.account-link:hover button {
 	transform: translate(-6px, -6px);
 	background: #5dc7ec;
 
