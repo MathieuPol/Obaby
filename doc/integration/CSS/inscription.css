@@ -24,6 +24,52 @@
 	max-width: 350px;
 }
 
+@media (max-width: 540px) {
+	#info-inscription {
+	width: 90%;
+	height: 700px;
+	border-radius: 5px;
+	color: var(--bs-white);
+	background-color: rgba(0, 0, 0, 0.35);
+	left: 50%;
+	top: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	font-size: 11px;
+	border-radius: 22.2px;
+	box-shadow: 0 0 16px #5dc7ec;
+	max-width: 350px;
+	}
+}
+
+@media (max-width: 375px) {
+	#info-inscription {
+	width: 85%;
+	height: 650px;
+	border-radius: 5px;
+	color: var(--bs-white);
+	background-color: rgba(0, 0, 0, 0.35);
+	left: 50%;
+	top: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	font-size: 9px;
+	border-radius: 22.2px;
+	box-shadow: 0 0 16px #5dc7ec;
+	max-width: 350px;
+	}
+
+	.title {
+		font-size: 25px;
+		margin: 0;
+	}
+
+	.requiredFields {
+		font-size: 12px;
+		margin: 0;
+	}
+}
+
 /************** NE PAS COPIER *****************/
 /************** NE PAS COPIER *****************/
 label {
