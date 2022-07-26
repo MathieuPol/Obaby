@@ -17,62 +17,71 @@ use Symfony\Config\Framework\Workflows\WorkflowsConfig\PlaceConfig;
 
 class NewUserType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
-    {
-        $builder
-        // PSEUDO
-                ->add('pseudo', TextType::class, [
-                        'label' => '*Entrez un pseudonyme',
-                        'attr' => array(
-                        'placeholder' => 'Pseudonyme'),
-                        'constraints' => new NotBlank()
+        public function buildForm(FormBuilderInterface $builder, array $options): void
+        {
+                $builder
+                        // PSEUDO
+                        ->add('pseudo', TextType::class, [
+                                'label' => '* Pseudonyme',
+                                'attr' => array(
+                                        'placeholder' => 'Pseudonyme'
+                                ),
+                                'constraints' => new NotBlank()
                         ])
-        // EMAIL        
-                ->add('email', RepeatedType::class, [
-                        'type' => EmailType::class,
-                        'invalid_message' => 'Les emails doivent correspondre',
-                        'first_options'  => ['label' => '*Saisissez votre adresse Email',
-                                                'constraints' => new NotBlank(),
-                                                'constraints' => new NotNull(),
-                                                'attr' => array(
-                                                        'type' => 'email',
-                                                        'placeholder' => 'Email')],
-                        'second_options' => ['label' => 'Saissisez à nouveau votre email',
-                                                'constraints' => new NotBlank(),
-                                                'constraints' => new NotNull(),
-                                                'attr' => array(
-                                                        'type' => 'email',
-                                                        'placeholder' => 'Email')],
+                        // EMAIL        
+                        ->add('email', RepeatedType::class, [
+                                'type' => EmailType::class,
+                                'invalid_message' => 'Les emails doivent correspondre',
+                                'first_options'  => [
+                                        'label' => '* Adresse email',
+                                        'constraints' => new NotBlank(),
+                                        'constraints' => new NotNull(),
+                                        'attr' => array(
+                                                'type' => 'email',
+                                                'placeholder' => 'Email'
+                                        )
+                                ],
+                                'second_options' => [
+                                        'label' => '* Confirmez l\'adresse email',
+                                        'constraints' => new NotBlank(),
+                                        'constraints' => new NotNull(),
+                                        'attr' => array(
+                                                'type' => 'email',
+                                                'placeholder' => 'Email'
+                                        )
+                                ],
                         ])
-        // PASSWORD                    
-                ->add('password', RepeatedType::class, [
-                        'type' => PasswordType::class,
-                        'invalid_message' => 'Les mots de passe doivent correspondre.',
-                        'label' => 'Entrez un mot de passe',
-                        'first_options'  => ['label' => '*Saisissez votre mot de passe',
-                                                'constraints' => new NotBlank(),
-                                                'constraints' => new NotNull(),
-                                                'attr' => array(
-                                                        'type' => 'password',
-                                                        'placeholder' => 'Password'),
-                                                ],
-                        'second_options' => ['label' => '*Entrez de nouveau votre password',
-                                                'constraints' => new NotBlank(),
-                                                'constraints' => new NotNull(),
-                                                'help' => 'Les champs marqués d\'un * sont obligatoires',
-                                                'attr' => array(
-                                                        'type' => 'password',
-                                                        'placeholder' => 'Password'),
-                                                ],
-                ])
-        ;
-    }
+                        // PASSWORD                    
+                        ->add('password', RepeatedType::class, [
+                                'type' => PasswordType::class,
+                                'invalid_message' => 'Les mots de passe doivent correspondre.',
+                                'label' => 'Entrez un mot de passe',
+                                'first_options'  => [
+                                        'label' => '* Mot de passe',
+                                        'constraints' => new NotBlank(),
+                                        'constraints' => new NotNull(),
+                                        'attr' => array(
+                                                'type' => 'password',
+                                                'placeholder' => 'Password'
+                                        ),
+                                ],
+                                'second_options' => [
+                                        'label' => '* Confirmez le mot de passe',
+                                        'constraints' => new NotBlank(),
+                                        'constraints' => new NotNull(),
+                                        'attr' => array(
+                                                'type' => 'password',
+                                                'placeholder' => 'Password'
+                                        ),
+                                ],
+                        ]);
+        }
 
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([
-            'data_class' => User::class,
-        ]);
-    }
-    //TODO make UserEntity and UserController
+        public function configureOptions(OptionsResolver $resolver): void
+        {
+                $resolver->setDefaults([
+                        'data_class' => User::class,
+                ]);
+        }
+        //TODO make UserEntity and UserController
 }

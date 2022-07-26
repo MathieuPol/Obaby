@@ -1,70 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Category{% endblock %}
+{% block title %}New Category
+{% endblock %}
+
+{% block stylesheets %}
+
+<link rel="stylesheet" href="{{ asset('css/inscription.css') }}"/>
+
+{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Inscription</h1>
 
-    {{ include('Front/user/_form.html.twig') }}
+	<div id="main-inscription">
+		<div class="text-center" id="info-inscription"><img id="logo" src="../asset/logo/logo O'Baby.png" width="200" alt="logo">
+			<h1 class="title text-center">Inscription</h1>
+			
 
-<a  class="btn btn-primary" href="{{ path('front_home') }}">Retournez à l'accueil</a>
+{{ include('Front/user/_form.html.twig') }}
+	
+				
 
-
-
-
-
-<div id="main-inscription">
-        <div class="text-center" id="info-inscription"><img id="logo" src="./asset/logo/logo O'Baby.png" width="200" alt="logo">
-            <h1 class="title text-center">Inscription</h1>
-            <form class="text-start" id="form-login">
-
-                    <div class="mb-3">
-                        <label for="inputPseudo">* Pseudonyme</label>
-                        <input class="form-control" type="text" name="text" id="inputPseudo" required autofocus>
-                    </div>
-
-
-                    <div class="mb-3">
-                        <label for="inputEmail">* Adresse email</label>
-                        <input class="form-control" type="email" name="email" id="inputEmail" autocomplete="email">
-                    </div>
-
-
-                    <div class="mb-3">
-                        <label for="inputEmailBis">* Confirmez l'adresse email</label>
-                        <input class="form-control" type="email" name="email" id="inputEmailBis" autocomplete="email">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="inputPassword">* Mot de passe</label>
-                        <input class="form-control" type="password" name="password" id="inputPassword">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="inputPasswordBis">* Confirmez le mot de passe</label>
-                        <input class="form-control" type="password" name="password" id="inputPasswordBis">
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-10 col-sm-10 col-md-8">
-                            <p class="requiredFields text-start">* champs obligatoires</p>
-                        </div>
-                    </div>
-
-
-                <div
-                    class="dropdown d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center">
-                    <a href="#" class="animated-link login-link">
-                        <span type="submit" class="btn text-white"> Enregistrez</span>
-                    </a>
-                </div>
-
-            </form>
-        </div>
-    </div>
-
-
-
-    
 {% endblock %}
