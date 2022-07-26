@@ -19,8 +19,24 @@
 
       
       <div class="row g-3 category-container">
-      
-        <div class="col-lg-6 col-sm-6">
+
+        {% for category in categories %}
+        <div class="col-lg-6 col-sm-6 d-flex m-auto mb-2 mt-0">
+          <a href="{{ path('question_list', {id: category.id}) }}" class="main-buttons-item btn-{{category.name}}">
+            <div class="main-buttons-text">
+              <i class="fas fa-lock fa-3x"></i>
+              <h3 class="mb-3">{{category.name}}</h3>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+
+
+
+
+
+
+ {#        <div class="col-lg-6 col-sm-6">
           <a href="" class="main-buttons-item btn-healthcare">
               <div class="main-buttons-icon">
                 <i class="fa-solid fa-person-pregnant fa-3x"></i>
@@ -30,11 +46,6 @@
               </div>
           </a>
         </div>
-
-
-
-
-
 
         <div class="col-lg-6 col-sm-6">
 
@@ -74,7 +85,7 @@
                 <h3 class="mb-3">Loisir</h3>
               </div>
           </a>
-        </div>
+        </div> #}
 
       </div>
     </div>
