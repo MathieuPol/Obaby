@@ -1,0 +1,97 @@
+.btn-security{
+    background-color: white;
+    border: solid 2px;
+    border-color: var(--green);
+    color: var(--green);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-security:hover{
+    background-color: var(--green);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(--green);
+    transition: 1.5s;
+}
+
+.btn-nutrition{
+    background-color: white;
+    border: solid 2px;
+    border-color: var(--green);
+    color: var(--green);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-nutrition:hover{
+    background-color: var(--green);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(--green);
+    transition: 1.5s;
+}
+
+.btn-health{
+    background-color: white;
+    border: solid 2px;
+    border-color: var(--green);
+    color: var(--green);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-health:hover{
+    background-color: var(--green);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(--green);
+    transition: 1.5s;
+}
+
+.btn-healthcare{
+    background-color: white;
+    border: solid 2px;
+    border-color: var(--green);
+    color: var(--green);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-healthcare:hover{
+    background-color: var(--green);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(--green);
+    transition: 1.5s;
+}
+
+
+
+.btn-practices:hover{
+    transition: 1.5s;
+}
+
+.btn-practices:hover{
+    transition: 1.5s;
+}
+
+.btn-practices:hover{
+    transition: 1.5s;
+}
