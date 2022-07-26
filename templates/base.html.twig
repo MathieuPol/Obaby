@@ -54,9 +54,9 @@
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav mx-auto">
-        <a href="about.html" class="nav-item nav-link">Bonnes pratiques</a>
-        <a href="classes.html" class="nav-item nav-link">Questions / réponses</a>
-        <a href="contact.html" class="nav-item nav-link">Favoris</a>
+        <a href={{ path('category_show_practice')}} class="nav-item nav-link">Bonnes pratiques</a>
+        <a href={{ path('category_show_question')}} class="nav-item nav-link">Questions / réponses</a>
+        <a href="#" class="nav-item nav-link">Favoris</a>
         <!-- VOIR AVEC TEAM -->
         <!-- <a href="contact.html" class="nav-item nav-link">Mon compte</a> -->
         <div class="nav-item dropdown">
@@ -81,10 +81,12 @@
   <footer class="text-center mb-0">
     <div class="footer-container text-white py-4 py-lg-5">
       <ul class="list-footer-links">
-        <li class="footer-link me-4"><a class="link-light" href="#">Contact</a></li>
-        <li class="footer-link me-4"><a class="link-light" href="#">Mentions légales</a></li>
-        <li class="footer-link me-4"><a class="link-light" href="#">Qui sommes-nous ?</a></li>
-        <li class="footer-link me-4"><a class="link-light" href="#">Numéros utiles</a></li>
+
+        <li class="footer-link me-4"><a class="link-light" href={{ path('contact') }}>Contact</a></li>
+        <li class="footer-link me-4"><a class="link-light" href={{ path('legal_mentions') }}>Mentions légales</a></li>
+        <li class="footer-link me-4"><a class="link-light" href={{ path('about_us') }}>Qui sommes-nous ?</a></li>
+        <li class="footer-link me-4"><a class="link-light" href={{ path('phones') }}>Numéros utiles</a></li>
+
       </ul>
     </div>
     <div class="back-home-footer">
