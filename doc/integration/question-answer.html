@@ -78,9 +78,7 @@
   <!-- Navbar End -->
 
   <!-- Main Content Start -->
-  <h1 class="text-center">Questions 
-    <img class="bottle" src="./asset/img/biberon.png" alt="">
-    Réponses</h1>
+  <h1 class="text-center">Questions <img class="bottle" src="./asset/img/biberon.png" alt="">    Réponses</h1>
   
   <aside class="mb-3 position-relative">  
 
@@ -103,20 +101,20 @@
     <content class="text-center d-flex flex-column align-items-center">
 
   <!-- Factoriser ici -->
-    <article class="col-lg-10 mb-5">
+    <article   class="col-lg-10 mb-3 question-div">
       <div class="card banner-owner" role="card-banner">
         <img src="./asset/img/yellowNipple.png" class="card-img-top banner-feature" alt="nipple picture">
 
 
 
             <div class="d-flex justify-content-between">
-                <div>
+                <div class="p-3">
                     <img class="autor-pic m-0"  src="./asset/img/avatar1.svg" alt="author picture">
-                    <p class="autor-name text-muted align-self-center mb-0">Mathieu</p>
+                    <p class="autor-name text-muted mb-0">Mathieu</p>
                 </div>
-                <time  class="align-self-center align-content-end" datetime="2022-25-07">Le 25 juillet 2022</time>
+                <time  class="align-self-center align-content-end p-3" datetime="2022-25-07">Le 25 juillet 2022</time>
             </div>
-            <p class="align-self-center">Catégorie</p>
+            <p class="align-self-center category-item">Catégorie</p>
 
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius possimus suscipit, enim provident quos dolores accusamus molestiae? Dolorem quas recusandae, alias maiores fugit dicta vitae possimus! Adipisci nulla dolorum et fugiat animi voluptates, porro eos provident quasi consequuntur eius asperiores. Magnam laborum quibusdam asperiores maxime pariatur unde possimus itaque excepturi.</p>
@@ -126,43 +124,31 @@
             <form>
                 <div class="form-group">
                   <label for="textarea">Votre réponse</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea class="form-control" rows="3"></textarea>
                 </div>
+                <button type="submit" class="btn btn-primary mt-2 submit-btn">Valider la réponse</button>
               </form>
         </div>
       </div>
     </article>
 
 
-    <div class="accordion mb-5" id="accordionReviews">
+    <div class="accordion mb-5 col-lg-10 col-12" id="accordionAnswer">
 
         <div class="accordion-item">
             <h2 class="accordion-header" id="heading-answer">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-answer" aria-expanded="false" aria-controls="collapse-answer">
+                <button class="accordion-button collapsed flex-column" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-answer" aria-expanded="false" aria-controls="collapse-answer">
                     Les réponses de la communauté
                 </button>
             </h2>
             <div id="collapse-answer" class="accordion-collapse collapse" aria-labelledby="heading-answer" data-bs-parent="#accordionReviews">
                 <div class="accordion-body">
-                    <p><em>visionné le {{review.watchedAt|date('d/m/Y')}}</em></p>
-                    <p>{{review.content}}</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda fugiat obcaecati autem numquam voluptatum explicabo iure quia, facilis earum quasi blanditiis ipsa omnis libero rerum sit quaerat veritatis alias. Tempora dolores sequi illum hic maxime quod, veritatis placeat repellat debitis, quia accusamus ipsam iste maiores sint magni corrupti accusantium. Dignissimos?</p>
                 </div>
             </div>
         </div>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -171,77 +157,121 @@
 
   <!-- Fin de factorisation -->
   
-  <article class="col-lg-10 mb-5">
+  <article   class="col-lg-10 mb-5 question-div">
     <div class="card banner-owner" role="card-banner">
-      <img src="./asset/img/finger.png" class="card-img-top " alt="finger picture">
-      <img src="./asset/img/greenNipple.png" class="card-img-top banner-feature" alt="nipple picture">
-      
+      <img src="./asset/img/yellowNipple.png" class="card-img-top banner-feature" alt="nipple picture">
+
+
+
+          <div class="d-flex justify-content-between">
+              <div>
+                  <img class="autor-pic m-0"  src="./asset/img/avatar1.svg" alt="author picture">
+                  <p class="autor-name text-muted align-self-center mb-0">Mathieu</p>
+              </div>
+              <time  class="align-self-center align-content-end" datetime="2022-25-07">Le 25 juillet 2022</time>
+          </div>
+          <p class="align-self-center category-item">Catégorie</p>
+
       <div class="card-body">
-        <h5 class="card-title text-center">Les doigts dans la prise...</h5>
-        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, a fugiat nisi quaerat praesentium iste vitae, beatae debitis commodi facere odio nesciunt at ratione maiores fuga. Neque ratione perferendis optio ea minus tempora fugiat voluptatibus et officiis non fugit, consequatur laborum velit, repellat explicabo magni veritatis maxime possimus voluptatem voluptatum sunt cumque? Laudantium, saepe modi! Nostrum ipsa assumenda eos alias aliquid ipsum veniam repellendus temporibus? Sunt architecto cumque iure reiciendis ipsum nulla asperiores voluptatibus deserunt quibusdam autem maiores, magni dignissimos quos quasi magnam veniam consequuntur sequi, blanditiis aspernatur, aliquid pariatur rem facilis explicabo non! Fuga assumenda laboriosam dolore cupiditate voluptatem.</p>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius possimus suscipit, enim provident quos dolores accusamus molestiae? Dolorem quas recusandae, alias maiores fugit dicta vitae possimus! Adipisci nulla dolorum et fugiat animi voluptates, porro eos provident quasi consequuntur eius asperiores. Magnam laborum quibusdam asperiores maxime pariatur unde possimus itaque excepturi.</p>
       </div>
       <div class="card-footer">
-        <div class="d-flex justify-content-between justify-content-lg-around">
-          <div>
-            <img class="autor-pic m-0"  src="./asset/img/avatar1.svg" alt="">
-            <p class="autor-name text-muted align-self-end mb-0">Mathieu</p>
-          </div>
 
-          <div class="align-self-center">
-            <time datetime="2022-25-07">Le 25 juillet 2022</time>
-          </div>
-        </div>
+          <form>
+              <div class="form-group">
+                <label for="textarea">Votre réponse</label>
+                <textarea class="form-control"  rows="3"></textarea>
+              </div>
+            </form>
       </div>
     </div>
   </article>
 
-  <article class="col-lg-10 mb-5">
+
+  <div class="accordion mb-5 col-lg-10">
+
+      <div class="accordion-item">
+          <h2 class="accordion-header">
+              <button class="accordion-button collapsed flex-column" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-answer" aria-expanded="false" aria-controls="collapse-answer">
+                  Les réponses de la communauté
+              </button>
+          </h2>
+          <div class="accordion-collapse collapse" aria-labelledby="heading-answer" data-bs-parent="#accordionReviews">
+              <div class="accordion-body">
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda fugiat obcaecati autem numquam voluptatum explicabo iure quia, facilis earum quasi blanditiis ipsa omnis libero rerum sit quaerat veritatis alias. Tempora dolores sequi illum hic maxime quod, veritatis placeat repellat debitis, quia accusamus ipsam iste maiores sint magni corrupti accusantium. Dignissimos?</p>
+              </div>
+          </div>
+      </div>
+
+  </div>
+
+  <article   class="col-lg-10 mb-5 question-div">
     <div class="card banner-owner" role="card-banner">
-      <img src="./asset/img/finger.png" class="card-img-top " alt="finger picture">
-      <img src="./asset/img/blueNipple.png" class="card-img-top banner-feature" alt="nipple picture">
-      
+      <img src="./asset/img/yellowNipple.png" class="card-img-top banner-feature" alt="nipple picture">
+
+
+
+          <div class="d-flex justify-content-between">
+              <div>
+                  <img class="autor-pic m-0"  src="./asset/img/avatar1.svg" alt="author picture">
+                  <p class="autor-name text-muted align-self-center mb-0">Mathieu</p>
+              </div>
+              <time  class="align-self-center align-content-end" datetime="2022-25-07">Le 25 juillet 2022</time>
+          </div>
+          <p class="align-self-center category-item">Catégorie</p>
+
       <div class="card-body">
-        <h5 class="card-title text-center">Les doigts dans la prise...</h5>
-        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, a fugiat nisi quaerat praesentium iste vitae, beatae debitis commodi facere odio nesciunt at ratione maiores fuga. Neque ratione perferendis optio ea minus tempora fugiat voluptatibus et officiis non fugit, consequatur laborum velit, repellat explicabo magni veritatis maxime possimus voluptatem voluptatum sunt cumque? Laudantium, saepe modi! Nostrum ipsa assumenda eos alias aliquid ipsum veniam repellendus temporibus? Sunt architecto cumque iure reiciendis ipsum nulla asperiores voluptatibus deserunt quibusdam autem maiores, magni dignissimos quos quasi magnam veniam consequuntur sequi, blanditiis aspernatur, aliquid pariatur rem facilis explicabo non! Fuga assumenda laboriosam dolore cupiditate voluptatem.</p>
+        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius possimus suscipit, enim provident quos dolores accusamus molestiae? Dolorem quas recusandae, alias maiores fugit dicta vitae possimus! Adipisci nulla dolorum et fugiat animi voluptates, porro eos provident quasi consequuntur eius asperiores. Magnam laborum quibusdam asperiores maxime pariatur unde possimus itaque excepturi.</p>
       </div>
       <div class="card-footer">
-        <div class="d-flex justify-content-between justify-content-lg-around">
-          <div>
-            <img class="autor-pic m-0"  src="./asset/img/avatar1.svg" alt="">
-            <p class="autor-name text-muted align-self-end mb-0">Mathieu</p>
-          </div>
 
-          <div class="align-self-center">
-            <time datetime="2022-25-07">Le 25 juillet 2022</time>
-          </div>
-        </div>
+          <form>
+              <div class="form-group">
+                <label for="textarea">Votre réponse</label>
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+            </form>
       </div>
     </div>
   </article>
 
-      <article class="col-lg-10 mb-5">
-      <div class="card banner-owner" role="card-banner">
-        <img src="./asset/img/finger.png" class="card-img-top " alt="finger picture">
-        <img src="./asset/img/pinkNipple.png" class="card-img-top banner-feature" alt="nipple picture">
-        
-        <div class="card-body">
-          <h5 class="card-title text-center">Les doigts dans la prise...</h5>
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, a fugiat nisi quaerat praesentium iste vitae, beatae debitis commodi facere odio nesciunt at ratione maiores fuga. Neque ratione perferendis optio ea minus tempora fugiat voluptatibus et officiis non fugit, consequatur laborum velit, repellat explicabo magni veritatis maxime possimus voluptatem voluptatum sunt cumque? Laudantium, saepe modi! Nostrum ipsa assumenda eos alias aliquid ipsum veniam repellendus temporibus? Sunt architecto cumque iure reiciendis ipsum nulla asperiores voluptatibus deserunt quibusdam autem maiores, magni dignissimos quos quasi magnam veniam consequuntur sequi, blanditiis aspernatur, aliquid pariatur rem facilis explicabo non! Fuga assumenda laboriosam dolore cupiditate voluptatem.</p>
-        </div>
-        <div class="card-footer">
-          <div class="d-flex justify-content-between justify-content-lg-around">
-            <div>
-              <img class="autor-pic m-0"  src="./asset/img/avatar1.svg" alt="">
-              <p class="autor-name text-muted align-self-end mb-0">Mathieu</p>
-            </div>
 
-            <div class="align-self-center">
-              <time datetime="2022-25-07">Le 25 juillet 2022</time>
-            </div>
+  <div class="accordion mb-5 col-lg-10" id="accordionReviews">
+
+      <div class="accordion-item">
+          <h2 class="accordion-header">
+              <button class="accordion-button collapsed flex-column" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-answer" aria-expanded="false" aria-controls="collapse-answer">
+                  Les réponses de la communauté
+              </button>
+          </h2>
+          <div class="accordion-collapse collapse" aria-labelledby="heading-answer" data-bs-parent="#accordionReviews">
+              <div class="accordion-body">
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda fugiat obcaecati autem numquam voluptatum explicabo iure quia, facilis earum quasi blanditiis ipsa omnis libero rerum sit quaerat veritatis alias. Tempora dolores sequi illum hic maxime quod, veritatis placeat repellat debitis, quia accusamus ipsam iste maiores sint magni corrupti accusantium. Dignissimos?</p>
+              </div>
           </div>
-        </div>
       </div>
-    </article>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </content>
   </main>
