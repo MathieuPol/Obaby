@@ -1,56 +1,63 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Practice index{% endblock %}
+{% block title %}Practice index
+{% endblock %}
 
 {% block body %}
-{% include '/Back/partials/_nav_back.html.twig' %}
- 
-    <h1 class="text-center">Liste des bonnes pratiques</h1>
+	{% include '/Back/partials/_nav_back.html.twig' %}
 
-        <section class="row">
-            <div class="col-sm-12 col-md-12 col-lg-8 mb-5 m-auto">
-                <table class="table table-hover">
-                    <thead class="table-dark">
-                  <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Title</th>
-                <th scope="col">Content</th>
-                <th scope="col">Date de création</th>
-                <th scope="col">Date de mise à jour</th>
-                <th scope="col">Status</th>
-                <th scope="col">Editer</th>
-                <th scope="col">Supprimer</th>
+	<h1 class="text-center">Liste des bonnes pratiques</h1>
 
-                </tr>
-            </thead>
-        <tbody>
-        {% for practice in practices %}
-            <tr>
-                <th scope="row">{{ practice.id }}</th>
-                <td>{{ practice.title }}</td>
-                <td>{{ practice.content }}</td>
-                <td>{{ practice.createdAt ? practice.createdAt|date('d-m-Y') : '' }}</td>
-                <td>{{ practice.updatedAt ? practice.updatedAt|date('Y-m-d') : '' }}</td>
-                <td>{{ practice.status }}</td>
+	<section class="row">
+		<div class="col-sm-12 col-md-12 col-lg-8 mb-5 m-auto">
+			<table class="table table-hover">
+				<thead class="table-dark">
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Title</th>
+						<th scope="col">Content</th>
+						<th scope="col">Date de création</th>
+						<th scope="col">Date de mise à jour</th>
+						<th scope="col">Status</th>
+                        <th scope="col">Valider</th>
+						<th scope="col">Editer</th>
+						<th scope="col">Supprimer</th>
 
-                <td>
-                    <a class="btn btn-warning" href="{{ path('back_practice_update', {'id': practice.id}) }}">Editer</a>
-                </td>
-                <td>
-                        {{ include('Back/practice/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-              </table>
-              <a  class="btn btn-primary col-12" href="{{ path('back_home') }}"> Revenez à l'accueil</a>
-        </div>
+					</tr>
+				</thead>
+				<tbody>
+					{% for practice in practices %}
+						<tr>
+							<th scope="row">{{ practice.id }}</th>
+							<td>{{ practice.title }}</td>
+							<td>{{ practice.content }}</td>
+							<td>{{ practice.createdAt ? practice.createdAt|date('d-m-Y') : '' }}</td>
+							<td>{{ practice.updatedAt ? practice.updatedAt|date('Y-m-d') : '' }}</td>
+							<td>{{ practice.status }}</td>
+                            <td> 
+                                <form action="{{ path('back_practice_validate', {'id': practice.id}) }}" method="post">
+                                    <button>test</button>
+                                </form>
+                            </td>
+							<td>
+								<a class="btn btn-warning" href="{{ path('back_practice_update', {'id': practice.id}) }}">Editer</a>
+							</td>
+							<td>
+								{{ include('Back/practice/_delete_form.html.twig') }}
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="7">no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<a class="btn btn-primary col-12" href="{{ path('back_home') }}">
+				Revenez à l'accueil</a>
+		</div>
 
-    </section>
+	</section>
 
 
 {% endblock %}

@@ -67,4 +67,15 @@ class PracticeController extends AbstractController
 
         return $this->redirectToRoute('back_practice_list', [], Response::HTTP_SEE_OTHER);
     }
+
+
+    /**
+     * @Route("/{id}/validate", name="validate", methods={"POST"})
+     */
+    public function validate(Practice $practice, PracticeRepository $practiceRepository)
+    {
+        $practice->setStatus(1);
+        $practiceRepository->add($practice, true);
+        return $this->redirectToRoute('back_practice_list', [], Response::HTTP_SEE_OTHER);
+    }
 }
