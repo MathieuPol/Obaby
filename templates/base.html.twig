@@ -32,7 +32,20 @@
   <title>O'baby</title>
 </head>
 <body class="h-100">
-     {% block navbar %}{% include '/Front/partials/_nav_front.html.twig' %}{% endblock %}
+    {% block navbar %}{% include '/Front/partials/_nav_front.html.twig' %}{% endblock %}
+
+{% for label,flash in app.flashes %}
+            {% for message in flash %}
+                
+            <div class="alert alert-{{ label }} alert-dismissible fade show mb-0" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+
+            </button>
+            </div>
+            {% endfor %}
+    {% else %}
+    {% endfor %}
 
     {% block body %}{% endblock %}
 
