@@ -48,13 +48,14 @@ class PracticeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Votre bonne pratique a bien été enregistrée. Elle est en attente de modération.');
             $practice->setSlug($slugService->slug($practice->getTitle()));
             $practiceRepository->add($practice, true);
 
-            return $this->redirectToRoute('app_practice_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('category_show_practice', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('Back/practice/new.html.twig', [
+        return $this->renderForm('Front/practice/new.html.twig', [
             'practice' => $practice,
             'form' => $form,
         ]);
