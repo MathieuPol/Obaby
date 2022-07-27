@@ -20,7 +20,6 @@ class QuestionType extends AbstractType
         $builder
             ->add('content', TextareaType::class, [
                 'label' => '* Posez votre question',
-                'help' => 'Ce champ ne doit pas être nul',
                 'constraints' => new NotBlank(),
                 'required' => true,
             ])
