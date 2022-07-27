@@ -34,6 +34,7 @@ class UserController extends AbstractController
         $form ->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Votre compte a été créé ! Vous pouvez dès à présent vous connecter.');
             $plaintextPassword= $user->getPassword();
             $hashedPassword = $passwordHasher->hashPassword(
                 $user,

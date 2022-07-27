@@ -3,12 +3,13 @@
 namespace App\Form;
 
 use App\Entity\Practice;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
-
+use Symfony\Component\Validator\Constraints\NotNull;
 
 class PracticeType extends AbstractType
 {
@@ -24,6 +25,15 @@ class PracticeType extends AbstractType
             'label' => 'Rédigez votre article',
             'help' => 'Ce champ ne doit pas être nul',
             'constraints' => new NotBlank(),
+            ])
+            ->add('category', EntityType::class, [
+                'label' => '* Catégorie',
+                'class' => 'App\Entity\Category',
+                'choice_label' => 'name',
+                'placeholder' => 'Choisissez une catégorie',
+                'constraints' => new NotBlank(),
+                'constraints' => new NotNull(),
+                'required' => true,
             ])
     ;
     }

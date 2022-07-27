@@ -9,20 +9,23 @@
 
 {% block body %}
 
-    <div class="container-question">
+    <div class="container-question mb-5">
         <div id="form-div">
-            <form method="post">
+
                 <div class="form-group mb-3">
                     <div class="row">
                         <div class="col-md-12 d-xxl-flex justify-content-xxl-center align-items-xxl-center pt-4 title-question">
-                            <h1 class="text-center" ><strong>titre de la page</strong></h1>
+                            <h1 class="text-center" ><strong>Vous pouvez poser votre question !</strong></h1>
                         </div>
                     </div>
                     <hr id="hr">
                     <div class="row">
                         <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
-                            <p class="text-center" ><strong>Question soumise à modération</strong></p>
+                            <p class="text-center" ><strong>Elle sera soumise à modération : vous la retrouverez sur le site sous 48h en moyenne. </strong></p>
                         </div>
-                        {{ include('Front/question/_form.html.twig') }}
-
+                    </div>
+                </div>
+            {{ include('Front/question/_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

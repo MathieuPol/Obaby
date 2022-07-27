@@ -52,6 +52,7 @@ class QuestionController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Votre réponse a bien été enregistrée. Elle est en attente de modération.');
             $answer->setQuestion($question);
 
             $answerRepository->add($answer, true);
@@ -79,6 +80,7 @@ class QuestionController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Votre question a bien été enregistrée. Elle est en attente de modération.');
             $questionRepository->add($question, true);
 
             return $this->redirectToRoute('category_show_question', [], Response::HTTP_SEE_OTHER);
