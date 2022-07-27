@@ -23,7 +23,7 @@ class PracticeController extends AbstractController
 //* route for practices list
 
     /**
-     * @Route("/category/{id}/practice/list", name="practice_list", methods={"GET"})
+     * @Route("/category/{slug}/practice/list", name="practice_list", methods={"GET"})
      */
     public function list(Category $category, CategoryRepository $categoryRepository): Response
     {

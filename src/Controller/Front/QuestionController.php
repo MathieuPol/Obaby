@@ -21,7 +21,7 @@ class QuestionController extends AbstractController
 //* Route for listing question's category
 
     /**
-     * @Route("/category/{id}/question/list", name="question_list", methods={"GET"})
+     * @Route("/category/{slug}/question/list", name="question_list", methods={"GET"})
      */
     public function list(Category $category): Response
     {
