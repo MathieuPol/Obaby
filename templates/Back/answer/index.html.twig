@@ -1,37 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Answer index{% endblock %}
+{% block title %}Answer index
+{% endblock %}
 
 {% block body %}
-    <h1>Answer index</h1>
+	<h1>Answer index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Content</th>
-                <th>CreatedAt</th>
-                <th>Status</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for answer in answers %}
-            <tr>
-                <td>{{ answer.id }}</td>
-                <td>{{ answer.content }}</td>
-                <td>{{ answer.createdAt ? answer.createdAt|date('Y-m-d') : '' }}</td>
-                <td>{{ answer.status }}</td>
-                <td>
-                    <a href="{{ path('back_answer_show', {'id': answer.id}) }}">show</a>
-                    <a href="{{ path('back_answer_update', {'id': answer.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Content</th>
+				<th>Question</th>
+				<th>CreatedAt</th>
+				<th>Valider</th>
+				<th>Status</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for answer in answers %}
+				<tr>
+					<td>{{ answer.id }}</td>
+					<td>{{ answer.content }}</td>
+					<td>{{ answer.question.content }}</td>
+					<td>{{ answer.createdAt ? answer.createdAt|date('Y-m-d') : '' }}</td>
+					<td>{{ answer.status }}</td>
+					<td>
+						<form action="{{ path('back_question_answer_validate', {'id': answer.id}) }}" method="post">
+							<button class="btn btn-secondary">Valider</button>
+						</form>
+					</td>
+					<td>
+						<a href="{{ path('back_answer_show', {'id': answer.id}) }}">show</a>
+						<a href="{{ path('back_answer_update', {'id': answer.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 {% endblock %}

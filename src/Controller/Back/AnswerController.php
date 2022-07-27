@@ -29,6 +29,15 @@ class AnswerController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("", name="answer", methods={"GET"})
+     */
+    public function list(AnswerRepository $answerRepository): Response
+    {
+        return $this->render('Back/answer/index.html.twig', [
+            'answers' => $answerRepository->findAll(),
+        ]);
+    }
 
 //* Modify an unique answer
 
@@ -70,6 +79,16 @@ class AnswerController extends AbstractController
         }
 
         return $this->redirectToRoute('app_answer_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    /**
+     * @Route("/{id}/validate", name="question_answer_validate", methods={"POST"})
+     */
+    public function answerValidate(Answer $answer, AnswerRepository $answerRepository)
+    {
+        $answer->setStatus(1);
+        $answerRepository->add($answer, true);
+        return $this->redirectToRoute('back_answer', [], Response::HTTP_SEE_OTHER);
     }
 
 }
