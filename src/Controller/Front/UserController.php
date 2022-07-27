@@ -24,6 +24,7 @@ class UserController extends AbstractController
 
     /**
      * @Route ("/new", name="new", methods={"GET","POST"})
+     * @param int $id
     */
     public function new(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): Response
     {
@@ -56,11 +57,30 @@ class UserController extends AbstractController
     */
     public function show(User $user): Response
     {
-
         return $this->render('Front/user/personnalInformation.html.twig', [
             'user' => $user,
         ]);
     }
+    
+//* Route to update personnal informations
+    /**
+     * @Route ("/{id}/update", name="update", methods={"POST", "GET"})
+     * @param int $id
+    */
+    public function update(User $user, Request $request, UserRepository $userRepository): Response
+    {
+        //create form with User
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
 
-
+        if ($form->isSubmitted() && $form->isValid()) {
+            $userRepository->add($user, true);
+            return $this->redirectToRoute('Front/user/personnalInformation.html.twig');
+        }  
+        
+        return $this->renderForm('Front/user/update.html.twig', [
+            'user' => $user,
+            'form' => $form,
+        ]);
+    }
 }
