@@ -82,4 +82,14 @@ class QuestionController extends AbstractController
             'answers' => $answers,
         ]);
     }
+
+    /**
+     * @Route("/{id}/validate", name="validate", methods={"POST"})
+     */
+    public function validate(Question $question, QuestionRepository $questionRepository)
+    {
+        $question->setStatus(1);
+        $questionRepository->add($question, true);
+        return $this->redirectToRoute('back_question_list', [], Response::HTTP_SEE_OTHER);
+    }
 }
