@@ -12,6 +12,7 @@ use App\Entity\Question;
 use App\Form\AnswerType;
 use App\Repository\AnswerRepository;
 use App\Entity\Answer;
+use App\Repository\CategoryRepository;
 use App\Repository\QuestionRepository;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -23,19 +24,22 @@ class QuestionController extends AbstractController
     /**
      * @Route("/category/{slug}/question/list", name="question_list", methods={"GET"})
      */
-    public function list(Category $category): Response
+    public function list(Category $category, CategoryRepository $categoryRepository): Response
     {
         $questions = $category->getQuestions();
 
+        $categoryList = $categoryRepository->findAll();
         //! answers have to be displayed in twig with a loop
         //$answers = $questions->getAnswers();
 
         $answer = new Answer();
         $form = $this->createForm(AnswerType::class, $answer);
+        
 
-        return $this->render('Front/question/list.html.twig', [
+        return $this->render('Front/question/index.html.twig', [
             'questions' => $questions,
             'category' => $category,
+            'categoryList' => $categoryList,
             'form' => $form->createView()
         ]);
     }

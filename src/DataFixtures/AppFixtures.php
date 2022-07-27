@@ -12,7 +12,6 @@ use App\Entity\Practice;
 use App\Entity\User;
 use App\Services\SlugService;
 use Doctrine\DBAL\Connection;
-use ProxyManager\ProxyGenerator\LazyLoadingGhost\PropertyGenerator\PrivatePropertiesMap;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AppFixtures extends Fixture
@@ -56,6 +55,51 @@ class AppFixtures extends Fixture
         $answerList = [];
         $practiceList = [];
         $userList = [];
+
+        // User creation
+
+        $userAdmin = new User();
+        $userAdmin->setEmail('admin@admin.com');
+        $userAdmin->setPseudo('admin');
+        $userAdmin->setSlug($this->slugService->slug($userAdmin->getPseudo()));
+        $userAdmin->setPassword('$2y$13$B5F2MaAidY68n5uqLEfrKeom.VARDRos.mEdgvWZWTTRXztOatBnq');
+        $userAdmin->setStatus(1);
+        $userAdmin->setRoles(['ROLE_ADMIN']);
+        $userList[] = $userAdmin;
+
+        $userModerator = new User();
+        $userModerator->setEmail('moderatior@moderator.com');
+        $userModerator->setPseudo('moderator');
+        $userModerator->setSlug($this->slugService->slug($userModerator->getPseudo()));
+        $userModerator->setPassword('$2y$13$4aEMwhxQrZhkpKlDwtbfvOIDi8k5yoniNLV/Qb7xfUfCuHb2dgC2i');
+        $userModerator->setStatus(1);
+        $userModerator->setRoles(['ROLE_MODERATOR']);
+        $userList[] = $userModerator;
+
+        $userUser = new User();
+        $userUser->setEmail('user@user.com');
+        $userUser->setPseudo('user');
+        $userUser->setSlug($this->slugService->slug($userUser->getPseudo()));
+        $userUser->setPassword('$2y$13$vAX65eah5osvbxoLSY.QGO2TpbCNQgMs4blP6WZ0zwPXt7gUnERSC');
+        $userUser->setStatus(1);
+        $userUser->setRoles(['ROLE_USER']);
+        $userList[] = $userUser;
+
+        $userAnonymous = new User();
+        $userAnonymous->setEmail('obaby@gmail.com');
+        $userAnonymous->setPseudo('Anonymous');
+        $userAnonymous->setSlug($this->slugService->slug($userAnonymous->getPseudo()));
+        $userAnonymous->setPassword('$2y$13$SQCAsxHo2Pwk9vAnSpMIxuCQvBrAE.ekHEYE5eKL/ChksQASPJ1cS');
+        $userAnonymous->setStatus(1);
+        $userAnonymous->setRoles(['ROLE_USER']);
+        $userList[] = $userAnonymous;
+        
+        $manager->persist($userAdmin);
+        $manager->persist($userModerator);
+        $manager->persist($userUser);
+        $manager->persist($userAnonymous);
+
+
 
 
 
@@ -111,6 +155,7 @@ class AppFixtures extends Fixture
             $date = $faker->date('Y-m-d');
             $question->setCreatedAt(new \DateTime($date));
             $question->setStatus($faker->numberBetween(0, 1));
+            $question->setUser($userList[array_rand($userList)]);
 
             $manager->persist($question);
             $questionList[] = $question;
@@ -141,48 +186,11 @@ class AppFixtures extends Fixture
             $datePractice = $faker->date('Y-m-d');
             $practice->setCreatedAt(new \DateTime($datePractice));
             $practice->setStatus($faker->numberBetween(0, 1));
+            $practice->setUser($userList[array_rand($userList)]);
 
             $manager->persist($practice);
             $practiceList[] = $practice;
         }
-        // User creation
-
-            $userAdmin = new User();
-            $userAdmin->setEmail('admin@admin.com');
-            $userAdmin->setPseudo('admin');
-            $userAdmin->setSlug($this->slugService->slug($userAdmin->getPseudo()));
-            $userAdmin->setPassword('$2y$13$B5F2MaAidY68n5uqLEfrKeom.VARDRos.mEdgvWZWTTRXztOatBnq');
-            $userAdmin->setStatus(1);
-            $userAdmin->setRoles(['ROLE_ADMIN']);
-
-            $userModetaror = new User();
-            $userModetaror->setEmail('moderatior@moderator.com');
-            $userModetaror->setPseudo('moderator');
-            $userModetaror->setSlug($this->slugService->slug($userModetaror->getPseudo()));
-            $userModetaror->setPassword('$2y$13$4aEMwhxQrZhkpKlDwtbfvOIDi8k5yoniNLV/Qb7xfUfCuHb2dgC2i');
-            $userModetaror->setStatus(1);
-            $userModetaror->setRoles(['ROLE_MODERATOR']);
-
-            $userUser = new User();
-            $userUser->setEmail('user@user.com');
-            $userUser->setPseudo('user');
-            $userUser->setSlug($this->slugService->slug($userUser->getPseudo()));
-            $userUser->setPassword('$2y$13$vAX65eah5osvbxoLSY.QGO2TpbCNQgMs4blP6WZ0zwPXt7gUnERSC');
-            $userUser->setStatus(1);
-            $userUser->setRoles(['ROLE_USER']);
-
-            $userAnonymous = new User();
-            $userAnonymous->setEmail('obaby@gmail.com');
-            $userAnonymous->setPseudo('Anonymous');
-            $userAnonymous->setSlug($this->slugService->slug($userAnonymous->getPseudo()));
-            $userAnonymous->setPassword('$2y$13$SQCAsxHo2Pwk9vAnSpMIxuCQvBrAE.ekHEYE5eKL/ChksQASPJ1cS');
-            $userAnonymous->setStatus(1);
-            $userAnonymous->setRoles(['ROLE_USER']);
-            
-			$manager->persist($userAdmin);
-            $manager->persist($userModetaror);
-            $manager->persist($userUser);
-
 
         $manager->flush();
     }

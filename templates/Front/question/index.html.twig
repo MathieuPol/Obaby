@@ -1,6 +1,13 @@
+{% extends 'base.html.twig' %}
 
+{% block stylesheets %}
 
- <h1 class="text-center">Questions <img class="bottle" src="./asset/img/biberon.png" alt="">    Réponses</h1>
+    <link rel="stylesheet" href="{{ asset('css/question-answer.css') }}"/>
+
+{% endblock %}
+{% block body %}
+
+ <h1 class="text-center">Questions <img class="bottle" src="{{ asset('asset/img/biberon.png') }}" alt="">    Réponses</h1>
   
   <aside class="mb-3 position-relative">  
 
@@ -23,23 +30,25 @@
     <content class="text-center d-flex flex-column align-items-center">
 
   <!-- Factoriser ici -->
+  {% for question in questions %}
+
     <article   class="col-lg-10 mb-3 question-div">
       <div class="card banner-owner" role="card-banner">
-        <img src="./asset/img/yellowNipple.png" class="card-img-top banner-feature" alt="nipple picture">
+        <img src="{{ asset('asset/img/yellowNipple.png') }}" class="card-img-top banner-feature" alt="nipple picture">
 
 
 
             <div class="d-flex justify-content-between">
                 <div class="p-3">
-                    <img class="autor-pic m-0"  src="./asset/img/avatar1.svg" alt="author picture">
-                    <p class="autor-name text-muted mb-0">Mathieu</p>
+                    <img class="autor-pic m-0"  src="{{ asset('asset/img/avatar1.svg') }}" alt="author picture">
+                    <p class="autor-name text-muted mb-0">{{ question.user.pseudo }}</p>
                 </div>
-                <time  class="align-self-center align-content-end p-3" datetime="2022-25-07">Le 25 juillet 2022</time>
+                <time  class="align-self-center align-content-end p-3" datetime="2022-25-07">{{ question.createdAt|date ("d/m/Y") }}</time>
             </div>
-            <p class="align-self-center category-item">Catégorie</p>
+            <p class="align-self-center category-item">{{ category.name }}</p>
 
         <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius possimus suscipit, enim provident quos dolores accusamus molestiae? Dolorem quas recusandae, alias maiores fugit dicta vitae possimus! Adipisci nulla dolorum et fugiat animi voluptates, porro eos provident quasi consequuntur eius asperiores. Magnam laborum quibusdam asperiores maxime pariatur unde possimus itaque excepturi.</p>
+          <p class="card-text">{{ question.content }}</p>
         </div>
         <div class="card-footer">
 
@@ -64,117 +73,18 @@
                 </button>
             </h2>
             <div id="collapse-answer" class="accordion-collapse collapse" aria-labelledby="heading-answer" data-bs-parent="#accordionReviews">
-                <div class="accordion-body">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda fugiat obcaecati autem numquam voluptatum explicabo iure quia, facilis earum quasi blanditiis ipsa omnis libero rerum sit quaerat veritatis alias. Tempora dolores sequi illum hic maxime quod, veritatis placeat repellat debitis, quia accusamus ipsam iste maiores sint magni corrupti accusantium. Dignissimos?</p>
+              {% for answer in question.answers %}
+                <div class="accordion-body border border-solid">
+                    <p>{{ answer.content }}</p>
                 </div>
+              {% endfor %}
             </div>
         </div>
 
     </div>
 
-
-
-
-
-
-  <!-- Fin de factorisation -->
-  
-  <article   class="col-lg-10 mb-5 question-div">
-    <div class="card banner-owner" role="card-banner">
-      <img src="./asset/img/yellowNipple.png" class="card-img-top banner-feature" alt="nipple picture">
-
-
-
-          <div class="d-flex justify-content-between">
-              <div>
-                  <img class="autor-pic m-0"  src="./asset/img/avatar1.svg" alt="author picture">
-                  <p class="autor-name text-muted align-self-center mb-0">Mathieu</p>
-              </div>
-              <time  class="align-self-center align-content-end" datetime="2022-25-07">Le 25 juillet 2022</time>
-          </div>
-          <p class="align-self-center category-item">Catégorie</p>
-
-      <div class="card-body">
-        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius possimus suscipit, enim provident quos dolores accusamus molestiae? Dolorem quas recusandae, alias maiores fugit dicta vitae possimus! Adipisci nulla dolorum et fugiat animi voluptates, porro eos provident quasi consequuntur eius asperiores. Magnam laborum quibusdam asperiores maxime pariatur unde possimus itaque excepturi.</p>
-      </div>
-      <div class="card-footer">
-
-          <form>
-              <div class="form-group">
-                <label for="textarea">Votre réponse</label>
-                <textarea class="form-control"  rows="3"></textarea>
-              </div>
-            </form>
-      </div>
-    </div>
-  </article>
-
-
-  <div class="accordion mb-5 col-lg-10">
-
-      <div class="accordion-item">
-          <h2 class="accordion-header">
-              <button class="accordion-button collapsed flex-column" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-answer" aria-expanded="false" aria-controls="collapse-answer">
-                  Les réponses de la communauté
-              </button>
-          </h2>
-          <div class="accordion-collapse collapse" aria-labelledby="heading-answer" data-bs-parent="#accordionReviews">
-              <div class="accordion-body">
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda fugiat obcaecati autem numquam voluptatum explicabo iure quia, facilis earum quasi blanditiis ipsa omnis libero rerum sit quaerat veritatis alias. Tempora dolores sequi illum hic maxime quod, veritatis placeat repellat debitis, quia accusamus ipsam iste maiores sint magni corrupti accusantium. Dignissimos?</p>
-              </div>
-          </div>
-      </div>
-
-  </div>
-
-  <article   class="col-lg-10 mb-5 question-div">
-    <div class="card banner-owner" role="card-banner">
-      <img src="./asset/img/yellowNipple.png" class="card-img-top banner-feature" alt="nipple picture">
-
-
-
-          <div class="d-flex justify-content-between">
-              <div>
-                  <img class="autor-pic m-0"  src="./asset/img/avatar1.svg" alt="author picture">
-                  <p class="autor-name text-muted align-self-center mb-0">Mathieu</p>
-              </div>
-              <time  class="align-self-center align-content-end" datetime="2022-25-07">Le 25 juillet 2022</time>
-          </div>
-          <p class="align-self-center category-item">Catégorie</p>
-
-      <div class="card-body">
-        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius possimus suscipit, enim provident quos dolores accusamus molestiae? Dolorem quas recusandae, alias maiores fugit dicta vitae possimus! Adipisci nulla dolorum et fugiat animi voluptates, porro eos provident quasi consequuntur eius asperiores. Magnam laborum quibusdam asperiores maxime pariatur unde possimus itaque excepturi.</p>
-      </div>
-      <div class="card-footer">
-
-          <form>
-              <div class="form-group">
-                <label for="textarea">Votre réponse</label>
-                <textarea class="form-control" rows="3"></textarea>
-              </div>
-            </form>
-      </div>
-    </div>
-  </article>
-
-
-  <div class="accordion mb-5 col-lg-10" id="accordionReviews">
-
-      <div class="accordion-item">
-          <h2 class="accordion-header">
-              <button class="accordion-button collapsed flex-column" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-answer" aria-expanded="false" aria-controls="collapse-answer">
-                  Les réponses de la communauté
-              </button>
-          </h2>
-          <div class="accordion-collapse collapse" aria-labelledby="heading-answer" data-bs-parent="#accordionReviews">
-              <div class="accordion-body">
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda fugiat obcaecati autem numquam voluptatum explicabo iure quia, facilis earum quasi blanditiis ipsa omnis libero rerum sit quaerat veritatis alias. Tempora dolores sequi illum hic maxime quod, veritatis placeat repellat debitis, quia accusamus ipsam iste maiores sint magni corrupti accusantium. Dignissimos?</p>
-              </div>
-          </div>
-      </div>
-
-  </div>
-
+  {% endfor %}
 
     </content>
   </main>
+  {% endblock %}
