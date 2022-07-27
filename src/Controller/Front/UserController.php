@@ -75,7 +75,7 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $userRepository->add($user, true);
-            return $this->redirectToRoute('Front/user/personnalInformation.html.twig');
+            return $this->redirectToRoute('Front/user/personnalInformation.html.twig', [], Response::HTTP_SEE_OTHER);
         }  
         
         return $this->renderForm('Front/user/update.html.twig', [
@@ -83,4 +83,30 @@ class UserController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    //* Route to delete account
+    /**
+     * @Route ("/{id}/delete", name="delete", methods={"POST"})
+     * @param int $id
+    */
+    public function delete(Request $request, User $user, UserRepository $userRepository): Response
+    {
+        //TODO transférer le contenu de cet utilisateur vers utilisateur anonyme
+/*         $userPractices = [];
+        $userAnswers = [];
+        $userQuestion = [];
+        foreach ($userPractices as $key => $value) {
+            $userAnonimous->setPractices($value);
+            $userRepository->add($userAnonimous, true);
+        } */
+
+
+
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            $userRepository->remove($user, true);
+        }
+
+        return $this->redirectToRoute('Front/main/index.html.twig', [], Response::HTTP_SEE_OTHER);
+    }
+
 }
