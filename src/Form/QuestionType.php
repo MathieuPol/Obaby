@@ -24,7 +24,7 @@ class QuestionType extends AbstractType
                 'constraints' => new NotBlank(),
                 'required' => true,
             ])
-            ->add('Category', EntityType::class, [
+            ->add('category', EntityType::class, [
                 'label' => '* Catégorie',
                 'class' => 'App\Entity\Category',
                 'choice_label' => 'name',
