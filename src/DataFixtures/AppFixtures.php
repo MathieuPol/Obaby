@@ -11,6 +11,7 @@ use App\Entity\Answer;
 use App\Entity\Practice;
 use App\Entity\User;
 use App\Services\SlugService;
+use Doctrine\DBAL\Connection;
 use ProxyManager\ProxyGenerator\LazyLoadingGhost\PropertyGenerator\PrivatePropertiesMap;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
@@ -18,14 +19,32 @@ class AppFixtures extends Fixture
 {
     private $slug;
     private $slugService;
+    private $connection;
     
-    public function __construct(SluggerInterface $slug, SlugService $slugService) {
+    public function __construct(SluggerInterface $slug, SlugService $slugService, Connection $connection) {
         $this->slug = $slug;
         $this->slugService = $slugService;
+        $this->connection = $connection;
     }
     
+    private function truncate()
+    {
+        $this->connection->executeQuery('SET FOREIGN_KEY_CHECKS = 0');
+        $this->connection->executeQuery('TRUNCATE TABLE category');
+        $this->connection->executeQuery('TRUNCATE TABLE question');
+        $this->connection->executeQuery('TRUNCATE TABLE answer');
+        $this->connection->executeQuery('TRUNCATE TABLE practice');
+        $this->connection->executeQuery('TRUNCATE TABLE user');
+        $this->connection->executeQuery('SET FOREIGN_KEY_CHECKS = 1');
+    }
+
+
     public function load(ObjectManager $manager): void
     {
+        //Add truncate function to set id to 1
+        $this->truncate();
+
+
         // $product = new Product();
         // $manager->persist($product);
 
