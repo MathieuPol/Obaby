@@ -64,6 +64,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $practices;
 
+    /**
+     * @ORM\Column(type="string", length=64)
+     */
+    private $slug;
+
 
 
     public function __construct()
@@ -277,6 +282,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $practice->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

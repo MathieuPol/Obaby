@@ -49,7 +49,7 @@ class ObabyAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('category_show_question'));
+        return new RedirectResponse($this->urlGenerator->generate('front_home'));
 
 
         // For example:
@@ -64,11 +64,7 @@ class ObabyAuthenticator extends AbstractLoginFormAuthenticator
     
     public function supports(Request $request): bool
 {
-    // le code du AbstractLoginFormAuthenticator
-    // dump($this->getLoginUrl($request)); // affiche avec un accès avec apache /symfo/oflix-JB-oclock/public/login
-    // dump($request->getPathInfo()); // affiche /login
-    // donc l'authenticator ne 
-    // return $request->isMethod('POST') && $this->getLoginUrl($request) === $request->getPathInfo();
+    //* login don't work with apache pack, this method fix it
 
     return $request->isMethod('POST') && '/login' === $request->getPathInfo();
 }
