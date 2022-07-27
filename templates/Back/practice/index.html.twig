@@ -3,9 +3,9 @@
 {% block title %}Practice index
 {% endblock %}
 
-{% block body %}
-	{% include '/Back/partials/_nav_back.html.twig' %}
+{% block navbar %}{% include '/Back/partials/_nav_back.html.twig' %}{% endblock %}
 
+{% block body %}
 	<h1 class="text-center">Liste des bonnes pratiques</h1>
 
 	<section class="row">
@@ -36,7 +36,7 @@
 							<td>{{ practice.status }}</td>
                             <td> 
                                 <form action="{{ path('back_practice_validate', {'id': practice.id}) }}" method="post">
-                                    <button>test</button>
+                                    <button class="btn btn-warning">Valider</button>
                                 </form>
                             </td>
 							<td>

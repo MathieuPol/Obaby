@@ -2,8 +2,9 @@
 
 {% block title %}Question index{% endblock %}
 
+{% block navbar %}{% include '/Back/partials/_nav_back.html.twig' %}{% endblock %}
+
 {% block body %}
-{% include '/Back/partials/_nav_back.html.twig' %}
     <h1 class="text-center">Liste des questions</h1>
 
         <section class="row">
@@ -29,7 +30,7 @@
                             <td>{{ question.status }}</td>
                             <td> 
                                 <form action="{{ path('back_question_validate', {'id': question.id}) }}" method="post">
-                                    <button class="btn btn-secondary">Valider</button>
+                                    <button class="btn btn-warning">Valider</button>
                                 </form>
                             </td>
                             <td>
