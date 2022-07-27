@@ -10,15 +10,18 @@ use App\Entity\Question;
 use App\Entity\Answer;
 use App\Entity\Practice;
 use App\Entity\User;
+use App\Services\SlugService;
 use ProxyManager\ProxyGenerator\LazyLoadingGhost\PropertyGenerator\PrivatePropertiesMap;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AppFixtures extends Fixture
 {
     private $slug;
+    private $slugService;
     
-    public function __construct(SluggerInterface $slug) {
+    public function __construct(SluggerInterface $slug, SlugService $slugService) {
         $this->slug = $slug;
+        $this->slugService = $slugService;
     }
     
     public function load(ObjectManager $manager): void
@@ -113,6 +116,7 @@ class AppFixtures extends Fixture
         for($l = 0; $l < 30; $l++) {
             $practice = new Practice();
             $practice->setTitle($faker->sentence(true));
+            $practice->setSlug($this->slugService->slug($practice->getTitle()));
             $practice->setContent($faker->paragraph(3));
             $practice->setCategory($categoryList[array_rand($categoryList)]);
             $datePractice = $faker->date('Y-m-d');
@@ -127,6 +131,7 @@ class AppFixtures extends Fixture
             $userAdmin = new User();
             $userAdmin->setEmail('admin@admin.com');
             $userAdmin->setPseudo('admin');
+            $userAdmin->setSlug($this->slugService->slug($userAdmin->getPseudo()));
             $userAdmin->setPassword('$2y$13$B5F2MaAidY68n5uqLEfrKeom.VARDRos.mEdgvWZWTTRXztOatBnq');
             $userAdmin->setStatus(1);
             $userAdmin->setRoles(['ROLE_ADMIN']);
@@ -134,6 +139,7 @@ class AppFixtures extends Fixture
             $userModetaror = new User();
             $userModetaror->setEmail('moderatior@moderator.com');
             $userModetaror->setPseudo('moderator');
+            $userModetaror->setSlug($this->slugService->slug($userModetaror->getPseudo()));
             $userModetaror->setPassword('$2y$13$4aEMwhxQrZhkpKlDwtbfvOIDi8k5yoniNLV/Qb7xfUfCuHb2dgC2i');
             $userModetaror->setStatus(1);
             $userModetaror->setRoles(['ROLE_MODERATOR']);
@@ -141,6 +147,7 @@ class AppFixtures extends Fixture
             $userUser = new User();
             $userUser->setEmail('user@user.com');
             $userUser->setPseudo('user');
+            $userUser->setSlug($this->slugService->slug($userUser->getPseudo()));
             $userUser->setPassword('$2y$13$vAX65eah5osvbxoLSY.QGO2TpbCNQgMs4blP6WZ0zwPXt7gUnERSC');
             $userUser->setStatus(1);
             $userUser->setRoles(['ROLE_USER']);
@@ -148,6 +155,7 @@ class AppFixtures extends Fixture
             $userAnonymous = new User();
             $userAnonymous->setEmail('obaby@gmail.com');
             $userAnonymous->setPseudo('Anonymous');
+            $userAnonymous->setSlug($this->slugService->slug($userAnonymous->getPseudo()));
             $userAnonymous->setPassword('$2y$13$SQCAsxHo2Pwk9vAnSpMIxuCQvBrAE.ekHEYE5eKL/ChksQASPJ1cS');
             $userAnonymous->setStatus(1);
             $userAnonymous->setRoles(['ROLE_USER']);
