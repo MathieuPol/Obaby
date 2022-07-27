@@ -127,7 +127,13 @@ class AppFixtures extends Fixture
             $userUser->setStatus(1);
             $userUser->setRoles(['ROLE_USER']);
 
-
+            $userAnonymous = new User();
+            $userAnonymous->setEmail('obaby@gmail.com');
+            $userAnonymous->setPseudo('Anonymous');
+            $userAnonymous->setPassword('$2y$13$SQCAsxHo2Pwk9vAnSpMIxuCQvBrAE.ekHEYE5eKL/ChksQASPJ1cS');
+            $userAnonymous->setStatus(1);
+            $userAnonymous->setRoles(['ROLE_USER']);
+            
 			$manager->persist($userAdmin);
             $manager->persist($userModetaror);
             $manager->persist($userUser);
