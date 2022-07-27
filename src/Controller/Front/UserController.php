@@ -51,6 +51,7 @@ class UserController extends AbstractController
         ]);
     }
 
+
 //* Route to show personnal informations
     /**
      * @Route ("/{id}", name="show", methods={"GET"})
@@ -108,5 +109,6 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('Front/main/index.html.twig', [], Response::HTTP_SEE_OTHER);
     }
+
 
 }

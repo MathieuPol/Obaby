@@ -1,34 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category index{% endblock %}
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('css/hub-category.css') }}"/>
+
+{% endblock %}
+
+{% block title %}Categories de questions{% endblock %}
 
 {% block body %}
-    <h1>Category index</h1>
+    <!-- Main Content Start -->
+<main class="container-fluid row m-auto">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <content class="text-center d-flex flex-column align-items-center">
+
+   <div class="container-xxl py-5 ">
+    <div class="container">
+
+      
+      <div class="row g-3 category-container">
+
         {% for category in categories %}
-            <tr>
-                <td>{{ category.id }}</td>
-                <td>{{ category.name }}</td>
-                <td>
-                    <a href="{{ path('question_list', {'id': category.id}) }}">show</a>
+        <div class="col-lg-6 col-sm-6 d-flex m-auto mb-2 mt-0">
+          <a href="{{ path('question_list', {id: category.id}) }}" class="main-buttons-item btn-{{category.name}}">
+            <div class="main-buttons-text">
 
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
+            {% if category.name == 'Sécurité' %}
+              <i class="fas fa-lock fa-3x"></i>
+            {% elseif category.name == 'Loisir' %}
+              <i class="fa-solid fa-puzzle-piece fa-3x"></i>
+            {% elseif category.name == 'Grossesse' %}
+              <i class="fa-solid fa-person-pregnant fa-3x"></i>
+            {% elseif category.name == 'Nutrition' %}
+              <i class="fa-solid fa-cookie-bite fa-3x"></i>
+            {% elseif category.name == 'Santé' %}
+              <i class="fa-solid fa-briefcase-medical fa-3x"></i>
+            {% endif %}
+
+              <h3 class="mb-3">{{category.name}}</h3>
+            </div>
+          </a>
+        </div>
         {% endfor %}
-        </tbody>
-    </table>
+
+      </div>
+    </div>
+  </div>
+
+
+    </content>
 
 {% endblock %}

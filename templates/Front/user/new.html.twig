@@ -1,11 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Category{% endblock %}
+{% block title %}New Category
+{% endblock %}
+
+{% block stylesheets %}
+
+<link rel="stylesheet" href="{{ asset('css/inscription.css') }}"/>
+
+{% endblock %}
+
+{% block navbar %}{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Inscription</h1>
 
-    {{ include('Front/user/_form.html.twig') }}
+	<div id="main-inscription">
+		<div class="text-center" id="info-inscription"> <a href="{{ path('front_home') }}"> <img id="logo" src="../asset/logo/logo O'Baby.png" width="200" alt="logo" ></a>
+			<h1 class="title text-center">Inscription</h1>
+			
 
-   <a  class="btn btn-primary" href="{{ path('front_home') }}">Retournez à l'accueil</a>
+{{ include('Front/user/_form.html.twig') }}
+	
+				
+
 {% endblock %}
+
+{% block footer %}{% endblock %}

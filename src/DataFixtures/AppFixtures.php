@@ -34,16 +34,37 @@ class AppFixtures extends Fixture
 
         // Category creation
 
-        for ($i = 0; $i < 5; $i++) {
-            $category = new Category();
-            $category->setName($faker->word);
-            $manager->persist($category);
-            $categoryList[] = $category;
-        }
+            $category1 = new Category();
+            $category1->setName('Grossesse');
+            $manager->persist($category1);
+            $categoryList[] = $category1;
+
+            $category2 = new Category();
+            $category2->setName('Sécurité');
+            $manager->persist($category2);
+            $categoryList[] = $category2;
+
+            $category3 = new Category();
+            $category3->setName('Nutrition');
+            $manager->persist($category3);
+            $categoryList[] = $category3;
+
+            $category4 = new Category();
+            $category4->setName('Santé');
+            $manager->persist($category4);
+            $categoryList[] = $category4;
+
+            $category5 = new Category();
+            $category5->setName('Loisir');
+            $manager->persist($category5);
+            $categoryList[] = $category5;
+            
+
+
 
         // Question creation
 
-        for ($j = 0; $j < 10; $j++) {
+        for ($j = 0; $j < 30; $j++) {
             $question = new Question();
             $question->setContent($faker->sentence(true));
             $question->setCategory($categoryList[array_rand($categoryList)]);
@@ -57,7 +78,7 @@ class AppFixtures extends Fixture
 
         // Answer creation
 
-        for ($k = 0; $k < 10; $k++) {
+        for ($k = 0; $k < 30; $k++) {
             $answer = new Answer();
             $answer->setContent($faker->paragraph(true));
             $dateAnswer = $faker->date('Y-m-d');
@@ -71,7 +92,7 @@ class AppFixtures extends Fixture
 
         // Practice creation
 
-        for($l = 0; $l < 10; $l++) {
+        for($l = 0; $l < 30; $l++) {
             $practice = new Practice();
             $practice->setTitle($faker->sentence(true));
             $practice->setContent($faker->paragraph(3));
@@ -88,13 +109,28 @@ class AppFixtures extends Fixture
             $userAdmin = new User();
             $userAdmin->setEmail('admin@admin.com');
             $userAdmin->setPseudo('admin');
-	    $userAdmin->setPassword('$2y$13$B5F2MaAidY68n5uqLEfrKeom.VARDRos.mEdgvWZWTTRXztOatBnq');
-	    $userAdmin->setStatus(1);
-            //Not yet implemented
-            //$user->setStatus($faker->numberBetween(0, 1));
+            $userAdmin->setPassword('$2y$13$B5F2MaAidY68n5uqLEfrKeom.VARDRos.mEdgvWZWTTRXztOatBnq');
+            $userAdmin->setStatus(1);
             $userAdmin->setRoles(['ROLE_ADMIN']);
 
+            $userModetaror = new User();
+            $userModetaror->setEmail('moderatior@moderator.com');
+            $userModetaror->setPseudo('moderator');
+            $userModetaror->setPassword('$2y$13$4aEMwhxQrZhkpKlDwtbfvOIDi8k5yoniNLV/Qb7xfUfCuHb2dgC2i');
+            $userModetaror->setStatus(1);
+            $userModetaror->setRoles(['ROLE_MODERATOR']);
+
+            $userUser = new User();
+            $userUser->setEmail('user@user.com');
+            $userUser->setPseudo('user');
+            $userUser->setPassword('$2y$13$vAX65eah5osvbxoLSY.QGO2TpbCNQgMs4blP6WZ0zwPXt7gUnERSC');
+            $userUser->setStatus(1);
+            $userUser->setRoles(['ROLE_USER']);
+
+
 			$manager->persist($userAdmin);
+            $manager->persist($userModetaror);
+            $manager->persist($userUser);
 
 
         $manager->flush();
