@@ -10,9 +10,17 @@ use App\Entity\Question;
 use App\Entity\Answer;
 use App\Entity\Practice;
 use App\Entity\User;
+use ProxyManager\ProxyGenerator\LazyLoadingGhost\PropertyGenerator\PrivatePropertiesMap;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AppFixtures extends Fixture
 {
+    private $slug;
+    
+    public function __construct(SluggerInterface $slug) {
+        $this->slug = $slug;
+    }
+    
     public function load(ObjectManager $manager): void
     {
         // $product = new Product();
@@ -36,26 +44,36 @@ class AppFixtures extends Fixture
 
             $category1 = new Category();
             $category1->setName('Grossesse');
+            $categorySlug1 = $this->slug->slug($category1->getName())->lower();
+            $category1->setSlug($categorySlug1);
             $manager->persist($category1);
             $categoryList[] = $category1;
 
             $category2 = new Category();
             $category2->setName('Sécurité');
+            $categorySlug2 = $this->slug->slug($category2->getName())->lower();
+            $category2->setSlug($categorySlug2);
             $manager->persist($category2);
             $categoryList[] = $category2;
 
             $category3 = new Category();
             $category3->setName('Nutrition');
+            $categorySlug3 = $this->slug->slug($category3->getName())->lower();
+            $category3->setSlug($categorySlug3);
             $manager->persist($category3);
             $categoryList[] = $category3;
 
             $category4 = new Category();
             $category4->setName('Santé');
+            $categorySlug4 = $this->slug->slug($category4->getName())->lower();
+            $category4->setSlug($categorySlug4);
             $manager->persist($category4);
             $categoryList[] = $category4;
 
             $category5 = new Category();
             $category5->setName('Loisir');
+            $categorySlug5= $this->slug->slug($category5->getName())->lower();
+            $category5->setSlug($categorySlug5);
             $manager->persist($category5);
             $categoryList[] = $category5;
             
@@ -127,7 +145,13 @@ class AppFixtures extends Fixture
             $userUser->setStatus(1);
             $userUser->setRoles(['ROLE_USER']);
 
-
+            $userAnonymous = new User();
+            $userAnonymous->setEmail('obaby@gmail.com');
+            $userAnonymous->setPseudo('Anonymous');
+            $userAnonymous->setPassword('$2y$13$SQCAsxHo2Pwk9vAnSpMIxuCQvBrAE.ekHEYE5eKL/ChksQASPJ1cS');
+            $userAnonymous->setStatus(1);
+            $userAnonymous->setRoles(['ROLE_USER']);
+            
 			$manager->persist($userAdmin);
             $manager->persist($userModetaror);
             $manager->persist($userUser);
