@@ -10,6 +10,7 @@ use App\Form\AnswerType;
 use App\Form\PracticeType;
 use App\Repository\CategoryRepository;
 use App\Repository\PracticeRepository;
+use App\Services\SlugService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,13 +41,14 @@ class PracticeController extends AbstractController
     /**
      * @Route("/practice/submit", name="practice_submit", methods={"GET", "POST"})
      */
-    public function submit(Request $request, PracticeRepository $practiceRepository): Response
+    public function submit(Request $request, PracticeRepository $practiceRepository, SlugService $slugService): Response
     {
         $practice = new Practice();
         $form = $this->createForm(PracticeType::class, $practice);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $practice->setSlug($slugService->slug($practice->getTitle()));
             $practiceRepository->add($practice, true);
 
             return $this->redirectToRoute('app_practice_index', [], Response::HTTP_SEE_OTHER);

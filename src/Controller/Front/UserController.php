@@ -8,6 +8,7 @@ use App\Entity\User;
 use App\Form\NewUserType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use App\Services\SlugService;
 use Doctrine\ORM\Query\Expr\Func;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,7 +27,7 @@ class UserController extends AbstractController
      * @Route ("/new", name="new", methods={"GET","POST"})
      * @param int $id
     */
-    public function new(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): Response
+    public function new(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher, SlugService $slug): Response
     {
         $user = new User();
         $form = $this->createForm(NewUserType::class, $user);
@@ -41,9 +42,10 @@ class UserController extends AbstractController
             $user->setPassword($hashedPassword);
             $user->setStatus(1);
             $user->setRoles(['ROLE_USER']);
+            $user->setSlug($slug->slug($user->getPseudo()));
             $userRepository->add($user, true);
 
-            return $this->redirectToRoute('user_new', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('security_login', [], Response::HTTP_SEE_OTHER);
         }
         return $this->renderForm('Front/user/new.html.twig', [
             'user' => $user,
