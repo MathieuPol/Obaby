@@ -8,6 +8,7 @@ use App\Entity\User;
 use App\Form\NewUserType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use Doctrine\ORM\Query\Expr\Func;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -48,4 +49,18 @@ class UserController extends AbstractController
             'form' => $form,
         ]);
     }
+
+//* Route to show personnal informations
+    /**
+     * @Route ("/{id}", name="show", methods={"GET"})
+    */
+    public function show(User $user): Response
+    {
+
+        return $this->render('Front/user/personnalInformation.html.twig', [
+            'user' => $user,
+        ]);
+    }
+
+
 }
