@@ -19,7 +19,7 @@ class UserType extends AbstractType
                 'choices' => [
                     'user' => 'ROLE_USER',
                     'admin' => 'ROLE_ADMIN',
-                    'manager' => 'ROLE_MODERATOR',
+                    'modérateur' => 'ROLE_MODERATOR',
                 ],
                 "multiple" => true,
                 // radio buttons or checkboxes
@@ -28,6 +28,7 @@ class UserType extends AbstractType
             ->add('pseudo')
             ->add('status')
         ;
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void

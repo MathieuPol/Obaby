@@ -1,36 +1,33 @@
-   <!-- Navbar Start -->
+         <!-- Navbar Start -->
   <nav class="navbar navbar-expand-lg bg-white navbar-light ">
-    <a href="index.html" class="navbar-brand">
-      <img class="m-2" style="width: 8rem; height: 3rem" role="logo" src="OBaby.png" alt=""
+    <a href={{ path('front_home')}} class="navbar-brand">
+      <img class="m-2" style="width: 8rem; height: 3rem" role="logo" src="{{ asset('asset/logo/logo O\'Baby.png') }}" alt=""
         srcset="" />
     </a>
     <!-- Hamburger Start -->
 
-    <button type="button" class="navbar-toggler m-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div type="button" class=" m-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <div class="menu-btn">
+        <div class="menu-btn__burger"></div>
+      </div>
+    </div>
+
+    <!-- <div class="m-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    </div> -->
+
 
     <!-- Hamburger End -->
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav mx-auto">
-        <a href="{{ path('back_home') }}" class="nav-item nav-link">Panneau d'administration</a>
-        <a href="{{ path('front_home') }}" class="nav-item nav-link">Page d'accueil</a>
-        <a href="contact.html" class="nav-item nav-link">Mon compte</a>
-        <a href="classes.html" class="nav-item nav-link">Se déconnecter</a>
-        <div class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-          <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-            <a href="login.html" class="dropdown-item">Questions</a>
-            <a href="team.html" class="dropdown-item">Bonnes Pratiques</a>
-            <a href="call-to-action.html" class="dropdown-item">Catégories</a>
-            <a href="appointment.html" class="dropdown-item">Réponses</a>
-            <a href="404.html" class="dropdown-item">404 Error</a>
-          </div>
-        </div>
+        <a href={{ path('back_home')}} class="nav-item nav-link">Panneau d'administration</a>
+        <a href={{ path('back_practice_list')}} class="nav-item nav-link">Bonnes pratiques</a>
+        <a href={{ path('back_question_list')}} class="nav-item nav-link">Questions</a>
+        <a href={{ path('back_answer_list')}} class="nav-item nav-link">Réponses</a>
+        <a href={{ path('back_user_show')}} class="nav-item nav-link">Utilisateurs</a>
+
       </div>
-      <a href="login.html" class="btn rounded-pill px-3 d-none d-lg-block m-2">Connexion<i
-          class="fa fa-arrow-right ms-3"></i></a>
+      <a href="{{ path('security_logout') }}" class="btn rounded-pill px-3 d-none d-lg-block m-2">Déconnection<i class="fa fa-sign-in ms-3" aria-hidden="true"></i></a>
     </div>
   </nav>
   <!-- Navbar End -->

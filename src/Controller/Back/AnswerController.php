@@ -30,7 +30,7 @@ class AnswerController extends AbstractController
     }
 
     /**
-     * @Route("", name="answer", methods={"GET"})
+     * @Route("", name="answer_list", methods={"GET"})
      */
     public function list(AnswerRepository $answerRepository): Response
     {

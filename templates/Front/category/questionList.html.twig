@@ -22,18 +22,18 @@
 
         {% for category in categories %}
         <div class="col-lg-6 col-sm-6 d-flex m-auto mb-2 mt-0">
-          <a href="{{ path('question_list', {id: category.id}) }}" class="main-buttons-item btn-{{category.name}}">
+          <a href="{{ path('question_list', {slug: category.slug}) }}" class="main-buttons-item btn-{{category.name}}">
             <div class="main-buttons-text">
 
-            {% if category.name == 'Sécurité' %}
+            {% if category.slug == 'securite' %}
               <i class="fas fa-lock fa-3x"></i>
-            {% elseif category.name == 'Loisir' %}
+            {% elseif category.slug == 'loisir' %}
               <i class="fa-solid fa-puzzle-piece fa-3x"></i>
-            {% elseif category.name == 'Grossesse' %}
+            {% elseif category.slug == 'grossesse' %}
               <i class="fa-solid fa-person-pregnant fa-3x"></i>
-            {% elseif category.name == 'Nutrition' %}
+            {% elseif category.slug == 'nutrition' %}
               <i class="fa-solid fa-cookie-bite fa-3x"></i>
-            {% elseif category.name == 'Santé' %}
+            {% elseif category.slug == 'sante' %}
               <i class="fa-solid fa-briefcase-medical fa-3x"></i>
             {% endif %}
 
