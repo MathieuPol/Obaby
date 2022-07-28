@@ -130,7 +130,7 @@ class AppFixtures extends Fixture
             $categoryList[] = $category3;
 
             $category4 = new Category();
-            $category4->setName('Santé');
+            $category4->setName('Santé et soins');
             $categorySlug4 = $this->slug->slug($category4->getName())->lower();
             $category4->setSlug($categorySlug4);
             $manager->persist($category4);
