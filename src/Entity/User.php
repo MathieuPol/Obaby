@@ -38,12 +38,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=64)git
      */
     private $pseudo;
 
     /**
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(type="smallint", unique=true)
      */
     private $status;
 
