@@ -43,7 +43,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $pseudo;
 
     /**
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(type="smallint", unique=true)
      */
     private $status;
 
