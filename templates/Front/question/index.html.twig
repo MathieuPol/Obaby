@@ -7,7 +7,7 @@
 {% endblock %}
 {% block body %}
 
- <h1 class="text-center">Questions <img class="bottle" src="{{ asset('asset/img/biberon.png') }}" alt="">    Réponses</h1>
+ <h1 class="text-center">Questions <img class="bottle" src="{{ asset('asset/img/biberon.png') }}" alt="">Réponses</h1>
   
   <aside class="mb-3 position-relative">  
 
@@ -17,9 +17,13 @@
             </a>
           
             <ul class="dropdown-menu text-center position-absolute" id="category-nav">
-              <li><a class="dropdown-item text-light" href="#">Santé</a></li>
-              <li><a class="dropdown-item text-light" href="#">Nutrition</a></li>
-              <li><a class="dropdown-item text-light" href="#">Bien être</a></li>
+              {% for category in categoryList %}
+                <li class="dropdown-item">
+                  <a  class="text-light" href="{{ path('question_list', {'slug': category.slug}) }}">{{ category.name }}</a>
+                </li>
+              {% endfor %}
+
+
             </ul>
           </div>
           
