@@ -27,7 +27,7 @@
 @media (max-width: 375px) {
 	#info-inscription {
 	width: 85%;
-	height: 650px;
+	height: 660px;
 	border-radius: 5px;
 	color: var(--bs-white);
 	background-color: rgba(0, 0, 0, 0.35);
@@ -35,7 +35,7 @@
 	top: 50%;
 	position: absolute;
 	transform: translate(-50%, -50%);
-	font-size: 9px;
+	font-size: 10px;
 	border-radius: 22.2px;
 	box-shadow: 0 0 16px #5dc7ec;
 	max-width: 350px;
@@ -50,9 +50,15 @@
 		font-size: 12px;
 		margin: 0;
 	}
+	.form-label {
+		font-size: .8rem;
+	}
+	.btn-submit {
+		height: 10px;
+	}
 }
 
-@media (max-width: 540px) {
+@media (min-width: 540px) {
 	#info-inscription {
 	width: 90%;
 	height: 700px;
@@ -63,10 +69,17 @@
 	top: 50%;
 	position: absolute;
 	transform: translate(-50%, -50%);
-	font-size: 11px;
+	font-size: 16px;
 	border-radius: 22.2px;
 	box-shadow: 0 0 16px #5dc7ec;
 	max-width: 350px;
+	}
+	.btn-submit {
+		height: 10px;
+	}
+
+	.form-label {
+		font-size: 1rem;
 	}
 }
 
