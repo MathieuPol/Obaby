@@ -72,3 +72,17 @@
     background-color: var(--blue);
     color: white;
 }
+
+.back-btn{
+    background-color: var(--green);
+    color: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+
+.back-btn:hover,
+    .submit-btn:focus{
+    background-color: var(--blue);
+    color: white;
+}

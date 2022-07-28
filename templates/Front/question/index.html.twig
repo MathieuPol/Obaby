@@ -51,14 +51,7 @@
           <p class="card-text">{{ question.content }}</p>
         </div>
         <div class="card-footer">
-
-            <form>
-                <div class="form-group">
-                  <label for="textarea">Votre réponse</label>
-                  <textarea class="form-control" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary mt-2 submit-btn">Valider la réponse</button>
-              </form>
+                <a class="btn btn-primary mt-2" href="{{ path('question_answer', {'id': question.id}) }}" aria-expanded="false">Formuler une réponse</a>
         </div>
       </div>
     </article>

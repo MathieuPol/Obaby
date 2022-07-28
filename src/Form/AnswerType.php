@@ -18,8 +18,8 @@ class AnswerType extends AbstractType
     {
         $builder
             ->add('content', TextType::class, [
-            'label' => 'Rédigez votre réponse',
-            'help' => 'Ce champ ne doit pas être nul',
+            'label' => '*Rédigez votre réponse',
+            'help' => '*Champ obligatoire',
             'constraints' => new NotBlank(),
             ]);
     }
