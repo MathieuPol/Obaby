@@ -16,7 +16,7 @@ a:link {
 
 h1 {
     font-family: 'Lobster Two', cursive;
-
+    color: var(--primary);
 }
 
 .styled-link {
@@ -392,13 +392,6 @@ img .carousel-picture {
 
 
 /********** Testimonial **********/
-.title-testimonial {
-    color: #C237FE;
-    font-family: 'Lobster Two', cursive;
-    font-size: 3rem;
-}
-
-
 
 .container {
     display: flex;
