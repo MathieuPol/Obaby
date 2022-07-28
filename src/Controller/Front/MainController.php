@@ -3,6 +3,7 @@
 
 namespace App\Controller\Front;
 
+use App\Repository\QuestionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,10 +15,16 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="front_home", methods={"GET"})
      */
-    public function home(): Response
+    public function home( QuestionRepository $question): Response
     {
+        //* show the last five questions(using in carroussel)
+        $carrousselQuestion = $question->findBy([], ['id' => 'DESC'], 5);
+
+
+
+
         return $this->render('Front/main/index.html.twig', [
-            'controller_name' => 'MainController',
+            'questionCarroussel' => $carrousselQuestion,
         ]);
     }
 

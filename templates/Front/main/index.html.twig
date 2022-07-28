@@ -134,100 +134,25 @@
     <div class="container">
       <div class="testimonial-content owl-carousel">
         <!-- slide item 1 -->
+
+      {% for question in questionCarroussel %}
         <div class="single-testimonial">
           <a href="#">
             <p>
-              D'une manière ou d'une autre, la compétence purement technique
-              tarde à propulser les revenus comparé(e)(s) la rénaque, c’est
-              clair.
+              {{ question.content }}
             </p>
               <div class="client-info">
                 <div class="client-pic">
-                  <img src="./asset/img/avatar1.svg" alt="" />
+                  <img src="{{ asset('asset/img/avatar1.svg') }}" alt="" />
                 </div>
                   <div class="client-details">
-                    <h6>luka</h6>
-                      <span>Développeur</span>
+                    <h6> {{ question.user.pseudo }} </h6>
+
                   </div>
               </div>
           </a>
         </div>
-        <!-- slide item 2 -->
-        <div class="single-testimonial">
-          <a href="#">
-            <p>
-              D'une manière ou d'une autre, la compétence purement technique
-              tarde à propulser les revenus comparé(e)(s) la rénaque, c’est
-              clair.
-            </p>
-              <div class="client-info">
-                <div class="client-pic">
-                  <img src="./asset/img/avatar2.svg" alt="" />
-                </div>
-                  <div class="client-details">
-                    <h6>luka</h6>
-                      <span>Développeur</span>
-                  </div>
-              </div>
-          </a>
-        </div>
-        <!-- slide item 3 -->
-        <div class="single-testimonial">
-          <a href="#">
-            <p>
-              D'une manière ou d'une autre, la compétence purement technique
-              tarde à propulser les revenus comparé(e)(s) la rénaque, c’est
-              clair.
-            </p>
-              <div class="client-info">
-                <div class="client-pic">
-                  <img src="./asset/img/avatar3.svg" alt="" />
-                </div>
-                  <div class="client-details">
-                    <h6>luka</h6>
-                      <span>Développeur</span>
-                  </div>
-              </div>
-          </a>
-        </div>
-        <!-- slide item 4 -->
-        <div class="single-testimonial">
-          <a href="#">
-            <p>
-              D'une manière ou d'une autre, la compétence purement technique
-              tarde à propulser les revenus comparé(e)(s) la rénaque, c’est
-              clair.
-            </p>
-              <div class="client-info">
-                <div class="client-pic">
-                  <img src="./asset/img/avatar4.svg" alt="" />
-                </div>
-                  <div class="client-details">
-                    <h6>luka</h6>
-                      <span>Développeur</span>
-                  </div>
-              </div>
-          </a>
-        </div>
-        <!-- slide item 5 -->
-        <div class="single-testimonial">
-          <a href="#">
-            <p>
-              D'une manière ou d'une autre, la compétence purement technique
-              tarde à propulser les revenus comparé(e)(s) la rénaque, c’est
-              clair.
-            </p>
-              <div class="client-info">
-                <div class="client-pic">
-                  <img src="./asset/img/avatar2.svg" alt="" />
-                </div>
-                  <div class="client-details">
-                    <h6>luka</h6>
-                      <span>Développeur</span>
-                  </div>
-              </div>
-          </a>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </section>
