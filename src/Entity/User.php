@@ -38,7 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=64)git
+     * @ORM\Column(type="string", length=64)
      */
     private $pseudo;
 
