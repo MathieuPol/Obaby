@@ -1,7 +1,7 @@
 
 
 
-.page_404  img { 
+.page_403  img { 
     width:100%;
     
 }
@@ -12,7 +12,7 @@
     z-index: -1000;
     background: #5dc7ec;
 }
-.contant_box_404 {
+.contant_box_403 {
     margin-top: -55px;
 }
 .animated-link {

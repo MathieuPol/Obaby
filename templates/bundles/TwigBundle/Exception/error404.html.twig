@@ -1,0 +1,18 @@
+{% block stylesheets %}
+
+<link rel="stylesheet" href="{{ asset('css/404.css') }}"/>
+{% endblock %}
+
+{% block body %}
+    <div id="container">
+        <div class="content">
+            <img src="{{ asset('./asset/logo/logo O\'Baby 404.png') }}" alt="logo" srcset="" />
+                <h4>Oups !! page non trouvée</h4>
+                    <p>la page que vous souhaitez voir n'existe pas</p>
+                        <a href="{{ path('front_home')}}" class="animated-link back404">
+                            <span> Accueil</span>
+                        </a>
+        </div>
+    </div>
+    <script src="{{ asset('./js/404.js') }}"></script>
+{% endblock %}
