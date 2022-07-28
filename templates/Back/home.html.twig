@@ -39,9 +39,15 @@
 									<td>{{ practice.title }}</td>
 									<td>{{ practice.content }}</td>
 									<td>{{ practice.CreatedAt|date("d/m/Y") }}</td>
-									<td class="bg-success">
-										{{ practice.status }}
-									</td>
+									{% if practice.status ==1 %}
+										<td class="bg-success">
+											{{ practice.status }}
+										</td>
+									{% else %}
+										<td class="bg-warning">
+											{{ practice.status }}
+										</td>
+									{% endif %}
 								</tr>
 							{% endfor %}
 						</tbody>
@@ -76,7 +82,15 @@
 									<td>{{ question.content }}</td>
 									<td>{{ question.CreatedAt|date("d/m/Y") }}</td>
 									<td>{{ question.category.name }}</td>
-									<td class="bg-success">{{ question.status }}</td>
+									{% if question.status ==1 %}
+										<td class="bg-success">
+											{{ question.status }}
+										</td>
+									{% else %}
+										<td class="bg-warning">
+											{{ question.status }}
+										</td>
+									{% endif %}
 								</tr>
 							{% endfor %}
 						</tbody>
@@ -110,7 +124,15 @@
 									<td>{{ answer.content }}</td>
 									<td>{{ answer.CreatedAt|date("d/m/Y") }}</td>
 									<td>{{ answer.question.content }}</td>
-									<td class="bg-success">{{ answer.status }}</td>
+									{% if answer.status ==1 %}
+										<td class="bg-success">
+											{{ answer.status }}
+										</td>
+									{% else %}
+										<td class="bg-warning">
+											{{ answer.status }}
+										</td>
+									{% endif %}
 								</tr>
 							{% endfor %}
 						</tbody>
@@ -142,7 +164,15 @@
 									<td>{{ user.id }}</td>
 									<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 									<td>{{ user.pseudo }}</td>
-									<td class="bg-success">{{ user.status }}</td>
+                  {% if user.status ==1 %}
+										<td class="bg-success">
+											{{ user.status }}
+										</td>
+									{% else %}
+										<td class="bg-warning">
+											{{ user.status }}
+										</td>
+									{% endif %}
 								</tr>
 							{% endfor %}
 						</tbody>
