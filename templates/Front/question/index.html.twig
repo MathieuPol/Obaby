@@ -6,8 +6,8 @@
 
 {% endblock %}
 {% block body %}
-
- <h1 class="text-center">Questions <img class="bottle" src="{{ asset('asset/img/biberon.png') }}" alt="">    Réponses</h1>
+<button id="ask-submit-btn" onclick="window.location.href= '{{ path('question_ask')}}'" type="button">Posez une question</button>
+ <h1 class="text-center">Questions <img class="bottle" src="{{ asset('asset/img/biberon.png') }}" alt="">Réponses</h1>
   
   <aside class="mb-3 position-relative">  
 
@@ -17,22 +17,26 @@
             </a>
           
             <ul class="dropdown-menu text-center position-absolute" id="category-nav">
-              <li><a class="dropdown-item text-light" href="#">Santé</a></li>
-              <li><a class="dropdown-item text-light" href="#">Nutrition</a></li>
-              <li><a class="dropdown-item text-light" href="#">Bien être</a></li>
+              {% for category in categoryList %}
+                <li class="dropdown-item">
+                  <a  class="text-light" href="{{ path('question_list', {'slug': category.slug}) }}">{{ category.name }}</a>
+                </li>
+              {% endfor %}
+
+
             </ul>
           </div>
           
           
   </aside>
-        <main class="container-fluid row m-auto">
+        <main class="container-fluid row m-auto p-0">
 
-    <content class="text-center d-flex flex-column align-items-center">
+    <content class="text-center d-flex flex-column align-items-center p-0">
 
   <!-- Factoriser ici -->
   {% for question in questions %}
 
-    <article   class="col-lg-10 mb-3 question-div">
+    <article  class="col-lg-10 mb-3 col-10 question-div">
       <div class="card banner-owner" role="card-banner">
         <img src="{{ asset('asset/img/yellowNipple.png') }}" class="card-img-top banner-feature" alt="nipple picture">
 
@@ -51,28 +55,21 @@
           <p class="card-text">{{ question.content }}</p>
         </div>
         <div class="card-footer">
-
-            <form>
-                <div class="form-group">
-                  <label for="textarea">Votre réponse</label>
-                  <textarea class="form-control" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary mt-2 submit-btn">Valider la réponse</button>
-              </form>
+                <a class="btn btn-primary mt-2" href="{{ path('question_answer', {'id': question.id}) }}" aria-expanded="false">Formuler une réponse</a>
         </div>
       </div>
     </article>
 
 
-    <div class="accordion mb-5 col-lg-10 col-12" id="accordionAnswer">
+    <div class="accordion mb-5 col-lg-10 col-md-10 col-10" id="accordionAnswer">
 
         <div class="accordion-item">
-            <h2 class="accordion-header" id="heading-answer">
-                <button class="accordion-button collapsed flex-column" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-answer" aria-expanded="false" aria-controls="collapse-answer">
+            <h2 class="accordion-header" id="heading-answer-{{ question.id }}">
+                <button class="accordion-button collapsed flex-column text-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-answer-{{ question.id }}" aria-expanded="false" aria-controls="collapse-answer">
                     Les réponses de la communauté
                 </button>
             </h2>
-            <div id="collapse-answer" class="accordion-collapse collapse" aria-labelledby="heading-answer" data-bs-parent="#accordionReviews">
+            <div id="collapse-answer-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="heading-answer-{{ question.id }}" data-bs-parent="#accordionReviews">
               {% for answer in question.answers %}
                 <div class="accordion-body border border-solid">
                     <p>{{ answer.content }}</p>

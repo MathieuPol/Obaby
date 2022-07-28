@@ -29,3 +29,34 @@
 .dropdown .btn{
     background-color: var(--primary);
 }
+
+#ask-submit-btn{
+    position: fixed;
+/*     position: -webkit-sticky; */
+    top: 32rem;
+    left: 1rem;
+/*     left: calc(50% - 61px); */
+    background-color: var(--primary);
+    width: 7rem;
+    height: 7rem;
+    z-index: 2;
+    border-radius: 50%;
+    border: solid 1px var(--blue);
+    color: white;
+}
+
+#ask-submit-btn:hover{
+    position: fixed;
+/*     position: -webkit-sticky; */
+    top: 32rem;
+    left: 1rem;
+/*     left: calc(50% - 61px); */
+    background-color: var(--blue);
+    transition: 2s;
+    width: 7rem;
+    height: 7rem;
+    z-index: 2;
+    border-radius: 50%;
+    border: solid 1px var(--blue);
+    color: black;
+}

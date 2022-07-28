@@ -47,13 +47,14 @@ class QuestionController extends AbstractController
 //* Route used to submit a new answer
 
     /**
-     * @Route("/question/{id}/answer", name="question_answer", methods={"POST"})
+     * @Route("/question/{id}/answer", name="question_answer", methods={"GET","POST"})
      */
     public function answer(Question $question, Request $request, AnswerRepository $answerRepository): Response
     {
         $answer = new Answer();
         $form = $this->createForm(AnswerType::class, $answer);
         $form->handleRequest($request);
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->addFlash('success', 'Votre réponse a bien été enregistrée. Elle est en attente de modération.');
@@ -62,13 +63,13 @@ class QuestionController extends AbstractController
             $answerRepository->add($answer, true);
 
             return $this->redirectToRoute('question_list', [
-                'id' => $question->getCategory()->getId()
+                'slug' => $question->getCategory()->getSlug()
             ]);
         }
 
-        return $this->renderForm('Front/question/answer.html.twig', [
+        return $this->renderForm('Front/answer/new.html.twig', [
             'question' => $question,
-            'form' => $form->createView()
+            'form' => $form
         ]);
     }
 
