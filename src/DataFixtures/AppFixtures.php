@@ -143,6 +143,13 @@ class AppFixtures extends Fixture
             $manager->persist($category5);
             $categoryList[] = $category5;
             
+            $category6 = new Category();
+            $category6->setName('Sommeil');
+            $categorySlug6= $this->slug->slug($category6->getName())->lower();
+            $category6->setSlug($categorySlug6);
+            $manager->persist($category6);
+            $categoryList[] = $category6;
+            
 
 
 
