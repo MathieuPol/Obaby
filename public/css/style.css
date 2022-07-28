@@ -16,10 +16,11 @@ a:link {
 
 h1 {
     font-family: 'Lobster Two', cursive;
+
 }
 
 .styled-link {
-    color: #C237FE;
+    color: var(--primary);
 }
 
 
@@ -167,11 +168,21 @@ a.btn:hover {
 /***********************************/
 
 /********** Carousel **********/
+
+.carousel-content {
+    z-index: 2;
+}
+
+img .carousel-picture {
+    z-index: -10;
+    background: #f6c344;
+}
 .carousel-control-next,
 .carousel-control-prev {
-    align-items: flex-end;
     margin-bottom: 1rem;
+    align-items: end;
 }
+
 
 /********** Media query carousel **********/
 @media (max-width: 359px) {
@@ -381,8 +392,10 @@ a.btn:hover {
 
 
 /********** Testimonial **********/
-h4 {
+.title-testimonial {
     color: #C237FE;
+    font-family: 'Lobster Two', cursive;
+    font-size: 3rem;
 }
 
 
