@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+
+{% block navbar %}{% endblock %}
+
+<link rel="stylesheet" href="{{ asset('css/403.css') }}"/>
+{% endblock %}
+
+{% block body %}
+<section class="page_403">
+        <div class="container d-flex justify-content-center">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 col-sm-12 d-flex justify-content-center">
+                    <div class="col-sm-10 col-sm-offset-1  text-center">
+                        <div class="logo">
+                        <img src="{{ asset('./asset/logo/logo O\'Baby 403.png') }}" alt="logo">
+                    </div>
+                    <div class="gif">
+                        <img class="gif" src="{{ asset('./asset/gif/404.gif') }}" alt="gif">
+                    </div>
+                        <div class="contant_box_403">
+                            <h1>ACCES INTERDIT</h1>
+                            <p>la page que vous recherchez n'est pas disponible !</p>
+                            <a href="{{ path('front_home')}}" class="animated-link 403">
+                                <span class="text-white"> Accueil</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
