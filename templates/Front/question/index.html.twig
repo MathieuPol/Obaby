@@ -25,14 +25,14 @@
           
           
   </aside>
-        <main class="container-fluid row m-auto">
+        <main class="container-fluid row m-auto p-0">
 
-    <content class="text-center d-flex flex-column align-items-center">
+    <content class="text-center d-flex flex-column align-items-center p-0">
 
   <!-- Factoriser ici -->
   {% for question in questions %}
 
-    <article   class="col-lg-10 mb-3 question-div">
+    <article  class="col-lg-10 mb-3 col-10 question-div">
       <div class="card banner-owner" role="card-banner">
         <img src="{{ asset('asset/img/yellowNipple.png') }}" class="card-img-top banner-feature" alt="nipple picture">
 
@@ -57,15 +57,15 @@
     </article>
 
 
-    <div class="accordion mb-5 col-lg-10 col-12" id="accordionAnswer">
+    <div class="accordion mb-5 col-lg-10 col-md-10 col-10" id="accordionAnswer">
 
         <div class="accordion-item">
-            <h2 class="accordion-header" id="heading-answer">
-                <button class="accordion-button collapsed flex-column" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-answer" aria-expanded="false" aria-controls="collapse-answer">
+            <h2 class="accordion-header" id="heading-answer-{{ question.id }}">
+                <button class="accordion-button collapsed flex-column text-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-answer-{{ question.id }}" aria-expanded="false" aria-controls="collapse-answer">
                     Les réponses de la communauté
                 </button>
             </h2>
-            <div id="collapse-answer" class="accordion-collapse collapse" aria-labelledby="heading-answer" data-bs-parent="#accordionReviews">
+            <div id="collapse-answer-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="heading-answer-{{ question.id }}" data-bs-parent="#accordionReviews">
               {% for answer in question.answers %}
                 <div class="accordion-body border border-solid">
                     <p>{{ answer.content }}</p>
