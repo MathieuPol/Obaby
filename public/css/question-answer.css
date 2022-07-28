@@ -118,3 +118,132 @@
     border: solid 1px var(--blue);
     color: black;
 }
+
+.btn-Sécurité{
+    background-color: var(--blue);
+    color: white;
+
+    border: solid 2px;
+    border-color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-Sécurité:hover{
+    background-color: white;
+    color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(--blue);
+    transition: 1.5s;
+}
+
+.btn-Nutrition{
+    background-color: var(--yellow);
+    border: solid 2px;
+    border-color: var(--yellow);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-Nutrition:hover{
+    background-color: white;
+    display: flex;
+    color: var(--yellow);
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(--yellow);
+    transition: 1.5s;
+}
+
+.btn-Grossesse{
+    background-color: var(--primary);
+    border: solid 2px;
+    border-color: var(--primary);
+    display: flex;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-Grossesse:hover{
+    color: var(--primary);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(--primary);
+    transition: 1.5s;
+}
+
+.btn-Santé{
+    border: solid 2px;
+    border-color: var(--green);
+    background-color: var(--green);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+
+.btn-Santé:hover{
+    background-color: white;
+    color: var(--green);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(--green);
+    transition: 1.5s;
+}
+
+.btn-Loisir{
+    background-color: red;
+    border: solid 2px;
+    display: flex;
+    color: white;
+    border-color: red;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-Loisir:hover{
+    color: red;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(red);
+    transition: 1.5s;
+}
+
+.btn-Sommeil{
+    border: solid 2px;
+    border-color: #E85B0E;
+    color: white;
+    background-color: #E85B0E;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-Sommeil:hover{
+    background-color: white;
+    display: flex;
+    color: #E85B0E;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(#E85B0E);
+    transition: 1.5s;
+}
+

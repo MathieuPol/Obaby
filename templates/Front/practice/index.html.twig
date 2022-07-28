@@ -16,9 +16,9 @@
             </a>
           
             <ul class="dropdown-menu text-center position-absolute" id="category-nav">
-              <li><a class="dropdown-item text-light" href="#">Santé</a></li>
-              <li><a class="dropdown-item text-light" href="#">Nutrition</a></li>
-              <li><a class="dropdown-item text-light" href="#">Bien être</a></li>
+            {% for category in categories %}
+              <li><a class="dropdown-item text-light" href="#">{{ category.name }}</a></li>
+            {% endfor %}
             </ul>
           </div>
           
