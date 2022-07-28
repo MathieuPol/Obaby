@@ -17,7 +17,7 @@
 
 
     <!-- Hamburger End -->
-
+{% if is_granted("ROLE_USER") %}
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav mx-auto">
         <a href={{ path('category_show_practice')}} class="nav-item nav-link">Bonnes pratiques</a>
@@ -37,8 +37,17 @@
           </div>
         </div>
       </div>
+      <a href="{{ path('security_login') }}" class="btn rounded-pill px-3 d-none d-lg-block m-2">Déconnexion<i class="fa fa-sign-in ms-3" aria-hidden="true"></i></a>
+    </div>
+{% else %}
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav mx-auto">
+        <a href={{ path('category_show_practice')}} class="nav-item nav-link">Bonnes pratiques</a>
+        <a href={{ path('category_show_question')}} class="nav-item nav-link">Questions / réponses</a>
+      </div>
       <a href="{{ path('security_login') }}" class="btn rounded-pill px-3 d-none d-lg-block m-2">Connexion<i class="fa fa-sign-in ms-3" aria-hidden="true"></i></a>
     </div>
+{% endif %}
   </nav>
   <!-- Navbar End -->
      
