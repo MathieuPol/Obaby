@@ -26,7 +26,14 @@ class UserType extends AbstractType
                 "expanded" => true,
             ])
             ->add('pseudo')
-            ->add('status')
+            ->add('status', ChoiceType::class,
+            [
+                'choices' => [
+                    'user' => '1',
+                    'admin' => '2',
+                    'modérateur' => '3',
+                ],
+            ])
         ;
 
     }
