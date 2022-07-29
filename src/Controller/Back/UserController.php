@@ -17,11 +17,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("", name="show", methods={"GET"})
+     * @Route("", name="list", methods={"GET"})
      */
-    public function index(UserRepository $userRepository): Response
+    public function list(UserRepository $userRepository): Response
     {
-        return $this->render('back/user/index.html.twig', [
+        return $this->render('Back/user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
     }
@@ -37,10 +37,10 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $userRepository->add($user, true);
 
-            return $this->redirectToRoute('back_user_show', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('back_user_list', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('back/user/update.html.twig', [
+        return $this->renderForm('Back/user/update.html.twig', [
             'user' => $user,
             'form' => $form,
         ]);
@@ -55,6 +55,6 @@ class UserController extends AbstractController
             $userRepository->remove($user, true);
         }
 
-        return $this->redirectToRoute('back_user_show', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('back_user_list', [], Response::HTTP_SEE_OTHER);
     }
 }
