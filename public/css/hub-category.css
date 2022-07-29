@@ -103,6 +103,26 @@
     transition: 1.5s;
 }
 
+.btn-Sommeil{
+    background-color: white;
+    border: solid 2px;
+    border-color: #E85B0E;
+    color: #E85B0E;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+}
+.btn-Sommeil:hover{
+    background-color: #E85B0E;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align : center;
+    box-shadow: 5px 8px 26px -2px var(#E85B0E);
+    transition: 1.5s;
+}
 
 
 @media screen and (min-width: 990px) {

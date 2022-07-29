@@ -3,7 +3,6 @@
 {% block stylesheets %}
 
     <link rel="stylesheet" href="{{ asset('css/question-answer.css') }}"/>
-
 {% endblock %}
 {% block body %}
 <button id="ask-submit-btn" onclick="window.location.href= '{{ path('question_ask')}}'" type="button">Posez une question</button>
@@ -32,13 +31,12 @@
         <main class="container-fluid row m-auto p-0">
 
     <content class="text-center d-flex flex-column align-items-center p-0">
-
   <!-- Factoriser ici -->
   {% for question in questions %}
 
     <article  class="col-lg-10 mb-3 col-10 question-div">
       <div class="card banner-owner" role="card-banner">
-        <img src="{{ asset('asset/img/yellowNipple.png') }}" class="card-img-top banner-feature" alt="nipple picture">
+        <img src="{{ asset('asset/img/nipple' ~ category.slug ~ '.png') }}" class="card-img-top banner-feature" alt="nipple picture">
 
 
 
@@ -49,14 +47,16 @@
                 </div>
                 <time  class="align-self-center align-content-end p-3" datetime="2022-25-07">{{ question.createdAt|date ("d/m/Y") }}</time>
             </div>
-            <p class="align-self-center category-item">{{ category.name }}</p>
+            <p class="align-self-center category-item btn-{{ category.name }}">{{ category.name }}</p>
 
         <div class="card-body">
           <p class="card-text">{{ question.content }}</p>
         </div>
+        {% if is_granted('ROLE_USER') %}
         <div class="card-footer">
                 <a class="btn btn-primary mt-2" href="{{ path('question_answer', {'id': question.id}) }}" aria-expanded="false">Formuler une réponse</a>
         </div>
+        {% endif %}
       </div>
     </article>
 
