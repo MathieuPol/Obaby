@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    height: 100vh;
+    background-color: #000;
+}
+
+#container {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:  linear-gradient(
+        rgba(24, 22, 22, 0.151), 
+        rgba(11, 11, 12, 0.6)
+      ), url("../asset/img/baby-mirror-origin-50.jpg") no-repeat fixed 50% 50%;
+    background-size: contain;
+}
+#container .content {
+    max-width: 600px;
+    text-align: center;
+}
+
+#container .content img {
+    position: relative;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+#container .content h4 {
+    position: relative;
+    font-size: 1.5em;
+    color:#FFF;
+    font-weight: 300;
+}
+
+#container .content p {
+    color: #FFF;
+    font-size: 1.2em;
+}
+
+
+.animated-link {
+    display: inline-block;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 25px;
+}
+
+.animated-link span {
+    display: inline-block;
+    background: #5dc7ec;
+    color: #333;
+    border: 1px solid #333;
+    padding: 18px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition:
+    transform .15s ease-out,
+    color .15s ease-out,
+    background-color .15s ease-out,
+}
+
+.animated-link:hover span {
+    transform: translate(-6px, -6px);
+    background:rgb(201, 2, 215) ;
+    color: #000;
+}
+
+.back404 {
+    background-color: #f3d9d9;
+}
