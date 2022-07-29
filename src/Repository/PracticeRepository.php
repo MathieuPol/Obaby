@@ -39,6 +39,17 @@ class PracticeRepository extends ServiceEntityRepository
         }
     }
 
+    public function selectActivatedPractices($categoryId): array
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.status = 1')
+            ->andWhere('p.category = :category')
+            ->setParameter('category', $categoryId)
+            ->orderBy('p.id', 'Desc')
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Practice[] Returns an array of Practice objects
 //     */

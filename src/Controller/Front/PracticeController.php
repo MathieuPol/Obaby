@@ -25,9 +25,11 @@ class PracticeController extends AbstractController
     /**
      * @Route("/category/{slug}/practice/list", name="practice_list", methods={"GET"})
      */
-    public function list(Category $category, CategoryRepository $categoryRepository): Response
+    public function list(Category $category, CategoryRepository $categoryRepository, PracticeRepository $practiceRepository): Response
     {
-        $practices = $category->getPractices();
+
+        $practices = $practiceRepository->selectActivatedPractices($category->getId());
+        //$practices = $category->getPractices();
         $categories = $categoryRepository->findAll();
 
         return $this->render('Front/practice/list.html.twig', [
