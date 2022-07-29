@@ -42,6 +42,7 @@ class PracticeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Votre question a bien été éditée.');
             $practiceRepository->add($practice, true);
 
             return $this->redirectToRoute('back_practice_list', [], Response::HTTP_SEE_OTHER);
@@ -62,6 +63,7 @@ class PracticeController extends AbstractController
     public function delete(Request $request, Practice $practice, PracticeRepository $practiceRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$practice->getId(), $request->request->get('_token'))) {
+            $this->addFlash('success', 'Votre question a bien été supprimée.');
             $practiceRepository->remove($practice, true);
         }
 
@@ -75,6 +77,7 @@ class PracticeController extends AbstractController
     public function validate(Practice $practice, PracticeRepository $practiceRepository)
     {
         $practice->setStatus(1);
+        $this->addFlash('success', 'Votre question a bien été validée.');
         $practiceRepository->add($practice, true);
         return $this->redirectToRoute('back_practice_list', [], Response::HTTP_SEE_OTHER);
     }
