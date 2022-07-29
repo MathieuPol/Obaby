@@ -78,7 +78,7 @@ class AnswerController extends AbstractController
             $answerRepository->remove($answer, true);
         }
 
-        return $this->redirectToRoute('app_answer_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('back_answer_list', [], Response::HTTP_SEE_OTHER);
     }
 
     /**
