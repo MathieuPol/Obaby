@@ -1,4 +1,35 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{# {{ form_widget(form) }} #}
+<div class="row-1">
+	<div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
+			<strong class="text-center">{{ form_row(form.title) }}</strong>
+	</div>
+</div>
+<div class="row-1">
+	<div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2" >
+			<strong class="text-center">{{ form_row (form.content) }}</strong>
+	</div>
+</div>
+
+<div class="row-1">
+	<div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
+		<p class="text-center">
+			<strong class="text-center">{{ form_row(form.category) }}</strong>
+		</p>
+	</div>
+</div>
+
+<div class="row">
+<div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
+	<div class="dropdown d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center">
+		<a href="#" class="animated-link submit-link">
+			<button class="btn text-white submit-btn">
+				Soumettre</button>
+		</a>
+	</div>
+<button class="btn">{{ button_label|default('Save') }}</button>{{ form_end(form) }}
+</div>
+</div>
+</form>
+</div>
+</div>
