@@ -58,7 +58,6 @@
 			</div>
 
 
-
 			<div class="col-sm-12 col-md-12 col-lg-6 mb-5">
 				<div class="m-4">
 					<table class="table table-hover">
@@ -165,7 +164,7 @@
 									<td>{{ user.id }}</td>
 									<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 									<td>{{ user.pseudo }}</td>
-                  {% if user.status ==1 %}
+									{% if user.status ==1 %}
 										<td class="bg-success">
 											{{ user.status }}
 										</td>
@@ -215,37 +214,6 @@
 		</div>
 	</section>
 
+	
 {% endblock %}
-
-        <div class="col-sm-12 col-md-12 col-lg-6 mb-5">
-          <table class="table table-hover">
-            <thead class="table-dark">
-              <tr>
-                <th colspan=5><h2 class="text-center">Utilisateurs</h2></th>
-              </tr>
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Rôle</th>
-                <th scope="col">Pseudo</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-              <tbody>
-                {% for user in users %}
-                    <tr>
-                      <td>{{ user.id }}</td>
-                      <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                      <td>{{ user.pseudo }}</td>
-                      <td class="bg-success">{{ user.status }}</td>
-                    </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            {# TODO: put this part under access control #}
-              <a  class="btn btn-primary col-12" href="{{ path('back_user_show') }}"> Voir tous les utilisateurs</a>
-        </div>
-    </section>
-            {% block footer %}{% endblock %}
-
-{% endblock %}
-
+{% block footer %}{% endblock %}
