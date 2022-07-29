@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('css/practice.css') }}" />
+{% endblock %}
+{% block body %}
+  <button id="back-practice-list-btn"
+    onclick="window.location.href= '{{ path('practice_list', {slug: category.slug}) }}'"
+    type="button">
+    Retour à la liste des bonnes pratiques
+  </button>
+
+  <!-- Main Content Start -->
+  <h1 class="text-center">
+    Bonnes pratiques
+  </h1>
+
+  <main class="container-fluid row m-auto">
+    <content class="text-center d-flex flex-column align-items-center">
+      <!-- Factoriser ici -->
+
+      <article class="col-lg-10 mb-5">
+        <div class="card banner-owner" role="card-banner">
+          <img src="{{ asset('asset/img/finger.png') }}"
+            role="banner"
+            class="card-img-top"
+            alt="finger picture" />
+
+          <div class="card-body">
+            <h5 class="card-title text-center">
+              {{ practice.title }}
+            </h5>
+            <p class="card-text">
+              {{ practice.content }}
+            </p>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex justify-content-between justify-content-lg-around">
+              <div>
+                <img class="autor-pic m-0"
+                  src="./asset/img/avatar1.svg"
+                  alt="author picture" />
+                <p class="autor-name text-muted align-self-end mb-0">
+                  {#               {% if practice.user.pseudo is not Null %}
+              {{ practice.user.pseudo }}
+              {else} #}
+                  Mathieu
+                  {# {% endif %} #}
+                </p>
+              </div>
+
+              <div class="align-self-center">
+                <time datetime="2022-25-07">Le 25 juillet 2022</time>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </content>
+  </main>
+{% endblock %}

@@ -98,7 +98,7 @@ class PracticeController extends AbstractController
         }
 
         // on renvoie le template twig dans lequel on transmet les données du film demandé en paramètre
-        return $this->render('front/practice/practice-show.html.twig', [
+        return $this->render('Front/practice/practice-show.html.twig', [
             'practice' => $dataPractice,
         ]);
     }
