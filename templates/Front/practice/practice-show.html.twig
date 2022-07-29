@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="{{ asset('css/practice.css') }}" />
 {% endblock %}
 {% block body %}
-  <button id="back-practice-list-btn"
+  <button id="back-practice-list-btn rounded-pill"
     onclick="window.location.href= '{{ path('practice_list', {slug: category.slug}) }}'"
     type="button">
     Retour à la liste des bonnes pratiques
