@@ -91,6 +91,7 @@ class PracticeController extends AbstractController
         PracticeRepository $practiceRepository
     ): Response {
         $dataPractice = $practiceRepository->findOneBy(['slug' => $slug]);
+        $category = $dataPractice->getCategory();
 
         // Si l'id contient un index qui n'existe pas
         if (is_null($dataPractice)) {
@@ -100,6 +101,7 @@ class PracticeController extends AbstractController
         // on renvoie le template twig dans lequel on transmet les données du film demandé en paramètre
         return $this->render('Front/practice/practice-show.html.twig', [
             'practice' => $dataPractice,
-        ]);
+            'category' => $category
+                ]);
     }
 }
