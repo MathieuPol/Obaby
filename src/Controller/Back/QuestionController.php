@@ -60,7 +60,7 @@ class QuestionController extends AbstractController
      */
     public function delete(Request $request, Question $question, QuestionRepository $questionRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$question->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$question->getId(), $request->request->get('_token'))) {  
             $questionRepository->remove($question, true);
         }
 
