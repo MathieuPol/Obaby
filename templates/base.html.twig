@@ -31,7 +31,7 @@
 
   <title>O'baby</title>
 </head>
-<body class="h-100">
+<body class="d-flex flex-column min-vh-100">
     {% block navbar %}{% include '/Front/partials/_nav_front.html.twig' %}{% endblock %}
 
 {% for label,flash in app.flashes %}

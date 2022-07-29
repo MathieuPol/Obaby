@@ -50,6 +50,7 @@ class PracticeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->addFlash('success', 'Votre bonne pratique a bien été enregistrée. Elle est en attente de modération.');
             $practice->setSlug($slugService->slug($practice->getTitle()));
+            $practice->setUser($this->getUser());
             $practiceRepository->add($practice, true);
 
             return $this->redirectToRoute('category_show_practice', [], Response::HTTP_SEE_OTHER);
