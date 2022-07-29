@@ -3,6 +3,7 @@
 
 namespace App\Controller\Front;
 
+use App\Repository\PracticeRepository;
 use App\Repository\QuestionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,16 +16,23 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="front_home", methods={"GET"})
      */
-    public function home( QuestionRepository $question): Response
+    public function home( QuestionRepository $question, PracticeRepository $practiceRepository): Response
     {
         //* show the last five questions(using in carroussel)
         $carrousselQuestion = $question->findBy([], ['id' => 'DESC'], 5);
-
+        //* show the last three practices(using in carroussel)
+        $carrousselPractice = $practiceRepository->selectActivatedPracticesHomepage();
+        $practice1 = $carrousselPractice[0];
+        $practice2 = $carrousselPractice[1];
+        $practice3 = $carrousselPractice[2];
 
 
 
         return $this->render('Front/main/index.html.twig', [
             'questionCarroussel' => $carrousselQuestion,
+            'practice1' => $practice1,
+            'practice2' => $practice2,
+            'practice3' => $practice3,
         ]);
     }
 

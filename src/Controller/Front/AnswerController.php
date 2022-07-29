@@ -44,7 +44,7 @@ class AnswerController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $answerRepository->add($answer, true);
-      
+            
             return $this->redirectToRoute('category_show_question', [], Response::HTTP_SEE_OTHER);
         }
 
