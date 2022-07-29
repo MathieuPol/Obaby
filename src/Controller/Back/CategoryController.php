@@ -91,6 +91,6 @@ class CategoryController extends AbstractController
             $categoryRepository->remove($category, true);
         }
 
-        return $this->redirectToRoute('category_list', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('back_category_list', [], Response::HTTP_SEE_OTHER);
     }
 }
