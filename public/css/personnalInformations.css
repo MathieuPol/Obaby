@@ -1,0 +1,55 @@
+#main-inscription {
+	height: 100vh;
+	background: url("../asset/img/personnalInformation.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+
+#info-inscription {
+	width: 95%;
+	height: 740px;
+	border-radius: 5px;
+	color: var(--bs-white);
+	background-color: rgba(0, 0, 0, 0.35);
+	left: 50%;
+	top: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	font-size: 11px;
+	border-radius: 22.2px;
+	box-shadow: 0 0 16px #5dc7ec;
+	max-width: 350px;
+}
+
+
+#logo {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+
+
+
+.login-link button {
+	background: #5dc7ec;
+	padding: 0.5rem 0.5rem;
+}
+
+.login-link {
+	background-color: black;
+}
+
+.btn-danger:hover {
+	background-color: #5dc7ec;
+}
+
+#warning {
+	background-color: rgb(186, 186, 15);
+}
+
+#warning:hover {
+	background-color: #5dc7ec;
+}
