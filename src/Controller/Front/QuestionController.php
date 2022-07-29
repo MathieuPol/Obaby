@@ -24,9 +24,12 @@ class QuestionController extends AbstractController
     /**
      * @Route("/category/{slug}/question/list", name="question_list", methods={"GET"})
      */
-    public function list(Category $category, CategoryRepository $categoryRepository): Response
+    public function list(Category $category, CategoryRepository $categoryRepository, QuestionRepository $questionRepository): Response
     {
-        $questions = $category->getQuestions();
+       /*  $questions = $category->getQuestions(); */
+
+        $questions = $questionRepository->selectActivatedQuestions($category->getId());
+
 
         $categoryList = $categoryRepository->findAll();
         //! answers have to be displayed in twig with a loop

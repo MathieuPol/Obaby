@@ -39,6 +39,23 @@ class QuestionRepository extends ServiceEntityRepository
         }
     }
 
+
+    public function selectActivatedQuestions($categoryId): array
+    {
+        return $this->createQueryBuilder('q')
+            ->where('q.status = 1')
+            ->andWhere('q.category = :category')
+            ->setParameter('category', $categoryId)
+            ->orderBy('q.id', 'Desc')
+            ->getQuery()
+            ->getResult();
+    }
+
+
+
+
+
+
 //    /**
 //     * @return Question[] Returns an array of Question objects
 //     */
@@ -63,4 +80,9 @@ class QuestionRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+
+
+
 }
