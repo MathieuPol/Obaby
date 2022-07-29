@@ -1,49 +1,57 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}User index
+{% endblock %}
 
-{% block navbar %}{% include '/Back/partials/_nav_back.html.twig' %}{% endblock %}
+{% block navbar %}
+	{% include '/Back/partials/_nav_back.html.twig' %}
+{% endblock %}
 
 {% block body %}
 
-    <h1 class="text-center">User index</h1>
+	<h1 class="text-center">Liste des utilisateurs</h1>
 
-        <section class="row">
-            <div class="col-sm-12 col-md-12 col-lg-8 mb-5 m-auto">
-                <table class="table table-hover">
-                        <thead  class="table-dark">
-                            <tr>
-                                <th scope="col">Id</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Roles</th>
-                                <th scope="col">Pseudo</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Editer</th>
-                                <th scope="col">Supprimer</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {% for user in users %}
-                            <tr>
-                                <td>{{ user.id }}</td>
-                                <td>{{ user.email }}</td>
-                                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                                <td>{{ user.pseudo }}</td>
-                                <td>{{ user.status }}</td>
-                                <td>
-                                    <a href="{{ path('back_user_update', {'id': user.id}) }}" class="btn btn-primary">Editer</a>
-                                </td>
-                                <td>
-                                    <a href="{{ path('back_user_delete', {'id': user.id}) }}" class="btn btn-danger">Supprimer</a>
-                                </td>
-                            </tr>
-                        {% else %}
-                            <tr>
-                                <td colspan="7">no records found</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                    <a class="btn btn-primary col-12" href="{{ path('back_home') }}">Revenez à l'accueil</a>
+	<section class="row">
+		<div class="col-sm-12 col-md-12 col-lg-8 mb-5 m-auto">
+			<table class="table table-hover">
+				<thead class="table-dark">
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Email</th>
+						<th scope="col">Roles</th>
+						<th scope="col">Pseudo</th>
+						<th scope="col">Status</th>
+						<th scope="col">Editer</th>
+						<th scope="col">Supprimer</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for user in users %}
+						<tr>
+							<th scope="row">{{ user.id }}</th>
+							<td>{{ user.email }}</td>
+							<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+							<td>{{ user.pseudo }}</td>
+							<td>{{ user.status }}</td>
+							<td>
+								<a class="btn btn-warning" href="{{ path('back_user_update', {'id': user.id}) }} ">Editer</a>
+							</td>
+                            <td>
+								{{ include('Back/user/_delete_form.html.twig') }}
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="7">L'information n'a pas été trouvée</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<a class="btn btn-primary col-12" href="{{ path('back_home') }}">Revenez à l'accueil</a>
+</div>
+
+	</section>
+
 
 {% endblock %}
+{% block footer %}{% endblock %}

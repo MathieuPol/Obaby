@@ -37,10 +37,10 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $userRepository->add($user, true);
 
-            return $this->redirectToRoute('back_user_show', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('back_user_list', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('back/user/update.html.twig', [
+        return $this->renderForm('Back/user/update.html.twig', [
             'user' => $user,
             'form' => $form,
         ]);
@@ -55,6 +55,6 @@ class UserController extends AbstractController
             $userRepository->remove($user, true);
         }
 
-        return $this->redirectToRoute('back_user_show', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('back_user_list', [], Response::HTTP_SEE_OTHER);
     }
 }
