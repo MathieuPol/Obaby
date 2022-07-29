@@ -88,7 +88,7 @@ class AnswerController extends AbstractController
     {
         $answer->setStatus(1);
         $answerRepository->add($answer, true);
-        return $this->redirectToRoute('back_answer', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('back_answer_list', [], Response::HTTP_SEE_OTHER);
     }
 
 }
