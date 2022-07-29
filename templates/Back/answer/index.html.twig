@@ -3,47 +3,58 @@
 {% block title %}Answer index
 {% endblock %}
 
-{% block navbar %}{% include '/Back/partials/_nav_back.html.twig' %}{% endblock %}
-
+{% block navbar %}
+	{% include '/Back/partials/_nav_back.html.twig' %}
+{% endblock %}
 
 {% block body %}
-	<h1>Answer index</h1>
+	<h1 class="text-center">Liste des réponses</h1>
 
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Content</th>
-				<th>Question</th>
-				<th>CreatedAt</th>
-				<th>Valider</th>
-				<th>Status</th>
-				<th>actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for answer in answers %}
-				<tr>
-					<td>{{ answer.id }}</td>
-					<td>{{ answer.content }}</td>
-					<td>{{ answer.question.content }}</td>
-					<td>{{ answer.createdAt ? answer.createdAt|date('Y-m-d') : '' }}</td>
-					<td>{{ answer.status }}</td>
-					<td>
-						<form action="{{ path('back_question_answer_validate', {'id': answer.id}) }}" method="post">
-							<button class="btn btn-secondary">Valider</button>
-						</form>
-					</td>
-					<td>
-						<a href="{{ path('back_answer_show', {'id': answer.id}) }}">show</a>
-						<a href="{{ path('back_answer_update', {'id': answer.id}) }}">edit</a>
-					</td>
-				</tr>
-			{% else %}
-				<tr>
-					<td colspan="5">no records found</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
+	<section class="row">
+		<div class="col-sm-12 col-md-12 col-lg-8 mb-5 m-auto">
+			<table class="table table-hover">
+				<thead class="table-dark">
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Content</th>
+						<th scope="col">Question</th>
+						<th scope="col">CreatedAt</th>
+						<th scope="col">Status</th>
+						<th scope="col">Valider</th>
+						<th scope="col">Editer</th>
+						<th scope="col">Supprimer</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for answer in answers %}
+						<tr>
+							<th scope="row">{{ answer.id }}</th>
+							<td>{{ answer.content }}</td>
+							<td>{{ answer.question.content }}</td>
+							<td>{{ answer.createdAt ? answer.createdAt|date('Y-m-d') : '' }}</td>
+							<td>{{ answer.status }}</td>
+							<td>
+								<form action="{{ path('back_question_answer_validate', {'id': answer.id}) }}" method="post">
+									<button class="btn btn-warning">Valider</button>
+								</form>
+							</td>
+							<td>
+								<a class="btn btn-warning" href="{{ path('back_answer_update', {'id': answer.id}) }}">Editer</a>
+							</td>
+							<td>
+								{{ include('Back/answer/_delete_form.html.twig') }}
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="7">L'information n'a pas été trouvée</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<a class="btn btn-primary col-12" href="{{ path('back_home') }}">
+				Revenez à l'accueil</a>
+		</div>
+	</section>
+
 {% endblock %}

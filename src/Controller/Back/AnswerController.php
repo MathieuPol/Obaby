@@ -56,10 +56,10 @@ class AnswerController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $answerRepository->add($answer, true);
 
-            return $this->redirectToRoute('app_answer_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('back_answer_list', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('Back/answer/edit.html.twig', [
+        return $this->renderForm('Back/answer/update.html.twig', [
             'question' => $question,
             'answer' => $answer,
             'form' => $form,
@@ -78,7 +78,7 @@ class AnswerController extends AbstractController
             $answerRepository->remove($answer, true);
         }
 
-        return $this->redirectToRoute('app_answer_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('back_answer_list', [], Response::HTTP_SEE_OTHER);
     }
 
     /**
@@ -88,7 +88,7 @@ class AnswerController extends AbstractController
     {
         $answer->setStatus(1);
         $answerRepository->add($answer, true);
-        return $this->redirectToRoute('back_answer', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('back_answer_list', [], Response::HTTP_SEE_OTHER);
     }
 
 }
