@@ -54,6 +54,7 @@ class AnswerController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Votre réponse a bien été éditée.');
             
             $answerRepository->add($answer, true);
 
@@ -76,7 +77,7 @@ class AnswerController extends AbstractController
     public function delete(Request $request, Answer $answer, AnswerRepository $answerRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$answer->getId(), $request->request->get('_token'))) {
-            $this->addFlash('success', 'Votre réponse a bien été supprimée !');
+            $this->addFlash('success', 'Votre réponse a bien été supprimée.');
             $answerRepository->remove($answer, true);
         }
 
@@ -88,6 +89,7 @@ class AnswerController extends AbstractController
      */
     public function answerValidate(Answer $answer, AnswerRepository $answerRepository)
     {
+        $this->addFlash('success', 'Votre réponse a bien été validée.');
         $answer->setStatus(1);
         $answerRepository->add($answer, true);
         return $this->redirectToRoute('back_answer_list', [], Response::HTTP_SEE_OTHER);
