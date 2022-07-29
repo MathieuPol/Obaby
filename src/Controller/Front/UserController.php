@@ -7,6 +7,7 @@ namespace App\Controller\Front;
 use App\Entity\User;
 use App\Form\NewUserType;
 use App\Form\UserType;
+use App\Form\UserUpdateType;
 use App\Repository\UserRepository;
 use App\Services\SlugService;
 use Doctrine\ORM\Query\Expr\Func;
@@ -71,15 +72,21 @@ class UserController extends AbstractController
      * @Route ("/{id}/update", name="update", methods={"POST", "GET"})
      * @param int $id
     */
-    public function update(User $user, Request $request, UserRepository $userRepository): Response
+    public function update(User $user, Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): Response
     {
         //create form with User
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserUpdateType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $plaintextPassword= $user->getPassword();
+            $hashedPassword = $passwordHasher->hashPassword(
+                $user,
+                $plaintextPassword
+            );
+            $user->setPassword($hashedPassword);
             $userRepository->add($user, true);
-            return $this->redirectToRoute('Front/user/personnalInformation.html.twig', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('user_show', ['id' => $user->getId()], Response::HTTP_SEE_OTHER);
         }  
         
         return $this->renderForm('Front/user/update.html.twig', [

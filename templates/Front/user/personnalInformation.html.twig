@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Category
-{% endblock %}
+{% block title %}Edition du profil{% endblock %}
 
 {% block stylesheets %}
 
@@ -14,7 +13,7 @@
 {% block body %}
 
 	<div id="main-inscription">
-		<div class="text-center" id="info-inscription"> <a href="{{ path('front_home') }}"> <img id="logo" src="../asset/logo/logo O'Baby.png" width="200" alt="logo" ></a>
+		<div class="text-center" id="info-inscription"> <a href="{{ path('front_home') }}"> <img id="logo" src="{{ asset('asset/logo/logo O\'Baby.png') }}" width="200" alt="logo" ></a>
 			<h1 class="title text-center">Vos informations</h1>
 			
 
@@ -50,7 +49,7 @@
 
     <div class="row d-flex flex-column btn-warning">
 	<div class="mt-5 mb-5 ">
-		<a href="{{ path('front_home') }}" class="btn" id="warning">
+		<a href="{{ path('user_update', { id: user.id }) }}" class="btn" id="warning">
 			Modifier mes informations
 		</a>
 	</div>
