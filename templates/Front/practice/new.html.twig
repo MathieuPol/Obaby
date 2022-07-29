@@ -1,11 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nouvelle bonne pratique{% endblock %}
+{% block stylesheets %}
+
+<link rel="stylesheet" href="{{ asset('css/question.css') }}"/>
+{% endblock %}
+
+{% block title %}Créez une nouvelle bonne pratique{% endblock %}
 
 {% block body %}
-    <h1>Create new Practice</h1>
 
-    {{ include('Back/practice/_form.html.twig') }}
+<div class="container-question mb-5">
+        <div id="form-div">
 
-    <a href="{{ path('category_show_practice') }}">Revenir à l'accueil</a>
+                <div class="form-group mb-3">
+                    <div class="row">
+                        <div class="col-md-12 d-xxl-flex justify-content-xxl-center align-items-xxl-center pt-4 title-question">
+                            <h1 class="text-center" ><strong>Vous pouvez rédiger une nouvelle bonne pratique !</strong></h1>
+                        </div>
+                    </div>
+                    <hr id="hr">
+                    <div class="row">
+                        <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
+                            <p class="text-center" ><strong>Elle sera soumise à modération : vous la retrouverez sur le site sous 48h en moyenne. </strong></p>
+                        </div>
+                    </div>
+                </div>
+            {{ include('Front/practice/_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}
+
+
+
+
+
+
+
