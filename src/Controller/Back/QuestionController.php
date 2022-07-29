@@ -41,8 +41,9 @@ class QuestionController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
             $questionRepository->add($question, true);
-
+            $this->addFlash('success', 'Votre question a bien été editée.');
             return $this->redirectToRoute('back_question_list', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -61,6 +62,8 @@ class QuestionController extends AbstractController
     public function delete(Request $request, Question $question, QuestionRepository $questionRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$question->getId(), $request->request->get('_token'))) {
+            $this->addFlash('success', 'Votre question a bien été supprimée.');
+
             $questionRepository->remove($question, true);
         }
 
@@ -89,7 +92,9 @@ class QuestionController extends AbstractController
     public function validate(Question $question, QuestionRepository $questionRepository)
     {
         $question->setStatus(1);
+        $this->addFlash('success', 'Votre question a bien été validée.');
         $questionRepository->add($question, true);
+        
         return $this->redirectToRoute('back_question_list', [], Response::HTTP_SEE_OTHER);
     }
 }
