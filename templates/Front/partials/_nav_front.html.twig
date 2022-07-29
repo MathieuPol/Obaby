@@ -27,11 +27,12 @@
         <!-- VOIR AVEC TEAM -->
         <!-- <a href="contact.html" class="nav-item nav-link">Mon compte</a> -->
         <div class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Mon compte</a>
+          <a href="{{ path('user_show', {id: app.user.id }) }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Mon compte</a>
           <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
           {% if is_granted("ROLE_MODERATOR") %}
             <a href={{ path('back_home') }} class="dropdown-item">Back-office</a>
           {% endif %}
+          <a href="{{ path('user_show', {id: app.user.id }) }}" class="dropdown-item">Mon compte</a>
 
             <a href="#" class="dropdown-item">403 Forbidden</a>
             <a href="#" class="dropdown-item">404 Error</a>
