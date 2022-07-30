@@ -1,15 +1,10 @@
 #form-div {
-    background-color: rgba(0, 0, 0, 0.35);
+    background-image: repeating-linear-gradient(112.5deg, hsla(19,0%,93%,0.2) 0px, hsla(19,0%,93%,0.2) 0px,transparent 0px, transparent 1px,hsla(19,0%,93%,0.2) 1px, hsla(19,0%,93%,0.2) 4px,transparent 4px, transparent 5px,hsla(19,0%,93%,0.2) 5px, hsla(19,0%,93%,0.2) 8px),repeating-linear-gradient(0deg, hsla(19,0%,93%,0.2) 0px, hsla(19,0%,93%,0.2) 0px,transparent 0px, transparent 1px,hsla(19,0%,93%,0.2) 1px, hsla(19,0%,93%,0.2) 4px,transparent 4px, transparent 5px,hsla(19,0%,93%,0.2) 5px, hsla(19,0%,93%,0.2) 8px),linear-gradient(135deg, rgb(238, 238, 238),rgb(121, 121, 121));
     padding-bottom: 3%;
     border-radius: 22.2px;
     box-shadow: 0 0 16px rgba(81, 203, 238, 1);
 }
 
-@media (max-width: 500px) {
-    #form-div {
-        margin: 10px 5px !important;
-    }
-}
 
 h1 {
     font-family: 'Lobster Two', cursive;
@@ -29,7 +24,6 @@ p {
 
 .animated-link button {
     display: inline-block;
-    background: #5dc7ec;;
     color: #333;
     border: 1px solid #333;
     padding: 0.5rem 0.5rem;
@@ -49,10 +43,12 @@ p {
     background:rgb(201, 2, 215) ;
 }
 /************** NE PAS COPIER *****************/
-
-.container-question {
-    margin-top:50px;
+/************** START BUTTONS COLOR ****************/
+.submit-btn {
+background-color: #ffc107;
 }
+/************** FIN BUTTONS COLOR ****************/
+
 
 #form-div {
     margin-right:50px;
@@ -66,7 +62,9 @@ p {
 #hr {
     background-color:#c3bfbf;
 }
-
+#practice_content {
+    height: 148px;
+}
 .row-1,
 .row-3 {
     margin-top:10px;
@@ -76,6 +74,17 @@ p {
     background-color: black; 
 }
 
-.submit-btn {
-    padding: 0.5rem 0.5rem;
+
+@media (max-width: 700px) {
+    #form-div {
+        margin: 10px 20px !important;
+
+    }
+
+    .animated-link,
+    .animated-link button {
+        margin: 0 0;
+        font-size: 1rem;
+    }
+    
 }
