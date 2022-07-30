@@ -29,9 +29,8 @@ class UserType extends AbstractType
             ->add('status', ChoiceType::class,
             [
                 'choices' => [
-                    'user' => '1',
-                    'admin' => '2',
-                    'modérateur' => '3',
+                    'activé' => '1',
+                    'désactivé' => '0',            
                 ],
             ])
         ;
