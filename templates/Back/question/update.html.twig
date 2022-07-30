@@ -4,13 +4,34 @@
 
 {% block navbar %}{% include '/Back/partials/_nav_back.html.twig' %}{% endblock %}
 
-{% block body %}
-    <h1>Edit Question</h1>
-
-    {{ include('Back/question/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('back_question_list') }}">back to list</a>
-
-    {{ include('Back/question/_delete_form.html.twig') }}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/formBack.css') }}"/>
 {% endblock %}
+
+{% block body %}
+<div class="container-question">
+        <div id="form-div">
+            <form method="post">
+                <div class="form-group mb-3">
+                    <div class="row">
+                        <div class="col-md-12 d-xxl-flex justify-content-xxl-center align-items-xxl-center pt-4 title-question">
+                            <h1 class="text-center" ><strong>Editer une bonne pratique</strong></h1>
+                        </div>
+                    </div>
+                    <hr id="hr">
+
+
+    {{ include('Back/question/_form.html.twig') }}
+    {# {{ include('Back/question/_form.html.twig', {'button_label': 'Update'}) }} #}
+
+    {# <a href="{{ path('back_question_list') }}">back to list</a> #}
+
+    {# {{ include('Back/question/_delete_form.html.twig') }} #}
+{% endblock %}
+
+
+
+
+
+
 {% block footer %}{% endblock %}
