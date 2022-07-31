@@ -35,6 +35,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Votre utilisateur a bien été édité.');
             $userRepository->add($user, true);
 
             return $this->redirectToRoute('back_user_list', [], Response::HTTP_SEE_OTHER);
@@ -52,6 +53,7 @@ class UserController extends AbstractController
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            $this->addFlash('success', 'Votre utilsateur a bien été supprimé.');
             $userRepository->remove($user, true);
         }
 
