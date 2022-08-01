@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('css/practice.css') }}"/>
+
+{% endblock %}
+{% block body %}
+
+  <button id="ask-submit-btn" onclick="window.location.href= '{{ path('practice_submit')}}'" type="button">Proposer une bonne pratique</button>
+ <!-- Main Content Start -->
+  <h1 class="text-center">Vos bonnes pratiques favorites</h1>
+
+        <main class="container-fluid row m-auto">
+
+    <content class="text-center d-flex flex-column align-items-center">
+
+  <!-- Factoriser ici -->
+
+
+{% for key, content in practices %}
+    {% for practice in content %}
+            <article class="col-lg-10 mb-5">
+        {#                                 <form action="{{ path('favorites_add') }}" method='post'>
+                                        <input type="hidden" name="id_favorite" value="{{ practice.id }}"/>
+                                        <button class="movie__favorite fs-1 my-2 mx-3 link-danger"><i class="bi bi-bookmark-plus"></i></button>
+                                    </form> #}
+            <div class="card banner-owner" role="card-banner">
+                <img src="{{ asset('asset/img/finger.png') }}" role="banner" class="card-img-top " alt="finger picture">
+                <img src="{{ asset('asset/img/nipple' ~ practice.category.slug ~ '.png') }}" class="card-img-top banner-feature" alt="nipple picture">
+                
+                <div class="card-body">
+                <h5 class="card-title text-center">{{ practice.title }}</h5>
+                <p class="card-text">{{ practice.content|u.truncate(200, '...') }} </p>
+                </div>
+                <div class="card-footer">
+                <div class="d-flex justify-content-between justify-content-lg-around">
+                    <div>
+                    <img class="autor-pic m-0"  src="{{ asset( 'asset/img/avatar1.svg' ) }}" alt="author picture">
+                    <p class="autor-name text-muted align-self-end mb-0">{{ practice.user.pseudo }}</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                    <a href={{ path('practice_show', {slug: practice.slug}) }} class="btn rounded-pill py-sm-2 px-sm-5 me-3">Lire la bonne pratique</a>
+                    </div>
+                    <div class="align-self-center">
+                    <time datetime="{{ practice.createdAt|date ("d/m/Y") }}">{{ practice.createdAt|date ("d/m/Y") }}</time>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </article>
+    {% endfor %}
+{% endfor %}
+
+
+    </content>
+  </main>
+  {% endblock %}
