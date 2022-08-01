@@ -16,6 +16,28 @@
     Bonnes pratiques
   </h1>
 
+    <aside class="mb-3 position-relative">  
+
+          <div class="dropdown text-center">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ practice.category.slug }}
+            </a>
+          
+            <ul class="dropdown-menu text-center position-absolute" id="category-nav">
+            {% for category in categories %}
+              <li><a class=
+              "dropdown-item text-light
+              {% if category.slug == practice.category.slug %}
+                active
+              {% endif %}"
+              href="{{ path('practice_list', {slug: category.slug}) }}">{{ category.name }}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+
+  </aside>
+
+
   <main class="container-fluid row m-auto">
     <content class="text-center d-flex flex-column align-items-center">
       <!-- Factoriser ici -->
