@@ -18,19 +18,19 @@
                 <td>{{ user.email }}</td>
             </tr>
             <tr>
-                <th>Roles</th>
+                <th>Rôles</th>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
             </tr>
             <tr>
-                <th>Password</th>
+                <th>Mot de passe</th>
                 <td>{{ user.password }}</td>
             </tr>
             <tr>
-                <th>Pseudo</th>
+                <th>Pseudonyme</th>
                 <td>{{ user.pseudo }}</td>
             </tr>
             <tr>
-                <th>Status</th>
+                <th>Statut</th>
                 <td>{{ user.status }}</td>
             </tr>
         </tbody>
@@ -38,7 +38,7 @@
 
 {#     <a href="{{ path('app_back_user_index') }}">back to list</a> #}
 
-    <a href="{{ path('back_user_update', {'id': user.id}) }}">edit</a>
+    <a href="{{ path('back_user_update', {'id': user.id}) }}">Editer</a>
 
     {{ include('back/user/_delete_form.html.twig') }}
 {% endblock %}
