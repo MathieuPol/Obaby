@@ -26,6 +26,7 @@
             role="banner"
             class="card-img-top"
             alt="finger picture" />
+        <img src="{{ asset('asset/img/nipple' ~ practice.category.slug ~ '.png') }}" class="card-img-top banner-feature" alt="nipple picture">
 
           <div class="card-body">
             <h5 class="card-title text-center">
@@ -39,19 +40,17 @@
             <div class="d-flex justify-content-between justify-content-lg-around">
               <div>
                 <img class="autor-pic m-0"
-                  src="./asset/img/avatar1.svg"
+                  src="{{ asset( 'asset/img/avatar1.svg' ) }}"
                   alt="author picture" />
                 <p class="autor-name text-muted align-self-end mb-0">
-                  {#               {% if practice.user.pseudo is not Null %}
+
               {{ practice.user.pseudo }}
-              {else} #}
-                  Mathieu
-                  {# {% endif %} #}
+
                 </p>
               </div>
 
               <div class="align-self-center">
-                <time datetime="2022-25-07">Le 25 juillet 2022</time>
+                <time datetime="{{ practice.createdAt|date ("d/m/Y") }}">{{ practice.createdAt|date ("d/m/Y") }}</time>
               </div>
             </div>
           </div>
