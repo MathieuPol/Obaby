@@ -91,3 +91,23 @@
     border: solid 1px var(--blue);
     color: black;
 }
+
+.practice-article{
+    position: relative;
+}
+
+.favorite-practice{
+    border: none;
+    position: absolute;
+    margin-left: 0;
+    z-index: 1;
+    left: 0;
+    top: -24.4px;
+    background: transparent;
+    color: var(--primary);
+}
+
+.favorite-practice:hover{
+    color: var(--blue);
+    transition: 2s;
+}
