@@ -7,24 +7,26 @@
 	{% include '/Back/partials/_nav_back.html.twig' %}
 {% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/homeBack.css') }}"/>
+{% endblock %}
+
 {% block body %}
 
 	<h1 class="text-center">Bienvenue dans votre back-office</h1>
 
 	<section class="row p-4">
 		<div class="container-fluid d-flex flex-wrap">
-
-
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5">
-				<div class="m-4">
-					<table class="table table-hover">
-						<thead class="table-dark">
+			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 ">
+				<div class="m-4 table-back">
+					<table class="table table-hover ">
+						<thead class="table-thead ">
 							<tr>
-								<th colspan="5">
-									<h2 class="text-center">Bonnes Pratiques</h2>
+								<th colspan="5" class="thead">
+									<h2 class="text-center text-white">Bonnes Pratiques</h2>
 								</th>
 							</tr>
-							<tr>
+							<tr class="text-center text-white">
 								<th scope="col">Id</th>
 								<th scope="col">Title</th>
 								<th scope="col">Content</th>
@@ -40,34 +42,35 @@
 									<td>{{ practice.content }}</td>
 									<td>{{ practice.CreatedAt|date("d/m/Y") }}</td>
 									{% if practice.status ==1 %}
-										<td class="bg-success">
+										<td class="bg-success text-center">
 											{{ practice.status }}
 										</td>
 									{% else %}
-										<td class="bg-warning">
-											{{ practice.status }}
+										<td class="bg-warning text-center">
+												{{ practice.status }}
 										</td>
 									{% endif %}
 								</tr>
 							{% endfor %}
 						</tbody>
 					</table>
-					<a class="btn btn-primary col-12" href="{{ path('back_practice_list') }}">
+					
+					<a class="btn col-11 mx-4" href="{{ path('back_practice_list') }}">
 						Voir toutes les bonnes pratiques</a>
 				</div>
 			</div>
 
 
 			<div class="col-sm-12 col-md-12 col-lg-6 mb-5">
-				<div class="m-4">
+				<div class="m-4 table-back">
 					<table class="table table-hover">
-						<thead class="table-dark">
+						<thead class="table-thead">
 							<tr>
-								<th colspan="5">
-									<h2 class="text-center">Questions</h2>
+								<th colspan="5" class="thead">
+									<h2 class="text-center text-white">Questions</h2>
 								</th>
 							</tr>
-							<tr>
+							<tr class="text-center text-white">
 								<th scope="col">Id</th>
 								<th scope="col">Question</th>
 								<th scope="col">Date de création</th>
@@ -83,11 +86,11 @@
 									<td>{{ question.CreatedAt|date("d/m/Y") }}</td>
 									<td>{{ question.category.name }}</td>
 									{% if question.status ==1 %}
-										<td class="bg-success">
+										<td class="bg-success text-center">
 											{{ question.status }}
 										</td>
 									{% else %}
-										<td class="bg-warning">
+										<td class="bg-warning text-center">
 											{{ question.status }}
 										</td>
 									{% endif %}
@@ -95,21 +98,21 @@
 							{% endfor %}
 						</tbody>
 					</table>
-					<a class="btn btn-primary col-12" href="{{ path('back_question_list') }}">
+					<a class="btn col-11 mx-4" href="{{ path('back_question_list') }}">
 						Voir toutes les questions</a>
 				</div>
 			</div>
 
 			<div class="col-sm-12 col-md-12 col-lg-6 mb-5">
-				<div class="m-4">
+				<div class="m-4 table-back">
 					<table class="table table-hover">
-						<thead class="table-dark">
+						<thead class="table-thead">
 							<tr>
-								<th colspan="5">
-									<h2 class="text-center">Réponses</h2>
+								<th colspan="5" class="thead">
+									<h2 class="text-center text-white">Réponses</h2>
 								</th>
 							</tr>
-							<tr>
+							<tr class="text-center text-white">
 								<th scope="col">Id</th>
 								<th scope="col">Réponse</th>
 								<th scope="col">Date de création</th>
@@ -125,11 +128,11 @@
 									<td>{{ answer.CreatedAt|date("d/m/Y") }}</td>
 									<td>{{ answer.question.content }}</td>
 									{% if answer.status ==1 %}
-										<td class="bg-success">
+										<td class="bg-success text-center">
 											{{ answer.status }}
 										</td>
 									{% else %}
-										<td class="bg-warning">
+										<td class="bg-warning text-center">
 											{{ answer.status }}
 										</td>
 									{% endif %}
@@ -137,21 +140,21 @@
 							{% endfor %}
 						</tbody>
 					</table>
-					<a class="btn btn-primary col-12" href="{{ path('back_answer_list') }}">
+					<a class="btn btn-primary col-11 mx-4" href="{{ path('back_answer_list') }}">
 						Voir toutes les réponses</a>
 				</div>
 			</div>
 
 			<div class="col-sm-12 col-md-12 col-lg-6 mb-5">
-				<div class="m-4">
+				<div class="m-4 table-back">
 					<table class="table table-hover">
-						<thead class="table-dark">
+						<thead class="table-thead">
 							<tr>
-								<th colspan="5">
-									<h2 class="text-center">Utilisateurs</h2>
+								<th colspan="5" class="thead">
+									<h2 class="text-center text-white">Utilisateurs</h2>
 								</th>
 							</tr>
-							<tr>
+							<tr class="text-center text-white">
 								<th scope="col">Id</th>
 								<th scope="col">Rôle</th>
 								<th scope="col">Pseudo</th>
@@ -165,11 +168,11 @@
 									<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 									<td>{{ user.pseudo }}</td>
 									{% if user.status ==1 %}
-										<td class="bg-success">
+										<td class="bg-success text-center">
 											{{ user.status }}
 										</td>
 									{% else %}
-										<td class="bg-warning">
+										<td class="bg-warning text-center">
 											{{ user.status }}
 										</td>
 									{% endif %}
@@ -178,21 +181,21 @@
 						</tbody>
 					</table>
 					{# TODO: put this part under access control #}
-					<a class="btn btn-primary col-12" href="{{ path('back_user_list') }}">
+					<a class="btn btn-primary col-11 mx-4" href="{{ path('back_user_list') }}">
 						Voir tous les utilisateurs</a>
 				</div>
 			</div>
 
 			<div class="col-sm-12 col-md-12 col-lg-6 mb-5">
-				<div class="m-4">
+				<div class="m-4 table-back">
 					<table class="table table-hover">
-						<thead class="table-dark">
+						<thead class="table-thead">
 							<tr>
-								<th colspan="5">
-									<h2 class="text-center">Catégories</h2>
+								<th colspan="5" class="thead">
+									<h2 class="text-center text-white">Catégories</h2>
 								</th>
 							</tr>
-							<tr>
+							<tr class="text-center text-white">
 								<th scope="col">Id</th>
 								<th scope="col">Name</th>
 							</tr>
@@ -206,7 +209,7 @@
 							{% endfor %}
 						</tbody>
 					</table>
-					<a class="btn btn-primary col-12" href="{{ path('back_category_list') }}">
+					<a class="btn btn-primary col-11 mx-4" href="{{ path('back_category_list') }}">
 						Voir toutes les catégories</a>
 				</div>
 			</div>

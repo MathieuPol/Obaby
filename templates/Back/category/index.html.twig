@@ -7,18 +7,23 @@
 	{% include '/Back/partials/_nav_back.html.twig' %}
 {% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/homeBack.css') }}"/>
+{% endblock %}
+
 {% block body %}
 	<h1 class="text-center">Liste des catégories</h1>
 
 	<section class="row">
-		<div class="col-sm-12 col-md-12 col-lg-8 mb-5 m-auto">
+		<div class="col-sm-6 col-md-6 col-lg-4 mb-5 m-auto">
+		<div class="table-back">
 			<table class="table table-hover">
-				<thead class="table-dark">
+				<thead class="table-thead">
 					<tr>
-						<th scope="col">Id</th>
-						<th scope="col">Name</th>
-						<th scope="col">Editer</th>
-						<th scope="col">Supprimer</th>
+						<th scope="col" class="thead-start text-white text-center">Id</th>
+						<th scope="col" class="text-white">Name</th>
+						<th scope="col" class="text-white">Editer</th>
+						<th scope="col" class="thead-end text-white">Supprimer</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -46,7 +51,7 @@
 					Ajouter une nouvelle catégorie</a>
 			</div>
 
-			<a class="btn btn-primary col-12" href="{{ path('back_home') }}">
+			<a class="btn btn-primary col-11 mx-4" href="{{ path('back_home') }}">
 				Revenez à l'accueil</a>
 		</div>
 
