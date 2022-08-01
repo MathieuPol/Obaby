@@ -33,7 +33,7 @@
                             <td>{{ question.content }}</td>
                             <td>{{ question.createdAt ? question.createdAt|date('Y-m-d') : '' }}</td>
                             <td>{{ question.status }}</td>
-                            <td > 
+                            <td> 
                                 <form class= "d-flex justify-content-center" action="{{ path('back_question_validate', {'id': question.id}) }}" method="post">
                                     <button class="btn btn-warning ">Valider</button>
                                 </form>
