@@ -42,6 +42,7 @@ class CategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Votre catégorie a bien été ajoutée.');
             $categorySlug= $sluggerInterface->slug($category->getName())->lower();
             $category->setSlug($categorySlug);
             $categoryRepository->add($category, true);
@@ -68,12 +69,13 @@ class CategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Votre catégorie a bien été éditée.');
             $categoryRepository->add($category, true);
 
             return $this->redirectToRoute('back_category_list', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('Back/category/edit.html.twig', [
+        return $this->renderForm('Back/category/update.html.twig', [
             'category' => $category,
             'form' => $form,
         ]);
@@ -88,6 +90,7 @@ class CategoryController extends AbstractController
     public function delete(Request $request, Category $category, CategoryRepository $categoryRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
+            $this->addFlash('success', 'Votre catégorie a bien été supprimée.');
             $categoryRepository->remove($category, true);
         }
 
