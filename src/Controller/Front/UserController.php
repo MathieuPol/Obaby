@@ -8,12 +8,15 @@ use App\Entity\User;
 use App\Form\NewUserType;
 use App\Form\UserType;
 use App\Form\UserUpdateType;
+use App\Repository\PracticeRepository;
+use App\Repository\QuestionRepository;
 use App\Repository\UserRepository;
 use App\Services\SlugService;
 use Doctrine\ORM\Query\Expr\Func;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -100,24 +103,30 @@ class UserController extends AbstractController
      * @Route ("/{id}/delete", name="delete", methods={"POST"})
      * @param int $id
     */
-    public function delete(Request $request, User $user, UserRepository $userRepository): Response
+    public function delete(Request $request, User $user, UserRepository $userRepository, QuestionRepository $questionRepository, PracticeRepository $practice, Session $session): Response
     {
-        //TODO transférer le contenu de cet utilisateur vers utilisateur anonyme
-/*         $userPractices = [];
-        $userAnswers = [];
-        $userQuestion = [];
-        foreach ($userPractices as $key => $value) {
-            $userAnonimous->setPractices($value);
-            $userRepository->add($userAnonimous, true);
-        } */
-
-
 
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+
+            $anonymous = $userRepository->findOneBy(['pseudo' => 'Anonymous']);
+            if ( $user->getQuestions() ) {
+                foreach ($user->getQuestions() as $key => $value) {
+                    $value->setUser($anonymous);
+                    $questionRepository->add($value, true);
+                }
+            }
+            if ( $user->getPractices() ) {
+                foreach ($user->getPractices() as $key => $value) {
+                    $value->setUser($anonymous);
+                    $practice->add($value, true);
+                }
+            }
+            $session->invalidate();
+
             $userRepository->remove($user, true);
         }
 
-        return $this->redirectToRoute('Front/main/index.html.twig', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('security_logout', []);
     }
 
 

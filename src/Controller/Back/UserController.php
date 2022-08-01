@@ -21,6 +21,7 @@ class UserController extends AbstractController
      */
     public function list(UserRepository $userRepository): Response
     {
+        
         return $this->render('Back/user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
