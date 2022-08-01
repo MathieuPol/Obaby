@@ -30,3 +30,33 @@
 .thead-end {
     border-radius:0 22.2px 0 0; 
 }
+h4{
+    font-size: small;
+    font-weight: lighter;
+}
+/******Queries tableau modération********/
+@media (max-width: 1050px) {
+    .validate {
+        display: none;
+    }
+    .update {
+        display: none;
+    }
+    .delete {
+        display: none;
+    }
+    .update-date {
+        display: none;
+    }
+    .creation-date {
+        display: none;
+    }
+    .status {
+        display: none;
+    }
+}
+@media (min-width: 1050px) {
+    .responsive-tr {
+        display: none;
+    }
+}
