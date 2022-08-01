@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Answer{% endblock %}
+{% block title %}Réponse{% endblock %}
 
 {% block navbar %}{% include '/Back/partials/_nav_back.html.twig' %}{% endblock %}
 
 {% block body %}
-    <h1>Answer</h1>
+    <h1>Réponse</h1>
 
     <table class="table">
         <tbody>
@@ -14,15 +14,15 @@
                 <td>{{ answer.id }}</td>
             </tr>
             <tr>
-                <th>Content</th>
+                <th>Contenu</th>
                 <td>{{ answer.content }}</td>
             </tr>
             <tr>
-                <th>CreatedAt</th>
+                <th>Date de création</th>
                 <td>{{ answer.createdAt ? answer.createdAt|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>Status</th>
+                <th>Statut</th>
                 <td>{{ answer.status }}</td>
             </tr>
         </tbody>

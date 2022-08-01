@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category index
+{% block title %}Liste des catégories
 {% endblock %}
 
 {% block navbar %}
@@ -21,7 +21,7 @@
 				<thead class="table-thead">
 					<tr>
 						<th scope="col" class="thead-start text-white text-center">Id</th>
-						<th scope="col" class="text-white">Name</th>
+						<th scope="col" class="text-white">Nom de la catégorie</th>
 						<th scope="col" class="text-white">Editer</th>
 						<th scope="col" class="thead-end text-white">Supprimer</th>
 					</tr>
@@ -52,7 +52,7 @@
 			</div>
 
 			<a class="btn btn-primary col-11 mx-4" href="{{ path('back_home') }}">
-				Revenez à l'accueil</a>
+				Revenir à l'accueil</a>
 		</div>
 
 	</section>

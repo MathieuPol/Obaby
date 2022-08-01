@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Answer index
+{% block title %}Liste des réponses
 {% endblock %}
 
 {% block navbar %}
@@ -21,10 +21,10 @@
 				<thead class="table-thead">
 					<tr>
 						<th scope="col" class="thead-start text-white text-center">Id</th>
-						<th scope="col" class="text-white text-center">Content</th>
+						<th scope="col" class="text-white text-center">Contenu</th>
 						<th scope="col" class="text-white text-center">Question</th>
-						<th scope="col" class="text-white text-center">CreatedAt</th>
-						<th scope="col" class="text-white text-center">Status</th>
+						<th scope="col" class="text-white text-center">Date de création</th>
+						<th scope="col" class="text-white text-center">Statut</th>
 						<th scope="col" class="text-white text-center">Valider</th>
 						<th scope="col" class="text-white text-center">Editer</th>
 						<th scope="col" class="thead-end text-white text-center">Supprimer</th>
@@ -58,7 +58,7 @@
 				</tbody>
 			</table>
 			<a class="btn btn-primary col-11 mx-4" href="{{ path('back_home') }}">
-				Revenez à l'accueil</a>
+				Revenir à l'accueil</a>
 		</div>
 	</section>
 

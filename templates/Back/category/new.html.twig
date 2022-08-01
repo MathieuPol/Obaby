@@ -1,13 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Category{% endblock %}
+{% block title %}Créer une nouvelle catégorie{% endblock %}
 
 {% block navbar %}{% include '/Back/partials/_nav_back.html.twig' %}{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/formBack.css') }}"/>
+{% endblock %}
+
 {% block body %}
-    <h1>Créez une nouvelle catégorie</h1>
+<div class="container-question">
+        <div id="form-div">
+            <form method="post">
+                <div class="form-group mb-3">
+                    <div class="row">
+                        <div class="col-md-12 d-xxl-flex justify-content-xxl-center align-items-xxl-center pt-4 title-question">
+                            <h1 class="text-center" >Créer une nouvelle catégorie</h1>
+                            </div>
+                    </div>
+                    <hr id="hr">
 
     {{ include('Back/category/_form.html.twig') }}
 
-    <a  class="btn btn-primary" href="{{ path('back_category_list') }}">Retournez à la liste des catégories</a>
 {% endblock %}
+{% block footer %}{% endblock %}
