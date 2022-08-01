@@ -86,4 +86,9 @@ background-color: #ffc107;
         font-size: 1rem;
     }
     
+    #answer_content {
+        height: 50%;
+        text-align: start;
+        -webkit-box-orient: vertical; -webkit-line-clamp: 4;
+    }
 }

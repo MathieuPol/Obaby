@@ -1,4 +1,33 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {# {{ form_widget(form) }} #}
+    <div class="row-1">
+	<div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
+		<strong class="text-center">{{ form_row (form.content) }}</strong>
+	</div>
+</div>
 {{ form_end(form) }}
+<div class="row">
+	<div class=" d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center flex-xl-row flex-lg-row flex-md-row flex-sm-row flex-column">
+		<div class="mb-3">
+			<div class="animated-link submit-link ">
+				<button class="text-white submit-btn">
+					{{ button_label|default('Valider') }}
+				</button>
+			</div>	
+		</div>
+
+		<a href="{{ path('back_answer_list') }}" class="mx-4 mb-3">
+			<div class="animated-link submit-link">
+				<button class="btn text-white btn-success ">
+					retour à la liste
+				</button>
+			</div>
+		</a>
+
+		<form method="post" action="{{ path('back_answer_delete', {'id': answer.id}) }}" onsubmit="return confirm('Etes vous sûr de vouloir supprimer cette bonne pratique?');">
+			<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ answer.id) }}">
+			<div class="animated-link submit-link">
+				<button class="btn text-white btn-danger">Supprimer</button>
+			</div>
+		</form>
+    {# <button class="btn">{{ button_label|default('Save') }}</button> #}
