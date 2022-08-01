@@ -34,13 +34,35 @@ h4{
     font-size: small;
     font-weight: lighter;
 }
-
+.bg-light{
+    background-color: #103741;
+}
 /******Queries tableau modération********/
 @media (max-width: 1050px) {
     .validate {
         display: none;
     }
     .update {
+        display: none;
+    }
+    .delete {
+        display: none;
+    }
+    .update-date {
+        display: none;
+    }
+    .creation-date {
+        display: none;
+    }
+    .status {
+        display: none;
+    }
+}
+@media (max-width: 750px) {
+    .validate {
+        display: none;
+    }
+    .content {
         display: none;
     }
     .delete {
