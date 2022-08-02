@@ -8,15 +8,16 @@
 {% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/homeBack.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/backCategories.css') }}"/>
 {% endblock %}
 
 {% block body %}
 	<h1 class="text-center">Liste des catégories</h1>
 
-	<section class="row">
-		<div class="col-sm-6 col-md-6 col-lg-4 mb-5 m-auto">
-		<div class="table-back">
+	<section class="row display-lg">
+		<div class="col-lg-10 mb-5 m-auto">
+		<div class="table-back display-lg">
 			<table class="table table-hover">
 				<thead class="table-thead">
 					<tr>
@@ -58,7 +59,46 @@
 		</div>
 
 	</section>
+{# table display MD #}
+		<section class="row display-md">
+			<div class="col-xs-6 col-sm-10 col-md-10 col-lg-10 mb-5 m-auto">
+			<div class="table-back display-md">
+				<table class="table table-hover">
 
+				{% for category in categories %}
+					<thead class="table-thead">
+						<tr>
+								<th scope="col" class="thead-start bg-secondary text-white">Id : {{ category.id }}</th>
+								<th scope="col">Nom : {{ category.name }}</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+								<td class="bg-secondary text-white">Modération</td>
+								<td class="d-flex td-moderation justify-content-around">
+									<span>
+										<a class="d-flex justify-content-center" href="{{ path('back_category_update', {'id': category.id}) }}">
+                                        	<button class="btn btn-warning">Editer</button>
+                                    	</a>
+									</span>
+									<span class= "d-flex justify-content-center"> 
+                                		{{ include('Back/category/_delete_form.html.twig') }}
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" class="bg-primary"></td>
+							</tr>
+							{% else %}
+							<tr>
+								<td colspan="5">L'information n'a pas été trouvée</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+					<a  class="btn btn-primary col-11 mx-4" href="{{ path('back_home') }}"> Revenir à l'accueil</a>
+				</div>
+			</section>
 {% endblock %}
 
 {% block footer %}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>{% endblock %}
