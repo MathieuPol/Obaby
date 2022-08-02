@@ -8,16 +8,17 @@
 {% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/homeBack.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/backUsers.css') }}"/>
 {% endblock %}
 
 {% block body %}
 
 	<h1 class="text-center">Liste des utilisateurs</h1>
 
-	<section class="row">
-		<div class="col-sm-12 col-md-12 col-lg-8 mb-5 m-auto">
-		<div class="table-back">
+	<section class="row display-lg">
+		<div class="col-sm-10 col-md-10 col-lg-10 mb-5 m-auto">
+		<div class="table-back display-lg">
 			<table class="table table-hover">
 				<thead class="table-thead">
 					<tr>
@@ -58,6 +59,60 @@
 </div>
 
 	</section>
+
+	{# table display MD #}
+		<section class="row display-md">
+			<div class="col-xs-6 col-sm-10 col-md-10 col-lg-10 mb-5 m-auto">
+			<div class="table-back display-md">
+				<table class="table table-hover">
+
+				{% for user in users %}
+					<thead class="table-thead">
+						<tr>
+								<th scope="col" class="thead-start bg-secondary text-white">User Id : {{ user.id }}</th>
+								<th scope="col">Pseudo : {{ user.pseudo }}</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+								<td class="bg-secondary text-white">Email</td>
+								<td>{{ user.email }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Role</td>
+								<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Statut</td>
+								<td>{{ user.status }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Modération</td>
+								<td class="d-flex td-moderation justify-content-around">
+									<span>
+										<a class="d-flex justify-content-center" href="{{ path('back_user_update', {'id': user.id}) }}">
+                                        	<button class="btn btn-warning">Editer</button>
+                                    	</a>
+									</span>
+									<span class= "d-flex justify-content-center"> 
+                                		{{ include('Back/user/_delete_form.html.twig') }}
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" class="bg-primary"></td>
+							</tr>
+							{% else %}
+							<tr>
+								<td colspan="5">L'information n'a pas été trouvée</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+					<a  class="btn btn-primary col-11 mx-4" href="{{ path('back_home') }}"> Revenir à l'accueil</a>
+				</div>
+			</section>
+
 
 {% endblock %}
 
