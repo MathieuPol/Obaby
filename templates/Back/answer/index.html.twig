@@ -40,10 +40,14 @@
 							<td>{{ answer.createdAt ? answer.createdAt|date("d/m/Y") : '' }}</td>
 							<td>{{ answer.status }}</td>
 							<td>
+							{% if answer.status == 0 %}
 								<form action="{{ path('back_question_answer_validate', {'id': answer.id}) }}" method="post">
 									<button class="btn btn-success">Valider</button>
 								</form>
 							</td>
+							{% else %}
+								
+							{% endif %}
 							<td>
 								<a class="d-flex justify-content-center" href="{{ path('back_answer_update', {'id': answer.id}) }}">
                                     <button class="btn btn-warning">Editer</button>

@@ -39,10 +39,14 @@
                             <td>{{ question.category.name }}</td>
                             <td>{{ question.status }}</td>
                             <td> 
+                            {% if question.status == 0 %}
                                 <form class= "d-flex justify-content-center" action="{{ path('back_question_validate', {'id': question.id}) }}" method="post">
                                     <button class="btn btn-success ">Valider</button>
                                 </form>
                             </td>
+                            {% else %}
+								
+							{% endif %}
                             <td>
                                     <a class="d-flex justify-content-center" href="{{ path('back_question_update', {'id': question.id}) }}">
                                         <button class="btn btn-warning">Editer</button>
