@@ -16,18 +16,16 @@
             </a>
           
             <ul class="dropdown-menu text-center position-absolute" id="category-nav">
-              {% for category in categoryList %}
+              {% for categories in categoryList %}
                 <li>
                   <a  class="dropdown-item text-light
-                    {% if category.slug == questions[0].category.slug %}
+                    {% if category.slug == categories.slug %}
                       active
                     {% endif %}  
-                    "href="{{ path('question_list', {'slug': category.slug}) }}">{{ category.name }}
+                    "href="{{ path('question_list', {'slug': categories.slug}) }}">{{ categories.name }}
                   </a>
                 </li>
               {% endfor %}
-
-
             </ul>
           </div>
           
