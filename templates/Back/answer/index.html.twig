@@ -39,7 +39,7 @@
 							<td>{{ answer.createdAt ? answer.createdAt|date("d/m/Y") : '' }}</td>
 							<td>{{ answer.status }}</td>
 							<td>
-							{% if answer.status == 0%}
+							{% if answer.status == 0 %}
 								<form action="{{ path('back_question_answer_validate', {'id': answer.id}) }}" method="post">
 									<button class="btn btn-success">Valider</button>
 								</form>
