@@ -99,9 +99,13 @@
 								<td class="bg-secondary text-white">Modération</td>
 								<td class="d-flex td-moderation justify-content-around">
 									<span>
+									{% if answer.status == 0 %}
 										<form class= "d-flex justify-content-center" action="{{ path('back_question_answer_validate', {'id': answer.id}) }}" method="post">
-                                   			<button class="btn btn-success ">Valider</button>
+                                			<button class="btn btn-success ">Valider</button>
                                 		</form>
+										{% else %}
+								
+							{% endif %}
 									</span>
 									<span>
 										<a class="d-flex justify-content-center" href="{{ path('back_answer_update', {'id': answer.id}) }}">
