@@ -63,7 +63,9 @@
         </div>
         {% endif %}
       </div>
+    {% if question.answers|keys %}
     </article>
+
 
 
     <div class="accordion mb-5 col-lg-10 col-md-10 col-10" id="accordionAnswer">
@@ -84,6 +86,16 @@
         </div>
 
     </div>
+    {% else %}
+            <p class="mb-0">
+                Cette question n'a pas de réponse.
+            </p>
+            <p class="mb-0">
+                 Soyez le premier à laisser une réponse.
+            </p>
+    </article>
+
+    {% endif %}
 
   {% endfor %}
 

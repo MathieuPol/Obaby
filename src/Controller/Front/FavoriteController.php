@@ -115,6 +115,7 @@ class FavoriteController extends AbstractController
                         unset($this->sessionTab[$index]);
                         //* we overwrite the session with the new array
                         $session->set('favorites', $this->sessionTab);
+                        $this->addFlash('danger', 'Votre sélection a bien été supprimée.');
                     }
                 }
             }
@@ -139,6 +140,7 @@ class FavoriteController extends AbstractController
                 //* we are obliged to overwrite the session with an empty array
                 $this->sessionTab = [];
                 $session->set('favorites', $this->sessionTab);
+                $this->addFlash('danger', 'Tous vos favoris ont bien été supprimés.');
             }
         return $this->redirectToRoute('favorite_list');
     }
