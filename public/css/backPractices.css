@@ -34,6 +34,15 @@
         display: none;
     }
 }
+@media (max-width: 367px) {
+    .td-moderation{
+        flex-direction: column;
+    }
+    form{
+        margin: 0;
+        padding: 0;
+    }
+}
 @media (min-width: 1040px) {
     .display-md{
         display: none;
