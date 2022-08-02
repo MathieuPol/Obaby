@@ -1,3 +1,12 @@
+:root {
+    --primary: #C237FE;
+    --light: #ffffff;
+    --dark: #103741;
+    --blue: #5dc7ec;
+    --green: #408558;
+    --yellow: #f6c344;
+}
+
 #form-div {
     background-image: repeating-linear-gradient(112.5deg, hsla(19,0%,93%,0.2) 0px, hsla(19,0%,93%,0.2) 0px,transparent 0px, transparent 1px,hsla(19,0%,93%,0.2) 1px, hsla(19,0%,93%,0.2) 4px,transparent 4px, transparent 5px,hsla(19,0%,93%,0.2) 5px, hsla(19,0%,93%,0.2) 8px),repeating-linear-gradient(0deg, hsla(19,0%,93%,0.2) 0px, hsla(19,0%,93%,0.2) 0px,transparent 0px, transparent 1px,hsla(19,0%,93%,0.2) 1px, hsla(19,0%,93%,0.2) 4px,transparent 4px, transparent 5px,hsla(19,0%,93%,0.2) 5px, hsla(19,0%,93%,0.2) 8px),linear-gradient(135deg, rgb(238, 238, 238),rgb(121, 121, 121));
     padding-bottom: 3%;
@@ -22,7 +31,8 @@ p {
     margin-top: 25px;
 }
 
-.animated-link button {
+.animated-link button,
+.animated-link span {
     display: inline-block;
     color: #333;
     border: 1px solid #333;
@@ -38,14 +48,16 @@ p {
     background-color .15s ease-out,
 }
 
-.animated-link:hover button {
+.animated-link:hover button,
+.animated-link:hover span {
     transform: translate(-6px, -6px);
     background:rgb(201, 2, 215) ;
+    border: none;
 }
 /************** NE PAS COPIER *****************/
 /************** START BUTTONS COLOR ****************/
 .submit-btn {
-background-color: #ffc107;
+background-color: var(--green);
 }
 /************** FIN BUTTONS COLOR ****************/
 
