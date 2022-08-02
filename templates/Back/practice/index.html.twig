@@ -8,30 +8,28 @@
 {% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/backPractices.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/backPractices.css') }}"/>
 {% endblock %}
 
 {% block body %}
 	<h1 class="text-center">Liste des bonnes pratiques</h1>
 
 	<section class="row display-lg">
-		<div class="col-sm-10 col-md-10 col-lg-10 mb-5 m-auto">
-		<div class="table-back">
-			<table class="table table-hover display-lg">
+		<div class="col-lg-10 mb-5 m-auto">
+		<div class="table-back display-lg">
+			<table class="table table-hover">
 				<thead class="table-thead">
 					<tr>
-
-						<th scope="col" class="thead-start text-white text-center">Id</th>
-						<th scope="col" class="text-white text-center">Title</th>
-						<th scope="col" class="text-white text-center">Content</th>
-						<th scope="col" class="text-white text-center creation-date">Date de création</th>
-						<th scope="col" class="text-white text-center update-date">Date de mise à jour</th>
-						<th scope="col" class="text-white text-center status">Status</th>
-						<th scope="col" class="text-white text-center validate">Valider</th>
-						<th scope="col" class="text-white text-center update">Editer</th>
-						<th scope="col" class="thead-end text-white text-center delete">Supprimer</th>
-
+						<th scope="col" class="thead-start text-white">Id</th>
+						<th scope="col" class="text-white">Titre</th>
+						<th scope="col" class="text-white">Contenu</th>
+						<th scope="col" class="text-white">Date de création</th>
+						<th scope="col" class="text-white">Catégorie</th>
+						<th scope="col" class="text-white">Statut</th>
+						<th scope="col" class="text-white">Valider</th>
+						<th scope="col" class="text-white">Editer</th>
+						<th scope="col" class="thead-end text-white">Supprimer</th>
 
 					</tr>
 				</thead>
@@ -41,22 +39,20 @@
 							<th scope="row">{{ practice.id }}</th>
 							<td>{{ practice.title }}</td>
 							<td>{{ practice.content }}</td>
-
-							<td class="creation-date font-weight-bold">{{ practice.createdAt ? practice.createdAt|date('d-m-Y') : '' }}</td>
-							<td class="update-date font-weight-bold">{{ practice.updatedAt ? practice.updatedAt|date('Y-m-d') : '' }}</td>
-							<td class="status font-weight-bold">{{ practice.status }}</td>
-							<td class="validate">
-
+							<td>{{ practice.createdAt ? practice.createdAt|date('d-m-Y') : '' }}</td>
+							<td>{{ practice.category.name }}</td>
+							<td>{{ practice.status }}</td>
+							<td>
 								<form action="{{ path('back_practice_validate', {'id': practice.id}) }}" method="post">
 									<button class="btn btn-success">Valider</button>
 								</form>
 							</td>
-
-							<td class="update">
-								<a class="btn btn-warning" href="{{ path('back_practice_update', {'id': practice.id}) }}">Editer</a>
-
+							<td>
+								<a class="d-flex justify-content-center" href="{{ path('back_practice_update', {'id': practice.id}) }}">
+									<button class="btn btn-warning">Editer</button>
+								</a>							
 							</td>
-							<td class="delete">
+							<td>
 								{{ include('Back/practice/_delete_form.html.twig') }}
 							</td>
 						</tr>
@@ -72,11 +68,9 @@
 		</div>
 
 	</section>
-
-
 	{# table display MD #}
 		<section class="row display-md">
-			<div class="col-xs-6 col-sm-10 col-md-10 col-lg-10 mb-5 m-auto">
+			<div class="col-lg-12 mb-5 m-auto">
 			<div class="table-back display-md">
 				<table class="table table-hover">
 
@@ -102,7 +96,7 @@
 							</tr>
 							<tr>
 								<td class="bg-secondary text-white">Modération</td>
-								<td class="d-flex td-moderation justify-content-around">
+								<td class="d-flex justify-content-around td-moderation">
 									<span>
 										<form class= "d-flex justify-content-center" action="{{ path('back_practice_validate', {'id': practice.id}) }}" method="post">
                                    			<button class="btn btn-success ">Valider</button>
