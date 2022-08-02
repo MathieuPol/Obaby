@@ -1,0 +1,85 @@
+:root {
+    --primary: #C237FE;
+    --light: #ffffff;
+    --dark: #103741;
+    --blue: #5dc7ec;
+    --green: #408558;
+    --yellow: #f6c344;
+}
+
+.table-back {
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    padding-bottom: 3%;
+    border-radius: 22.2px;
+    box-shadow: 0 0 16px var(--dark);
+}
+
+.table-thead {
+    background-image: repeating-linear-gradient(157.5deg, hsla(340,0%,30%,0.2) 0px, hsla(340,0%,30%,0.2) 0px,transparent 0px, transparent 1px,hsla(340,0%,30%,0.2) 1px, hsla(340,0%,30%,0.2) 4px,transparent 4px, transparent 5px,hsla(340,0%,30%,0.2) 5px, hsla(340,0%,30%,0.2) 8px),repeating-linear-gradient(90deg, hsla(340,0%,30%,0.2) 0px, hsla(340,0%,30%,0.2) 0px,transparent 0px, transparent 1px,hsla(340,0%,30%,0.2) 1px, hsla(340,0%,30%,0.2) 4px,transparent 4px, transparent 5px,hsla(340,0%,30%,0.2) 5px, hsla(340,0%,30%,0.2) 8px),linear-gradient(135deg, rgb(187, 187, 187),rgb(72, 72, 72));
+}
+.thead {
+    border-radius:22.2px 22.2px 0 0;
+    
+}
+
+.thead-start {
+    border-radius:22.2px 0 0;
+    
+}
+
+.thead-end {
+    border-radius:0 22.2px 0 0; 
+}
+h4{
+    font-size: small;
+    font-weight: lighter;
+}
+.bg-light{
+    background-color: #103741;
+}
+/******Queries tableau modération********/
+@media (max-width: 1050px) {
+    .validate {
+        display: none;
+    }
+    .update {
+        display: none;
+    }
+    .delete {
+        display: none;
+    }
+    .update-date {
+        display: none;
+    }
+    .creation-date {
+        display: none;
+    }
+    .status {
+        display: none;
+    }
+}
+@media (max-width: 750px) {
+    .validate {
+        display: none;
+    }
+    .content {
+        display: none;
+    }
+    .delete {
+        display: none;
+    }
+    .update-date {
+        display: none;
+    }
+    .creation-date {
+        display: none;
+    }
+    .status {
+        display: none;
+    }
+}
+@media (min-width: 1050px) {
+    .responsive-tr {
+        display: none;
+    }
+}
