@@ -26,7 +26,19 @@
 .thead-end {
     border-radius:0 22.2px 0 0; 
 }
-
+#backhome{
+    position: fixed;
+/*     position: -webkit-sticky; */
+    top: 90vh;
+    left: 1rem;
+/*     left: calc(50% - 61px); */
+    background-color: var(--primary);
+    width: 5rem;
+    height: 3rem;
+    z-index: 2;
+    border: solid 1px var(--blue);
+    color: white;
+}
 
 /*****Media queries*****/
 @media (max-width: 1040px) {
