@@ -102,12 +102,16 @@
     margin-left: 0;
     z-index: 1;
     left: 0;
-    top: -24.4px;
+    top: -25px;
     background: transparent;
     color: var(--primary);
+
 }
 
 .favorite-practice:hover{
     color: var(--blue);
     transition: 2s;
+}
+
+.favorite-icon{
 }
