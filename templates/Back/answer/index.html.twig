@@ -36,7 +36,7 @@
 							<th scope="row">{{ answer.id }}</th>
 							<td>{{ answer.content }}</td>
 							<td>{{ answer.question.content }}</td>
-							<td>{{ answer.createdAt ? answer.createdAt|date('Y-m-d') : '' }}</td>
+							<td>{{ answer.createdAt ? answer.createdAt|date("d/m/Y") : '' }}</td>
 							<td>{{ answer.status }}</td>
 							<td>
 								<form action="{{ path('back_question_answer_validate', {'id': answer.id}) }}" method="post">
