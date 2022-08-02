@@ -59,6 +59,13 @@
     box-shadow: 0 0 16px #C237FE;
 }
 
+.no-answer{
+    background-color: rgb(247,241,241);
+    padding-bottom: 2%;
+    border-radius: 22.2px;
+    box-shadow: 0 0 16px rgb(81 203 238);
+}
+
 .submit-btn{
     background-color: var(--primary);
     color: white;
