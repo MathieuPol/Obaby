@@ -30,6 +30,7 @@
 .thead-end {
     border-radius:0 22.2px 0 0; 
 }
+
 h4{
     font-size: small;
     font-weight: lighter;
@@ -82,4 +83,5 @@ h4{
     .responsive-tr {
         display: none;
     }
+
 }

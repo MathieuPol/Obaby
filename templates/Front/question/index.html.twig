@@ -17,8 +17,13 @@
           
             <ul class="dropdown-menu text-center position-absolute" id="category-nav">
               {% for category in categoryList %}
-                <li class="dropdown-item">
-                  <a  class="text-light" href="{{ path('question_list', {'slug': category.slug}) }}">{{ category.name }}</a>
+                <li>
+                  <a  class="dropdown-item text-light
+                    {% if category.slug == questions[0].category.slug %}
+                      active
+                    {% endif %}  
+                    "href="{{ path('question_list', {'slug': category.slug}) }}">{{ category.name }}
+                  </a>
                 </li>
               {% endfor %}
 
@@ -58,7 +63,9 @@
         </div>
         {% endif %}
       </div>
+    {% if question.answers|keys %}
     </article>
+
 
 
     <div class="accordion mb-5 col-lg-10 col-md-10 col-10" id="accordionAnswer">
@@ -79,6 +86,16 @@
         </div>
 
     </div>
+    {% else %}
+            <p class="mb-0">
+                Cette question n'a pas de réponse.
+            </p>
+            <p class="mb-0">
+                 Soyez le premier à laisser une réponse.
+            </p>
+    </article>
+
+    {% endif %}
 
   {% endfor %}
 

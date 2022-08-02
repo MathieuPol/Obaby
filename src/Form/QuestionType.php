@@ -24,7 +24,8 @@ class QuestionType extends AbstractType
                 'required' => true,
             ])
             ->add('category', EntityType::class, [
-                'label' => '* Catégorie',
+                'label' => '* Choisissez une catégorie associée',
+                'help' => '* Champs obligatoires',
                 'class' => 'App\Entity\Category',
                 'choice_label' => 'name',
                 'placeholder' => 'Choisissez une catégorie',

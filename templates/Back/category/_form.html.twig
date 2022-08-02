@@ -1,4 +1,26 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+
+<div class="row-1">
+	<div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
+		<strong class="text-center">{{ form_row(form.name) }}</strong>
+	</div>
+</div>
 {{ form_end(form) }}
+
+<div class="row">
+	<div class=" d-flex d-xxl-flex justify-content-center align-items-center justify-content-xxl-center flex-xl-row flex-lg-row flex-md-row flex-sm-row flex-column">
+		<div class="mb-3">
+			<div class="animated-link submit-link ">
+				<button class="text-white submit-btn">
+					{{ button_label|default('Valider') }}
+				</button>
+			</div>	
+		</div>
+
+		<a href="{{ path('back_category_list') }}" class="mx-4 mb-3">
+			<div class="animated-link submit-link">
+				<span class="btn text-white btn-warning ">
+					Retour à la liste
+				</span>
+			</div>
+		</a>

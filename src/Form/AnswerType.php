@@ -19,8 +19,8 @@ class AnswerType extends AbstractType
     {
         $builder
             ->add('content', TextareaType::class, [
-            'label' => '*Rédigez votre réponse',
-            'help' => '*Champ obligatoire',
+            'label' => '* Rédigez votre réponse',
+            'help' => '* Champ obligatoire',
             'constraints' => new NotBlank(),
             ]);
     }

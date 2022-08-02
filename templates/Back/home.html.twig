@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Wellcome to back-office
+{% block title %}Bienvenue dans votre back-office
 {% endblock %}
 
 {% block navbar %}
@@ -26,12 +26,12 @@
 									<h2 class="text-center text-white">Bonnes Pratiques</h2>
 								</th>
 							</tr>
-							<tr class="text-center text-white">
+							<tr class="text-white">
 								<th scope="col">Id</th>
-								<th scope="col">Title</th>
-								<th scope="col">Content</th>
-								<th scope="col">CreatedAt</th>
-								<th scope="col">Status</th>
+								<th scope="col">Titre</th>
+								<th scope="col">Contenu</th>
+								<th scope="col">Date de création</th>
+								<th scope="col">Statut</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -70,12 +70,12 @@
 									<h2 class="text-center text-white">Questions</h2>
 								</th>
 							</tr>
-							<tr class="text-center text-white">
+							<tr class="text-white">
 								<th scope="col">Id</th>
 								<th scope="col">Question</th>
 								<th scope="col">Date de création</th>
 								<th scope="col">Catégorie</th>
-								<th scope="col">Status</th>
+								<th scope="col">Statut</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -112,12 +112,12 @@
 									<h2 class="text-center text-white">Réponses</h2>
 								</th>
 							</tr>
-							<tr class="text-center text-white">
+							<tr class="text-white">
 								<th scope="col">Id</th>
 								<th scope="col">Réponse</th>
 								<th scope="col">Date de création</th>
 								<th scope="col">Question</th>
-								<th scope="col">Status</th>
+								<th scope="col">Statut</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -154,11 +154,11 @@
 									<h2 class="text-center text-white">Utilisateurs</h2>
 								</th>
 							</tr>
-							<tr class="text-center text-white">
+							<tr class="text-white">
 								<th scope="col">Id</th>
 								<th scope="col">Rôle</th>
 								<th scope="col">Pseudo</th>
-								<th scope="col">Status</th>
+								<th scope="col">Statut</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -195,9 +195,9 @@
 									<h2 class="text-center text-white">Catégories</h2>
 								</th>
 							</tr>
-							<tr class="text-center text-white">
+							<tr class="text-white">
 								<th scope="col">Id</th>
-								<th scope="col">Name</th>
+								<th scope="col">Nom de la catégorie</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -219,4 +219,4 @@
 
 	
 {% endblock %}
-{% block footer %}{% endblock %}
+{% block footer %}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>{% endblock %}

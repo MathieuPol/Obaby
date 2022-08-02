@@ -33,7 +33,7 @@ class MainController extends AbstractController
         $practices = $practiceRepository->findBy([], ['createdAt' => 'DESC'], 5);
         $questions = $questionRepository->findBy(array(), array('createdAt' => 'DESC'), 5);
         $answers = $answerRepository->findBy(array(), array('createdAt' => 'Desc'),5);
-        $categories = $categoryRepository->findAll();
+        $categories = $categoryRepository->findBy(array(), array('id' => 'Desc'),5);
 
         return $this->render('Back/home.html.twig', [
             'users' => $users,

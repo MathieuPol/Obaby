@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Practice index
+{% block title %}Liste des bonnes pratiques
 {% endblock %}
 
 {% block navbar %}
@@ -21,6 +21,7 @@
 			<table class="table table-hover display-lg">
 				<thead class="table-thead">
 					<tr>
+
 						<th scope="col" class="thead-start text-white text-center">Id</th>
 						<th scope="col" class="text-white text-center">Title</th>
 						<th scope="col" class="text-white text-center">Content</th>
@@ -31,6 +32,7 @@
 						<th scope="col" class="text-white text-center update">Editer</th>
 						<th scope="col" class="thead-end text-white text-center delete">Supprimer</th>
 
+
 					</tr>
 				</thead>
 				<tbody>
@@ -39,16 +41,20 @@
 							<th scope="row">{{ practice.id }}</th>
 							<td>{{ practice.title }}</td>
 							<td>{{ practice.content }}</td>
+
 							<td class="creation-date font-weight-bold">{{ practice.createdAt ? practice.createdAt|date('d-m-Y') : '' }}</td>
 							<td class="update-date font-weight-bold">{{ practice.updatedAt ? practice.updatedAt|date('Y-m-d') : '' }}</td>
 							<td class="status font-weight-bold">{{ practice.status }}</td>
 							<td class="validate">
+
 								<form action="{{ path('back_practice_validate', {'id': practice.id}) }}" method="post">
-									<button class="btn btn-warning">Valider</button>
+									<button class="btn btn-success">Valider</button>
 								</form>
 							</td>
+
 							<td class="update">
 								<a class="btn btn-warning" href="{{ path('back_practice_update', {'id': practice.id}) }}">Editer</a>
+
 							</td>
 							<td class="delete">
 								{{ include('Back/practice/_delete_form.html.twig') }}
@@ -62,7 +68,7 @@
 				</tbody>
 			</table>
 			<a class="btn btn-primary col-11 mx-4" href="{{ path('back_home') }}">
-				Revenez à l'accueil</a>
+				Revenir à l'accueil</a>
 		</div>
 
 	</section>
@@ -128,4 +134,4 @@
 
 
 {% endblock %}
-{% block footer %}{% endblock %}
+{% block footer %}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>{% endblock %}

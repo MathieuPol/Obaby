@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Answer index
+{% block title %}Liste des réponses
 {% endblock %}
 
 {% block navbar %}
@@ -20,14 +20,14 @@
 			<table class="table table-hover">
 				<thead class="table-thead">
 					<tr>
-						<th scope="col" class="thead-start text-white text-center">Id</th>
-						<th scope="col" class="text-white text-center">Content</th>
-						<th scope="col" class="text-white text-center">Question</th>
-						<th scope="col" class="text-white text-center">CreatedAt</th>
-						<th scope="col" class="text-white text-center">Status</th>
-						<th scope="col" class="text-white text-center">Valider</th>
-						<th scope="col" class="text-white text-center">Editer</th>
-						<th scope="col" class="thead-end text-white text-center">Supprimer</th>
+						<th scope="col" class="thead-start text-white">Id</th>
+						<th scope="col" class="text-white">Contenu</th>
+						<th scope="col" class="text-white">Question</th>
+						<th scope="col" class="text-white">Date de création</th>
+						<th scope="col" class="text-white">Statut</th>
+						<th scope="col" class="text-white">Valider</th>
+						<th scope="col" class="text-white">Editer</th>
+						<th scope="col" class="thead-end text-white">Supprimer</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -36,15 +36,17 @@
 							<th scope="row">{{ answer.id }}</th>
 							<td>{{ answer.content }}</td>
 							<td>{{ answer.question.content }}</td>
-							<td>{{ answer.createdAt ? answer.createdAt|date('Y-m-d') : '' }}</td>
+							<td>{{ answer.createdAt ? answer.createdAt|date("d/m/Y") : '' }}</td>
 							<td>{{ answer.status }}</td>
 							<td>
 								<form action="{{ path('back_question_answer_validate', {'id': answer.id}) }}" method="post">
-									<button class="btn btn-warning">Valider</button>
+									<button class="btn btn-success">Valider</button>
 								</form>
 							</td>
 							<td>
-								<a class="btn btn-warning" href="{{ path('back_answer_update', {'id': answer.id}) }}">Editer</a>
+								<a class="d-flex justify-content-center" href="{{ path('back_answer_update', {'id': answer.id}) }}">
+                                    <button class="btn btn-warning">Editer</button>
+                                </a>							
 							</td>
 							<td>
 								{{ include('Back/answer/_delete_form.html.twig') }}
@@ -58,9 +60,9 @@
 				</tbody>
 			</table>
 			<a class="btn btn-primary col-11 mx-4" href="{{ path('back_home') }}">
-				Revenez à l'accueil</a>
+				Revenir à l'accueil</a>
 		</div>
 	</section>
 
 {% endblock %}
-{% block footer %}{% endblock %}
+{% block footer %}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>{% endblock %}

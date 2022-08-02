@@ -14,6 +14,7 @@ use App\Services\SlugService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PracticeController extends AbstractController
@@ -89,11 +90,12 @@ class PracticeController extends AbstractController
      */
     public function show(
         string $slug,
-        PracticeRepository $practiceRepository
+        PracticeRepository $practiceRepository,
+        CategoryRepository $categoryRepository
     ): Response {
         $dataPractice = $practiceRepository->findOneBy(['slug' => $slug]);
         $category = $dataPractice->getCategory();
-
+        $categories = $categoryRepository->findAll();
         // Si l'id contient un index qui n'existe pas
         if (is_null($dataPractice)) {
             throw $this->createNotFoundException('Le film n\'existe pas.');
@@ -102,7 +104,8 @@ class PracticeController extends AbstractController
         // on renvoie le template twig dans lequel on transmet les données du film demandé en paramètre
         return $this->render('Front/practice/practice-show.html.twig', [
             'practice' => $dataPractice,
-            'category' => $category
+            'category' => $category,
+            'categories' => $categories,
                 ]);
     }
 }

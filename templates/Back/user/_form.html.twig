@@ -1,5 +1,5 @@
 {{ form_start(form) }}
-{# {{ form_widget(form) }} #}
+
 <div class="row-1">
 	<div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
 		<strong class="text-center">{{ form_row(form.email) }}</strong>
@@ -20,7 +20,6 @@
 		<strong class="text-center">{{ form_row(form.roles) }}</strong>
 	</div>
 </div>
-{# <button class="btn">{{ button_label|default('Enregistrer') }}</button> #}
 
 {{ form_end(form) }}
 
@@ -36,13 +35,13 @@
 
 		<a href="{{ path('back_user_list') }}" class="mx-4 mb-3">
 			<div class="animated-link submit-link">
-				<button class="btn text-white btn-success ">
-					retour à la liste
-				</button>
+				<span class="btn text-white btn-warning ">
+					Retour à la liste
+				</span>
 			</div>
 		</a>
 
-		<form method="post" action="{{ path('back_user_delete', {'id': user.id}) }}" onsubmit="return confirm('Etes vous sûr de vouloir supprimer cette bonne pratique?');">
+		<form method="post" action="{{ path('back_user_delete', {'id': user.id}) }}" onsubmit="return confirm('Etes-vous sûr de vouloir supprimer cette bonne pratique ?');">
 			<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
 			<div class="animated-link submit-link">
 				<button class="btn text-white btn-danger">Supprimer</button>

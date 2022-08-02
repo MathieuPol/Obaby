@@ -16,16 +16,43 @@
     Bonnes pratiques
   </h1>
 
+    <aside class="mb-3 position-relative">  
+
+          <div class="dropdown text-center">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Catégories
+            </a>
+          
+            <ul class="dropdown-menu text-center position-absolute" id="category-nav">
+            {% for category in categories %}
+              <li><a class=
+              "dropdown-item text-light
+              {% if category.slug == practice.category.slug %}
+                active
+              {% endif %}"
+              href="{{ path('practice_list', {slug: category.slug}) }}">{{ category.name }}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+
+  </aside>
+
+
   <main class="container-fluid row m-auto">
     <content class="text-center d-flex flex-column align-items-center">
       <!-- Factoriser ici -->
 
-      <article class="col-lg-10 mb-5">
+      <article class="col-lg-10 mb-5 practice-article">
+        <form class="m-0" action="{{ path('favorite_add') }}" method='post'>
+          <input type="hidden" name="id_favorite" value="{{ practice.id }}"/>
+          <button class="favorite-practice"><i class="fa-solid fa-heart-circle-plus fa-3x favorite-icon"></i></button>
+        </form>
         <div class="card banner-owner" role="card-banner">
           <img src="{{ asset('asset/img/finger.png') }}"
             role="banner"
             class="card-img-top"
             alt="finger picture" />
+        <img src="{{ asset('asset/img/nipple' ~ practice.category.slug ~ '.png') }}" class="card-img-top banner-feature" alt="nipple picture">
 
           <div class="card-body">
             <h5 class="card-title text-center">
@@ -39,19 +66,17 @@
             <div class="d-flex justify-content-between justify-content-lg-around">
               <div>
                 <img class="autor-pic m-0"
-                  src="./asset/img/avatar1.svg"
+                  src="{{ asset( 'asset/img/avatar1.svg' ) }}"
                   alt="author picture" />
                 <p class="autor-name text-muted align-self-end mb-0">
-                  {#               {% if practice.user.pseudo is not Null %}
+
               {{ practice.user.pseudo }}
-              {else} #}
-                  Mathieu
-                  {# {% endif %} #}
+
                 </p>
               </div>
 
               <div class="align-self-center">
-                <time datetime="2022-25-07">Le 25 juillet 2022</time>
+                <time datetime="{{ practice.createdAt|date ("d/m/Y") }}">{{ practice.createdAt|date ("d/m/Y") }}</time>
               </div>
             </div>
           </div>

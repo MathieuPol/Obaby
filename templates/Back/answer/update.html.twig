@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Answer{% endblock %}
+{% block title %}Editer une réponse{% endblock %}
 
 {% block navbar %}{% include '/Back/partials/_nav_back.html.twig' %}{% endblock %}
 {% block stylesheets %}
@@ -14,16 +14,13 @@
                 <div class="form-group mb-3">
                     <div class="row">
                         <div class="col-md-12 d-xxl-flex justify-content-xxl-center align-items-xxl-center pt-4 title-question">
-                            <h1 class="text-center" ><strong>Editer une réponse</strong></h1>
+                            <h1 class="text-center" >Editer une réponse</h1>
                         </div>
                     </div>
                     <hr id="hr">
 
     {{ include('Back/answer/_form.html.twig') }}
-    {# {{ include('Back/answer/_form.html.twig', {'button_label': 'Update'}) }} #}
 
-{#     <a href="{{ path('app_answer_index') }}">back to list</a> #}
-
-    {# {{ include('Back/answer/_delete_form.html.twig') }} #}
 {% endblock %}
+
 {% block footer %}{% endblock %}
