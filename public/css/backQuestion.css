@@ -33,3 +33,16 @@
 .edit{
     background-color: #5dc7ec;
 }
+
+
+/*****Media queries*****/
+@media (max-width: 1040px) {
+    .display-lg{
+        display: none;
+    }
+}
+@media (min-width: 1040px) {
+    .display-md{
+        display: none;
+    }
+}
