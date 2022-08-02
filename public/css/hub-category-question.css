@@ -129,9 +129,12 @@
 
     
     .category-container{
-        background-image: url("../asset/img/enjoyedBabies.png");
+        background-image: url("../asset/img/hub-question.png");
         background-repeat: no-repeat;
+        background-size: 42rem;
         background-position: center;
-        background-size: 55rem;
+        background-position-x: 18rem;
+
+
     }
 }

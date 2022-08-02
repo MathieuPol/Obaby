@@ -20,22 +20,19 @@
 {% if is_granted("ROLE_USER") %}
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav mx-auto">
-      <span class="nav-item nav-link">Bonjour {{ app.user.pseudo }}</span>
         <a href={{ path('category_show_practice')}} class="nav-item nav-link">Bonnes pratiques</a>
         <a href={{ path('category_show_question')}} class="nav-item nav-link">Questions / réponses</a>
         <a href="{{ path('favorite_list') }}" class="nav-item nav-link">Favoris</a>
+        <a href="{{ path('security_logout') }}" class="nav-item nav-link d-lg-none">Déconnexion</a>
         <!-- VOIR AVEC TEAM -->
         <!-- <a href="contact.html" class="nav-item nav-link">Mon compte</a> -->
         <div class="nav-item dropdown">
-          <a href="{{ path('user_show', {id: app.user.id }) }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Mon compte</a>
-          <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+          <a href="{{ path('user_show', {id: app.user.id }) }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Bonjour {{ app.user.pseudo }}</a>
+          <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0 text-center">
+          <a href="{{ path('user_show', {id: app.user.id }) }}" class="dropdown-item">Mon compte</a>
           {% if is_granted("ROLE_MODERATOR") %}
             <a href={{ path('back_home') }} class="dropdown-item">Back-office</a>
           {% endif %}
-          <a href="{{ path('user_show', {id: app.user.id }) }}" class="dropdown-item">Mon compte</a>
-
-            <a href="#" class="dropdown-item">403 Forbidden</a>
-            <a href="#" class="dropdown-item">404 Error</a>
           </div>
         </div>
       </div>
@@ -46,10 +43,14 @@
       <div class="navbar-nav mx-auto">
         <a href={{ path('category_show_practice')}} class="nav-item nav-link">Bonnes pratiques</a>
         <a href={{ path('category_show_question')}} class="nav-item nav-link">Questions / réponses</a>
+        <a href="{{ path('security_login') }}" class="nav-item nav-link d-lg-none">Connexion</a>
+
+
+
       </div>
 
-
       <a href="{{ path('security_login') }}" class="btn rounded-pill px-3 d-none d-lg-block m-2">Connexion<i class="fa fa-sign-in ms-3" aria-hidden="true"></i></a>
+
     </div>
 {% endif %}
   </nav>
