@@ -21,7 +21,7 @@ class UserUpdateType extends AbstractType
             ->add('pseudo')
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'invalid_message' => 'Les mots de passe doivent correspondre.',
+                'invalid_message' => 'Les mots de passe doivent correspondre',
                 'label' => 'Entrez un mot de passe',
                 'first_options'  => [
                         'label' => '* Mot de passe',

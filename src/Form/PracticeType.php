@@ -18,17 +18,16 @@ class PracticeType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-            'label' => 'Donner un titre à votre article',
-            'help' => 'Ce champ ne doit pas être nul',
+            'label' => '* Donnez un titre à votre bonne pratique',
             'constraints' => new NotBlank(),
             ])
             ->add('content', TextareaType::class, [
-            'label' => 'Rédigez votre article',
-            'help' => 'Ce champ ne doit pas être nul',
+            'label' => '* Rédigez votre bonne pratique',
             'constraints' => new NotBlank(),
             ])
             ->add('category', EntityType::class, [
-                'label' => 'Catégorie',
+                'label' => '* Choisissez une catégorie associée',
+                'help' => '* Champs obligatoires',
                 'class' => 'App\Entity\Category',
                 'choice_label' => 'name',
                 'placeholder' => 'Choisissez une catégorie',

@@ -24,8 +24,9 @@ class PracticeController extends AbstractController
      */
     public function list(PracticeRepository $practiceRepository): Response
     {
+        $practices = $practiceRepository->findBy([], ['createdAt' => 'DESC']);
         return $this->render('Back/practice/index.html.twig', [
-            'practices' => $practiceRepository->findAll(),
+            'practices' => $practices,
         ]);
     }
 

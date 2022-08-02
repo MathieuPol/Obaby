@@ -19,15 +19,14 @@
 		<a href="{{ path('back_answer_list') }}" class="mx-4 mb-3">
 			<div class="animated-link submit-link">
 				<button class="btn text-white btn-success ">
-					retour à la liste
+					Retour à la liste
 				</button>
 			</div>
 		</a>
 
-		<form method="post" action="{{ path('back_answer_delete', {'id': answer.id}) }}" onsubmit="return confirm('Etes vous sûr de vouloir supprimer cette bonne pratique?');">
+		<form method="post" action="{{ path('back_answer_delete', {'id': answer.id}) }}" onsubmit="return confirm('Etes-vous sûr de vouloir supprimer cette bonne pratique ?');">
 			<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ answer.id) }}">
 			<div class="animated-link submit-link">
 				<button class="btn text-white btn-danger">Supprimer</button>
 			</div>
 		</form>
-    {# <button class="btn">{{ button_label|default('Save') }}</button> #}

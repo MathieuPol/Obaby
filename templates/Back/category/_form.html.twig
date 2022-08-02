@@ -1,11 +1,10 @@
 {{ form_start(form) }}
-    {# {{ form_widget(form) }} #}
+
 <div class="row-1">
 	<div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
 		<strong class="text-center">{{ form_row(form.name) }}</strong>
 	</div>
 </div>
-    {# <button class="btn btn-success">{{ button_label|default('Save') }}</button> #}
 {{ form_end(form) }}
 
 <div class="row">
@@ -21,14 +20,7 @@
 		<a href="{{ path('back_category_list') }}" class="mx-4 mb-3">
 			<div class="animated-link submit-link">
 				<button class="btn text-white btn-success ">
-					retour à la liste
+					Retour à la liste
 				</button>
 			</div>
 		</a>
-
-		<form method="post" action="{{ path('back_category_delete', {'id': category.id}) }}" onsubmit="return confirm('Etes vous sûr de vouloir supprimer cette bonne pratique?');">
-			<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ category.id) }}">
-			<div class="animated-link submit-link">
-				<button class="btn text-white btn-danger">Supprimer</button>
-			</div>
-		</form>

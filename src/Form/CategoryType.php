@@ -16,8 +16,8 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Entre le nom de votre nouvelle catégorie',
-                'help' => 'Ce champ ne doit pas être nul',
+                'label' => '* Entrez le nom de votre nouvelle catégorie',
+                'help' => '* Champ obligatoire',
                 'constraints' => new NotBlank(),
             ])
         ;

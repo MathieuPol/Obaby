@@ -12,19 +12,20 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/back/question", name="back_question_")
+ * @Route("/back/question/", name="back_question_")
  */
 class QuestionController extends AbstractController
 {
 //* List all questions
 
     /**
-     * @Route("/", name="list", methods={"GET"})
+     * @Route("", name="list", methods={"GET"})
      */
     public function list(QuestionRepository $questionRepository): Response
     {
+        $questions = $questionRepository->findBy(array(), array('createdAt' => 'DESC'));
         return $this->render('Back/question/index.html.twig', [
-            'questions' => $questionRepository->findAll(),
+            'questions' => $questions,
         ]);
     }
     
@@ -32,7 +33,7 @@ class QuestionController extends AbstractController
 
     //! Have to edit Methods
     /**
-     * @Route("/{id}/update", name="update", methods={"GET", "POST"})
+     * @Route("{id}/update", name="update", methods={"GET", "POST"})
      * @param int $id
      */
     public function update(Request $request, Question $question, QuestionRepository $questionRepository): Response
@@ -56,7 +57,7 @@ class QuestionController extends AbstractController
 //* Delete an unique question
 
     /**
-     * @Route("/{id}/delete", name="delete", methods={"POST"})
+     * @Route("{id}/delete", name="delete", methods={"POST"})
      * @param int $id
      */
     public function delete(Request $request, Question $question, QuestionRepository $questionRepository): Response
@@ -74,7 +75,7 @@ class QuestionController extends AbstractController
 // id is question id
 
     /**
-     * @Route("/{id}/answer", name="answer_list", methods={"GET"})
+     * @Route("{id}/answer", name="answer_list", methods={"GET"})
      * @param int $id
      */
     public function answerList(Question $question): Response
@@ -87,7 +88,7 @@ class QuestionController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/validate", name="validate", methods={"POST"})
+     * @Route("{id}/validate", name="validate", methods={"POST"})
      */
     public function validate(Question $question, QuestionRepository $questionRepository)
     {
