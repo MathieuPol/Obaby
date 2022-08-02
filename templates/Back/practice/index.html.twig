@@ -102,9 +102,13 @@
 								<td class="bg-secondary text-white">Modération</td>
 								<td class="d-flex justify-content-around td-moderation">
 									<span>
+									{% if practice.status == 0 %}
 										<form class= "d-flex justify-content-center" action="{{ path('back_practice_validate', {'id': practice.id}) }}" method="post">
                                    			<button class="btn btn-success ">Valider</button>
                                 		</form>
+										{% else %}
+								
+							{% endif %}
 									</span>
 									<span>
 										<a class="d-flex justify-content-center" href="{{ path('back_practice_update', {'id': practice.id}) }}">
