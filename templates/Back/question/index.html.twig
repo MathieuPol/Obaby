@@ -5,8 +5,8 @@
 {% block navbar %}{% include '/Back/partials/_nav_back.html.twig' %}{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/backQuestion.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/backQuestion.css') }}"/>
 {% endblock %}
 
 {% block body %}
@@ -70,25 +70,25 @@
 				{% for question in questions %}
 					<thead class="table-thead">
 						<tr>
-								<th scope="col" class="thead-start text-white">Id : {{ question.id }}</th>
-								<th scope="col" class="text-white">Question : {{ question.content }}</th>
+								<th scope="col" class="thead-start bg-secondary text-white">Id : {{ question.id }}</th>
+								<th scope="col">Question : {{ question.content }}</th>
 						</tr>
 					</thead>
 					<tbody>
 							<tr>
-								<td>Date de création</td>
+								<td class="bg-secondary text-white">Date de création</td>
 								<td>{{ question.createdAt ? question.createdAt|date('Y-m-d') : '' }}</td>
 							</tr>
 							<tr>
-								<td>Catégorie</td>
+								<td class="bg-secondary text-white">Catégorie</td>
 								<td>{{ question.category.name }}</td>
 							</tr>
 							<tr>
-								<td>Statut</td>
+								<td class="bg-secondary text-white">Statut</td>
 								<td>{{ question.status }}</td>
 							</tr>
 							<tr>
-								<td>Modération</td>
+								<td class="bg-secondary text-white">Modération</td>
 								<td class="d-flex justify-content-around">
 									<span>
 										<form class= "d-flex justify-content-center" action="{{ path('back_question_validate', {'id': question.id}) }}" method="post">
@@ -104,6 +104,9 @@
                                 		{{ include('Back/question/_delete_form.html.twig') }}
 									</span>
 								</td>
+							</tr>
+							<tr>
+								<td colspan="3" class="bg-primary"></td>
 							</tr>
 							{% else %}
 							<tr>
