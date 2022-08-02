@@ -14,133 +14,52 @@
 
     <section class="row">
 		<div class="col-sm-12 col-md-12 col-lg-8 mb-5 m-auto">
-		<div class="table-back-base">
+		<div class="table-back">
 			<table class="table table-hover">
 				<thead class="table-thead">
 					<tr>
-                            <th scope="col" class="thead-start text-white text-center">Id</th>
-                            <th scope="col" class="text-white text-center">Question</th>
-                            <th scope="col" class="text-white text-center creation-date">Date de création</th>
-                            <th scope="col" class="text-white text-center status">Status</th>
-                            <th scope="col" class="text-white text-center validate">Valider</th>
-                            <th scope="col" class="text-white text-center update">Editer</th>
-                            <th scope="col" class="thead-end text-white text-center delete">Supprimer</th>
+                            <th scope="col" class="thead-start text-white">Id</th>
+                            <th scope="col" class="text-white">Question</th>
+                            <th scope="col" class="text-white">Date de création</th>
+                            <th scope="col" class="text-white">Catégorie</th>
+                            <th scope="col" class="text-white">Status</th>
+                            <th scope="col" class="text-white">Valider</th>
+                            <th scope="col" class="text-white">Editer</th>
+                            <th scope="col" class="thead-end text-white">Supprimer</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for question in questions %}
                         <tr>
                             <td>{{ question.id }}</td>
-                            <td class="content">{{ question.content }}</td>
-                            <td class="creation-date font-weight-bold" colspan="2">{{ question.createdAt ? question.createdAt|date('Y-m-d') : '' }}</td>
-                            <td class="status font-weight-bold">{{ question.status }}</td>
-                            <td class="validate"> 
+                            <td>{{ question.content }}</td>
+                            <td>{{ question.createdAt ? question.createdAt|date('Y-m-d') : '' }}</td>
+                            <td>{{ question.category.name }}</td>
+                            <td>{{ question.status }}</td>
+                            <td> 
                                 <form class= "d-flex justify-content-center" action="{{ path('back_question_validate', {'id': question.id}) }}" method="post">
-                                    <button class="btn btn-warning ">Valider</button>
+                                    <button class="btn btn-success ">Valider</button>
                                 </form>
                             </td>
-                            <td class="update">
-                                <a class="btn btn-warning d-flex justify-content-center" href="{{ path('back_question_update', {'id': question.id}) }}">Editer</a>
+                            <td>
+                                    <a class="d-flex justify-content-center" href="{{ path('back_question_update', {'id': question.id}) }}">
+                                        <button class="btn btn-warning">Editer</button>
+                                    </a>
                             </td>
-                            <td class= "d-flex justify-content-center delete"> 
+                                <td class= "d-flex justify-content-center"> 
                                 {{ include('Back/question/_delete_form.html.twig') }}
                             </td>
                         </tr>
-                        {#  responsive md #}
-                        <tr class="responsive-tr">
-							<td class="text-center bg-light">
-								<h4>Date</h4>
-							</td>
-							<td class="text-center bg-light">
-								<h4>Status</h4>
-							</td>
-							<td class="text-center bg-light">
-								<h4>Modération</h4>
-							</td>
-						</tr>
-						<tr class="responsive-tr">
-							<td>
-								<div class="text-center text-nowrap">
-									<span>{{ question.createdAt ? question.createdAt|date('d-m-Y') : '' }}</span>
-								</div>
-							</td>
-							<td>
-								<div class="text-center">
-									<span>{{ question.status }}</span>
-								</div>
-							</td>
-							<td class="d-flex flex-column flex-center text-center">
-								
-								<div class="d-flex justify-content-around">
-									<span>
-										<form action="{{ path('back_practice_validate', {'id': question.id}) }}" method="post">
-											<button class="btn btn-warning">Valider</button>
-										</form>
-									</span>
-									<span>
-										<a class="btn btn-warning" href="{{ path('back_practice_update', {'id': question.id}) }}">Editer</a>
-									</span>
-									<span>
-										{{ include('Back/question/_delete_form.html.twig') }}
-									</span>
-								</div>
-							</td>
-						</tr>
-						<tr class="responsive-tr">
-							<td colspan="3" class="bg-info"></td>
-						</tr>
-                        {#  responsive sm #}
-                        <tr class="responsive-sm-tr">
-							<td class="text-center bg-light">
-								<h4>Date</h4>
-							</td>
-							<td class="text-center bg-light">
-								<h4>Status</h4>
-							</td>
-							<td class="text-center bg-light">
-								<h4>Modération</h4>
-							</td>
-						</tr>
-						<tr class="responsive-sm-tr">
-							<td>
-								<div class="text-center text-nowrap">
-									<span>{{ question.createdAt ? question.createdAt|date('d-m-Y') : '' }}</span>
-								</div>
-							</td>
-							<td>
-								<div class="text-center">
-									<span>{{ question.status }}</span>
-								</div>
-							</td>
-							<td class="d-flex flex-column flex-center text-center">
-								
-								<div class="d-flex justify-content-around">
-									<span>
-										<form action="{{ path('back_practice_validate', {'id': question.id}) }}" method="post">
-											<button class="btn btn-warning">Valider</button>
-										</form>
-									</span>
-									<span>
-										<a class="btn btn-warning" href="{{ path('back_practice_update', {'id': question.id}) }}">Editer</a>
-									</span>
-									<span>
-										{{ include('Back/question/_delete_form.html.twig') }}
-									</span>
-								</div>
-							</td>
-						</tr>
-						<tr class="responsive-sm-tr">
-							<td colspan="3" class="bg-info"></td>
-						</tr>
                         {% else %}
                         <tr>
-                            <td colspan="5">Pas de données trouvées</td>
+                            <td colspan="5">L'information n'a pas été trouvée</td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
-                <a  class="btn btn-primary col-11 mx-4" href="{{ path('back_home') }}"> Revenez à l'accueil</a>
+                <a  class="btn btn-primary col-11 mx-4" href="{{ path('back_home') }}"> Revenir à l'accueil</a>
             </div>
         </section>
 {% endblock %}
-{% block footer %}{% endblock %}
+
+{% block footer %}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>{% endblock %}
