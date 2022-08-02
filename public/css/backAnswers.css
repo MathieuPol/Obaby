@@ -1,0 +1,53 @@
+:root {
+    --primary: #C237FE;
+    --light: #ffffff;
+    --dark: #103741;
+    --blue: #5dc7ec;
+    --green: #408558;
+    --yellow: #f6c344;
+}
+
+.table-back {
+    padding-bottom: 3%;
+    border-radius: 22.2px;
+    box-shadow: 0 0 16px var(--dark);
+}
+
+.thead {
+    border-radius:22.2px 22.2px 0 0;
+    
+}
+
+.thead-start {
+    border-radius:22.2px 0 0;
+    
+}
+
+.thead-end {
+    border-radius:0 22.2px 0 0; 
+}
+
+
+/*****Media queries*****/
+@media (max-width: 1040px) {
+    .display-lg{
+        display: none;
+    }
+}
+@media (max-width: 367px) {
+    .td-moderation{
+        flex-direction: column;
+    }
+    form{
+        margin: 0;
+        padding: 0;
+    }
+}
+@media (min-width: 1040px) {
+    .display-md{
+        display: none;
+    }
+    .table-thead {
+        background-image: repeating-linear-gradient(157.5deg, hsla(340,0%,30%,0.2) 0px, hsla(340,0%,30%,0.2) 0px,transparent 0px, transparent 1px,hsla(340,0%,30%,0.2) 1px, hsla(340,0%,30%,0.2) 4px,transparent 4px, transparent 5px,hsla(340,0%,30%,0.2) 5px, hsla(340,0%,30%,0.2) 8px),repeating-linear-gradient(90deg, hsla(340,0%,30%,0.2) 0px, hsla(340,0%,30%,0.2) 0px,transparent 0px, transparent 1px,hsla(340,0%,30%,0.2) 1px, hsla(340,0%,30%,0.2) 4px,transparent 4px, transparent 5px,hsla(340,0%,30%,0.2) 5px, hsla(340,0%,30%,0.2) 8px),linear-gradient(135deg, rgb(187, 187, 187),rgb(72, 72, 72));
+    }
+}
