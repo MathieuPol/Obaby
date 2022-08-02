@@ -17,15 +17,15 @@
 
   <!-- Factoriser ici -->
 
-
 {% for key, content in practices %}
+
+{#             <form action="{{ path('favorite_delete_all') }}" method='post'>
+                    <button class=" btn btn-primary text-white">Je vide ma sélection</button>
+            </form> #}
     {% for practice in content %}
-            <form action="{{ path('favorite_delete_all') }}" method='post'>
-                    <input type="hidden" name="id_favorite" value="{{ practice.id }}"/>
-                    <button class="fs-1 my-2 mx-3 link-danger">Je vide ma sélection</button>
-            </form>
+        
             <article class="col-lg-10 mb-5 practice-article">
-            <form action="{{ path('favorite_delete') }}" method='post'>
+            <form class="m-0" action="{{ path('favorite_delete') }}" method='post'>
                     <input type="hidden" name="id_favorite" value="{{ practice.id }}"/>
                     <button class="favorite-practice"><i class="fa-solid fa-heart-circle-xmark fa-3x favorite-icon"></i></button>
             </form>
