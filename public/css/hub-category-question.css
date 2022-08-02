@@ -131,10 +131,7 @@
     .category-container{
         background-image: url("../asset/img/hub-question.png");
         background-repeat: no-repeat;
-        background-size: 42rem;
         background-position: center;
-        background-position-x: 18rem;
-
-
+        background-size: 55rem;
     }
 }
