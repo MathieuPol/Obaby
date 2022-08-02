@@ -20,7 +20,15 @@
           
             <ul class="dropdown-menu text-center position-absolute" id="category-nav">
             {% for category in categories %}
-              <li><a class="dropdown-item text-light" href="{{ path('practice_list', {slug: category.slug}) }}">{{ category.name }}</a></li>
+              <li>
+                <a class=
+                  "dropdown-item text-light
+                  {% if category.slug == practices[0].category.slug %}
+                    active
+                  {% endif %}"
+                  href="{{ path('practice_list', {slug: category.slug}) }}">{{ category.name }}
+                </a>
+              </li>
             {% endfor %}
             </ul>
           </div>

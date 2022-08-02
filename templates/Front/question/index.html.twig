@@ -17,8 +17,13 @@
           
             <ul class="dropdown-menu text-center position-absolute" id="category-nav">
               {% for category in categoryList %}
-                <li class="dropdown-item">
-                  <a  class="text-light" href="{{ path('question_list', {'slug': category.slug}) }}">{{ category.name }}</a>
+                <li>
+                  <a  class="dropdown-item text-light
+                    {% if category.slug == questions[0].category.slug %}
+                      active
+                    {% endif %}  
+                    "href="{{ path('question_list', {'slug': category.slug}) }}">{{ category.name }}
+                  </a>
                 </li>
               {% endfor %}
 
