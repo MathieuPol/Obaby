@@ -39,7 +39,9 @@
 							<td>{{ user.pseudo }}</td>
 							<td>{{ user.status }}</td>
 							<td>
-								<a class="btn btn-warning" href="{{ path('back_user_update', {'id': user.id}) }} ">Editer</a>
+								<a class="d-flex justify-content-center" href="{{ path('back_user_update', {'id': user.id}) }}">
+                                    <button class="btn btn-warning">Editer</button>
+                                </a>							
 							</td>
                             <td>
 								{{ include('Back/user/_delete_form.html.twig') }}

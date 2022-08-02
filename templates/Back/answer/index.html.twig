@@ -40,11 +40,13 @@
 							<td>{{ answer.status }}</td>
 							<td>
 								<form action="{{ path('back_question_answer_validate', {'id': answer.id}) }}" method="post">
-									<button class="btn btn-warning">Valider</button>
+									<button class="btn btn-success">Valider</button>
 								</form>
 							</td>
 							<td>
-								<a class="btn btn-warning" href="{{ path('back_answer_update', {'id': answer.id}) }}">Editer</a>
+								<a class="d-flex justify-content-center" href="{{ path('back_answer_update', {'id': answer.id}) }}">
+                                    <button class="btn btn-warning">Editer</button>
+                                </a>							
 							</td>
 							<td>
 								{{ include('Back/answer/_delete_form.html.twig') }}
