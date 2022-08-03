@@ -76,9 +76,18 @@
             </h2>
             <div id="collapse-answer-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="heading-answer-{{ question.id }}" data-bs-parent="#accordionReviews">
               {% for answer in question.answers %}
-                <div class="accordion-body border border-solid">
-                    <p>{{ answer.content }}</p>
-                </div>
+                {% if answer.status == 1 %}
+                  <div class="accordion-body border border-solid">
+                      <p>{{ answer.content }}</p>
+                  </div>
+
+                {% else %}
+
+                  <div class="accordion-body border border-solid">
+                      <p>Des réponses sont en cours de modération. Revenez prochainement.</p>
+                  </div>
+                {% endif %}
+
               {% endfor %}
             </div>
         </div>
