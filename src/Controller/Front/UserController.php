@@ -121,9 +121,10 @@ class UserController extends AbstractController
                     $practice->add($value, true);
                 }
             }
-            $session->invalidate();
-
             $userRepository->remove($user, true);
+
+            $session = new Session();
+            $session->invalidate();
         }
 
         return $this->redirectToRoute('security_logout', []);

@@ -37,6 +37,7 @@ security:
         - { path: ^/back, roles: ROLE_MODERATOR }
         - { path: ^/question/ask, roles: ROLE_USER }
         - { path: ^/practice/submit, roles: ROLE_USER }
+        - { path: answer$, roles: ROLE_USER }
         
 
     role_hierarchy:
