@@ -262,12 +262,12 @@
     top: 70vh;
     left: 1em;
 /*     left: calc(50% - 61px); */
-    background-color: var(--primary);
+    background-color: var(--blue);
     width: 7rem;
     height: 7rem;
     border-radius: 50%;
     z-index: 99;
-    border: solid 1px var(--blue);
+    border: solid 1px var(--primary);
     color: white;
 
 }
@@ -294,11 +294,11 @@
     top: 70vh;
     left: 1em;
 /*     left: calc(50% - 61px); */
-    background-color: var(--primary);
+    background-color: var(--blue);
     width: 2rem;
     height: 2rem;
     z-index: 99;
-    border: solid 1px var(--blue);
+    border: solid 1px var(--primary);
     color: white;
 }
 
