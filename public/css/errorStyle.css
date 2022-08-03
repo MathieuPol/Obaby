@@ -84,11 +84,27 @@
 
 
 /********* START PAGE_500 ************/
+.block_500 {
+    height: 100vh;
+    background-color: #000;
+}
 
-
-
-
-
+.container-500 {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:  linear-gradient(
+        rgba(24, 22, 22, 0.151), 
+        rgba(11, 11, 12, 0.6)
+        ), url("../asset/img/baby-mirror-origin-50.jpg") no-repeat fixed 50% 50%;
+    background-size: contain;
+}
 
 /********* END PAGE_500 *************/
 
