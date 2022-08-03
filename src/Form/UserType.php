@@ -22,8 +22,8 @@ class UserType extends AbstractType
             'help' => '* Champs obligatoires',
                 'choices' => [
                     'utilisateur' => 'ROLE_USER',
-                    'administrateur' => 'ROLE_ADMIN',
                     'modérateur' => 'ROLE_MODERATOR',
+                    'administrateur' => 'ROLE_ADMIN',
                 ],
                 "multiple" => true,
                 // radio buttons or checkboxes
