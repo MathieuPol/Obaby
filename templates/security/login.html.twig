@@ -14,7 +14,7 @@
     <div id="main">
         <div class="text-center" id="info"><a href="{{ path('front_home') }}"><img id="logo" src="./asset/logo/logo O'Baby.png" width="200" alt="logo"></a>
             <h1 class="text-center">Connexion</h1>
-                <form class="text-start" id="form-login">
+                <form class="text-start" id="form-login" action="{{ path('front_home') }}">
                     <div class="my-5">
                         <label class="form-label" id="inputEmail" for="inputEmail">* Adresse email</label>
                         <input class="form-control" value="{{ last_username }}" name="email" type="inputEmail" id="inputEmail">
