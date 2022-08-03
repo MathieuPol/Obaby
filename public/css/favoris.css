@@ -1,0 +1,10 @@
+/********** Favoris **********/
+.btn-1 {
+    background-color: var(--blue);
+    color: #FFF;
+}
+
+.btn-1:hover {
+    background-color: var(--primary);
+    color: #FFF;
+}
