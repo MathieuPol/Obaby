@@ -49,7 +49,7 @@ class FavoriteController extends AbstractController
         $session->set('favorites', $this->sessionTab);
 
         //* we whrote a message to the user
-        $this->addFlash('success', 'Votre seléction a bien été ajoutée à vos favoris');
+        $this->addFlash('success', 'Votre sélection a bien été ajoutée à vos favoris');
 
         //* we catch the practice from the database for using his category name
         $practice = $practiceRepository->find($practiceId);
