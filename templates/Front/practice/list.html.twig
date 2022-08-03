@@ -44,7 +44,7 @@
     {% if is_granted("ROLE_USER") %}
       <form class="m-0" action="{{ path('favorite_add') }}" method='post'>
         <input type="hidden" name="id_favorite" value="{{ practice.id }}"/>
-        <button class="favorite-practice"><i class="fa-solid fa-heart-circle-plus fa-3x favorite-icon"></i></button>
+        <button class="favorite-practice favorite-practice-{{ practice.category.slug }}"><i class="fa-solid fa-heart-circle-plus fa-3x favorite-icon"></i></button>
       </form>
     {% endif %}
       <div class="card banner-owner" role="card-banner">
@@ -71,7 +71,6 @@
       </div>
     </article>
 {% endfor %}
-
 
     </content>
   </main>
