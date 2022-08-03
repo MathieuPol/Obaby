@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
-
+ 
 {% block stylesheets %}
-
+ 
     <link rel="stylesheet" href="{{ asset('css/question-answer.css') }}"/>
 {% endblock %}
 {% block body %}
 <button id="ask-submit-btn" onclick="window.location.href= '{{ path('question_ask')}}'" type="button">Posez une question</button>
  <h1 class="text-center">Questions <img class="bottle" src="{{ asset('asset/img/biberon.png') }}" alt="">Réponses</h1>
-  
+ 
   <aside class="mb-3 position-relative">  
-
+ 
           <div class="dropdown text-center">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Catégories
             </a>
-          
+         
             <ul class="dropdown-menu text-center position-absolute" id="category-nav">
               {% for categories in categoryList %}
                 <li>
@@ -28,21 +28,21 @@
               {% endfor %}
             </ul>
           </div>
-          
-          
+         
+         
   </aside>
         <main class="container-fluid row m-auto p-0">
-
+ 
     <content class="text-center d-flex flex-column align-items-center p-0">
   <!-- Factoriser ici -->
   {% for question in questions %}
-
+ 
     <article  class="col-lg-10 mb-3 col-10 question-div">
       <div class="card banner-owner" role="card-banner">
         <img src="{{ asset('asset/img/nipple' ~ category.slug ~ '.png') }}" class="card-img-top banner-feature" alt="nipple picture">
-
-
-
+ 
+ 
+ 
             <div class="d-flex justify-content-between">
                 <div class="p-3">
                     <img class="autor-pic m-0"  src="{{ asset('asset/img/avatar1.svg') }}" alt="author picture">
@@ -51,7 +51,7 @@
                 <time  class="align-self-center align-content-end p-3" datetime="2022-25-07">{{ question.createdAt|date ("d/m/Y") }}</time>
             </div>
             <p class="align-self-center category-item btn-{{ category.name }}">{{ category.name }}</p>
-
+ 
         <div class="card-body">
           <p class="card-text">{{ question.content }}</p>
         </div>
@@ -61,17 +61,17 @@
         </div>
         {% else %}
           <div class="card-footer">
-                <a class="btn btn-primary mt-2" href="{{ path('question_answer', {'id': question.id}) }}" aria-expanded="false">Se connecter et y répondre</a>
+                <a class="btn btn-primary mt-2" href="{{ path('question_answer', {'id': question.id}) }}" aria-expanded="false">Se connecter et répondre</a>
         </div>
         {% endif %}
       </div>
     {% if question.answers|keys %}
     </article>
-
-
-
+ 
+ 
+ 
     <div class="accordion mb-5 col-lg-10 col-md-10 col-10" id="accordionAnswer">
-
+ 
         <div class="accordion-item">
             <h2 class="accordion-header" id="heading-answer-{{ question.id }}">
                 <button class="accordion-button collapsed flex-column text-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-answer-{{ question.id }}" aria-expanded="false" aria-controls="collapse-answer">
@@ -85,32 +85,34 @@
                       <p class="text-muted">Voici la réponse de {{ answer.user.pseudo }}</p>
                       <p>{{ answer.content }}</p>
                   </div>
-
+ 
                 {% else %}
-
+ 
                   <div class="accordion-body border border-solid">
                       <p>Des réponses sont en cours de modération. Revenez prochainement.</p>
                   </div>
                 {% endif %}
-
+ 
               {% endfor %}
             </div>
         </div>
-
+ 
     </div>
     {% else %}
             <p class="mb-0">
                 Cette question n'a pas de réponse.
             </p>
             <p class="mb-0">
-                 Soyez le premier à laisser une réponse.
+                 Soyez le premier à répondre.
             </p>
     </article>
-
+ 
     {% endif %}
-
+ 
   {% endfor %}
-
+ 
     </content>
   </main>
   {% endblock %}
+ 
+
