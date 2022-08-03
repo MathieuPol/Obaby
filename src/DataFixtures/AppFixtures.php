@@ -57,6 +57,8 @@ class AppFixtures extends Fixture
         $userList = [];
 
         // User creation
+        $genre = ['homme', 'femme'];
+
 
         $userAdmin = new User();
         $userAdmin->setEmail('admin@admin.com');
@@ -64,6 +66,7 @@ class AppFixtures extends Fixture
         $userAdmin->setSlug($this->slugService->slug($userAdmin->getPseudo()));
         $userAdmin->setPassword('$2y$13$B5F2MaAidY68n5uqLEfrKeom.VARDRos.mEdgvWZWTTRXztOatBnq');
         $userAdmin->setStatus(1);
+        $userAdmin->setGenre($genre[0]);
         $userAdmin->setRoles(['ROLE_ADMIN']);
         $userList[] = $userAdmin;
 
@@ -72,6 +75,7 @@ class AppFixtures extends Fixture
         $userModerator->setPseudo('moderator');
         $userModerator->setSlug($this->slugService->slug($userModerator->getPseudo()));
         $userModerator->setPassword('$2y$13$4aEMwhxQrZhkpKlDwtbfvOIDi8k5yoniNLV/Qb7xfUfCuHb2dgC2i');
+        $userModerator->setGenre($genre[1]);
         $userModerator->setStatus(1);
         $userModerator->setRoles(['ROLE_MODERATOR']);
         $userList[] = $userModerator;
@@ -81,6 +85,7 @@ class AppFixtures extends Fixture
         $userUser->setPseudo('user');
         $userUser->setSlug($this->slugService->slug($userUser->getPseudo()));
         $userUser->setPassword('$2y$13$vAX65eah5osvbxoLSY.QGO2TpbCNQgMs4blP6WZ0zwPXt7gUnERSC');
+        $userUser->setGenre($genre[1]);
         $userUser->setStatus(1);
         $userUser->setRoles(['ROLE_USER']);
         $userList[] = $userUser;
@@ -90,6 +95,7 @@ class AppFixtures extends Fixture
         $userAnonymous->setPseudo('Anonymous');
         $userAnonymous->setSlug($this->slugService->slug($userAnonymous->getPseudo()));
         $userAnonymous->setPassword('$2y$13$SQCAsxHo2Pwk9vAnSpMIxuCQvBrAE.ekHEYE5eKL/ChksQASPJ1cS');
+        $userAnonymous->setGenre($genre[0]);
         $userAnonymous->setStatus(1);
         $userAnonymous->setRoles(['ROLE_USER']);
         $userList[] = $userAnonymous;
