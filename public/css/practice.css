@@ -109,9 +109,53 @@
 }
 
 .favorite-practice:hover{
-    color: var(--blue);
+    color: palevioletred;
     transition: 2s;
 }
 
-.favorite-icon{
+
+.favorite-practice-securite{
+    color: var(--blue);
+}
+
+.favorite-practice-nutrition{
+    color: var(--yellow);
+}
+
+.favorite-practice-grossesse{
+    color: var(--primary);
+}
+
+.favorite-practice-sante-et-soins{
+    color: var(--green);
+}
+.favorite-practice-loisir{
+    color: red;
+}
+
+.favorite-practice-sommeil{
+    color: #E85B0E;
+}
+
+.favorite-practice-securite{
+    color: var(--blue);
+}
+
+.favorite-practice-nutrition{
+    color: var(--yellow);
+}
+
+.favorite-practice-grossesse{
+    color: var(--primary);
+}
+
+.favorite-practice-sante-et-soins{
+    color: var(--green);
+}
+.favorite-practice-loisir{
+    color: red;
+}
+
+.practice-sommeil{
+    color: #E85B0E;
 }

@@ -100,12 +100,6 @@ class AppFixtures extends Fixture
         $manager->persist($userAnonymous);
 
 
-
-
-
-
-
-
         // Category creation
 
             $category1 = new Category();
@@ -177,6 +171,7 @@ class AppFixtures extends Fixture
             $answer->setCreatedAt(new \DateTime($dateAnswer));
             $answer->setQuestion($questionList[array_rand($questionList)]);
             $answer->setStatus($faker->numberBetween(0, 1));
+            $answer->setUser($userList[array_rand($userList)]);
 
             $manager->persist($answer);
             $answerList[] = $answer;

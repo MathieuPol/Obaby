@@ -37,7 +37,8 @@ class PracticeController extends AbstractController
 
         return $this->render('Front/practice/list.html.twig', [
             'practices' => $practices,
-            'categories' => $categories,
+            'categoryList' => $categories,
+            'category' => $category,
         ]);
     }
 
