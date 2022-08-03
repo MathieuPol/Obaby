@@ -628,6 +628,10 @@ p.text {
     text-align: center;
 }
 
+.photoMmember {
+    width: 100%;
+    height: 60%;
+}
 
 /********* media query aboutUs *********/
 @media (max-width: 991px) {
@@ -705,7 +709,6 @@ h2 {
 p, li {
     font-family: 'Montserrat', cursive, sans-serif;
 }
-
 
 @media (max-width: 375px) {
     h3 {
