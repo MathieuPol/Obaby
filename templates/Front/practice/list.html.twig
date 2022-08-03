@@ -48,7 +48,7 @@
       </form>
     {% endif %}
       <div class="card banner-owner" role="card-banner">
-        <img src="{{ asset('asset/img/finger.png') }}" role="banner" class="card-img-top " alt="finger picture">
+        <img src="{{ asset('asset/img/' ~ practice.picture) }}" role="banner" class="card-img-top " alt="finger picture">
         <img src="{{ asset('asset/img/nipple' ~ practice.category.slug ~ '.png') }}" class="card-img-top banner-feature" alt="nipple picture">
         <div class="card-body">
           <h5 class="card-title text-center">{{ practice.title }}</h5>
