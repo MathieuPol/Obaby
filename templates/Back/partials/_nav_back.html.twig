@@ -18,6 +18,7 @@
 
     <!-- Hamburger End -->
 
+
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav mx-auto">
         <a href={{ path('back_home')}} class="nav-item nav-link">Panneau d'administration</a>
@@ -26,6 +27,7 @@
         <a href={{ path('back_answer_list')}} class="nav-item nav-link">Réponses</a>
         <a href={{ path('back_user_list')}} class="nav-item nav-link">Utilisateurs</a>
         <a href={{ path('back_category_list')}} class="nav-item nav-link">Catégories</a>
+        <a href="{{ path('security_logout') }}" class="nav-item nav-link d-lg-none">Déconnexion</a>
 
       </div>
       <a href="{{ path('security_logout') }}" class="btn rounded-pill px-3 d-none d-lg-block m-2">Déconnexion<i class="fa fa-sign-in ms-3" aria-hidden="true"></i></a>

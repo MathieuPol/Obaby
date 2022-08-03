@@ -59,6 +59,10 @@
         <div class="card-footer">
                 <a class="btn btn-primary mt-2" href="{{ path('question_answer', {'id': question.id}) }}" aria-expanded="false">Formuler une réponse</a>
         </div>
+        {% else %}
+          <div class="card-footer">
+                <a class="btn btn-primary mt-2" href="{{ path('question_answer', {'id': question.id}) }}" aria-expanded="false">Se connecter et y répondre</a>
+        </div>
         {% endif %}
       </div>
     {% if question.answers|keys %}
@@ -76,9 +80,19 @@
             </h2>
             <div id="collapse-answer-{{ question.id }}" class="accordion-collapse collapse" aria-labelledby="heading-answer-{{ question.id }}" data-bs-parent="#accordionReviews">
               {% for answer in question.answers %}
-                <div class="accordion-body border border-solid">
-                    <p>{{ answer.content }}</p>
-                </div>
+                {% if answer.status == 1 %}
+                  <div class="accordion-body border border-solid">
+                      <p class="text-muted">Voici la réponse de {{ answer.user.pseudo }}</p>
+                      <p>{{ answer.content }}</p>
+                  </div>
+
+                {% else %}
+
+                  <div class="accordion-body border border-solid">
+                      <p>Des réponses sont en cours de modération. Revenez prochainement.</p>
+                  </div>
+                {% endif %}
+
               {% endfor %}
             </div>
         </div>

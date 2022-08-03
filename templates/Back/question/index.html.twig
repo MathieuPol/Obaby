@@ -37,7 +37,7 @@
                             <td>{{ question.id }}</td>
                             <td>{{ question.content }}</td>
 
-                            <td>{{ question.createdAt ? question.createdAt|date('Y-m-d') : '' }}</td>
+                            <td>{{ question.createdAt ? question.createdAt|date("d/m/Y") : '' }}</td>
 
                             <td>{{ question.category.name }}</td>
                             <td>{{ question.status }}</td>

@@ -1,3 +1,15 @@
+/*********** General ***********/
+.back-top-button {
+    font-family: 'Lobster Two', cursive, sans-serif;
+    font-size: 24px;
+}
+
+@media (max-width: 375px) {
+    .back-top-button {
+        font-size: 18px;
+    }
+}
+
 /*********** aboutUs ***********/
 .nameMember {
     font-family: 'Lobster Two', cursive, sans-serif;

@@ -1,0 +1,57 @@
+/********* START PAGE_403 ************/
+.page_403  img { 
+    width:100%;
+    
+}
+.logo {
+    margin: 2rem 0;
+}
+.gif {
+    z-index: -1000;
+    background: #5dc7ec;
+}
+.contant_box_403 {
+    margin-top: -55px;
+}
+.animated-link {
+    display: inline-block;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 25px;
+}
+/********* END PAGE_403 ************/
+
+
+
+
+
+
+
+
+
+/***** START BUTTON ACCUEIL ********/
+.animated-link span {
+    display: inline-block;
+    background: #5dc7ec;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 18px 25px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition:
+    transform .15s ease-out,
+    color .15s ease-out,
+    background-color .15s ease-out,
+}
+
+.animated-link:hover span {
+    transform: translate(-6px, -6px);
+    background:rgb(201, 2, 215) ;
+}
+.animated-link  {
+    background-color: black;
+}
+/***** END BUTTON ACCUEIL ********/

@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/homeBack.css') }}"/>
 {% endblock %}
 
@@ -18,7 +19,7 @@
 	<section class="row p-4">
 		<div class="container-fluid d-flex flex-wrap">
 			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 ">
-				<div class="m-4 table-back">
+				<div class="m-4 table-back display-lg">
 					<table class="table table-hover ">
 						<thead class="table-thead ">
 							<tr>
@@ -59,9 +60,11 @@
 						Voir toutes les bonnes pratiques</a>
 				</div>
 			</div>
+{# END table practices display LG #}
 
+{# START table questions display LG #}
 
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5">
+			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg">
 				<div class="m-4 table-back">
 					<table class="table table-hover">
 						<thead class="table-thead">
@@ -102,8 +105,11 @@
 						Voir toutes les questions</a>
 				</div>
 			</div>
+{# END table questions display LG #}
 
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5">
+{# START table answers display LG #}
+
+			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg">
 				<div class="m-4 table-back">
 					<table class="table table-hover">
 						<thead class="table-thead">
@@ -144,8 +150,10 @@
 						Voir toutes les réponses</a>
 				</div>
 			</div>
+{# END  table answers display LG #}
 
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5">
+{# START table users display LG #}
+			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg">
 				<div class="m-4 table-back">
 					<table class="table table-hover">
 						<thead class="table-thead">
@@ -185,8 +193,10 @@
 						Voir tous les utilisateurs</a>
 				</div>
 			</div>
+{# END table users display LG #}
 
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5">
+{# START table categories display LG #}
+			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg">
 				<div class="m-4 table-back">
 					<table class="table table-hover">
 						<thead class="table-thead">
@@ -213,6 +223,316 @@
 						Voir toutes les catégories</a>
 				</div>
 			</div>
+{# END table categories display LG #}
+
+
+
+
+{# START table practices display MD #}
+		<div class="row display-md">
+			<div class="col-lg-12 mb-5 m-auto">
+			<div>
+				<h3 class="text-center">Liste des catégories</h3>
+			</div>
+			<div class="table-back display-md">
+				<table class="table table-hover">
+				{% for practice in practices %}
+					<thead class="table-thead">
+						<tr>
+								<th scope="col" class="thead-start bg-secondary text-white">Id : {{ practice.id }}</th>
+								<th scope="col">Question : {{ practice.content }}</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+								<td class="bg-secondary text-white">Date de création</td>
+								<td>{{ practice.createdAt ? practice.createdAt|date('Y-m-d') : '' }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Catégorie</td>
+								<td>{{ practice.category.name }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Statut</td>
+								<td>{{ practice.status }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Modération</td>
+								<td class="d-flex justify-content-around td-moderation">
+									<span>
+									{% if practice.status == 0 %}
+										<form class= "d-flex justify-content-center" action="{{ path('back_practice_validate', {'id': practice.id}) }}" method="post">
+                                   			<button class="btn btn-success ">Valider</button>
+                                		</form>
+										{% else %}
+								
+							{% endif %}
+									</span>
+									<span>
+										<a class="d-flex justify-content-center" href="{{ path('back_practice_update', {'id': practice.id}) }}">
+                                        	<button class="btn btn-warning">Editer</button>
+                                    	</a>
+									</span>
+									<span class= "d-flex justify-content-center"> 
+                                		{{ include('Back/practice/_delete_form.html.twig') }}
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" class="bg-primary"></td>
+							</tr>
+							{% else %}
+							<tr>
+								<td colspan="5">L'information n'a pas été trouvée</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				<a  class="btn btn-primary col-11 mx-4" href="{{ path('back_practice_list') }}"> Voir toutes les bonnes pratiques</a>
+			</div>
+		</div>
+{# END table practices display MD #}
+
+{# START table question display MD #}
+		<div class="row display-md">
+			<div class="col-lg-12 mb-5 m-auto">
+			<div>
+				<h3 class="text-center">Liste des questions</h3>
+			</div>
+			<div class="table-back display-md">
+				<table class="table table-hover">
+				{% for question in questions %}
+					<thead class="table-thead">
+						<tr>
+								<th scope="col" class="thead-start bg-secondary text-white">Id : {{ question.id }}</th>
+								<th scope="col">Question : {{ question.content }}</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+								<td class="bg-secondary text-white">Date de création</td>
+								<td>{{ question.createdAt ? question.createdAt|date('Y-m-d') : '' }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Catégorie</td>
+								<td>{{ question.category.name }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Statut</td>
+								<td>{{ question.status }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Modération</td>
+								<td class="d-flex justify-content-around td-moderation">
+									<span>
+									{% if question.status == 0 %}
+										<form class= "d-flex justify-content-center" action="{{ path('back_question_validate', {'id': question.id}) }}" method="post">
+                                   			<button class="btn btn-success ">Valider</button>
+                                		</form>
+										{% else %}
+								
+							{% endif %}
+									</span>
+									<span>
+										<a class="d-flex justify-content-center" href="{{ path('back_question_update', {'id': question.id}) }}">
+                                        	<button class="btn btn-warning">Editer</button>
+                                    	</a>
+									</span>
+									<span class= "d-flex justify-content-center"> 
+                                		{{ include('Back/question/_delete_form.html.twig') }}
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" class="bg-primary"></td>
+							</tr>
+							{% else %}
+							<tr>
+								<td colspan="5">L'information n'a pas été trouvée</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				<a  class="btn btn-primary col-11 mx-4" href="{{ path('back_question_list') }}"> Voir toutes les questions</a>
+			</div>
+		</div>
+{# END table question display MD #}
+
+{# START table answers display MD #}
+		<div class="row display-md">
+			<div class="col-lg-12 mb-5 m-auto">
+			<div>
+				<h3 class="text-center">Liste des réponses</h3>
+			</div>
+			<div class="table-back display-md">
+				<table class="table table-hover">
+				{% for answer in answers %}
+					<thead class="table-thead">
+						<tr>
+								<th scope="col" class="thead-start bg-secondary text-white">Question Id : {{ answer.question.id }}</th>
+								<th scope="col">Question : {{ answer.question.content }}</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+								<td class="bg-secondary text-white">Réponse Id : {{ answer.id }}</td>
+								<td>{{ answer.content }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Date de création</td>
+								<td>{{ answer.createdAt ? answer.createdAt|date('Y-m-d') : '' }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Statut</td>
+								<td>{{ answer.status }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Modération</td>
+								<td class="d-flex td-moderation justify-content-around">
+									<span>
+									{% if answer.status == 0 %}
+										<form class= "d-flex justify-content-center" action="{{ path('back_question_answer_validate', {'id': answer.id}) }}" method="post">
+                                			<button class="btn btn-success ">Valider</button>
+                                		</form>
+										{% else %}
+								
+							{% endif %}
+									</span>
+									<span>
+										<a class="d-flex justify-content-center" href="{{ path('back_answer_update', {'id': answer.id}) }}">
+                                        	<button class="btn btn-warning">Editer</button>
+                                    	</a>
+									</span>
+									<span class= "d-flex justify-content-center"> 
+                                		{{ include('Back/answer/_delete_form.html.twig') }}
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" class="bg-primary"></td>
+							</tr>
+							{% else %}
+							<tr>
+								<td colspan="5">L'information n'a pas été trouvée</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				<a  class="btn btn-primary col-11 mx-4" href="{{ path('back_answer_list') }}"> Voir toutes les réponses</a>
+			</div>
+		</div>
+{# END table answers display MD #}
+
+{# START table user display MD #}
+		<div class="row display-md">
+			<div class="col-lg-12 mb-5 m-auto">
+			<div>
+				<h3 class="text-center">Liste des utilisateurs</h3>
+			</div>
+			<div class="table-back display-md">
+				<table class="table table-hover">
+				{% for user in users %}
+					<thead class="table-thead">
+						<tr>
+								<th scope="col" class="thead-start bg-secondary text-white">Id : {{ user.id }}</th>
+								<th scope="col">Question : {{ user.pseudo }}</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+								<td class="bg-secondary text-white">Email</td>
+								<td>{{ user.email }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Role</td>
+								<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Statut</td>
+								<td>{{ user.status }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white">Modération</td>
+								<td class="d-flex td-moderation justify-content-around">
+									<span>
+										<a class="d-flex justify-content-center" href="{{ path('back_user_update', {'id': user.id}) }}">
+                                        	<button class="btn btn-warning">Editer</button>
+                                    	</a>
+									</span>
+									<span class= "d-flex justify-content-center"> 
+                                		{{ include('Back/user/_delete_form.html.twig') }}
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" class="bg-primary"></td>
+							</tr>
+							{% else %}
+							<tr>
+								<td colspan="5">L'information n'a pas été trouvée</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				<a  class="btn btn-primary col-11 mx-4" href="{{ path('back_user_list') }}">Voir tous les utilisateurs</a>
+			</div>
+		</div>
+{# END table practices display MD #}
+
+{# START table categories display MD #}
+		<div class="row display-md">
+			<div class="col-lg-12 mb-5 m-auto">
+			<div>
+				<h3 class="text-center">Liste des catégories</h3>
+			</div>
+			<div class="table-back display-md">
+				<table class="table table-hover">
+				{% for category in categories %}
+					<thead class="table-thead">
+						<tr>
+								<th scope="col" class="thead-start bg-secondary text-white">Id : {{ category.id }}</th>
+								<th scope="col">Nom : {{category.name }}</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+								<td class="bg-secondary text-white">Modération</td>
+								<td class="d-flex td-moderation justify-content-around">
+									<span>
+										<a class="d-flex justify-content-center" href="{{ path('back_category_update', {'id': category.id}) }}">
+                                        	<button class="btn btn-warning">Editer</button>
+                                    	</a>
+									</span>
+									<span class= "d-flex justify-content-center"> 
+                                		{{ include('Back/category/_delete_form.html.twig') }}
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" class="bg-primary"></td>
+							</tr>
+							{% else %}
+							<tr>
+								<td colspan="5">L'information n'a pas été trouvée</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				<div class="text-center p-4">
+					<a class="btn btn-primary" href="{{ path('back_category_add') }}">
+					Ajouter une nouvelle catégorie
+					</a>
+				</div>
+				<a  class="btn btn-primary col-11 mx-4" href="{{ path('back_category_list') }}">Voir toutes les catégories</a>
+			</div>
+		</div>
+{# END table practices display MD #}
+
+
+
+
+
+
 
 		</div>
 	</section>

@@ -51,7 +51,15 @@ class QuestionRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-
+    public function selectActivatedQuestionsCarroussel(): array
+    {
+        return $this->createQueryBuilder('q')
+            ->where('q.status = 1')
+            ->orderBy('q.id', 'Desc')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+    }
 
 
 
