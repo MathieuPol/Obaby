@@ -5,7 +5,15 @@
     <link rel="stylesheet" href="{{ asset('css/question-answer.css') }}"/>
 {% endblock %}
 {% block body %}
-<button id="ask-submit-btn" onclick="window.location.href= '{{ path('question_ask')}}'" type="button">Posez une question</button>
+
+<button id="add-button" onclick="window.location.href= '{{ path('practice_submit')}}'" type="button">
+    <i class="fa-solid fa-plus"></i> 
+  </button>
+  <button id="round-btn-add" onclick="window.location.href= '{{ path('practice_submit')}}'" type="button">
+    <span>Ajouter une bonne pratique</span>
+  </button>
+
+
  <h1 class="text-center">Questions <img class="bottle" src="{{ asset('asset/img/biberon.png') }}" alt="">Réponses</h1>
   
   <aside class="mb-3 position-relative">  
