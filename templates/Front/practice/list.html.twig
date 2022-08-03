@@ -26,7 +26,7 @@
                   {% if category.slug == categories.slug %}
                     active
                   {% endif %}"
-                  href="{{ path('practice_list', {'slug': category.slug}) }}">{{ category.name }}
+                  href="{{ path('practice_list', {'slug': categories.slug}) }}">{{ categories.name }}
                 </a>
               </li>
             {% endfor %}
