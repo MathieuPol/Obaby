@@ -41,7 +41,7 @@ class FavoriteController extends AbstractController
 
         //* Then we put the practice an array
         array_push($this->sessionTab, $practiceId);
-        
+
         //* we ensure to have an unique array
         $this->sessionTab = array_unique($this->sessionTab);
 
@@ -54,13 +54,13 @@ class FavoriteController extends AbstractController
         //* we catch the practice from the database for using his category name
         $practice = $practiceRepository->find($practiceId);
 
-   
+
         //* finnaly we redirect to the listing page
         return $this->redirectToRoute(
-                'practice_list',
-                ['slug' => $practice->getCategory()->getSlug()],
-                Response::HTTP_SEE_OTHER
-            );
+            'practice_list',
+            ['slug' => $practice->getCategory()->getSlug()],
+            Response::HTTP_SEE_OTHER
+        );
     }
 
     //* Route used to display favorites list
@@ -75,16 +75,17 @@ class FavoriteController extends AbstractController
         $favoritesList = [];
 
         //* check we need is not empty
-        if($this->sessionTab){
+        if ($this->sessionTab) {
 
             //* We get the favorites from the session
-            foreach($this->sessionTab as $idPractice) {
-                
+            foreach ($this->sessionTab as $idPractice) {
+
                 //* And search for the practice in the database
                 $favoritesList[] = $practiceRepository->findBy(
-                    ['id' => $idPractice]);
-                }
+                    ['id' => $idPractice]
+                );
             }
+        }
 
         //* finnaly we render the favorite's list page
         return $this->render('Front/favorite/index.html.twig', [
@@ -105,24 +106,22 @@ class FavoriteController extends AbstractController
 
 
         //* Then we check if the practice is in the session
-            if(!is_Null($this->sessionTab)){
+        if (!is_Null($this->sessionTab)) {
 
-        //* If it is, we remove it from the session
-                foreach($this->sessionTab as $index => $fav)
-                {
-                    if($fav == $favoriteToDel)
-                    {
-                        unset($this->sessionTab[$index]);
-                        //* we overwrite the session with the new array
-                        $session->set('favorites', $this->sessionTab);
-                        $this->addFlash('danger', 'Votre sélection a bien été supprimée.');
-                    }
+            //* If it is, we remove it from the session
+            foreach ($this->sessionTab as $index => $fav) {
+                if ($fav == $favoriteToDel) {
+                    unset($this->sessionTab[$index]);
+                    //* we overwrite the session with the new array
+                    $session->set('favorites', $this->sessionTab);
+                    $this->addFlash('danger', 'Votre sélection a bien été supprimée.');
                 }
             }
+        }
         return $this->redirectToRoute('favorite_list');
     }
 
-        //* Route used to remove a practice from favorites
+    //* Route used to remove a practice from favorites
     /**
      * @Route("/delete-all", name="delete_all", methods={"POST"})
      * @return Response
@@ -131,17 +130,17 @@ class FavoriteController extends AbstractController
     {
         //* We get the favorite in session
         $favOnSession = $session->get('favorites');
-        
-        //* if there are favorites in session
-            if(!is_Null($favOnSession)){
 
-                //* we remove them from the sessionTab all datas
-                unset($this->sessionTab);
-                //* we are obliged to overwrite the session with an empty array
-                $this->sessionTab = [];
-                $session->set('favorites', $this->sessionTab);
-                $this->addFlash('danger', 'Tous vos favoris ont bien été supprimés.');
-            }
+        //* if there are favorites in session
+        if (!is_Null($favOnSession)) {
+
+            //* we remove them from the sessionTab all datas
+            unset($this->sessionTab);
+            //* we are obliged to overwrite the session with an empty array
+            $this->sessionTab = [];
+            $session->set('favorites', $this->sessionTab);
+            $this->addFlash('danger', 'Tous vos favoris ont bien été supprimés.');
+        }
         return $this->redirectToRoute('favorite_list');
     }
 }
