@@ -21,6 +21,7 @@ body {
     box-shadow: 0 15px 30px rgba(0,0,0,0.5);
     background: url('./../asset/img/p404.png')#151729;
 }
+
 #container .content {
     max-width: 600px;
     text-align: center;

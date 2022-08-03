@@ -1,14 +1,51 @@
+:root {
+    --primary: #C237FE;
+    --light: #ffffff;
+    --dark: #103741;
+    --blue: #5dc7ec;
+    --green: #408558;
+    --yellow: #f6c344;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.content {
+    max-width: 600px;
+    text-align: center;
+}
+
+.content img {
+    position: relative;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.content h4 {
+    position: relative;
+    font-size: 1.5em;
+    color:#111;
+    background: #FFF;
+    font-weight: 300;
+}
+
+.content p {
+    color: #FFF;
+    font-size: 1.2em;
+}
+
 /********* START PAGE_403 ************/
-.page_403  img { 
-    width:100%;
-    
+.block_403  img { 
+    width:100%;   
 }
 .logo {
     margin: 2rem 0;
 }
 .gif {
     z-index: -1000;
-    background: #5dc7ec;
+    background: var(--blue);
 }
 .contant_box_403 {
     margin-top: -55px;
@@ -22,10 +59,38 @@
 /********* END PAGE_403 ************/
 
 
+/********* START PAGE_404 ************/
+.block_404 {
+    height: 100vh;
+    background-image: radial-gradient(circle at 27% 12%, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.01) 2%,transparent 2%, transparent 100%),radial-gradient(circle at 53% 19%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.03) 2%,transparent 2%, transparent 100%),radial-gradient(circle at 55% 52%, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.01) 2%,transparent 2%, transparent 100%),radial-gradient(circle at 58% 8%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.03) 2%,transparent 2%, transparent 100%),radial-gradient(circle at 47% 41%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.03) 8%,transparent 8%, transparent 100%),radial-gradient(circle at 37% 54%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.03) 8%,transparent 8%, transparent 100%),radial-gradient(circle at 77% 94%, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.01) 8%,transparent 8%, transparent 100%),radial-gradient(circle at 95% 77%, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0.01) 8%,transparent 8%, transparent 100%),radial-gradient(circle at 22% 85%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.03) 8%,transparent 8%, transparent 100%),radial-gradient(circle at 95% 93%, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.02) 5%,transparent 5%, transparent 100%),radial-gradient(circle at 26% 54%, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.02) 5%,transparent 5%, transparent 100%),linear-gradient(45deg, rgb(52, 159, 222),rgb(201, 2, 215));
+}
+
+.container-404 {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    background: url('./../asset/img/p404.png')#151729;
+}
+
+/********* END PAGE_404 *************/
+
+
+
+/********* START PAGE_500 ************/
 
 
 
 
+
+
+/********* END PAGE_500 *************/
 
 
 
@@ -53,5 +118,8 @@
 }
 .animated-link  {
     background-color: black;
+}
+.back-button {
+    background-color: var(--light);
 }
 /***** END BUTTON ACCUEIL ********/
