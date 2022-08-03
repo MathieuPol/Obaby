@@ -9,7 +9,7 @@
 
 {% block body %}
 
-
+<div id="back-to-top-button">
     <h1>Contact</h1>
 
     <img src="./asset/img/hands-1400.png" class="img-fluid col-12" alt="contact">
@@ -41,7 +41,7 @@
         <summary>
             Où poser une question sur notre site ?
         </summary>
-        <p> Vous pouvez nous soumettre vos questions sur cette page en cliquant <a href={{ path('question_ask') }} class="styled-link">ici</a>. Attention, pour cela, vous devez être
+        <p> Vous pouvez nous soumettre vos questions sur cette page <a href={{ path('question_ask') }} class="styled-link">en cliquant ici</a>. Attention, pour cela, vous devez être
         connecté.</p>
         <p> Un modérateur vous validera votre question sous 48h maximum.</p>
     </details>
@@ -54,7 +54,7 @@
         <p> Rien de plus simple ! En-dessous de la question, vous trouverez un encart où vous pouvez soumettre votre avis.
         Attention, pour cela, vous devez être connecté.</p>
         <p>Un modérateur vous validera votre réponse sous 48h maximum.</p> 
-        <p> Retournez à la page des catégories de questions par <a href={{ path('category_show_question') }} class="styled-link">ici</a>.</p>
+        <p> Retournez à la page des catégories de questions <a href={{ path('category_show_question') }} class="styled-link">par ici</a>.</p>
     </details>
 
     <details>
@@ -62,7 +62,7 @@
             Comment se connecter sur notre site ?
         </summary>
         <p> En haut à droite de cette page, vous trouverez le bouton de connexion : si vous n’avez pas encore de compte chez
-        nous, c’est le moment de le créer (Allez, on est sympa, on vous donne le lien directement <a href={{ path('security_login') }} class="styled-link">ici</a>.</p>
+        nous, c’est le moment de le créer (Allez, on est sympa, on vous donne le lien <a href={{ path('security_login') }} class="styled-link">directement ici</a>.</p>
     </details>
 
 
@@ -75,7 +75,7 @@
         votre pseudonyme et adresse mail de notre côté. Par contre, le contenu fourni restera sous le pseudonyme «
         Anonyme » pour une question de cohérence de notre site (on considère que tout le contenu donné par la communauté
         peut aider les autres membres).</p>
-        <p> Vous êtes sûr et certain de vouloir nous quitter ? Alors, rendez-vous sur  <a href="#" class="styled-link">votre compte</a>(en haut à droite du
+        <p> Vous êtes sûr et certain de vouloir nous quitter ? Alors, rendez-vous sur  <a href="#" class="styled-link">votre compte </a>(en haut à droite du
         site).</p>
     </details>
 
@@ -102,7 +102,7 @@
         <p> Nous avons mis en place sur ce site une liste de numéros à joindre en cas d’urgence. Nous vous invitons à la
         consulter à tête reposée pour que, lorsque vous ayez à gérer une urgence, vous sachiez déjà les étapes à suivre.
         Cela vous permettra d’être efficace et de gérer votre stress face à la situation.</p>
-        <p> Alors, première étape : accéder à cette fameuse page par <a href={{ path('phones') }} class="styled-link">ici</a> !</p>
+        <p> Alors, première étape : accéder à cette fameuse page <a href={{ path('phones') }} class="styled-link">par ici</a> !</p>
     </details>
 </div>
 
@@ -118,4 +118,6 @@
         <p>Au plaisir de vous lire,</p>
         <p>L’équipe O’baby.</p>
     </div>
+</div>
+    <p class="back-top-button lh-lg m-4"><a href="#back-to-top-button">Revenir en haut de cette page</a></p>
 {% endblock %}
