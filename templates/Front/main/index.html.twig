@@ -137,7 +137,7 @@
 
       {% for question in questionCarroussel %}
         <div class="single-testimonial">
-          <a href="#">
+          <a href="{{ path('question_list', {slug: question.category.slug}) }}">
             <p>
               {{ question.content }}
             </p>

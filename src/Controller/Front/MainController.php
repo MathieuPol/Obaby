@@ -19,7 +19,7 @@ class MainController extends AbstractController
     public function home( QuestionRepository $question, PracticeRepository $practiceRepository): Response
     {
         //* show the last five questions(using in carroussel)
-        $carrousselQuestion = $question->findBy([], ['id' => 'DESC'], 5);
+        $carrousselQuestion = $question->selectActivatedQuestionsCarroussel();
         //* show the last three practices(using in carroussel)
         $carrousselPractice = $practiceRepository->selectActivatedPracticesHomepage();
         $practice1 = $carrousselPractice[0];
