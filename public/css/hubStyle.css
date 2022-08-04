@@ -133,12 +133,10 @@
         background-position: center;
         background-size: 55rem;
     }
-}
-
-.categories {
-    background-image: url("../asset/img/enjoyedBabies.png");
-}
-
-.question {
-    background-image: url("../asset/img/hub-question.png");
+    .categories {
+        background-image: url("../asset/img/enjoyedBabies.png");
+    }
+    .question {
+        background-image: url("../asset/img/hub-question.png");
+    }
 }
