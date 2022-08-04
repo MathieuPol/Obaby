@@ -1,14 +1,38 @@
-#main-inscription {
-	height: 100vh;
+body {
+
 	background: url("../asset/img/children-logout.jpg");
+	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
 }
 
 
 #info-inscription {
+	width: 95%;
+	height: 740px;
+	border-radius: 5px;
+	color: var(--bs-white);
+	background-color: rgba(0, 0, 0, 0.35);
+	font-size: 1rem;
+	border-radius: 22.2px;
+	box-shadow: 0 0 16px #5dc7ec;
+	max-width: 350px;
+}
+
+.login-link:hover button {
+	transform: translate(-6px, -6px);
+	background: #c238fe;
+}
+
+.login-link button {
+	background: #5dc7ec;
+	padding: 0.5rem 0.5rem;
+}
+
+.login-link {
+	background-color: black;
+}
+/* #info-inscription {
 	width: 95%;
 	height: 740px;
 	border-radius: 5px;
@@ -22,9 +46,9 @@
 	border-radius: 22.2px;
 	box-shadow: 0 0 16px #5dc7ec;
 	max-width: 350px;
-}
+} */
 /**************************************************************************/
-@media (max-width: 375px) {
+/* @media (max-width: 375px) {
 	#info-inscription {
 	width: 85%;
 	height: 660px;
@@ -39,9 +63,9 @@
 	border-radius: 22.2px;
 	box-shadow: 0 0 16px #5dc7ec;
 	max-width: 350px;
-	}
+	} */
 
-	.title {
+/* 	.title {
 		font-size: 25px;
 		margin: 0;
 	}
@@ -56,8 +80,8 @@
 	.btn-submit {
 		height: 10px;
 	}
-}
-
+} */
+/* 
 @media (min-width: 540px) {
 	#info-inscription {
 	width: 90%;
@@ -81,12 +105,12 @@
 	.form-label {
 		font-size: 1rem;
 	}
-}
+} */
 
 
 /************** NE PAS COPIER *****************/
 /************** NE PAS COPIER *****************/
-label {
+/* label {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 1.5em;
 }
@@ -143,6 +167,6 @@ label {
 
 .login-link {
 	background-color: black;
-}
+} */
 
 /************** NE PAS COPIER *****************/

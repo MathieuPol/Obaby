@@ -1,22 +1,33 @@
-  <footer class="text-center mb-0 mt-auto">
-    <div class="footer-container text-white py-4 py-lg-5">
-      <ul class="list-footer-links">
+<footer class="text-center mb-0 mt-auto">
+	<div class="footer-container text-white py-4 py-lg-5">
+		<ul class="list-footer-links">
 
-        <li class="footer-link me-4"><a class="link-light" href={{ path('contact') }}>Contact</a></li>
-        <li class="footer-link me-4"><a class="link-light" href={{ path('legal_mentions') }}>Mentions légales</a></li>
-        <li class="footer-link me-4"><a class="link-light" href={{ path('about_us') }}>Qui sommes-nous ?</a></li>
-        <li class="footer-link me-4"><a class="link-light" href={{ path('phones') }}>Numéros utiles</a></li>
+			<li class="footer-link me-4">
+				<a class="link-light" href={{ path('contact') }}>Contact</a>
+			</li>
+			<li class="footer-link me-4">
+				<a class="link-light" href={{ path('legal_mentions') }}>Mentions légales</a>
+			</li>
+			<li class="footer-link me-4">
+				<a class="link-light" href={{ path('about_us') }}>Qui sommes-nous ?</a>
+			</li>
+			<li class="footer-link me-4">
+				<a class="link-light" href={{ path('phones') }}>Numéros utiles</a>
+			</li>
 
-      </ul>
-    </div>
-    <div class="back-home-footer">
-      <p>O'Baby</p>
-    </div>
-  </footer>
+		</ul>
+  </div>
 
-  <!-- JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
-    
-    <script src="{{ asset('js/main.js')}}"></script>
+	<div class="pb-5">
+	<a href={{ path('front_home')}}>
+		<img class="logo-noir img-fluid" role="logo" src="{{ asset('asset/logo/logo-noir.png') }}" alt="logo Obaby"/>
+	</a>
+  </div>
+
+</footer>
+
+<!-- JavaScript Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+<script src="{{ asset('js/main.js')}}"></script>
