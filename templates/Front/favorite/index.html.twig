@@ -16,7 +16,7 @@
 </button>	<!-- Main Content Start -->
 	<h1 class="text-center">Vos bonnes pratiques favorites</h1>
 
-	<main class="container-fluid row m-auto">
+	<main class="container-fluid row m-auto py-5">
 
 		<content
 			class="text-center d-flex flex-column align-items-center">
@@ -44,14 +44,14 @@
 									<p class="card-text">{{ practice.content|u.truncate(200, '...') }}
 									</p>
 								</div>
-								<div class="card-footer">
-									<div class="d-flex justify-content-between justify-content-lg-around">
+								<div class="card-footer d-flex jusity-content-around flex-column">
+									<div class="d-flex justify-content-center">
+										<a href={{ path('practice_show', {slug: practice.slug} ) }} class="btn rounded-pill py-sm-2 px-sm-5">Lire</a>
+									</div>
+									<div class="d-flex justify-content-around justify-content-lg-around">
 										<div>
-											<img class="autor-pic m-0" src="{{ asset( 'asset/img/'~ practice.user.genre ~'.png' ) }}"" alt="author picture">
+											<img class="autor-pic m-0" src="{{ asset( 'asset/img/'~ practice.user.genre ~'.png' ) }}" alt="author picture">
 											<p class="autor-name text-muted align-self-end mb-0">{{ practice.user.pseudo }}</p>
-										</div>
-										<div class="d-flex align-items-center">
-											<a href={{ path('practice_show', {slug: practice.slug} ) }} class="btn rounded-pill py-sm-2 px-sm-5">Lire la bonne pratique</a>
 										</div>
 										<div class="align-self-center">
 											<time datetime="{{ practice.createdAt|date ("d/m/Y") }}">{{ practice.createdAt|date ("d/m/Y") }}</time>
