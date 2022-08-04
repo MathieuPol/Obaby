@@ -70,6 +70,14 @@ class Practice
             'enfant-1400.jpg',
             'ecrire-1400.png',
             'phone-1400.png',
+            'babyfeet-1400.png',
+            'boygirl-1400.png',
+            'face-1400.png',
+            'foot-1400.png',
+            'hi-1400.png',
+            'home-1400.png',
+            'look-1400.png',
+            'smile-1400.png',
         ];
 
 
