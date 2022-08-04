@@ -1,4 +1,4 @@
-//************** NAVBAR AMINATE ***************/
+//************** START NAVBAR AMINATE ***************/
 
 const menuHamburger = document.querySelector(".menu-btn")
 const navLinks = document.querySelector(".nav-links")
@@ -6,8 +6,9 @@ const navLinks = document.querySelector(".nav-links")
 menuHamburger.addEventListener('click', ()=>{
     navLinks.classList.toggle("mobile-menu")
 })
+//************** END NAVBAR AMINATE ***************/
 
-//**************** AMINATE HAMBURGER **********/
+//**************** START AMINATE HAMBURGER **********/
 
 const menuBtn = document.querySelector('.menu-btn');
 let menuOpen = false;
@@ -21,8 +22,9 @@ menuBtn.addEventListener('click', () => {
     }
 });
 
-//************** FIN AMINATE HAMBURGER **********/
+//************** END AMINATE HAMBURGER **********/
 
+//************ START SLIDER TESTIMONIAL ************/
 
 $('.owl-carousel').owlCarousel({
     autoplay: true,
@@ -47,3 +49,5 @@ $('.owl-carousel').owlCarousel({
         }
     }
 })
+
+//************ END SLIDER TESTIMONIAL ************/
