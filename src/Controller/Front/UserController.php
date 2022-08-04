@@ -61,7 +61,7 @@ class UserController extends AbstractController
 
 //* Route to show personnal informations
     /**
-     * @Route ("/{id}", name="show", methods={"GET"})
+     * @Route ("/{slug}", name="show", methods={"GET"})
     */
     public function show(User $user): Response
     {
@@ -89,7 +89,7 @@ class UserController extends AbstractController
             );
             $user->setPassword($hashedPassword);
             $userRepository->add($user, true);
-            return $this->redirectToRoute('user_show', ['id' => $user->getId()], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('user_show', ['slug' => $user->getSlug()], Response::HTTP_SEE_OTHER);
         }  
         
         return $this->renderForm('Front/user/update.html.twig', [
