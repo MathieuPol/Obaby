@@ -186,10 +186,22 @@ class AppFixtures extends Fixture
             
             // Practice creation
             $pictureList = [
+                'baby1.png',
+                'baby2.png',
+                'baby3.png',
+                'baby4.png',
+                'baby5.png',
+                'baby6.png',
+                'baby7.png',
+                'baby8.png',
+                'baby9.png',
+                'baby10.png',
+                'baby11.png',
+                'phone-1400.png',
                 'enfant-1400.jpg',
                 'ecrire-1400.png',
-                'phone-1400.png',
             ];
+    
             
             for($l = 0; $l < 30; $l++) {
             $practice = new Practice();
