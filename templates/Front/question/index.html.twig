@@ -6,13 +6,12 @@
 {% endblock %}
 {% block body %}
 
-<button id="add-button" onclick="window.location.href= '{{ path('practice_submit')}}'" type="button">
+<button id="add-button" onclick="window.location.href= '{{ path('question_submit')}}'" type="button">
     <i class="fa-solid fa-plus"></i> 
   </button>
-  <button id="round-btn-add" onclick="window.location.href= '{{ path('practice_submit')}}'" type="button">
-    <span>Ajouter une bonne pratique</span>
+  <button id="round-btn-add" onclick="window.location.href= '{{ path('question_submit')}}'" type="button">
+    <span>Ajouter une question</span>
   </button>
-
 
  <h1 class="text-center">Questions <img class="bottle" src="{{ asset('asset/img/biberon.png') }}" alt="">Réponses</h1>
   
