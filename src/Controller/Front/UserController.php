@@ -8,6 +8,7 @@ use App\Entity\User;
 use App\Form\NewUserType;
 use App\Form\UserType;
 use App\Form\UserUpdateType;
+use App\Repository\AnswerRepository;
 use App\Repository\PracticeRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\UserRepository;
@@ -98,12 +99,13 @@ class UserController extends AbstractController
         ]);
     }
 
+
     //* Route to delete account
     /**
      * @Route ("/{id}/delete", name="delete", methods={"POST"})
      * @param int $id
     */
-    public function delete(Request $request, User $user, UserRepository $userRepository, QuestionRepository $questionRepository, PracticeRepository $practice, Session $session): Response
+    public function delete(Request $request, User $user, UserRepository $userRepository, QuestionRepository $questionRepository, PracticeRepository $practice, AnswerRepository $answerRepository, Session $session): Response
     {
 
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
@@ -113,14 +115,24 @@ class UserController extends AbstractController
                 foreach ($user->getQuestions() as $key => $value) {
                     $value->setUser($anonymous);
                     $questionRepository->add($value, true);
+                    $user->removeQuestion($value);
                 }
             }
             if ( $user->getPractices() ) {
                 foreach ($user->getPractices() as $key => $value) {
                     $value->setUser($anonymous);
                     $practice->add($value, true);
+                    $user->removePractice($value);
                 }
             }
+            if ( $user->getAnswers() ) {
+                foreach ($user->getAnswers() as $key => $value) {
+                    $value->setUser($anonymous);
+                    $answerRepository->add($value, true);
+                    $user->removeAnswer($value);
+                }
+            }
+
             $userRepository->remove($user, true);
 
             $session = new Session();
