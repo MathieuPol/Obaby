@@ -40,7 +40,15 @@
                             <td>{{ question.createdAt ? question.createdAt|date("d/m/Y") : '' }}</td>
 
                             <td>{{ question.category.name }}</td>
-                            <td>{{ question.status }}</td>
+                            		{% if question.status == 1 %}
+										<td class="bg-success text-center">
+											<p>Publié</p>
+										</td>
+									{% else %}
+										<td class="bg-warning text-center">
+											<p>A Modérer</p>
+										</td>
+									{% endif %}
                             <td> 
                             {% if question.status == 0 %}
                                 <form class= "d-flex justify-content-center" action="{{ path('back_question_validate', {'id': question.id}) }}" method="post">
