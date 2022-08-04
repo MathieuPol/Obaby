@@ -57,7 +57,9 @@
     padding: 15px; /* Some padding */
     border-radius: 10px; /* Rounded corners */
     font-size: 18px; /* Increase font size */
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #myBtn:hover {
