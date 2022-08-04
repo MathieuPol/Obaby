@@ -17,8 +17,8 @@
 
 	<h1 class="text-center">Bienvenue dans votre back-office</h1>
 
-	<section class="row p-4">
-		<div class="container-fluid d-flex flex-wrap">
+	<section class="row m-auto">
+		<div class="container-fluid d-flex flex-wrap justify-content-center">
 			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 ">
 				<div class="m-4 table-back display-lg">
 					<table class="table table-hover ">
@@ -57,7 +57,7 @@
 						</tbody>
 					</table>
 					
-					<a class="btn col-11 mx-4" href="{{ path('back_practice_list') }}">
+					<a class="btn col-10" href="{{ path('back_practice_list') }}">
 						Voir toutes les bonnes pratiques</a>
 				</div>
 			</div>
@@ -102,7 +102,7 @@
 							{% endfor %}
 						</tbody>
 					</table>
-					<a class="btn col-11 mx-4" href="{{ path('back_question_list') }}">
+					<a class="btn col-10" href="{{ path('back_question_list') }}">
 						Voir toutes les questions</a>
 				</div>
 			</div>
@@ -147,7 +147,7 @@
 							{% endfor %}
 						</tbody>
 					</table>
-					<a class="btn btn-primary col-11 mx-4" href="{{ path('back_answer_list') }}">
+					<a class="btn btn-primary col-10" href="{{ path('back_answer_list') }}">
 						Voir toutes les réponses</a>
 				</div>
 			</div>
@@ -190,7 +190,7 @@
 						</tbody>
 					</table>
 					{# TODO: put this part under access control #}
-					<a class="btn btn-primary col-11 mx-4" href="{{ path('back_user_list') }}">
+					<a class="btn btn-primary col-10" href="{{ path('back_user_list') }}">
 						Voir tous les utilisateurs</a>
 				</div>
 			</div>
@@ -220,7 +220,7 @@
 							{% endfor %}
 						</tbody>
 					</table>
-					<a class="btn btn-primary col-11 mx-4" href="{{ path('back_category_list') }}">
+					<a class="btn btn-primary col-10" href="{{ path('back_category_list') }}">
 						Voir toutes les catégories</a>
 				</div>
 			</div>
@@ -230,8 +230,8 @@
 
 
 {# START table practices display MD #}
-		<div class="row display-md">
-			<div class="col-lg-12 mb-5 m-auto">
+	<div class="row display-md">
+		<div class="col-lg-12 mb-5 m-auto display-md">
 			<div>
 				<h3 class="text-center">Liste des catégories</h3>
 			</div>
@@ -289,14 +289,15 @@
 						{% endfor %}
 					</tbody>
 				</table>
-				<a  class="btn btn-primary col-11 mx-4" href="{{ path('back_practice_list') }}"> Voir toutes les bonnes pratiques</a>
+				<a  class="btn btn-primary col-10" href="{{ path('back_practice_list') }}"> Voir toutes les bonnes pratiques</a>
 			</div>
 		</div>
+	</div>
 {# END table practices display MD #}
 
 {# START table question display MD #}
-		<div class="row display-md">
-			<div class="col-lg-12 mb-5 m-auto">
+	<div class="row display-md">
+		<div class="col-lg-12 mb-5 m-auto display-md">
 			<div>
 				<h3 class="text-center">Liste des questions</h3>
 			</div>
@@ -354,14 +355,15 @@
 						{% endfor %}
 					</tbody>
 				</table>
-				<a  class="btn btn-primary col-11 mx-4" href="{{ path('back_question_list') }}"> Voir toutes les questions</a>
+				<a  class="btn btn-primary col-10" href="{{ path('back_question_list') }}"> Voir toutes les questions</a>
 			</div>
 		</div>
+	</div>
 {# END table question display MD #}
 
 {# START table answers display MD #}
 		<div class="row display-md">
-			<div class="col-lg-12 mb-5 m-auto">
+			<div class="col-lg-12 mb-5 m-auto display-md">
 			<div>
 				<h3 class="text-center">Liste des réponses</h3>
 			</div>
@@ -419,14 +421,16 @@
 						{% endfor %}
 					</tbody>
 				</table>
-				<a  class="btn btn-primary col-11 mx-4" href="{{ path('back_answer_list') }}"> Voir toutes les réponses</a>
+				<a  class="btn btn-primary col-10" href="{{ path('back_answer_list') }}"> Voir toutes les réponses</a>
 			</div>
 		</div>
+	</div>
+
 {# END table answers display MD #}
 
 {# START table user display MD #}
-		<div class="row display-md">
-			<div class="col-lg-12 mb-5 m-auto">
+	<div class="row display-md">
+		<div class="col-lg-12 mb-5 m-auto">
 			<div>
 				<h3 class="text-center">Liste des utilisateurs</h3>
 			</div>
@@ -475,14 +479,15 @@
 						{% endfor %}
 					</tbody>
 				</table>
-				<a  class="btn btn-primary col-11 mx-4" href="{{ path('back_user_list') }}">Voir tous les utilisateurs</a>
+				<a  class="btn btn-primary col-10" href="{{ path('back_user_list') }}">Voir tous les utilisateurs</a>
 			</div>
 		</div>
+	</div>
 {# END table practices display MD #}
 
 {# START table categories display MD #}
-		<div class="row display-md">
-			<div class="col-lg-12 mb-5 m-auto">
+		<div class="row display-md w-100">
+			<div class="col-lg-12 col-12 mb-5 m-auto p-0">
 			<div>
 				<h3 class="text-center">Liste des catégories</h3>
 			</div>
@@ -519,14 +524,15 @@
 						{% endfor %}
 					</tbody>
 				</table>
-				<div class="text-center p-4">
+				<div class="text-center">
 					<a class="btn btn-primary" href="{{ path('back_category_add') }}">
 					Ajouter une nouvelle catégorie
 					</a>
+					<a  class="btn btn-primary col-10 mt-1" href="{{ path('back_category_list') }}">Voir toutes les catégories</a>
 				</div>
-				<a  class="btn btn-primary col-11 mx-4" href="{{ path('back_category_list') }}">Voir toutes les catégories</a>
 			</div>
 		</div>
+	</div>
 {# END table practices display MD #}
 
 
