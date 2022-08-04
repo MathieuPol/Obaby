@@ -27,9 +27,9 @@
         <!-- VOIR AVEC TEAM -->
         <!-- <a href="contact.html" class="nav-item nav-link">Mon compte</a> -->
         <div class="nav-item dropdown">
-          <a href="{{ path('user_show', {id: app.user.id }) }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Bonjour {{ app.user.pseudo }}</a>
+          <a href="{{ path('user_show', {slug: app.user.slug }) }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Bonjour {{ app.user.pseudo }}</a>
           <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0 text-center">
-          <a href="{{ path('user_show', {id: app.user.id }) }}" class="dropdown-item">Mon compte</a>
+          <a href="{{ path('user_show', {slug: app.user.slug }) }}" class="dropdown-item">Mon compte</a>
           {% if is_granted("ROLE_MODERATOR") %}
             <a href={{ path('back_home') }} class="dropdown-item">Back-office</a>
           {% endif %}

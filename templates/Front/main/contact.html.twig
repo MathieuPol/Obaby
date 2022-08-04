@@ -59,10 +59,20 @@
 
     <details>
         <summary>
+            Vous souhaitez ajouter des bonnes pratiques dans votre page « Favoris » ?
+        </summary>
+        <p> Pour retrouver facilement vos <a href={{ path('category_show_practice') }} class="styled-link">bonnes pratiques</a> préférées, vous pouvez les ajouter à votre liste de favoris en cliquant sur le cœur en haut à gauche de votre bonne pratique et le tour est joué ! </p>
+        <p>Lorsque vous êtes dans votre page « Favoris », vous pouvez soit supprimer une seule bonne pratique de votre liste en cliquant sur la croix du cœur en haut à gauche de votre bonne pratique, soit vider toute votre liste en une seule fois en cliquant sur le bouton « Je vide ma sélection » en bas de la page. </p> 
+        <p>
+        <p>Attention, pour cela, vous devez être connecté.</p>
+    </details>
+
+    <details>
+        <summary>
             Comment se connecter sur notre site ?
         </summary>
         <p> En haut à droite de cette page, vous trouverez le bouton de connexion : si vous n’avez pas encore de compte chez
-        nous, c’est le moment de le créer (Allez, on est sympa, on vous donne le lien <a href={{ path('security_login') }} class="styled-link">directement ici</a>.</p>
+        nous, c’est le moment de le créer (Allez, on est sympa, on vous donne le lien <a href={{ path('security_login') }} class="styled-link">directement ici</a>).</p>
     </details>
 
 
@@ -75,8 +85,7 @@
         votre pseudonyme et adresse mail de notre côté. Par contre, le contenu fourni restera sous le pseudonyme «
         Anonyme » pour une question de cohérence de notre site (on considère que tout le contenu donné par la communauté
         peut aider les autres membres).</p>
-        <p> Vous êtes sûr et certain de vouloir nous quitter ? Alors, rendez-vous sur  <a href="#" class="styled-link">votre compte </a>(en haut à droite du
-        site).</p>
+        <p> Vous êtes sûr et certain de vouloir nous quitter ? Alors, rendez-vous sur  <a href="{{ path('user_show', {slug: app.user.slug }) }}" class="styled-link">votre compte </a>(en haut à droite du site).</p>
     </details>
 
 
