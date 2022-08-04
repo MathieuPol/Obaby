@@ -254,3 +254,81 @@
     transition: 1.5s;
 }
 
+
+#round-btn-add{
+
+    position: fixed;
+/*     position: -webkit-sticky; */
+    top: 70vh;
+    left: 1em;
+/*     left: calc(50% - 61px); */
+    background-color: var(--blue);
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    z-index: 99;
+    border: solid 1px var(--primary);
+    color: white;
+
+}
+#round-btn-add:hover{
+
+    position: fixed;
+/*     position: -webkit-sticky; */
+    top: 32rem;
+    left: 1rem;
+    width: 8rem;
+    height: 8rem;
+/*     left: calc(50% - 61px); */
+    background-color: var(--blue);
+    transition: 2s;
+    z-index: 2;
+    border: solid 1px var(--blue);
+    color: black;
+}
+
+#add-button 
+{
+    position: fixed;
+/*     position: -webkit-sticky; */
+    top: 70vh;
+    left: 1em;
+/*     left: calc(50% - 61px); */
+    background-color: var(--blue);
+    width: 2rem;
+    height: 2rem;
+    z-index: 99;
+    border: solid 1px var(--primary);
+    color: white;
+}
+
+#add-button:hover{
+    position: fixed;
+/*     position: -webkit-sticky; */
+    top: 32rem;
+    left: 1rem;
+/*     left: calc(50% - 61px); */
+    background-color: var(--blue);
+    transition: 2s;
+    width: 4rem;
+    height: 4rem;
+    z-index: 2;
+    border: solid 1px var(--blue);
+    color: black;
+}
+@media (min-width: 1040px) {
+    #round-btn-add {
+        display: block;
+    }
+    #add-button{
+        display: none;
+    }
+}
+@media (max-width: 1040px) {
+    #round-btn-add {
+        display: none;
+    }
+    #add-button{
+        display: block;
+    }
+}
