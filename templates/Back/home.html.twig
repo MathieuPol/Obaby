@@ -14,6 +14,7 @@
 {% endblock %}
 
 {% block body %}
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
 
 	<h1 class="text-center">Bienvenue dans votre back-office</h1>
 
@@ -546,4 +547,7 @@
 
 	
 {% endblock %}
-{% block footer %}<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>{% endblock %}
+{% block footer %}
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="{{ asset('js/scrollTopBtn.js') }}"></script>
+{% endblock %}
