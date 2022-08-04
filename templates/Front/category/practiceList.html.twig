@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
 
-    <link rel="stylesheet" href="{{ asset('css/hub-category.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/hubStyle.css') }}"/>
 
 {% endblock %}
 
@@ -14,7 +14,7 @@
   <content class="text-center d-flex flex-column align-items-center">
     <div class="container-xxl py-5 ">
       <div class="container">    
-        <div class="row g-3 category-container">
+        <div class="row g-3 category-container categories">
           {% for category in categories %}
             <div class="col-lg-6 col-sm-6 d-flex m-auto mb-2 mt-0">
               <a href="{{ path('practice_list', {slug: category.slug}) }}" class="main-buttons-item btn-{{category.name}}">
