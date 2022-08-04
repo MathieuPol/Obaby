@@ -577,10 +577,8 @@ p.text {
     color: #000;
 }
 
-.back-home-footer {
-    margin-top: -1rem;
-    transform: translateY(-50%);
-
+.logo-noir {
+    width: 5rem; 
 }
 
 /********** Media query footer **********/
