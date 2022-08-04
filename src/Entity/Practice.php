@@ -58,8 +58,24 @@ class Practice
      */
     private $slug;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $picture;
+
     public function __construct()
     {
+        /* format 1400x460 */
+        $pictureList = [
+            'enfant-1400.jpg',
+            'ecrire-1400.png',
+            'phone-1400.png',
+        ];
+
+
+        $this->picture = $pictureList[array_rand($pictureList)];
+
+
         $this->createdAt = new \DateTime();
         $this->status = 0;
     }
@@ -162,6 +178,18 @@ class Practice
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }

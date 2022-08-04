@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\DependencyInjection\ParameterBag\EnvPlaceholderParameterBag;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -74,6 +75,13 @@ class NewUserType extends AbstractType
                                                 'placeholder' => 'Password'
                                         ),
                                 ],
+                        ])
+                        ->add('genre', ChoiceType::class, [
+                                'label' => 'Genre',
+                                'choices' => [
+                                        'Homme' => 'homme',
+                                        'Femme' => 'femme',
+                                ],
                         ]);
         }
 
@@ -83,5 +91,4 @@ class NewUserType extends AbstractType
                         'data_class' => User::class,
                 ]);
         }
-        //TODO make UserEntity and UserController
 }

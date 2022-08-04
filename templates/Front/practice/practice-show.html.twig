@@ -51,7 +51,7 @@
         </form>
           {% endif %}
         <div class="card banner-owner" role="card-banner">
-          <img src="{{ asset('asset/img/finger.png') }}"
+          <img src="{{ asset('asset/img/' ~ practice.picture) }}"
             role="banner"
             class="card-img-top"
             alt="finger picture" />
@@ -69,7 +69,7 @@
             <div class="d-flex justify-content-between justify-content-lg-around">
               <div>
                 <img class="autor-pic m-0"
-                  src="{{ asset( 'asset/img/avatar1.svg' ) }}"
+                  src="{{ asset( 'asset/img/'~ practice.user.genre ~'.png' ) }}""
                   alt="author picture" />
                 <p class="autor-name text-muted align-self-end mb-0">
 

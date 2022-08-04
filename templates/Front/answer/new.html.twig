@@ -12,7 +12,7 @@
 
             <div class="d-flex justify-content-between">
                 <div class="p-3">
-                    <img class="autor-pic m-0"  src="{{ asset('asset/img/avatar1.svg') }}" alt="author picture">
+                    <img class="autor-pic m-0"  src="{{ asset('asset/img/'~ question.user.genre ~'.png') }}" alt="author picture">
                     <p class="autor-name text-muted mb-0">{{ question.user.pseudo }}</p>
                 </div>
                 <time  class="align-self-center align-content-end p-3" datetime="2022-25-07">{{ question.createdAt|date ("d/m/Y") }}</time>
