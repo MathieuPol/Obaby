@@ -41,6 +41,8 @@
 
 								<div class="card-body">
 									<h5 class="card-title text-center">{{ practice.title }}</h5>
+									<button type="button" class="btn btn-outline-info">
+									<a href="{{ path('practice_list', {slug: practice.category.slug}) }}">{{ practice.category.name }}</a></button>
 									<p class="card-text">{{ practice.content|u.truncate(200, '...') }}
 									</p>
 								</div>
