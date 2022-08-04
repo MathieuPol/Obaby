@@ -4,19 +4,15 @@
       <img class="m-2" style="width: 8rem; height: 3rem" role="logo" src="{{ asset('asset/logo/logo O\'Baby.png') }}" alt=""
         srcset="" />
     </a>
-    <!-- Hamburger Start -->
 
+    <!-- Hamburger Start -->
     <div type="button" class=" m-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
       <div class="menu-btn">
         <div class="menu-btn__burger"></div>
       </div>
     </div>
-
-    <!-- <div class="m-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-    </div> -->
-
-
     <!-- Hamburger End -->
+
 {% if is_granted("ROLE_USER") %}
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav mx-auto">
@@ -24,8 +20,6 @@
         <a href={{ path('category_show_question')}} class="nav-item nav-link">Questions / réponses</a>
         <a href="{{ path('favorite_list') }}" class="nav-item nav-link">Favoris</a>
         <a href="{{ path('security_logout') }}" class="nav-item nav-link d-lg-none">Déconnexion</a>
-        <!-- VOIR AVEC TEAM -->
-        <!-- <a href="contact.html" class="nav-item nav-link">Mon compte</a> -->
         <div class="nav-item dropdown">
           <a href="{{ path('user_show', {slug: app.user.slug }) }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Bonjour {{ app.user.pseudo }}</a>
           <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0 text-center">
@@ -44,15 +38,9 @@
         <a href={{ path('category_show_practice')}} class="nav-item nav-link">Bonnes pratiques</a>
         <a href={{ path('category_show_question')}} class="nav-item nav-link">Questions / réponses</a>
         <a href="{{ path('security_login') }}" class="nav-item nav-link d-lg-none">Connexion</a>
-
-
-
       </div>
-
-      <a href="{{ path('security_login') }}" class="btn rounded-pill px-3 d-none d-lg-block m-2">Connexion<i class="fa fa-sign-in ms-3" aria-hidden="true"></i></a>
-
-    </div>
+        <a href="{{ path('security_login') }}" class="btn rounded-pill px-3 d-none d-lg-block m-2">Connexion<i class="fa fa-sign-in ms-3" aria-hidden="true"></i></a>
+      </div>
 {% endif %}
   </nav>
   <!-- Navbar End -->
-     
