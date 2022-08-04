@@ -39,7 +39,7 @@
 							<tr>
 								<th scope="row">{{ practice.id }}</th>
 								<td>{{ practice.title }}</td>
-								<td>{{ practice.content }}</td>
+								<td>{{ practice.content|nl2br }}</td>
 								<td>{{ practice.createdAt ? practice.createdAt|date('d-m-Y') : '' }}</td>
 								<td>{{ practice.category.name }}</td>
 								<td>{{ practice.status }}</td>
