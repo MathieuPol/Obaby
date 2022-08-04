@@ -14,14 +14,14 @@
 {% endblock %}
 
 {% block body %}
-<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+<button class="text-center" onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-arrow-up m-auto"></i></button>
 
 	<h1 class="text-center">Bienvenue dans votre back-office</h1>
 
 	<section class="row m-auto">
 		<div class="container-fluid d-flex flex-wrap justify-content-center">
 			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 ">
-				<div class="m-4 table-back display-lg">
+				<div class="m-4 table-back display-lg text-center">
 					<table class="table table-hover ">
 						<thead class="table-thead ">
 							<tr>
@@ -42,15 +42,15 @@
 								<tr>
 									<th scope="row">{{ practice.id }}</th>
 									<td>{{ practice.title }}</td>
-									<td>{{ practice.content }}</td>
+									<td>{{ practice.content|u.truncate(50, '...') }}</td>
 									<td>{{ practice.CreatedAt|date("d/m/Y") }}</td>
-									{% if practice.status ==1 %}
+									{% if practice.status == 1 %}
 										<td class="bg-success text-center">
-											{{ practice.status }}
+											<p>Publié</p>
 										</td>
 									{% else %}
 										<td class="bg-warning text-center">
-												{{ practice.status }}
+											<p>A Modérer</p>
 										</td>
 									{% endif %}
 								</tr>
@@ -66,7 +66,7 @@
 
 {# START table questions display LG #}
 
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg">
+			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg text-center">
 				<div class="m-4 table-back">
 					<table class="table table-hover">
 						<thead class="table-thead">
@@ -92,11 +92,11 @@
 									<td>{{ question.category.name }}</td>
 									{% if question.status ==1 %}
 										<td class="bg-success text-center">
-											{{ question.status }}
+											<p>Publié</p>
 										</td>
 									{% else %}
 										<td class="bg-warning text-center">
-											{{ question.status }}
+											<p>A Modérer</p>
 										</td>
 									{% endif %}
 								</tr>
@@ -111,7 +111,7 @@
 
 {# START table answers display LG #}
 
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg">
+			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg text-center">
 				<div class="m-4 table-back">
 					<table class="table table-hover">
 						<thead class="table-thead">
@@ -137,11 +137,11 @@
 									<td>{{ answer.question.content }}</td>
 									{% if answer.status ==1 %}
 										<td class="bg-success text-center">
-											{{ answer.status }}
+											<p>Publié</p>
 										</td>
 									{% else %}
 										<td class="bg-warning text-center">
-											{{ answer.status }}
+											<p>A Modérer</p>
 										</td>
 									{% endif %}
 								</tr>
@@ -155,7 +155,7 @@
 {# END  table answers display LG #}
 
 {# START table users display LG #}
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg">
+			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg text-center">
 				<div class="m-4 table-back">
 					<table class="table table-hover">
 						<thead class="table-thead">
@@ -179,11 +179,11 @@
 									<td>{{ user.pseudo }}</td>
 									{% if user.status ==1 %}
 										<td class="bg-success text-center">
-											{{ user.status }}
+											<p>Actif</p>
 										</td>
 									{% else %}
 										<td class="bg-warning text-center">
-											{{ user.status }}
+											<p>Inactif</p>
 										</td>
 									{% endif %}
 								</tr>
@@ -198,7 +198,7 @@
 {# END table users display LG #}
 
 {# START table categories display LG #}
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg">
+			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg text-center">
 				<div class="m-4 table-back">
 					<table class="table table-hover">
 						<thead class="table-thead">
@@ -231,10 +231,10 @@
 
 
 {# START table practices display MD #}
-	<div class="row display-md">
+	<div class="row display-md text-center">
 		<div class="col-lg-12 mb-5 m-auto display-md">
 			<div>
-				<h3 class="text-center">Liste des catégories</h3>
+				<h3 class="text-center">Liste des bonnes pratiques</h3>
 			</div>
 			<div class="table-back display-md">
 				<table class="table table-hover">
@@ -242,7 +242,7 @@
 					<thead class="table-thead">
 						<tr>
 								<th scope="col" class="thead-start bg-secondary text-white">Id : {{ practice.id }}</th>
-								<th scope="col">Question : {{ practice.content }}</th>
+								<th scope="col">{{ practice.content|u.truncate(100, '...') }}</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -256,6 +256,7 @@
 							</tr>
 							<tr>
 								<td class="bg-secondary text-white">Statut</td>
+								
 								<td>{{ practice.status }}</td>
 							</tr>
 							<tr>
@@ -267,7 +268,8 @@
                                    			<button class="btn btn-success ">Valider</button>
                                 		</form>
 										{% else %}
-								
+
+
 							{% endif %}
 									</span>
 									<span>
@@ -297,8 +299,8 @@
 {# END table practices display MD #}
 
 {# START table question display MD #}
-	<div class="row display-md">
-		<div class="col-lg-12 mb-5 m-auto display-md">
+	<div class="row display-md text-center container-fluid p-0">
+		<div class="col-lg-12 mb-5 m-auto display-md p-0">
 			<div>
 				<h3 class="text-center">Liste des questions</h3>
 			</div>
@@ -363,7 +365,7 @@
 {# END table question display MD #}
 
 {# START table answers display MD #}
-		<div class="row display-md">
+		<div class="row display-md text-center">
 			<div class="col-lg-12 mb-5 m-auto display-md">
 			<div>
 				<h3 class="text-center">Liste des réponses</h3>
@@ -430,8 +432,8 @@
 {# END table answers display MD #}
 
 {# START table user display MD #}
-	<div class="row display-md">
-		<div class="col-lg-12 mb-5 m-auto">
+	<div class="row display-md text-center container-fluid p-0">
+		<div class="col-lg-12 mb-5 m-auto p-0">
 			<div>
 				<h3 class="text-center">Liste des utilisateurs</h3>
 			</div>

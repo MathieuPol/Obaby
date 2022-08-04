@@ -23,7 +23,7 @@ class QuestionController extends AbstractController
      */
     public function list(QuestionRepository $questionRepository): Response
     {
-        $questions = $questionRepository->findBy(array(), array('createdAt' => 'DESC'));
+        $questions = $questionRepository->findBy(array(), array('id' => 'DESC'));
         return $this->render('Back/question/index.html.twig', [
             'questions' => $questions,
         ]);

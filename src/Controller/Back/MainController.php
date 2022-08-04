@@ -30,9 +30,9 @@ class MainController extends AbstractController
                         CategoryRepository $categoryRepository): Response
     {
         $users = $userRepository->findBy([], ['id' => 'DESC'], 5);
-        $practices = $practiceRepository->findBy([], ['createdAt' => 'DESC'], 5);
-        $questions = $questionRepository->findBy(array(), array('createdAt' => 'DESC'), 5);
-        $answers = $answerRepository->findBy(array(), array('createdAt' => 'Desc'),5);
+        $practices = $practiceRepository->findBy([], ['id' => 'DESC'], 5);
+        $questions = $questionRepository->findBy(array(), array('id' => 'DESC'), 5);
+        $answers = $answerRepository->findBy(array(), array('id' => 'Desc'),5);
         $categories = $categoryRepository->findBy(array(), array('id' => 'Desc'),5);
 
         return $this->render('Back/home.html.twig', [

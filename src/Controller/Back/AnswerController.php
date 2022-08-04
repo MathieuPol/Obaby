@@ -34,7 +34,7 @@ class AnswerController extends AbstractController
      */
     public function list(AnswerRepository $answerRepository): Response
     {
-        $answers = $answerRepository->findBy(array(), array('createdAt' => 'DESC'));
+        $answers = $answerRepository->findBy(array(), array('id' => 'DESC'));
         return $this->render('Back/answer/index.html.twig', [
             'answers' => $answers,
         ]);
