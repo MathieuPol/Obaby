@@ -9,7 +9,9 @@
     --green: #408558;
     --yellow: #f6c344;
 }
-
+* {
+    font-family: 'Montserrat', cursive, sans-serif;
+}
 a:link {
     text-decoration: none;
 }
