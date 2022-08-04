@@ -5,33 +5,23 @@
 
 {% block navbar %}{% endblock %}
 
-<link rel="stylesheet" href="{{ asset('css/500.css') }}"/>
+<link rel="stylesheet" href="{{ asset('css/errorStyle.css') }}"/>
+
 {% endblock %}
 
 {% block body %}
-<section class="page_403">
-        <div class="container d-flex justify-content-center">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-6 col-sm-12 d-flex justify-content-center">
-                    <div class="col-sm-10 col-sm-offset-1  text-center">
-                        <div class="logo">
-                        <img src="{{ asset('./asset/logo/logo O\'Baby 403.png') }}" alt="logo">
-                    </div>
-                    <div class="gif">
-                        <img class="gif" src="{{ asset('./asset/gif/403.gif') }}" alt="gif">
-                    </div>
-                        <div class="contant_box_403">
-                            <h1>Une erreur s'est produite...</h1>
-                            <p>Les informations transmises doivent être uniques.</p>
-                            <a href="{{ path('front_home')}}" class="animated-link 403">
-                                <span class="text-white"> Accueil</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="block_500">
+    <div class="container-500">
+        <div class="content">
+            <img src="{{ asset('./asset/logo/logo O\'Baby 500.png') }}" alt="logo" srcset="" />
+                <h4>Oups !! Une erreur s'est produite...</h4>
+                    <p>Les informations transmises doivent être uniques, vérifiez votre adresse mail ou votre pseudo.</p>
+                        <a href="#" class="animated-link back-button">
+                            <span> Accueil</span>
+                        </a>
         </div>
-    </section>
+    </div>
+</div> 
 {% endblock %}
 
 {% block footer %}

@@ -1,4 +1,4 @@
-let container = document.getElementById('container');
+let container = document.querySelector('.container-404');
 window.onmousemove = function(e) {
     let x = - e.clientX/5,
         y = - e.clientY/5;
