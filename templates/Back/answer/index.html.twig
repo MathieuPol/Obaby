@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block body %}
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
 
 	<h1 class="text-center">Liste des réponses</h1>
 
@@ -50,15 +50,16 @@
 											<p>A Modérer</p>
 										</td>
 									{% endif %}
-							<td>
 							{% if answer.status == 0 %}
+							<td>
 								<form action="{{ path('back_question_answer_validate', {'id': answer.id}) }}" method="post">
 									<button class="btn btn-success">Valider</button>
 								</form>
 							</td>
 							{% else %}
-								
+							<td></td>
 							{% endif %}
+
 							<td>
 								<a class="d-flex justify-content-center" href="{{ path('back_answer_update', {'id': answer.id}) }}">
                                     <button class="btn btn-warning">Editer</button>
@@ -104,7 +105,15 @@
 							</tr>
 							<tr>
 								<td class="bg-secondary text-white">Statut</td>
-								<td>{{ answer.status }}</td>
+									{% if answer.status == 1 %}
+										<td class="bg-success text-center">
+											<p>Publié</p>
+										</td>
+									{% else %}
+										<td class="bg-warning text-center">
+											<p>A Modérer</p>
+										</td>
+									{% endif %}
 							</tr>
 							<tr>
 								<td class="bg-secondary text-white">Modération</td>
@@ -115,7 +124,7 @@
                                 			<button class="btn btn-success ">Valider</button>
                                 		</form>
 										{% else %}
-								
+
 							{% endif %}
 									</span>
 									<span>
@@ -129,7 +138,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td colspan="3" class="bg-primary"></td>
+							<td>
+							</td>
+							<td>
+							</td>
 							</tr>
 							{% else %}
 							<tr>

@@ -30,7 +30,7 @@
 								</th>
 							</tr>
 							<tr class="text-white">
-								<th scope="col">Id</th>
+								<th scope="col">Identifiant</th>
 								<th scope="col">Titre</th>
 								<th scope="col">Contenu</th>
 								<th scope="col">Date de création</th>
@@ -76,7 +76,7 @@
 								</th>
 							</tr>
 							<tr class="text-white">
-								<th scope="col">Id</th>
+								<th scope="col">Identifiant</th>
 								<th scope="col">Question</th>
 								<th scope="col">Date de création</th>
 								<th scope="col">Catégorie</th>
@@ -121,7 +121,7 @@
 								</th>
 							</tr>
 							<tr class="text-white">
-								<th scope="col">Id</th>
+								<th scope="col">Identifiant</th>
 								<th scope="col">Réponse</th>
 								<th scope="col">Date de création</th>
 								<th scope="col">Question</th>
@@ -165,10 +165,9 @@
 								</th>
 							</tr>
 							<tr class="text-white">
-								<th scope="col">Id</th>
+								<th scope="col">Identifiant</th>
 								<th scope="col">Rôle</th>
 								<th scope="col">Pseudo</th>
-								<th scope="col">Statut</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -177,15 +176,6 @@
 									<td>{{ user.id }}</td>
 									<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 									<td>{{ user.pseudo }}</td>
-									{% if user.status ==1 %}
-										<td class="bg-success text-center">
-											<p>Actif</p>
-										</td>
-									{% else %}
-										<td class="bg-warning text-center">
-											<p>Inactif</p>
-										</td>
-									{% endif %}
 								</tr>
 							{% endfor %}
 						</tbody>
@@ -208,7 +198,7 @@
 								</th>
 							</tr>
 							<tr class="text-white">
-								<th scope="col">Id</th>
+								<th scope="col">Identifiant</th>
 								<th scope="col">Nom de la catégorie</th>
 							</tr>
 						</thead>
@@ -241,11 +231,19 @@
 				{% for practice in practices %}
 					<thead class="table-thead">
 						<tr>
-								<th scope="col" class="thead-start bg-secondary text-white">Id : {{ practice.id }}</th>
-								<th scope="col">{{ practice.content|u.truncate(100, '...') }}</th>
+								<th scope="col" class="thead-start bg-secondary text-white">Identifiant</th>
+								<th scope="col">{{ practice.id }}</th>
 						</tr>
 					</thead>
 					<tbody>
+							<tr>
+								<td class="bg-secondary text-white rounded-start">Titre</td>
+								<td>{{ practice.title }}</td>
+							</tr>
+							<tr>
+								<td class="bg-secondary text-white rounded-start">Contenu</td>
+								<td>{{ practice.content|u.truncate(100, '...') }}</td>
+							</tr>
 							<tr>
 								<td class="bg-secondary text-white rounded-start">Date de création</td>
 								<td>{{ practice.createdAt ? practice.createdAt|date('Y-m-d') : '' }}</td>
@@ -295,13 +293,17 @@
 			<div class="table-back display-md">
 				<table class="table table-hover">
 				{% for question in questions %}
-					<thead class="table-thead">
+			<thead class="table-thead">
 						<tr>
-								<th scope="col" class="thead-start bg-secondary text-white">Question</th>
-								<th scope="col">{{ question.content }}</th>
+								<th scope="col" class="thead-start bg-secondary text-white">Identifiant</th>
+								<th scope="col">{{ question.id }}</th>
 						</tr>
 					</thead>
 					<tbody>
+							<tr>
+								<td class="bg-secondary text-white rounded-start">Contenu</td>
+								<td>{{ question.content }}</td>
+							</tr>
 							<tr>
 								<td class="bg-secondary text-white rounded-start">Date de création</td>
 								<td>{{ question.createdAt ? question.createdAt|date('Y-m-d') : '' }}</td>
@@ -358,7 +360,7 @@
 					</thead>
 					<tbody>
 							<tr>
-								<td class="rounded-start bg-secondary text-white">Identifiant {{ answer.id }}</td>
+								<td class="rounded-start bg-secondary text-white">Identifiant réponse {{ answer.id }}</td>
 								<td>{{ answer.content }}</td>
 							</tr>
 							<tr>
@@ -398,8 +400,8 @@
 {# END table answers display MD #}
 
 {# START table user display MD #}
-	<div class="row display-md text-center">
-		<div class="col-lg-12 mb-5 m-auto display-md">
+	<div class="row display-md w-100">
+		<div class="col-lg-12 mb-5 m-auto p-0">
 			<div>
 				<h3 class="text-center">Liste des utilisateurs</h3>
 			</div>
@@ -426,14 +428,6 @@
 								<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 							</tr>
 							<tr>
-								<td class="bg-secondary text-white rounded-start">Statut</td>
-								{% if user.status == 1 %}
-									<td>Actif</td>
-								{% else %}
-									<td>Suspendu</td>
-								{% endif %}
-							</tr>
-							<tr>
 							<td>
 							</td>
 							<td>
@@ -446,7 +440,9 @@
 						{% endfor %}
 					</tbody>
 				</table>
-				<a  class="btn btn-primary col-10" href="{{ path('back_user_list') }}">Voir tous les utilisateurs</a>
+				<div class="text-center">
+					<a  class="btn btn-primary col-10 " href="{{ path('back_user_list') }}">Voir tous les utilisateurs</a>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -477,10 +473,7 @@
 					</tbody>
 				</table>
 				<div class="text-center">
-					<a class="btn btn-primary" href="{{ path('back_category_add') }}">
-					Ajouter une nouvelle catégorie
-					</a>
-					<a  class="btn btn-primary col-10 mt-1" href="{{ path('back_category_list') }}">Voir toutes les catégories</a>
+					<a  class="btn btn-primary col-10" href="{{ path('back_category_list') }}">Voir toutes les catégories</a>
 				</div>
 			</div>
 		</div>
