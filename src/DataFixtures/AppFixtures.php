@@ -71,7 +71,7 @@ class AppFixtures extends Fixture
         $userList[] = $userAdmin;
 
         $userModerator = new User();
-        $userModerator->setEmail('moderatior@moderator.com');
+        $userModerator->setEmail('moderator@moderator.com');
         $userModerator->setPseudo('moderator');
         $userModerator->setSlug($this->slugService->slug($userModerator->getPseudo()));
         $userModerator->setPassword('$2y$13$4aEMwhxQrZhkpKlDwtbfvOIDi8k5yoniNLV/Qb7xfUfCuHb2dgC2i');
