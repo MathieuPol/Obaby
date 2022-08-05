@@ -49,14 +49,15 @@
 											<p>A Modérer</p>
 										</td>
 									{% endif %}
-                            <td> 
                             {% if question.status == 0 %}
+                            <td> 
                                 <form class= "d-flex justify-content-center" action="{{ path('back_question_validate', {'id': question.id}) }}" method="post">
                                     <button class="btn btn-success ">Valider</button>
                                 </form>
                             </td>
                             {% else %}
-								
+								<td>
+								</td>
 							{% endif %}
                             <td>
                                     <a class="d-flex justify-content-center" href="{{ path('back_question_update', {'id': question.id}) }}">
@@ -88,7 +89,7 @@
 					<thead class="table-thead">
 						<tr>
 								<th scope="col" class="thead-start bg-secondary text-white">Id : {{ question.id }}</th>
-								<th scope="col">Question : {{ question.content }}</th>
+								<th scope="col">{{ question.content }}</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -101,16 +102,29 @@
 								<td>{{ question.category.name }}</td>
 							</tr>
 							<tr>
-								<td class="bg-secondary text-white">Statut</td>
-								<td>{{ question.status }}</td>
-							</tr>
+								<td class="rounded-start bg-secondary text-white">Statut</td>
+									{% if question.status == 1 %}
+										<td class="bg-success text-center">
+											<p>Publié</p>
+										</td>
+									{% else %}
+										<td class="bg-warning text-center">
+											<p>A Modérer</p>
+										</td>
+									{% endif %}
 							<tr>
 								<td class="bg-secondary text-white">Modération</td>
 								<td class="d-flex justify-content-around">
 									<span>
-										<form class= "d-flex justify-content-center" action="{{ path('back_question_validate', {'id': question.id}) }}" method="post">
-                                   			<button class="btn btn-success ">Valider</button>
-                                		</form>
+                            {% if question.status == 0 %}
+
+                                <form class= "d-flex justify-content-center" action="{{ path('back_question_validate', {'id': question.id}) }}" method="post">
+                                    <button class="btn btn-success ">Valider</button>
+                                </form>
+
+                            {% else %}
+
+							{% endif %}
 									</span>
 									<span>
 										<a class="d-flex justify-content-center" href="{{ path('back_question_update', {'id': question.id}) }}">
@@ -122,8 +136,13 @@
 									</span>
 								</td>
 							</tr>
+							</tr>
 							<tr>
-								<td colspan="3" class="bg-primary"></td>
+							<td>
+							</td>
+							<td>
+							</td>
+							</tr>
 							</tr>
 							{% else %}
 							<tr>

@@ -82,7 +82,7 @@
 
 		</section>
 		{# table display MD #}
-		<section class="row display-md">
+		<section class="row display-md p-0">
 			<div class="col-lg-12 mb-5 m-auto">
 				<div class="table-back display-md">
 					<table class="table table-hover">
@@ -92,11 +92,13 @@
 								<tr>
 									<th scope="col" class="thead-start bg-secondary text-white">Id :
 										{{ practice.id }}</th>
-									<th scope="col">Question :
-										{{ practice.content }}</th>
+									<th scope="col">{{ practice.title }}</th>
 								</tr>
 							</thead>
 							<tbody>
+							<tr>
+								<td class="bg-secondary text-white rounded-start">Contenu</td>
+								<td>{{ practice.content|u.truncate(100, '...') }}</td>
 								<tr>
 									<td class="bg-secondary text-white">Date de création</td>
 									<td>{{ practice.createdAt ? practice.createdAt|date("d/m/Y") : '' }}</td>
@@ -105,9 +107,19 @@
 									<td class="bg-secondary text-white">Catégorie</td>
 									<td>{{ practice.category.name }}</td>
 								</tr>
+
 								<tr>
-									<td class="bg-secondary text-white">Statut</td>
-									<td>{{ practice.status }}</td>
+								<td class="bg-secondary text-white">Statut</td>
+									{% if practice.status == 1 %}
+										<td class="bg-success text-center">
+											<p>Publié</p>
+										</td>
+									{% else %}
+										<td class="bg-warning text-center">
+											<p>A Modérer</p>
+										</td>
+									{% endif %}
+							</tr>
 								</tr>
 								<tr>
 									<td class="bg-secondary text-white">Modération</td>
@@ -131,9 +143,14 @@
 										</span>
 									</td>
 								</tr>
-								<tr>
-									<td colspan="3" class="bg-primary"></td>
-								</tr>
+							</tr>
+							</tr>
+							<tr>
+							<td>
+							</td>
+							<td>
+							</td>
+							</tr>
 							{% else %}
 								<tr>
 									<td colspan="5">L'information n'a pas été trouvée</td>
