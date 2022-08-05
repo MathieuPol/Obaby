@@ -41,7 +41,15 @@
 							<td>{{ answer.question.content }}</td>
 							<td>{{ answer.question.category.name }}</td>
 							<td>{{ answer.createdAt ? answer.createdAt|date("d/m/Y") : '' }}</td>
-							<td>{{ answer.status }}</td>
+							        {% if answer.status == 1 %}
+										<td class="bg-success text-center">
+											<p>Publié</p>
+										</td>
+									{% else %}
+										<td class="bg-warning text-center">
+											<p>A Modérer</p>
+										</td>
+									{% endif %}
 							<td>
 							{% if answer.status == 0 %}
 								<form action="{{ path('back_question_answer_validate', {'id': answer.id}) }}" method="post">

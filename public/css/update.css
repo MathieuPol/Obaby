@@ -1,10 +1,10 @@
-#main-inscription {
-	height: 100vh;
+body {
+
 	background: url("../asset/img/edit.png");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	position: relative;
+
 }
 
 
@@ -14,17 +14,13 @@
 	border-radius: 5px;
 	color: var(--bs-white);
 	background-color: rgba(0, 0, 0, 0.35);
-	left: 50%;
-	top: 50%;
-	position: absolute;
-	transform: translate(-50%, -50%);
-	font-size: 11px;
+	font-size: 1rem;
 	border-radius: 22.2px;
 	box-shadow: 0 0 16px #5dc7ec;
 	max-width: 350px;
 }
 /**************************************************************************/
-@media (max-width: 375px) {
+/* @media (max-width: 375px) {
 	#info-inscription {
 	width: 85%;
 	height: 660px;
@@ -39,7 +35,7 @@
 	border-radius: 22.2px;
 	box-shadow: 0 0 16px #5dc7ec;
 	max-width: 350px;
-	}
+	} */
 
 	.title {
 		font-size: 25px;
@@ -56,7 +52,7 @@
 	.btn-submit {
 		height: 10px;
 	}
-}
+/* } */
 
 @media (min-width: 540px) {
 	#info-inscription {

@@ -42,7 +42,15 @@
 								<td>{{ practice.content|nl2br }}</td>
 								<td>{{ practice.createdAt ? practice.createdAt|date('d-m-Y') : '' }}</td>
 								<td>{{ practice.category.name }}</td>
-								<td>{{ practice.status }}</td>
+								    {% if practice.status == 1 %}
+										<td class="bg-success text-center">
+											<p>Publié</p>
+										</td>
+									{% else %}
+										<td class="bg-warning text-center">
+											<p>A Modérer</p>
+										</td>
+									{% endif %}
 								<td>
 									{% if practice.status == 0 %}
 										<form action="{{ path('back_practice_validate', {'id': practice.id}) }}" method="post">

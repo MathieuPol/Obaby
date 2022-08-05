@@ -38,7 +38,15 @@
 							<td>{{ user.email }}</td>
 							<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 							<td>{{ user.pseudo }}</td>
-							<td>{{ user.status }}</td>
+							        {% if user.status == 1 %}
+										<td class="bg-success text-center">
+											<p>Actif</p>
+										</td>
+									{% else %}
+										<td class="bg-warning text-center">
+											<p>Désactivé</p>
+										</td>
+									{% endif %}
 							<td>
 								<a class="d-flex justify-content-center" href="{{ path('back_user_update', {'id': user.id}) }}">
                                     <button class="btn btn-warning">Editer</button>

@@ -113,7 +113,7 @@ body {
 /* label {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 1.5em;
-}
+} */
 
 
 #form-login {
@@ -122,10 +122,10 @@ body {
 	margin-top: 50px;
 }
 
-#logo {
+/* #logo {
 	margin-top: 20px;
 	margin-bottom: 10px;
-}
+} */
 
 #signup {
 	color: rgb(255, 255, 255);
@@ -150,9 +150,9 @@ body {
 	cursor: pointer;
 	user-select: none;
 	transition:
-		transform .15s ease-out,
-		color .15s ease-out,
-		background-color .15s ease-out,
+	transform .15s ease-out,
+	color .15s ease-out,
+	background-color .15s ease-out,
 }
 
 .login-link:hover button {
@@ -167,6 +167,6 @@ body {
 
 .login-link {
 	background-color: black;
-} */
+}
 
 /************** NE PAS COPIER *****************/
