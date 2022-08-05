@@ -61,6 +61,7 @@ class QuestionController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->addFlash('success', 'Votre réponse a bien été enregistrée. Elle est en attente de modération.');
+            $answer->setUser($this->getUser());
             $answer->setQuestion($question);
 
             $answerRepository->add($answer, true);
