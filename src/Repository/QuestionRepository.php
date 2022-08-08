@@ -61,9 +61,6 @@ class QuestionRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-
-
-
 //    /**
 //     * @return Question[] Returns an array of Question objects
 //     */
@@ -88,9 +85,6 @@ class QuestionRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-
-
-
 
 
 }
