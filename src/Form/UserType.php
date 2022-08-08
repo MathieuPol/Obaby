@@ -14,9 +14,11 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+        // EMAIL
             ->add('email',TextType::class, [
                 'label' => '* Email',
                 ])
+        // ROLE
             ->add('roles', ChoiceType::class,
             [   'label' => '* Rôles',
             'help' => '* Champs obligatoires',
@@ -29,9 +31,11 @@ class UserType extends AbstractType
                 // radio buttons or checkboxes
                 "expanded" => true,
             ])
+        // PSEUDO
             ->add('pseudo',TextType::class, [
                 'label' => '* Pseudonyme',
                 ])
+        //STATUS
             ->add('status', ChoiceType::class,
             [   'label' => '* Statut',
                 'choices' => [
@@ -40,7 +44,6 @@ class UserType extends AbstractType
                 ],
             ])
         ;
-
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -17,14 +17,17 @@ class PracticeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+        // PRACTICE
             ->add('title', TextType::class, [
             'label' => '* Donnez un titre à votre bonne pratique',
             'constraints' => new NotBlank(),
             ])
+        // CONTENT
             ->add('content', TextareaType::class, [
             'label' => '* Rédigez votre bonne pratique',
             'constraints' => new NotBlank(),
             ])
+        // CHOICE CATEGORY
             ->add('category', EntityType::class, [
                 'label' => '* Choisissez une catégorie associée',
                 'help' => '* Champs obligatoires',
@@ -34,8 +37,7 @@ class PracticeType extends AbstractType
                 'constraints' => new NotBlank(),
                 'constraints' => new NotNull(),
                 'required' => true,
-            ])
-    ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

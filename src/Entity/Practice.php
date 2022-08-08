@@ -65,7 +65,7 @@ class Practice
 
     public function __construct()
     {
-        /* format 1400x460 */
+        /* size 1400x460 */
         $pictureList = [
             'baby1.png',
             'baby2.png',
