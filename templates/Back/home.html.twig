@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bienvenue dans votre back-office
+{% block title %}
+	Bienvenue dans votre back-office
 {% endblock %}
 
 {% block navbar %}
@@ -167,7 +168,7 @@
 							<tr class="text-white">
 								<th scope="col">Identifiant</th>
 								<th scope="col">Rôle</th>
-								<th scope="col">Pseudo</th>
+								<th scope="col">Pseudonyme</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -180,9 +181,10 @@
 							{% endfor %}
 						</tbody>
 					</table>
-					{# TODO: put this part under access control #}
+					{% if is_granted('ROLE_ADMIN') %}
 					<a class="btn btn-primary col-10" href="{{ path('back_user_list') }}">
 						Voir tous les utilisateurs</a>
+					{% endif %}
 				</div>
 			</div>
 {# END table users display LG #}
@@ -216,8 +218,6 @@
 				</div>
 			</div>
 {# END table categories display LG #}
-
-
 
 
 {# START table practices display MD #}
@@ -283,6 +283,8 @@
 		</div>
 	</div>
 {# END table practices display MD #}
+
+
 
 {# START table question display MD #}
 	<div class="row display-md text-center container-fluid p-0">
@@ -424,7 +426,7 @@
 								<td>{{ user.email }}</td>
 							</tr>
 							<tr>
-								<td class="bg-secondary text-white rounded-start">Role</td>
+								<td class="bg-secondary text-white rounded-start">Rôle</td>
 								<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 							</tr>
 							<tr>
@@ -441,7 +443,9 @@
 					</tbody>
 				</table>
 				<div class="text-center">
+				{% if is_granted('ROLE_ADMIN') %}
 					<a  class="btn btn-primary col-10 " href="{{ path('back_user_list') }}">Voir tous les utilisateurs</a>
+				{% endif %}
 				</div>
 			</div>
 		</div>
@@ -479,11 +483,6 @@
 		</div>
 	</div>
 {# END table practices display MD #}
-
-
-
-
-
 
 
 		</div>

@@ -60,6 +60,7 @@
 		</div>
 
 	</section>
+
 {# table display MD #}
 		<section class="row display-md">
 			<div class="col-xs-6 col-sm-10 col-md-10 col-lg-10 mb-5 m-auto">
@@ -78,12 +79,12 @@
 								<td class="bg-secondary text-white">Modération</td>
 								<td class="d-flex td-moderation justify-content-around">
 									<span>
-										<a class="d-flex justify-content-center" href="{{ path('back_category_update', {'id': category.id}) }}">
-                                        	<button class="btn btn-warning">Editer</button>
-                                    	</a>
+									<a class="d-flex justify-content-center" href="{{ path('back_category_update', {'id': category.id}) }}">
+                                        <button class="btn btn-warning">Editer</button>
+                                    </a>
 									</span>
 									<span class= "d-flex justify-content-center"> 
-                                		{{ include('Back/category/_delete_form.html.twig') }}
+                                {{ include('Back/category/_delete_form.html.twig') }}
 									</span>
 								</td>
 							</tr>
