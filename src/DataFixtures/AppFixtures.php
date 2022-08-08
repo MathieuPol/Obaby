@@ -1,6 +1,5 @@
 <?php
 // src/Controller/Front/AnswerController 
-//
 
 namespace App\DataFixtures;
 
@@ -18,6 +17,8 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AppFixtures extends Fixture
 {
+    //* Used in dev environment to generate fake data
+
     private $slug;
     private $slugService;
     private $connection;
@@ -28,8 +29,10 @@ class AppFixtures extends Fixture
         $this->connection = $connection;
     }
     
+    //* Used to set id to 1 each time the fixtures are loaded
     private function truncate()
     {
+        //* disable foreign key check for this connection before truncating the tables
         $this->connection->executeQuery('SET FOREIGN_KEY_CHECKS = 0');
         $this->connection->executeQuery('TRUNCATE TABLE category');
         $this->connection->executeQuery('TRUNCATE TABLE question');
@@ -45,10 +48,6 @@ class AppFixtures extends Fixture
         //Add truncate function to set id to 1
         $this->truncate();
 
-
-        // $product = new Product();
-        // $manager->persist($product);
-
         // Instaciation faker factory
         $faker = Faker\Factory::create('fr_FR');
 
@@ -60,7 +59,6 @@ class AppFixtures extends Fixture
 
         // User creation
         $genre = ['homme', 'femme'];
-
 
         $userAdmin = new User();
         $userAdmin->setEmail('admin@admin.com');
@@ -110,7 +108,6 @@ class AppFixtures extends Fixture
 
         // Category creation
         
-        
         $category1 = new Category();
         $category1->setName('Grossesse');
         $categorySlug1 = $this->slug->slug($category1->getName())->lower();
@@ -133,79 +130,78 @@ class AppFixtures extends Fixture
         $categoryList[] = $category3;
         
         $category4 = new Category();
-            $category4->setName('Santé et soins');
-            $categorySlug4 = $this->slug->slug($category4->getName())->lower();
-            $category4->setSlug($categorySlug4);
-            $manager->persist($category4);
-            $categoryList[] = $category4;
+        $category4->setName('Santé et soins');
+        $categorySlug4 = $this->slug->slug($category4->getName())->lower();
+        $category4->setSlug($categorySlug4);
+        $manager->persist($category4);
+        $categoryList[] = $category4;
+        
+        $category5 = new Category();
+        $category5->setName('Loisir');
+        $categorySlug5= $this->slug->slug($category5->getName())->lower();
+        $category5->setSlug($categorySlug5);
+        $manager->persist($category5);
+        $categoryList[] = $category5;
+        
+        $category6 = new Category();
+        $category6->setName('Sommeil');
+        $categorySlug6= $this->slug->slug($category6->getName())->lower();
+        $category6->setSlug($categorySlug6);
+        $manager->persist($category6);
+        $categoryList[] = $category6;
             
-            $category5 = new Category();
-            $category5->setName('Loisir');
-            $categorySlug5= $this->slug->slug($category5->getName())->lower();
-            $category5->setSlug($categorySlug5);
-            $manager->persist($category5);
-            $categoryList[] = $category5;
+        
+        // Question creation
+        
+        for ($j = 0; $j < 30; $j++) {
+            $question = new Question();
+            $question->setContent($faker->sentence(true));
+            $question->setCategory($categoryList[array_rand($categoryList)]);
+            $date = $faker->date('Y-m-d');
+            $question->setCreatedAt(new \DateTime($date));
+            $question->setStatus($faker->numberBetween(0, 1));
+            $question->setUser($userList[array_rand($userList)]);
             
-            $category6 = new Category();
-            $category6->setName('Sommeil');
-            $categorySlug6= $this->slug->slug($category6->getName())->lower();
-            $category6->setSlug($categorySlug6);
-            $manager->persist($category6);
-            $categoryList[] = $category6;
+            $manager->persist($question);
+            $questionList[] = $question;
+        }
+        
+
+        // Answer creation
+        
+        for ($k = 0; $k < 30; $k++) {
+            $answer = new Answer();
+            $answer->setContent($faker->paragraph(true));
+            $dateAnswer = $faker->date('Y-m-d');
+            $answer->setCreatedAt(new \DateTime($dateAnswer));
+            $answer->setQuestion($questionList[array_rand($questionList)]);
+            $answer->setStatus($faker->numberBetween(0, 1));
+            $answer->setUser($userList[array_rand($userList)]);
             
-            
-            
-            
-            // Question creation
-            
-            for ($j = 0; $j < 30; $j++) {
-                $question = new Question();
-                $question->setContent($faker->sentence(true));
-                $question->setCategory($categoryList[array_rand($categoryList)]);
-                $date = $faker->date('Y-m-d');
-                $question->setCreatedAt(new \DateTime($date));
-                $question->setStatus($faker->numberBetween(0, 1));
-                $question->setUser($userList[array_rand($userList)]);
-                
-                $manager->persist($question);
-                $questionList[] = $question;
-            }
-            
-            // Answer creation
-            
-            for ($k = 0; $k < 30; $k++) {
-                $answer = new Answer();
-                $answer->setContent($faker->paragraph(true));
-                $dateAnswer = $faker->date('Y-m-d');
-                $answer->setCreatedAt(new \DateTime($dateAnswer));
-                $answer->setQuestion($questionList[array_rand($questionList)]);
-                $answer->setStatus($faker->numberBetween(0, 1));
-                $answer->setUser($userList[array_rand($userList)]);
-                
-                $manager->persist($answer);
-                $answerList[] = $answer;
-            }
-            
-            // Practice creation
-            $pictureList = [
-                'baby1.png',
-                'baby2.png',
-                'baby3.png',
-                'baby4.png',
-                'baby5.png',
-                'baby6.png',
-                'baby7.png',
-                'baby8.png',
-                'baby9.png',
-                'baby10.png',
-                'baby11.png',
-                'phone-1400.png',
-                'enfant-1400.jpg',
-                'ecrire-1400.png',
-            ];
-    
-            
-            for($l = 0; $l < 30; $l++) {
+            $manager->persist($answer);
+            $answerList[] = $answer;
+        }
+
+        // Practice creation
+
+        $pictureList = [
+            'baby1.png',
+            'baby2.png',
+            'baby3.png',
+            'baby4.png',
+            'baby5.png',
+            'baby6.png',
+            'baby7.png',
+            'baby8.png',
+            'baby9.png',
+            'baby10.png',
+            'baby11.png',
+            'phone-1400.png',
+            'enfant-1400.jpg',
+            'ecrire-1400.png',
+        ];
+        
+        for($l = 0; $l < 30; $l++) {
             $practice = new Practice();
             $practice->setPicture($pictureList[array_rand($pictureList)]);
             $practice->setTitle($faker->sentence(true));
