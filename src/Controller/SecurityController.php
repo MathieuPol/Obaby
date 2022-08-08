@@ -1,4 +1,5 @@
 <?php
+//src/Controller/SecurityController
 
 namespace App\Controller;
 
@@ -10,10 +11,13 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     /**
+     * Login page
      * @Route("/login", name="security_login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
+        // Generate automaticly by symfony
+        // used to redirect the user if they are already logged in
         // if ($this->getUser()) {
         //     return $this->redirectToRoute('target_path');
         // }
