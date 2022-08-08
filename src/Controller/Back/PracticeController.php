@@ -7,6 +7,7 @@ namespace App\Controller\Back;
 use App\Entity\Practice;
 use App\Form\PracticeType;
 use App\Repository\PracticeRepository;
+use App\Services\SlugService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,9 +18,9 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class PracticeController extends AbstractController
 {
-//* List all practices
 
     /**
+     * Display  all practices filtered by id descending.
      * @Route("", name="list", methods={"GET"})
      */
     public function list(PracticeRepository $practiceRepository): Response
@@ -30,22 +31,20 @@ class PracticeController extends AbstractController
         ]);
     }
 
-//* Update an unique practice
-
-    //! Have to edit methods
     /**
+     * Update an unique practice
      * @Route("/{id}/update", name="update", methods={"GET", "POST"})
      * @param int $id
      */
-    public function update(Request $request, Practice $practice, PracticeRepository $practiceRepository): Response
+    public function update(Request $request, Practice $practice, PracticeRepository $practiceRepository, SlugService $slugService): Response
     {
         $form = $this->createForm(PracticeType::class, $practice);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->addFlash('success', 'Votre question a bien été éditée.');
+            $practice->setSlug($slugService->slug($practice->getTitle()));
             $practiceRepository->add($practice, true);
-
             return $this->redirectToRoute('back_practice_list', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -55,9 +54,9 @@ class PracticeController extends AbstractController
         ]);
     }
 
-//* Delete an unique plactice
 
     /**
+     * Delete an unique plactice
      * @Route("/{id}/delete", name="delete", methods={"POST"})
      * @param int $id
      */
@@ -71,8 +70,8 @@ class PracticeController extends AbstractController
         return $this->redirectToRoute('back_practice_list', [], Response::HTTP_SEE_OTHER);
     }
 
-
     /**
+     * validate an unique practice and allow to see it in the front
      * @Route("/{id}/validate", name="validate", methods={"POST"})
      */
     public function validate(Practice $practice, PracticeRepository $practiceRepository)
