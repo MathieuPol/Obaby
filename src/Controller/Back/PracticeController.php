@@ -54,9 +54,8 @@ class PracticeController extends AbstractController
         ]);
     }
 
-
     /**
-     * Delete an unique plactice
+     * Delete an unique practice
      * @Route("/{id}/delete", name="delete", methods={"POST"})
      * @param int $id
      */
@@ -73,6 +72,7 @@ class PracticeController extends AbstractController
     /**
      * validate an unique practice and allow to see it in the front
      * @Route("/{id}/validate", name="validate", methods={"POST"})
+     * @param int $id 
      */
     public function validate(Practice $practice, PracticeRepository $practiceRepository)
     {

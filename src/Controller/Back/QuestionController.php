@@ -84,6 +84,7 @@ class QuestionController extends AbstractController
     /**
      * Validate an unique question
      * @Route("{id}/validate", name="validate", methods={"POST"})
+     * @param int $id
      */
     public function validate(Question $question, QuestionRepository $questionRepository)
     {
