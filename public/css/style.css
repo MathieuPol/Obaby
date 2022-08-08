@@ -100,7 +100,6 @@ a.btn:hover {
     height: 40px;
     cursor: pointer;
     transition: all .5s ease-in-out;
-    /**border: 3px solid #FFF;*/
 }
 
 .menu-btn__burger {
@@ -170,7 +169,6 @@ a.btn:hover {
 /***********************************/
 
 /********** Carousel **********/
-
 .carousel-content {
     z-index: 2;
 }
@@ -427,7 +425,7 @@ img .carousel-picture {
     padding-right: 40px;
 }
 
-/* .owl-stage-outer apparait en mode slider */
+/* .owl-stage-outer appear in slider mode */
 .owl-carousel .owl-stage-outer {
     padding: 30px 50px;
     margin-left: -35px;
@@ -455,7 +453,7 @@ img .carousel-picture {
     z-index: 3;
 }
 
-/* angle haut/gauche */
+/* top left angle */
 .single-testimonial:before {
     content: "\f10d";
     position: absolute;
@@ -470,7 +468,7 @@ img .carousel-picture {
     height: 100px;
 }
 
-/* angle bas/droite */
+/* bottom right angle */
 .single-testimonial:after {
     content: "\f10e";
     position: absolute;

@@ -22,8 +22,8 @@ h1 {
 p {
     font-family: 'Montserrat', sans-serif;
 }
-/************** NE PAS COPIER *****************/
-/************** NE PAS COPIER *****************/
+
+/************** START BUTTONS COLOR ****************/
 .animated-link {
     display: inline-block;
     border-radius: 10px;
@@ -54,8 +54,7 @@ p {
     background:rgb(201, 2, 215) ;
     border: none;
 }
-/************** NE PAS COPIER *****************/
-/************** START BUTTONS COLOR ****************/
+
 .submit-btn {
 background-color: var(--green);
 }
