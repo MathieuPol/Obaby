@@ -40,6 +40,10 @@ class QuestionRepository extends ServiceEntityRepository
     }
 
 
+        /**
+     * Custom query return active questions by category id
+     * @param int $categoryId
+     */
     public function selectActivatedQuestions($categoryId): array
     {
         return $this->createQueryBuilder('q')
@@ -51,6 +55,9 @@ class QuestionRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * Custom query return active questions order by id desc limit 5
+     */
     public function selectActivatedQuestionsCarroussel(): array
     {
         return $this->createQueryBuilder('q')

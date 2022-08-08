@@ -39,6 +39,11 @@ class PracticeRepository extends ServiceEntityRepository
         }
     }
 
+
+    /**
+     * Custom query return active practices by category id
+     * @param int $categoryId
+     */
     public function selectActivatedPractices($categoryId): array
     {
         return $this->createQueryBuilder('p')
@@ -50,6 +55,11 @@ class PracticeRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+
+    /**
+     * Custom query return active practices
+     * 
+     */
     public function selectActivatedPracticesHomepage(): array
     {
         return $this->createQueryBuilder('p')
