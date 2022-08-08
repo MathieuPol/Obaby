@@ -9,6 +9,7 @@
 {% block title %}Categories de questions{% endblock %}
 
 {% block body %}
+<!-- Main Content Start -->
 <main class="container-fluid row m-auto">
   <content class="text-center d-flex flex-column align-items-center">
     <div class="container-xxl py-5 ">
@@ -18,20 +19,20 @@
             <div class="col-lg-6 col-sm-6 d-flex m-auto mb-2 mt-0">
               <a href="{{ path('question_list', {slug: category.slug}) }}" class="main-buttons-item btn-{{category.name}}">
                 <div class="main-buttons-text">
-                {% if category.slug == 'securite' %}
-                  <i class="fas fa-lock fa-3x"></i>
-                {% elseif category.slug == 'loisir' %}
-                  <i class="fa-solid fa-puzzle-piece fa-3x"></i>
-                {% elseif category.slug == 'grossesse' %}
-                  <i class="fa-solid fa-person-pregnant fa-3x"></i>
-                {% elseif category.slug == 'nutrition' %}
-                  <i class="fa-solid fa-cookie-bite fa-3x"></i>
-                {% elseif category.slug == 'sante-et-soins' %}
-                  <i class="fa-solid fa-briefcase-medical fa-3x"></i>
-                {% elseif category.slug == 'sommeil' %}
-                  <i class="fa-solid fa-cloud-moon fa-3x"></i>
-                {% endif %}
-              <h3 class="mb-3">{{category.name}}</h3>
+                  {% if category.slug == 'securite' %}
+                    <i class="fas fa-lock fa-3x"></i>
+                  {% elseif category.slug == 'loisir' %}
+                    <i class="fa-solid fa-puzzle-piece fa-3x"></i>
+                  {% elseif category.slug == 'grossesse' %}
+                    <i class="fa-solid fa-person-pregnant fa-3x"></i>
+                  {% elseif category.slug == 'nutrition' %}
+                    <i class="fa-solid fa-cookie-bite fa-3x"></i>
+                  {% elseif category.slug == 'sante-et-soins' %}
+                    <i class="fa-solid fa-briefcase-medical fa-3x"></i>
+                  {% elseif category.slug == 'sommeil' %}
+                    <i class="fa-solid fa-cloud-moon fa-3x"></i>
+                  {% endif %}
+                  <h3 class="mb-3">{{category.name}}</h3>
                 </div>
               </a>
             </div>

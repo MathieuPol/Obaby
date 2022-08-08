@@ -8,21 +8,13 @@
 {% endblock %}
 {% block body %}
 
-{# <button id="add-button" onclick="window.location.href= '{{ path('practice_submit')}}'" type="button">
-    <i class="fa-solid fa-plus"></i> 
-</button>
-<button id="round-btn-add" onclick="window.location.href= '{{ path('practice_submit')}}'" type="button">
-	<span>Ajouter une question</span>
-</button>	 #}
 <!-- Main Content Start -->
 	<h1 class="text-center">Vos bonnes pratiques favorites</h1>
 
 	<main class="container-fluid row m-auto py-5">
 
-		<content
-			class="text-center d-flex flex-column align-items-center">
+		<content class="text-center d-flex flex-column align-items-center">
 
-			<!-- Factoriser ici -->
 			{% if practices[0] is defined %}
 
 				{% for key, content in practices %}
@@ -36,6 +28,7 @@
 									<i class="fa-solid fa-heart-circle-xmark fa-3x favorite-icon"></i>
 								</button>
 							</form>
+
 							<div class="card banner-owner" role="card-banner">
 								<img src="{{ asset('asset/img/' ~ practice.picture) }}" role="banner" class="card-img-top " alt="practice picture">
 								<img src="{{ asset('asset/img/nipple' ~ practice.category.slug ~ '.png') }}" class="card-img-top banner-feature" alt="nipple picture">
@@ -49,7 +42,7 @@
 								</div>
 								<div class="card-footer d-flex jusity-content-around flex-column">
 									<div class="d-flex justify-content-center">
-										<a href={{ path('practice_show', {slug: practice.slug} ) }} class="btn rounded-pill py-sm-2 px-sm-5">Lire</a>
+											<a href={{ path('practice_show', {slug: practice.slug} ) }} class="btn rounded-pill py-sm-2 px-sm-5">Lire</a>
 									</div>
 									<div class="d-flex justify-content-around justify-content-lg-around">
 										<div>
@@ -64,13 +57,13 @@
 							</div>
 						</article>
 					{% endfor %}
+					
 				{% endfor %}
 				<div class="p-5">
 					<form action="{{ path('favorite_delete_all') }}" method='post'>
 						<button class=" btn-1 rounded-pill p-3 px-5">Je vide ma sélection</button>
 					</form>
 				</div>
-
 
 			{% endif %}
 		</content>

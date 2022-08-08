@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-
     <link rel="stylesheet" href="{{ asset('css/practice.css') }}"/>
-
 {% endblock %}
+
 {% block body %}
 
   <button id="add-button" onclick="window.location.href= '{{ path('practice_submit')}}'" type="button">
@@ -13,7 +12,7 @@
   <button id="round-btn-add" onclick="window.location.href= '{{ path('practice_submit')}}'" type="button">
     <span>Ajouter une bonne pratique</span>
   </button>
- <!-- Main Content Start -->
+<!-- Main Content Start -->
   <h1 class="text-center">Bonnes Pratiques</h1>
   
   <aside class="mb-3 position-relative">  
@@ -76,7 +75,6 @@
       </div>
     </article>
 {% endfor %}
-
     </content>
   </main>
   {% endblock %}

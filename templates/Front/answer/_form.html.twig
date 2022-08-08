@@ -1,21 +1,16 @@
 {{ form_start(form) }}
-    {# {{ form_widget(form) }} #}
 
     <div class="text-center">
-                    <div class="row-1">
-                        <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
-                            <p class="text-center"><strong>{{ form_row(form.content) }}</strong></p>
-                        </div>
-                    </div>
-                </div>
-            <div class="row">
-                        <a href="{{ path('question_answer',{'id': question.id}) }}" class="animated-link submit-link text-center">
-                            <button type="submit" class="btn submit-btn text-white">{{ button_label|default('Soumettre') }}</button>
-                        </a>
-
+        <div class="row-1">
+            <div class="col-10 col-sm-10 col-md-8 offset-1 offset-sm-1 offset-md-2">
+                <p class="text-center"><strong>{{ form_row(form.content) }}</strong></p>
             </div>
-   
-
+        </div>
     </div>
-</div>
+    <div class="row">
+        <a href="{{ path('question_answer',{'id': question.id}) }}" class="animated-link submit-link text-center">
+            <button type="submit" class="btn submit-btn text-white">{{ button_label|default('Soumettre') }}</button>
+        </a>
+    </div>
+
 {{ form_end(form) }}
