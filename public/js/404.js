@@ -1,3 +1,4 @@
+// used for the background effect
 let container = document.querySelector('.container-404');
 window.onmousemove = function(e) {
     let x = - e.clientX/5,
