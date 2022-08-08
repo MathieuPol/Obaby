@@ -18,9 +18,9 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class MainController extends AbstractController
 {
-//* Homepage back
 
     /**
+     * Homepage back
      * @Route("", name="home")
      */
     public function home(UserRepository $userRepository,
