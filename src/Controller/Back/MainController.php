@@ -3,7 +3,6 @@
 
 namespace App\Controller\Back;
 
-use App\Entity\User;
 use App\Repository\AnswerRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\PracticeRepository;
@@ -18,9 +17,9 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class MainController extends AbstractController
 {
-//* Homepage back
 
     /**
+     * Homepage back values are filtered for a better user experience
      * @Route("", name="home")
      */
     public function home(UserRepository $userRepository,
@@ -31,6 +30,7 @@ class MainController extends AbstractController
     {
         $users = $userRepository->findBy([], ['id' => 'DESC'], 5);
         $practices = $practiceRepository->findBy([], ['id' => 'DESC'], 5);
+        //* Another way to use an array
         $questions = $questionRepository->findBy(array(), array('id' => 'DESC'), 5);
         $answers = $answerRepository->findBy(array(), array('id' => 'Desc'),5);
         $categories = $categoryRepository->findBy(array(), array('id' => 'Desc'),5);

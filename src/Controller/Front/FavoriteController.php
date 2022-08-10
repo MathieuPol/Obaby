@@ -9,28 +9,24 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-use function PHPUnit\Framework\isNull;
 
 /**
  * @route("/favorite", name="favorite_")
  */
 class FavoriteController extends AbstractController
 {
-    //*---------------------------------------------------------------------------------------------------------------------
     //* For having a favorite list we need to use the session and rewrite the favorite list in the session
     //* each time me would use it. 
     private $sessionTab;
 
     public function __construct(SessionInterface $session)
     {
+        //*if the session is empty we create a new array to store the favorite list
         $this->sessionTab = $session->get('favorites') ?? [];
     }
-    //*---------------------------------------------------------------------------------------------------------------------
-    //* route used to add a practice to favorites
-
-
 
     /**
+     * Add to favorite list
      * @Route("/add", name="add", methods={"POST"})
      * @return Response
      */
@@ -63,14 +59,12 @@ class FavoriteController extends AbstractController
         );
     }
 
-    //* Route used to display favorites list
-
     /**
+     * Display favorites list
      * @Route("", name="list", methods={"GET"})
      */
     public function list(PracticeRepository $practiceRepository)
     {
-
         //* We consider favoriteList as an array
         $favoritesList = [];
 
@@ -93,8 +87,8 @@ class FavoriteController extends AbstractController
         ]);
     }
 
-    //* Route used to remove a practice from favorites
-    /**
+     /**
+     * Delete an unique favorite practice
      * @Route("/delete", name="delete", methods={"POST"})
      * @return Response
      */
@@ -103,7 +97,6 @@ class FavoriteController extends AbstractController
 
         //* First we get the practice id from the request
         $favoriteToDel = $request->request->get('id_favorite');
-
 
         //* Then we check if the practice is in the session
         if (!is_Null($this->sessionTab)) {
@@ -121,8 +114,8 @@ class FavoriteController extends AbstractController
         return $this->redirectToRoute('favorite_list');
     }
 
-    //* Route used to remove a practice from favorites
     /**
+     * Delete all favorites List
      * @Route("/delete-all", name="delete_all", methods={"POST"})
      * @return Response
      */

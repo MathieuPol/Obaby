@@ -5,20 +5,12 @@
 {% endblock %}
 
 {% block body %}
-{# uncomment this lines if you want display a fixed button #}
-{#   <button id="back-practice-list-btn"
-    onclick="window.location.href= '{{ path('practice_list', {slug: category.slug}) }}'"
-    type="button">
-    Retour à la liste des bonnes pratiques
-  </button> #}
 
   <!-- Main Content Start -->
   <h1 class="text-center">
     Bonnes Pratiques
   </h1>
-
     <aside class="mb-3 position-relative">  
-
           <div class="dropdown text-center">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{ practice.category.name }}
@@ -35,14 +27,9 @@
             {% endfor %}
             </ul>
           </div>
-
-  </aside>
-
-
+    </aside>
   <main class="container-fluid row m-auto">
     <content class="text-center d-flex flex-column align-items-center">
-
-
       <article class="col-lg-10 mb-5 practice-article">
           {% if is_granted("ROLE_USER") %}
         <form class="m-0" action="{{ path('favorite_add') }}" method='post'>
@@ -61,7 +48,7 @@
             <h5 class="card-title text-center">
               {{ practice.title }}
             </h5>
-            <p class="card-text">
+            <p class="card-text text-start">
               {{ practice.content|nl2br }}
             </p>
           </div>
@@ -69,12 +56,10 @@
             <div class="d-flex justify-content-between justify-content-lg-around">
               <div>
                 <img class="autor-pic m-0"
-                  src="{{ asset( 'asset/img/'~ practice.user.genre ~'.png' ) }}""
+                  src="{{ asset( 'asset/img/'~ practice.user.genre ~'.png' ) }}"
                   alt="author picture" />
                 <p class="autor-name text-muted align-self-end mb-0">
-
               {{ practice.user.pseudo }}
-
                 </p>
               </div>
               <div class="align-self-center">

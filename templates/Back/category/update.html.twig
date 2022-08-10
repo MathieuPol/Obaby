@@ -1,34 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Editer une catégorie{% endblock %}
+{% block title %}
+	Editer une catégorie
+{% endblock %}
 
-{% block navbar %}{% include '/Back/partials/_nav_back.html.twig' %}{% endblock %}
+{% block navbar %}
+	{% include '/Back/partials/_nav_back.html.twig' %}
+{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/formBack.css') }}"/>
+	<link rel="stylesheet" href="{{ asset('css/formBack.css') }}"/>
 {% endblock %}
 
 {% block body %}
-<div class="container-question">
-        <div id="form-div">
-            <form method="post">
-                <div class="form-group mb-3">
-                    <div class="row">
-                        <div class="col-md-12 d-xxl-flex justify-content-xxl-center align-items-xxl-center pt-4 title-question">
-                            <h1 class="text-center" >Editer une catégorie</h1>
-                        </div>
-                    </div>
-                    <hr id="hr">
+	<div class="container-question">
+		<div id="form-div">
+			<form method="post">
+				<div class="form-group mb-3">
+					<div class="row">
+						<div class="col-md-12 d-xxl-flex justify-content-xxl-center align-items-xxl-center pt-4 title-question">
+							<h1 class="text-center">Editer une catégorie</h1>
+						</div>
+					</div>
+					<hr id="hr">
 
-    {{ include('Back/category/_form.html.twig')}}
+					{{ include('Back/category/_form.html.twig')}}
 
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
-</form>
+	</form>
 </div>
 </div>
-
 {% endblock %}
-
 {% block footer %}{% endblock %}

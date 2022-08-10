@@ -1,15 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Nouvelle réponse{% endblock %}
-{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/question-answer.css') }}"/>{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/question-answer.css') }}"/>
+{% endblock %}
+
 {% block body %}
 
     <h1 class= "text-center mb-2">Formulez une réponse</h1>
-
-    <content class="text-center d-flex flex-column align-items-center">
-    <article   class="col-lg-10 mb-3 col-md-10  col-10 question-div">
-      <div class="card banner-owner" role="card-banner">
-
+      <content class="text-center d-flex flex-column align-items-center">
+        <article   class="col-lg-10 mb-3 col-md-10  col-10 question-div">
+          <div class="card banner-owner" role="card-banner">
             <div class="d-flex justify-content-between">
                 <div class="p-3">
                     <img class="autor-pic m-0"  src="{{ asset('asset/img/'~ question.user.genre ~'.png') }}" alt="author picture">
@@ -18,20 +20,17 @@
                 <time  class="align-self-center align-content-end p-3" datetime="2022-25-07">{{ question.createdAt|date ("d/m/Y") }}</time>
             </div>
             <p class="align-self-center category-item">{{ question.category.name }}</p>
-
         <div class="card-body">
           <p class="card-text">{{ question.content }}</p>
         </div>
       </div>
 
-
     {{ include('Front/answer/_form.html.twig') }}
-
 
       <a href="{{ path('question_list',{'slug': question.category.slug}) }}" class="animated-link submit-link text-center">
           <button type="submit" class="btn back-btn">Revenir à la liste</button>
       </a>
     </article>
-   </content>
+  </content>
 
 {% endblock %}

@@ -1,6 +1,9 @@
 <?php
+// src/DataFixtures/AppFixturesDeploy
+//* Used to load data the first time the application is started
+//* Replace AppFixtures by this one the first time you run the application
 
-namespace App\DataFixturesDeploy;
+namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -33,18 +36,15 @@ class AppFixturesDeploy extends Fixture
         $this->connection->executeQuery('SET FOREIGN_KEY_CHECKS = 1');
     }
 
-
     public function load(ObjectManager $manager): void
     {
         $this->truncate();
-
 
         $categoryList = [];
         $userList = [];
 
         // User creation
         $genre = ['homme', 'femme'];
-
 
         $userAdmin = new User();
         $userAdmin->setEmail('admin@admin.com');
@@ -70,8 +70,8 @@ class AppFixturesDeploy extends Fixture
 
         $manager->persist($userAnonymous);
 
+
         // Category creation
-        
         
         $category1 = new Category();
         $category1->setName('Grossesse');
@@ -95,25 +95,25 @@ class AppFixturesDeploy extends Fixture
         $categoryList[] = $category3;
         
         $category4 = new Category();
-            $category4->setName('Santé et soins');
-            $categorySlug4 = $this->slug->slug($category4->getName())->lower();
-            $category4->setSlug($categorySlug4);
-            $manager->persist($category4);
-            $categoryList[] = $category4;
-            
-            $category5 = new Category();
-            $category5->setName('Loisir');
-            $categorySlug5= $this->slug->slug($category5->getName())->lower();
-            $category5->setSlug($categorySlug5);
-            $manager->persist($category5);
-            $categoryList[] = $category5;
-            
-            $category6 = new Category();
-            $category6->setName('Sommeil');
-            $categorySlug6= $this->slug->slug($category6->getName())->lower();
-            $category6->setSlug($categorySlug6);
-            $manager->persist($category6);
-            $categoryList[] = $category6;
+        $category4->setName('Santé et soins');
+        $categorySlug4 = $this->slug->slug($category4->getName())->lower();
+        $category4->setSlug($categorySlug4);
+        $manager->persist($category4);
+        $categoryList[] = $category4;
+        
+        $category5 = new Category();
+        $category5->setName('Loisir');
+        $categorySlug5= $this->slug->slug($category5->getName())->lower();
+        $category5->setSlug($categorySlug5);
+        $manager->persist($category5);
+        $categoryList[] = $category5;
+        
+        $category6 = new Category();
+        $category6->setName('Sommeil');
+        $categorySlug6= $this->slug->slug($category6->getName())->lower();
+        $category6->setSlug($categorySlug6);
+        $manager->persist($category6);
+        $categoryList[] = $category6;
 
 
         $manager->flush();

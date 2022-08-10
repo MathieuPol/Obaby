@@ -11,9 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-//* Homepage route
 
     /**
+     * Homepage
      * @Route("/", name="front_home", methods={"GET"})
      */
     public function home( QuestionRepository $question, PracticeRepository $practiceRepository): Response
@@ -26,8 +26,6 @@ class MainController extends AbstractController
         $practice2 = $carrousselPractice[1];
         $practice3 = $carrousselPractice[2];
 
-
-
         return $this->render('Front/main/index.html.twig', [
             'questionCarroussel' => $carrousselQuestion,
             'practice1' => $practice1,
@@ -36,9 +34,8 @@ class MainController extends AbstractController
         ]);
     }
 
-//* Contact route
-
     /**
+     * Page contact
      * @Route("/contact", name="contact", methods={"GET"})
      */
     public function contact(): Response
@@ -48,9 +45,8 @@ class MainController extends AbstractController
         ]);
     }
 
-//* aboutUs route
-
     /**
+     * Page about us
      * @Route("/about-us", name="about_us", methods={"GET"})
      */
     public function aboutUs(): Response
@@ -59,9 +55,8 @@ class MainController extends AbstractController
         ]);
     }
     
-    //* Phone route
-    
     /**
+     * Page phones
      * @Route("/phones", name="phones", methods={"GET"})
      */
     public function phones(): Response
@@ -71,9 +66,8 @@ class MainController extends AbstractController
         ]);
     }
     
-    //* legal-mentions route
-    
     /**
+     * Page legal mentions
      * @Route("/legal-mentions", name="legal_mentions", methods={"GET"})
      */
     public function legalMentions(): Response

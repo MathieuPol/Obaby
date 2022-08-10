@@ -1,4 +1,5 @@
 //********** BUTTON BACK TOP PAGE BO **********/
+
 //Get the button:
 mybutton = document.getElementById("myBtn");
 

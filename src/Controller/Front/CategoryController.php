@@ -1,6 +1,5 @@
 <?php
 // src/Controller/Front/Category/Controller
-// TODO: Have to edit this controller 
 
 namespace App\Controller\Front;
 
@@ -12,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategoryController extends AbstractController
 {
     /**
+     * show category related to questions
      * @Route("/category/question", name="category_show_question", methods={"GET"})
      */
     public function showQuestion(CategoryRepository $categoryRepository): Response
@@ -22,6 +22,7 @@ class CategoryController extends AbstractController
     }
 
     /**
+     * show category related to practices
      * @Route("/category/practice", name="category_show_practice", methods={"GET"})
      */
     public function showPractice(CategoryRepository $categoryRepository): Response

@@ -18,8 +18,8 @@ h1 {
 p {
     font-family: 'Montserrat', sans-serif;
 }
-/************** NE PAS COPIER *****************/
-/************** NE PAS COPIER *****************/
+
+/************** start button *****************/
 .animated-link {
     display: inline-block;
     border-radius: 10px;
@@ -48,7 +48,7 @@ p {
     transform: translate(-6px, -6px);
     background:rgb(201, 2, 215) ;
 }
-/************** NE PAS COPIER *****************/
+/************** end button *****************/
 
 .container-question {
     margin-top:50px;

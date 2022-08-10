@@ -19,37 +19,24 @@ use Symfony\Component\HttpFoundation\Request;
 class QuestionController extends AbstractController
 {
 
-//* Route for listing question's category
-
     /**
+     * Listing question's category
      * @Route("/category/{slug}/question/list", name="question_list", methods={"GET"})
      */
     public function list(Category $category, CategoryRepository $categoryRepository, QuestionRepository $questionRepository): Response
     {
-       /*  $questions = $category->getQuestions(); */
-
         $questions = $questionRepository->selectActivatedQuestions($category->getId());
-
-
         $categoryList = $categoryRepository->findAll();
-        //! answers have to be displayed in twig with a loop
-        //$answers = $questions->getAnswers();
-
-        $answer = new Answer();
-        $form = $this->createForm(AnswerType::class, $answer);
         
-
         return $this->render('Front/question/index.html.twig', [
             'questions' => $questions,
             'category' => $category,
             'categoryList' => $categoryList,
-            'form' => $form->createView()
         ]);
     }
 
-//* Route used to submit a new answer
-
     /**
+     * Submit a new answer
      * @Route("/question/{id}/answer", name="question_answer", methods={"GET","POST"})
      */
     public function answer(Question $question, Request $request, AnswerRepository $answerRepository): Response
@@ -57,7 +44,6 @@ class QuestionController extends AbstractController
         $answer = new Answer();
         $form = $this->createForm(AnswerType::class, $answer);
         $form->handleRequest($request);
-
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->addFlash('success', 'Votre réponse a bien été enregistrée. Elle est en attente de modération.');
@@ -77,9 +63,8 @@ class QuestionController extends AbstractController
         ]);
     }
 
-//* Route to ask a new question
-
     /**
+     * Ask a new question
      * @Route("/question/ask", name="question_ask", methods={"GET", "POST"})
      */
     public function ask(Request $request, QuestionRepository $questionRepository): Response

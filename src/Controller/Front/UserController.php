@@ -1,19 +1,16 @@
 <?php
 //src/Controller/Front/UserController
 
-
 namespace App\Controller\Front;
 
 use App\Entity\User;
 use App\Form\NewUserType;
-use App\Form\UserType;
 use App\Form\UserUpdateType;
 use App\Repository\AnswerRepository;
 use App\Repository\PracticeRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\UserRepository;
 use App\Services\SlugService;
-use Doctrine\ORM\Query\Expr\Func;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,9 +23,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class UserController extends AbstractController
 {
-//* Route to add a new user
-
     /**
+     * Add a new user
      * @Route ("/new", name="new", methods={"GET","POST"})
      * @param int $id
     */
@@ -59,10 +55,10 @@ class UserController extends AbstractController
         ]);
     }
 
-
-//* Route to show personnal informations
     /**
+     * Show personnal informations
      * @Route ("/{slug}", name="show", methods={"GET"})
+     * @param int $id
     */
     public function show(User $user): Response
     {
@@ -71,8 +67,8 @@ class UserController extends AbstractController
         ]);
     }
     
-//* Route to update personnal informations
     /**
+     * Update personnal informations
      * @Route ("/{id}/update", name="update", methods={"POST", "GET"})
      * @param int $id
     */
@@ -99,9 +95,8 @@ class UserController extends AbstractController
         ]);
     }
 
-
-    //* Route to delete account
     /**
+     * User delete his account
      * @Route ("/{id}/delete", name="delete", methods={"POST"})
      * @param int $id
     */
@@ -110,7 +105,10 @@ class UserController extends AbstractController
 
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
 
+            //* First we get the user Anonymous
             $anonymous = $userRepository->findOneBy(['pseudo' => 'Anonymous']);
+            //* Then we get all the questions(if there are) of the user
+            //* and we change the user of the question to the anonymous and delete from the user
             if ( $user->getQuestions() ) {
                 foreach ($user->getQuestions() as $key => $value) {
                     $value->setUser($anonymous);
@@ -118,6 +116,7 @@ class UserController extends AbstractController
                     $user->removeQuestion($value);
                 }
             }
+            //* Same as above but for the practices
             if ( $user->getPractices() ) {
                 foreach ($user->getPractices() as $key => $value) {
                     $value->setUser($anonymous);
@@ -125,6 +124,7 @@ class UserController extends AbstractController
                     $user->removePractice($value);
                 }
             }
+            //* Same as above but for the answers
             if ( $user->getAnswers() ) {
                 foreach ($user->getAnswers() as $key => $value) {
                     $value->setUser($anonymous);
@@ -132,15 +132,15 @@ class UserController extends AbstractController
                     $user->removeAnswer($value);
                 }
             }
-
+            //* Finally we delete the user
             $userRepository->remove($user, true);
-
+            //* We override the user's session with another one
             $session = new Session();
+            //* We delete the session to avoid errors
             $session->invalidate();
         }
 
         return $this->redirectToRoute('security_logout', []);
     }
-
 
 }

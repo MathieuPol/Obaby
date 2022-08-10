@@ -3,10 +3,8 @@
 
 namespace App\Controller\Front;
 
-use App\Entity\Answer;
 use App\Entity\Category;
 use App\Entity\Practice;
-use App\Form\AnswerType;
 use App\Form\PracticeType;
 use App\Repository\CategoryRepository;
 use App\Repository\PracticeRepository;
@@ -14,14 +12,12 @@ use App\Services\SlugService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PracticeController extends AbstractController
 {
-    //* route for practices list
-
     /**
+     * display practices list
      * @Route("/category/{slug}/practice/list", name="practice_list", methods={"GET"})
      */
     public function list(
@@ -32,7 +28,6 @@ class PracticeController extends AbstractController
         $practices = $practiceRepository->selectActivatedPractices(
             $category->getId()
         );
-        //$practices = $category->getPractices();
         $categories = $categoryRepository->findAll();
 
         return $this->render('Front/practice/list.html.twig', [
@@ -42,9 +37,8 @@ class PracticeController extends AbstractController
         ]);
     }
 
-    //* Route used to submit a new practice
-
     /**
+     * Submit a new practice
      * @Route("/practice/submit", name="practice_submit", methods={"GET", "POST"})
      */
     public function submit(
@@ -58,8 +52,7 @@ class PracticeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->addFlash(
-                'success',
-                'Votre bonne pratique a bien été enregistrée. Elle est en attente de modération.'
+                'success', 'Votre bonne pratique a bien été enregistrée. Elle est en attente de modération.'
             );
             $practice->setSlug($slugService->slug($practice->getTitle()));
             $practice->setUser($this->getUser());
@@ -78,8 +71,9 @@ class PracticeController extends AbstractController
         ]);
     }
 
-    //* Route used to show an entire practice
+    //* Regex Explanation: used to match at least one character in the slug request parameter
     /**
+     * Show a unique practice
      * @Route(
      *      "/practice/{slug}",
      *      name="practice_show",
@@ -97,12 +91,12 @@ class PracticeController extends AbstractController
         $dataPractice = $practiceRepository->findOneBy(['slug' => $slug]);
         $category = $dataPractice->getCategory();
         $categories = $categoryRepository->findAll();
-        // Si l'id contient un index qui n'existe pas
+        // If the slug contains an index that does not exist
         if (is_null($dataPractice)) {
-            throw $this->createNotFoundException('Le film n\'existe pas.');
+            throw $this->createNotFoundException('Cette bonne pratique n\'existe pas.');
         }
 
-        // on renvoie le template twig dans lequel on transmet les données du film demandé en paramètre
+        // we return the twig template in which we transmit the data of the good practice requested in parameter
         return $this->render('Front/practice/practice-show.html.twig', [
             'practice' => $dataPractice,
             'category' => $category,

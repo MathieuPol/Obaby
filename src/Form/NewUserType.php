@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\User;
-use Symfony\Component\DependencyInjection\ParameterBag\EnvPlaceholderParameterBag;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -14,7 +13,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
-use Symfony\Config\Framework\Workflows\WorkflowsConfig\PlaceConfig;
 
 class NewUserType extends AbstractType
 {
@@ -55,7 +53,7 @@ class NewUserType extends AbstractType
                         // PASSWORD                    
                         ->add('password', RepeatedType::class, [
                                 'type' => PasswordType::class,
-                                'invalid_message' => 'Les mots de passe doivent correspondre.',
+                                'invalid_message' => 'Les mots de passe doivent correspondre',
                                 'label' => 'Entrez un mot de passe',
                                 'first_options'  => [
                                         'label' => '* Mot de passe',
@@ -76,12 +74,17 @@ class NewUserType extends AbstractType
                                         ),
                                 ],
                         ])
+                        // GENRE
                         ->add('genre', ChoiceType::class, [
-                                'label' => 'Genre',
+                                'label' => '*Genre',
+                                'placeholder' => 'Choisissez un genre',
                                 'choices' => [
-                                        'Homme' => 'homme',
-                                        'Femme' => 'femme',
-                                ],
+                                                'Femme' => 'femme',
+                                                'Homme' => 'homme',
+                                        ],
+                                        'constraints' => new NotBlank(),
+                                        'constraints' => new NotNull(),
+                                        'required' => true,
                         ]);
         }
 

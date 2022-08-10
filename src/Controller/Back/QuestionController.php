@@ -16,9 +16,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class QuestionController extends AbstractController
 {
-//* List all questions
-
     /**
+     * List all questions filter by id descending
      * @Route("", name="list", methods={"GET"})
      */
     public function list(QuestionRepository $questionRepository): Response
@@ -28,11 +27,9 @@ class QuestionController extends AbstractController
             'questions' => $questions,
         ]);
     }
-    
-//* Update an unique question
 
-    //! Have to edit Methods
     /**
+     * Update an unique question
      * @Route("{id}/update", name="update", methods={"GET", "POST"})
      * @param int $id
      */
@@ -42,9 +39,8 @@ class QuestionController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
             $questionRepository->add($question, true);
-            $this->addFlash('success', 'Votre question a bien été editée.');
+            $this->addFlash('success', 'Votre question a bien été éditée.');
             return $this->redirectToRoute('back_question_list', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -54,9 +50,8 @@ class QuestionController extends AbstractController
         ]);
     }
 
-//* Delete an unique question
-
     /**
+     * Delete an unique question
      * @Route("{id}/delete", name="delete", methods={"POST"})
      * @param int $id
      */
@@ -71,10 +66,9 @@ class QuestionController extends AbstractController
         return $this->redirectToRoute('back_question_list', [], Response::HTTP_SEE_OTHER);
     }
 
-//* Show all answers related to a question
-// id is question id
 
     /**
+     * Show all answers related to a question
      * @Route("{id}/answer", name="answer_list", methods={"GET"})
      * @param int $id
      */
@@ -88,7 +82,9 @@ class QuestionController extends AbstractController
     }
 
     /**
+     * Validate an unique question
      * @Route("{id}/validate", name="validate", methods={"POST"})
+     * @param int $id
      */
     public function validate(Question $question, QuestionRepository $questionRepository)
     {
