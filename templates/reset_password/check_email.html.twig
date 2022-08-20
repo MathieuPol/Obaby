@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/login.css') }}"/>
+{% endblock %}
+
+{% block title %}Mail de redéfinition envoyé.{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-10">
+            <p>
+                Si votre adresse mail à correspond à l'un de nos compte, alors un mail de redéfinition de mot de passe vous a été envoyé.
+                Si non, veuillez contacter l'administrateur du site.
+                Ce lien expire dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+            </p>
+            <p>Si vous n'avez pas recu de mail alors vérifiez votre boite spam.</p>
+            <div class="row d-flex justify-content-center text-center">
+                <a class="animated-link login-link bg-white" href="{{ path('app_forgot_password_request') }}">
+                    <button class="btn btn-primary">Sinon générer de nouveau un lien</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
