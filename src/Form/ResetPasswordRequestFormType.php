@@ -14,10 +14,11 @@ class ResetPasswordRequestFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
+                'label' => 'Saisissez votre adresse mail',
                 'attr' => ['autocomplete' => 'email'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter your email',
+                        'message' => 'Saisissez votre email',
                     ]),
                 ],
             ])
