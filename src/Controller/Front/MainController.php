@@ -7,6 +7,8 @@ use App\Repository\PracticeRepository;
 use App\Repository\QuestionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
@@ -16,7 +18,7 @@ class MainController extends AbstractController
      * Homepage
      * @Route("/", name="front_home", methods={"GET"})
      */
-    public function home( QuestionRepository $question, PracticeRepository $practiceRepository): Response
+    public function home( QuestionRepository $question, PracticeRepository $practiceRepository, MailerInterface $mailer): Response
     {
         //* show the last five questions(using in carroussel)
         $carrousselQuestion = $question->selectActivatedQuestionsCarroussel();
