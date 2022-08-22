@@ -20,7 +20,7 @@
 	<h1 class="text-center">Bienvenue dans votre back-office</h1>
 
 	<section class="row m-auto">
-		<div class="container-fluid d-flex flex-wrap justify-content-center">
+		<div class="container-fluid d-flex flex-wrap justify-content-center p-lg-0">
 			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 ">
 				<div class="m-4 table-back display-lg text-center">
 					<table class="table table-hover ">
@@ -110,9 +110,72 @@
 			</div>
 {# END table questions display LG #}
 
+{# START table categories display LG #}
+			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg text-center">
+				<div class="m-4 table-back">
+					<table class="table table-hover">
+						<thead class="table-thead">
+							<tr>
+								<th colspan="5" class="thead">
+									<h2 class="text-center text-white">Catégories</h2>
+								</th>
+							</tr>
+							<tr class="text-white">
+								<th scope="col">Identifiant</th>
+								<th scope="col">Nom de la catégorie</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for category in categories %}
+								<tr>
+									<td>{{ category.id }}</td>
+									<td>{{ category.name }}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					<a class="btn btn-primary col-10" href="{{ path('back_category_list') }}">
+						Voir toutes les catégories</a>
+				</div>
+			</div>
+{# END table categories display LG #}
+
+{# START table users display LG #}
+			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg text-center">
+				<div class="m-4 table-back">
+					<table class="table table-hover">
+						<thead class="table-thead">
+							<tr>
+								<th colspan="5" class="thead">
+									<h2 class="text-center text-white">Utilisateurs</h2>
+								</th>
+							</tr>
+							<tr class="text-white">
+								<th scope="col">Identifiant</th>
+								<th scope="col">Rôle</th>
+								<th scope="col">Pseudonyme</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for user in users %}
+								<tr>
+									<td>{{ user.id }}</td>
+									<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+									<td>{{ user.pseudo }}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					{% if is_granted('ROLE_ADMIN') %}
+					<a class="btn btn-primary col-10" href="{{ path('back_user_list') }}">Voir tous les utilisateurs</a>
+					{% endif %}
+				</div>
+			</div>
+{# END table users display LG #}
+
 {# START table answers display LG #}
 
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg text-center">
+			<div class="col-sm-12 col-md-12 col-lg-12 mb-5 display-lg text-center">
 				<div class="m-4 table-back">
 					<table class="table table-hover">
 						<thead class="table-thead">
@@ -154,70 +217,6 @@
 				</div>
 			</div>
 {# END  table answers display LG #}
-
-{# START table users display LG #}
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg text-center">
-				<div class="m-4 table-back">
-					<table class="table table-hover">
-						<thead class="table-thead">
-							<tr>
-								<th colspan="5" class="thead">
-									<h2 class="text-center text-white">Utilisateurs</h2>
-								</th>
-							</tr>
-							<tr class="text-white">
-								<th scope="col">Identifiant</th>
-								<th scope="col">Rôle</th>
-								<th scope="col">Pseudonyme</th>
-							</tr>
-						</thead>
-						<tbody>
-							{% for user in users %}
-								<tr>
-									<td>{{ user.id }}</td>
-									<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-									<td>{{ user.pseudo }}</td>
-								</tr>
-							{% endfor %}
-						</tbody>
-					</table>
-					{% if is_granted('ROLE_ADMIN') %}
-					<a class="btn btn-primary col-10" href="{{ path('back_user_list') }}">
-						Voir tous les utilisateurs</a>
-					{% endif %}
-				</div>
-			</div>
-{# END table users display LG #}
-
-{# START table categories display LG #}
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg text-center">
-				<div class="m-4 table-back">
-					<table class="table table-hover">
-						<thead class="table-thead">
-							<tr>
-								<th colspan="5" class="thead">
-									<h2 class="text-center text-white">Catégories</h2>
-								</th>
-							</tr>
-							<tr class="text-white">
-								<th scope="col">Identifiant</th>
-								<th scope="col">Nom de la catégorie</th>
-							</tr>
-						</thead>
-						<tbody>
-							{% for category in categories %}
-								<tr>
-									<td>{{ category.id }}</td>
-									<td>{{ category.name }}</td>
-								</tr>
-							{% endfor %}
-						</tbody>
-					</table>
-					<a class="btn btn-primary col-10" href="{{ path('back_category_list') }}">
-						Voir toutes les catégories</a>
-				</div>
-			</div>
-{# END table categories display LG #}
 
 
 {# START table practices display MD #}
