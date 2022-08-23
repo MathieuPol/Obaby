@@ -273,11 +273,11 @@ img .carousel-picture {
     margin: auto;
 }
 
-.row {
+/* .row {
     display: flex;
     align-items: center;
 
-}
+} */
 
 .btn-questions {
     background-color: white;

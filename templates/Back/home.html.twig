@@ -19,11 +19,11 @@
 
 	<h1 class="text-center">Bienvenue dans votre back-office</h1>
 
-	<section class="row m-auto">
-		<div class="container-fluid d-flex flex-wrap justify-content-center p-lg-0">
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 ">
-				<div class="m-4 table-back display-lg text-center">
-					<table class="table table-hover ">
+	<div class="container-fluid p-0">
+		<section class="row m-auto d-flex flex-wrap display-lg align-items-start justify-content-evenly m-auto">
+			<div class="col-6">
+				<div class="col-12 mb-5 table-back  p-0 text-center m-1">
+					<table class="table table-hover">
 						<thead class="table-thead ">
 							<tr>
 								<th colspan="5" class="thead">
@@ -38,8 +38,8 @@
 								<th scope="col">Statut</th>
 							</tr>
 						</thead>
-						<tbody>
-							{% for practice in practices %}
+							<tbody>
+								{% for practice in practices %}
 								<tr>
 									<th scope="row">{{ practice.id }}</th>
 									<td>{{ practice.title }}</td>
@@ -55,20 +55,17 @@
 										</td>
 									{% endif %}
 								</tr>
-							{% endfor %}
-						</tbody>
-					</table>
-					
-					<a class="btn col-10" href="{{ path('back_practice_list') }}">
-						Voir toutes les bonnes pratiques</a>
+								{% endfor %}
+							</tbody>
+						</table>	
+						<a class="btn col-10" href="{{ path('back_practice_list') }}">Voir toutes les bonnes pratiques</a>
 				</div>
 			</div>
-{# END table practices display LG #}
+			{# END table practices display LG #}
 
-{# START table questions display LG #}
-
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg text-center">
-				<div class="m-4 table-back">
+			{# START table questions display LG #}
+			<div class="col-6">
+				<div class="col-12 mb-5 table-back display-lg p-0 text-center m-1">
 					<table class="table table-hover">
 						<thead class="table-thead">
 							<tr>
@@ -93,7 +90,7 @@
 									<td>{{ question.category.name }}</td>
 									{% if question.status ==1 %}
 										<td class="bg-success text-center">
-											<p>Publié</p>
+											Publié
 										</td>
 									{% else %}
 										<td class="bg-warning text-center">
@@ -108,41 +105,40 @@
 						Voir toutes les questions</a>
 				</div>
 			</div>
-{# END table questions display LG #}
+			{# END table questions display LG #}
 
-{# START table categories display LG #}
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg text-center">
-				<div class="m-4 table-back">
-					<table class="table table-hover">
-						<thead class="table-thead">
+			{# START table categories display LG #}
+		<div class="col-6">
+			<div class="table-back mb-5 display-lg text-center">
+				<table class="table table-hover">
+					<thead class="table-thead">
+						<tr>
+							<th colspan="5" class="thead">
+								<h2 class="text-center text-white">Catégories</h2>
+							</th>
+						</tr>
+						<tr class="text-white">
+							<th scope="col">Identifiant</th>
+							<th scope="col">Nom de la catégorie</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for category in categories %}
 							<tr>
-								<th colspan="5" class="thead">
-									<h2 class="text-center text-white">Catégories</h2>
-								</th>
+								<td>{{ category.id }}</td>
+								<td>{{ category.name }}</td>
 							</tr>
-							<tr class="text-white">
-								<th scope="col">Identifiant</th>
-								<th scope="col">Nom de la catégorie</th>
-							</tr>
-						</thead>
-						<tbody>
-							{% for category in categories %}
-								<tr>
-									<td>{{ category.id }}</td>
-									<td>{{ category.name }}</td>
-								</tr>
-							{% endfor %}
-						</tbody>
-					</table>
-					<a class="btn btn-primary col-10" href="{{ path('back_category_list') }}">
-						Voir toutes les catégories</a>
-				</div>
+						{% endfor %}
+					</tbody>
+				</table>
+				<a class="btn btn-primary col-10" href="{{ path('back_category_list') }}">Voir toutes les catégories</a>
 			</div>
-{# END table categories display LG #}
+		</div>
+			{# END table categories display LG #}
 
-{# START table users display LG #}
-			<div class="col-sm-12 col-md-12 col-lg-6 mb-5 display-lg text-center">
-				<div class="m-4 table-back">
+			{# START table users display LG #}
+			<div class="col-6">
+				<div class="table-back col-12 mb-5 display-lg text-center">
 					<table class="table table-hover">
 						<thead class="table-thead">
 							<tr>
@@ -171,12 +167,12 @@
 					{% endif %}
 				</div>
 			</div>
-{# END table users display LG #}
+		</section>
+			{# END table users display LG #}
 
-{# START table answers display LG #}
-
-			<div class="col-sm-12 col-md-12 col-lg-12 mb-5 display-lg text-center">
-				<div class="m-4 table-back">
+			{# START table answers display LG #}
+		<div class="col-10 m-auto">
+			<div class="col-sm-12 table-back col-md-12 col-lg-12 mb-5 display-lg text-center">
 					<table class="table table-hover">
 						<thead class="table-thead">
 							<tr>
@@ -216,12 +212,13 @@
 						Voir toutes les réponses</a>
 				</div>
 			</div>
-{# END  table answers display LG #}
+			{# END  table answers display LG #}
 
 
-{# START table practices display MD #}
-	<div class="row display-md text-center">
-		<div class="col-lg-12 mb-5 m-auto display-md">
+			{# START table practices display MD #}
+<div class="container-fluid display-md text-center p-0">
+	<div class="row display-md text-center d-flex flex-wrap">
+		<div class="col-lg-12 mb-5 m-auto p-0">
 			<div>
 				<h3 class="text-center">Liste des bonnes pratiques</h3>
 			</div>
@@ -280,13 +277,13 @@
 				<a  class="btn btn-primary col-10" href="{{ path('back_practice_list') }}"> Voir toutes les bonnes pratiques</a>
 			</div>
 		</div>
-	</div>
+	
 {# END table practices display MD #}
 
 
 
 {# START table question display MD #}
-	<div class="row display-md text-center container-fluid p-0">
+
 		<div class="col-lg-12 mb-5 m-auto display-md p-0">
 			<div>
 				<h3 class="text-center">Liste des questions</h3>
@@ -345,7 +342,7 @@
 {# END table question display MD #}
 
 {# START table answers display MD #}
-		<div class="row display-md text-center">
+
 			<div class="col-lg-12 mb-5 m-auto display-md">
 			<div>
 				<h3 class="text-center">Liste des réponses</h3>
@@ -401,7 +398,7 @@
 {# END table answers display MD #}
 
 {# START table user display MD #}
-	<div class="row display-md w-100">
+
 		<div class="col-lg-12 mb-5 m-auto p-0">
 			<div>
 				<h3 class="text-center">Liste des utilisateurs</h3>
@@ -452,8 +449,8 @@
 {# END table practices display MD #}
 
 {# START table categories display MD #}
-		<div class="row display-md w-100">
-			<div class="col-lg-12 col-12 mb-5 m-auto p-0">
+
+		<div class="col-lg-12 col-12 mb-5 m-auto p-0">
 			<div>
 				<h3 class="text-center">Liste des catégories</h3>
 			</div>
@@ -484,8 +481,8 @@
 {# END table practices display MD #}
 
 
-		</div>
 	</section>
+	</div>
 
 	
 {% endblock %}
