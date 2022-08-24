@@ -70,7 +70,6 @@ class FavoriteController extends AbstractController
      */
     public function list(PracticeRepository $practiceRepository)
     {
-        dd($this->sessionTab->get('favorites'));
         //* We consider favoriteList as an array
         $favoritesList = [];
         //* check we need is not empty
@@ -96,20 +95,25 @@ class FavoriteController extends AbstractController
      * @Route("/delete", name="delete", methods={"POST"})
      * @return Response
      */
-    public function delete(Request $request, SessionInterface $session)
+    public function delete(Request $request): Response
     {
-        //* First we get the practice id from the request
+
+        //* we get the practice id from the request
         $favoriteToDel = $request->request->get('id_favorite');
 
         //* Then we check if the practice is in the session
-        if (!is_Null($this->sessionTab)) {
+        if (!is_Null($this->sessionTab->get('favorites'))) {
+
+            //* We get the array of favorites from the session
+            $favorites = $this->sessionTab->get('favorites');
+
             //* If it is, we remove it from the session
-            foreach ($this->sessionTab as $index => $fav) {
+            foreach ($favorites as $index => $fav) {
                 if ($fav == $favoriteToDel) {
-                    unset($this->sessionTab[$index]);
-                    
+                    unset($favorites[$index]);
+
                     //* we overwrite the session with the new array
-                    $session->set('favorites', $this->sessionTab);
+                    $this->sessionTab->set('favorites', $favorites);
                     $this->addFlash('danger', 'Votre sélection a bien été supprimée.');
                 }
             }
@@ -122,19 +126,12 @@ class FavoriteController extends AbstractController
      * @Route("/delete-all", name="delete_all", methods={"POST"})
      * @return Response
      */
-    public function deleteAll(Request $request, SessionInterface $session)
+    public function deleteAll(): Response
     {
-        //* We get the favorite in session
-        $favOnSession = $session->get('favorites');
-
         //* if there are favorites in session
-        if (!is_Null($favOnSession)) {
-
-            //* we remove them from the sessionTab all datas
-            unset($this->sessionTab);
-            //* we are obliged to overwrite the session with an empty array
-            $this->sessionTab = [];
-            $session->set('favorites', $this->sessionTab);
+        if (!is_Null($this->sessionTab->get('favorites'))) {
+            //* we delete the session
+            $this->sessionTab->set('favorites', []);
             $this->addFlash('danger', 'Tous vos favoris ont bien été supprimés.');
         }
         return $this->redirectToRoute('favorite_list');
