@@ -5,6 +5,7 @@ namespace App\Controller\Front;
 use App\Repository\PracticeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,10 +20,10 @@ class FavoriteController extends AbstractController
     //* each time me would use it. 
     private $sessionTab;
 
-    public function __construct(SessionInterface $session)
+    public function __construct(RequestStack $requestStack)
     {
         //*if the session is empty we create a new array to store the favorite list
-        $this->sessionTab = $session->get('favorites') ?? [];
+        $this->sessionTab = $requestStack->getCurrentRequest()->getSession()->get('favorites', []);
     }
 
     /**
@@ -36,14 +37,16 @@ class FavoriteController extends AbstractController
         $practiceId = $request->request->get('id_favorite');
 
         //* Then we put the practice an array
-        array_push($this->sessionTab, $practiceId);
+        $this->sessionTab = ['favorites' => $practiceId];
+        //array_push($this->sessionTab, $practiceId);
 
         //* we ensure to have an unique array
         $this->sessionTab = array_unique($this->sessionTab);
-
         //* we put the array in the session 
-        $session->set('favorites', $this->sessionTab);
 
+        //$this->sessionTab = $session->set('favorites', $this->sessionTab);
+        //$session->set('favorites', $this->sessionTab);
+        
         //* we whrote a message to the user
         $this->addFlash('success', 'Votre sélection a bien été ajoutée à vos favoris');
 
@@ -67,10 +70,8 @@ class FavoriteController extends AbstractController
     {
         //* We consider favoriteList as an array
         $favoritesList = [];
-
         //* check we need is not empty
         if ($this->sessionTab) {
-
             //* We get the favorites from the session
             foreach ($this->sessionTab as $idPractice) {
 
@@ -94,17 +95,16 @@ class FavoriteController extends AbstractController
      */
     public function delete(Request $request, SessionInterface $session)
     {
-
         //* First we get the practice id from the request
         $favoriteToDel = $request->request->get('id_favorite');
 
         //* Then we check if the practice is in the session
         if (!is_Null($this->sessionTab)) {
-
             //* If it is, we remove it from the session
             foreach ($this->sessionTab as $index => $fav) {
                 if ($fav == $favoriteToDel) {
                     unset($this->sessionTab[$index]);
+                    
                     //* we overwrite the session with the new array
                     $session->set('favorites', $this->sessionTab);
                     $this->addFlash('danger', 'Votre sélection a bien été supprimée.');
