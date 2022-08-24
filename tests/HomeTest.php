@@ -3,6 +3,7 @@
 namespace App\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 class HomeTest extends WebTestCase
 {
@@ -16,5 +17,13 @@ class HomeTest extends WebTestCase
         $this->assertResponseIsSuccessful();
 
         $this->assertSelectorTextContains('h1', 'Dernières questions posées par la communauté');
+    }
+
+    public function testRedirectionLogin(): void
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/back');
+        
+        $this->assertResponseRedirects('/login', Response::HTTP_FOUND);
     }
 }
