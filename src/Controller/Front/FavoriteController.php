@@ -23,7 +23,7 @@ class FavoriteController extends AbstractController
     public function __construct(RequestStack $requestStack)
     {
         //*if the session is empty we create a new array to store the favorite list
-        $this->sessionTab = $requestStack->getCurrentRequest()->getSession()->get('favorites', []);
+        $this->sessionTab = $requestStack->getCurrentRequest()->getSession('favorites') ?? [];
     }
 
     /**
@@ -31,21 +31,23 @@ class FavoriteController extends AbstractController
      * @Route("/add", name="add", methods={"POST"})
      * @return Response
      */
-    public function add(Request $request, SessionInterface $session, PracticeRepository $practiceRepository)
+    public function add(Request $request, PracticeRepository $practiceRepository)
     {
+
         //* First we get the practice id from the request
         $practiceId = $request->request->get('id_favorite');
 
-        //* Then we put the practice an array
-        $this->sessionTab = ['favorites' => $practiceId];
-        //array_push($this->sessionTab, $practiceId);
+        //* Then we get the favorites in session
+        $favoriteInSession = $this->sessionTab->get('favorites');
+        
+        //* Then we put the new session item in an array with previous favorites item
+        array_push($favoriteInSession, $practiceId);
 
-        //* we ensure to have an unique array
-        $this->sessionTab = array_unique($this->sessionTab);
-        //* we put the array in the session 
+        //* We ensure that the array is unique(no duplicate)
+        $favoriteInSession = array_unique($favoriteInSession);
 
-        //$this->sessionTab = $session->set('favorites', $this->sessionTab);
-        //$session->set('favorites', $this->sessionTab);
+        //* We put the new array in the session
+        $this->sessionTab->set('favorites', $favoriteInSession);
         
         //* we whrote a message to the user
         $this->addFlash('success', 'Votre sélection a bien été ajoutée à vos favoris');
@@ -68,10 +70,11 @@ class FavoriteController extends AbstractController
      */
     public function list(PracticeRepository $practiceRepository)
     {
+        dd($this->sessionTab->get('favorites'));
         //* We consider favoriteList as an array
         $favoritesList = [];
         //* check we need is not empty
-        if ($this->sessionTab) {
+        if ($this->sessionTab->get('favorites') != null) {
             //* We get the favorites from the session
             foreach ($this->sessionTab as $idPractice) {
 
