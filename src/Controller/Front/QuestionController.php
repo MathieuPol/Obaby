@@ -41,6 +41,8 @@ class QuestionController extends AbstractController
      */
     public function answer(Question $question, Request $request, AnswerRepository $answerRepository): Response
     {
+        $this->denyAccessUnlessGranted('POST', $question);
+        //$this->isGranted('VIEW', $question);
         $answer = new Answer();
         $form = $this->createForm(AnswerType::class, $answer);
         $form->handleRequest($request);
