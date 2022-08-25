@@ -7,8 +7,9 @@ use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class PostVoter extends Voter
+class UserVoter extends Voter
 {
+
     private $security;
 
     public function __construct(Security $security)
@@ -20,41 +21,32 @@ class PostVoter extends Voter
     {
         // replace with your own logic
         // https://symfony.com/doc/current/security/voters.html
-        return in_array($attribute, ['POST', 'EDIT']);
-        //* To be able to export methods on every controller I have to comment the following line:
-        //* For being able to do something like more specific un-comment the following line:
-        //&& $subject instanceof \App\Entity\Question;
+        return in_array($attribute, ['USER_VIEW'])
+            && $subject instanceof \App\Entity\User;
     }
 
     protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
     {
         $user = $token->getUser();
         // if the user is anonymous, do not grant access
-
         if (!$user instanceof UserInterface) {
             return false;
         }
 
         // ... (check conditions and return true to grant permission) ...
         switch ($attribute) {
-            case 'POST':
-                if($this->security->isGranted('ROLE_USER'))
+            case 'USER_VIEW':
+
+                if( $user === $subject )
                 {
-                    // due to hierarchical roles, you can access with role user or higher
                     return true;
                 }
-                
-                // par defaut NON
-                return false;
-                break;
-
-                //* Add some logic here to grant access to edit
-            case 'VIEW':
 
                 return false;
                 // logic to determine if the user can VIEW
                 // return true or false
                 break;
+
         }
 
         return false;

@@ -46,6 +46,8 @@ class PracticeController extends AbstractController
         PracticeRepository $practiceRepository,
         SlugService $slugService
     ): Response {
+
+        $this->denyAccessUnlessGranted('POST');
         $practice = new Practice();
         $form = $this->createForm(PracticeType::class, $practice);
         $form->handleRequest($request);

@@ -41,8 +41,10 @@ class QuestionController extends AbstractController
      */
     public function answer(Question $question, Request $request, AnswerRepository $answerRepository): Response
     {
-        $this->denyAccessUnlessGranted('POST', $question);
-        //$this->isGranted('VIEW', $question);
+        // Plus Acl we can use the security component to check if the user is allowed to answer the question
+        // here we use voter to check if the user is allowed to answer the question
+        $this->denyAccessUnlessGranted('POST');
+
         $answer = new Answer();
         $form = $this->createForm(AnswerType::class, $answer);
         $form->handleRequest($request);
@@ -71,6 +73,8 @@ class QuestionController extends AbstractController
      */
     public function ask(Request $request, QuestionRepository $questionRepository): Response
     {
+        $this->denyAccessUnlessGranted('POST');
+
         $question = new Question();
         $form = $this->createForm(QuestionType::class, $question);
         $form->handleRequest($request);
