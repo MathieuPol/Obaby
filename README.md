@@ -9,6 +9,12 @@
 + In terminal ``` doctrine:migrations:migrate```
 + Remember : do no work on master's branch
 
+To connect and being able to access back office you should use this account:
+email: visitor@visitor.com 
+mdp: visitor
+
+Feel free to experiment
+
  ### You're ready to work
 
 -----------------------------
@@ -23,6 +29,12 @@
 + Créez votre propre Base de Données ```doctrine:database:create```
 + Dans le terminal tapez ``` doctrine:migrations:migrate```
 + Rappelez-vous : ne travaillez pas sur la branche "master"
+
+Pour vous connecter et pouvoir avoir acces au back office, utilisez ce compte:
+email: visitor@visitor.com 
+mdp: visitor
+
+Vous êtes libre d'experimenter, ne vous privez pas.
 
  ### Vous êtes prêt pour travailler
 
