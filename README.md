@@ -10,12 +10,13 @@
 + Remember : do no work on master's branch
 
 To connect and being able to access back office you should use this account:
+
 email: visitor@visitor.com 
+
 mdp: visitor
 
-Feel free to experiment
+### Feel free to experiment
 
- ### You're ready to work
 
 -----------------------------
 
@@ -31,12 +32,11 @@ Feel free to experiment
 + Rappelez-vous : ne travaillez pas sur la branche "master"
 
 Pour vous connecter et pouvoir avoir acces au back office, utilisez ce compte:
+
 email: visitor@visitor.com 
+
 mdp: visitor
 
-Vous êtes libre d'experimenter, ne vous privez pas.
-
- ### Vous êtes prêt pour travailler
-
+ ### Vous êtes libre d'experimenter, ne vous privez pas.
 
 
