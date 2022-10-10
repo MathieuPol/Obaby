@@ -33,7 +33,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @var string The hashed password
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=150)
      */
     private $password;
 
@@ -46,8 +46,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="smallint")
      */
     private $status;
-
-
 
     /**
      * @ORM\OneToMany(targetEntity=Answer::class, mappedBy="user")
